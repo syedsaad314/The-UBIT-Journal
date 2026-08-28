@@ -1,0 +1,136 @@
+in Server.java:
+package tcpPackage;
+
+import java.io.*;
+import java.net.*;
+
+public class Server {
+
+    ServerSocket serverSocket;
+    Socket clientSocket;
+    BufferedReader in;
+    PrintWriter out;
+
+    public void start(int port) throws IOException {
+        serverSocket = new ServerSocket(port);
+        System.out.println("Server Started. Waiting for client to connect...");
+
+        clientSocket = serverSocket.accept();
+        System.out.println("Client connected successfully!");
+    }
+
+    public void receive() throws IOException {
+        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+        String message;
+        while ((message = in.readLine()) != null) {
+            System.out.println("Client says: " + message);
+
+            if(message.equalsIgnoreCase("quit")) {
+                out.println("Quitting...");
+                System.out.println("Quitting...");
+                break;
+            }
+
+            out.println("Message received!!");
+        }
+    }
+
+}
+
+in Client.java:
+package tcpPackage;
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class Client {
+
+    Socket socket;
+    BufferedReader in;
+    PrintWriter out;
+    String IPAddress; int port;
+
+    public Client(String IPAddress, int port) {
+        this.IPAddress = IPAddress;
+        this.port = port;
+    }
+
+    public void send() throws IOException {
+        String message;
+        Scanner sc = new Scanner(System.in);
+
+        socket = new Socket(IPAddress, port);
+        out = new PrintWriter(socket.getOutputStream(), true);
+        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+        do {
+            System.out.print("You: ");
+            message = sc.nextLine();
+            out.println(message);
+
+            String response = in.readLine();
+            System.out.println("Server says: " + response);
+
+        } while (!message.equalsIgnoreCase("quit"));
+    }
+
+}
+
+in Main.java:
+import tcpPackage.*;
+
+import java.net.ConnectException;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+        char c;
+
+        System.out.println("Enter 's' if you're Server or 'c' if you're Client:");
+        c = sc.next().charAt(0);
+
+        if (c == 's') {
+            Server server = new Server();
+
+            System.out.println("Enter port number:");
+            int port = sc.nextInt();
+
+            server.start(port);
+            server.receive();
+        }
+
+        else if (c == 'c') {
+            System.out.println("Enter IP address of server you want to connect with:");
+            sc.nextLine();
+            String IPAddress = sc.nextLine();
+
+            System.out.println("Enter port number:");
+            int port = sc.nextInt();
+            sc.nextLine();
+
+            Client client = new Client(IPAddress, port);
+            System.out.println("Type messages to send to server. Type 'quit' to exit.");
+
+            try {
+                client.send();
+            }
+            catch (UnknownHostException e) {
+                System.out.println("Invalid IP Address. Please check and try again.");
+            }
+            catch (ConnectException e) {
+                System.out.println("Could not connect to server. Please check and try again.");
+            }
+        }
+
+        else {
+            System.out.println("Invalid input.");
+        }
+
+    }
+}
