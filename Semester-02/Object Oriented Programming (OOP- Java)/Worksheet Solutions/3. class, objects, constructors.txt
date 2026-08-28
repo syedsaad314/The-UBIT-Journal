@@ -1,0 +1,46 @@
+Main.java
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        /*student s1 = new student();
+        s1.name = "Abeera";
+        s1.age = 19;
+        System.out.println(s1.name + " " + s1.age);
+        s1.hello();
+
+        student s2 = new student();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your name and age.");
+        s2.name =  sc.nextLine();
+        s2.age = sc.nextInt();
+        s2.hello();*/
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your name:");
+        String name = sc.nextLine();
+        System.out.println("Enter your age:");
+        int age = sc.nextInt();
+        student s1 = new student(name, age);
+        s1.hello();
+    }
+}
+
+student.java
+public class student {
+
+    //instance variables
+    String name;
+    int age;
+
+    student(String n, int a) {  //student(String name, int age) {
+        name = n;               //this.name = name;
+        age = a;                //this.age = age;
+        //this.hello();
+    }
+
+    void hello() {
+        System.out.println("Hello " + name);
+    }
+}
