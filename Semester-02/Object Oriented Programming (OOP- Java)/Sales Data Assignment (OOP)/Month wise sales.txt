@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> monthWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String[] dateParts = parts[0].split("-");
+                String month = dateParts[1];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (monthWise.containsKey(month))
+                    monthWise.put(month, monthWise.get(month) + sale);
+                else
+                    monthWise.put(month, sale);
+
+            }
+
+            System.out.println("Month-wise Sum:");
+            for(String month : monthWise.keySet()) {
+                System.out.println(month + ": $" + monthWise.get(month));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
