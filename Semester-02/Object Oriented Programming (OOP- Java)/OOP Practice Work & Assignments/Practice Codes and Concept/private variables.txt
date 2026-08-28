@@ -1,0 +1,39 @@
+Main.java
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        student s1 = new student();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your name:");
+        s1.name =  sc.nextLine();
+        System.out.println("Enter your age:");
+        s1.age = sc.nextInt();
+        System.out.println("Enter your password:");
+        String pw = sc.next();
+        s1.setPassword(pw);
+        s1.hello();
+    }
+}
+
+student.java
+public class student {
+
+    //instance variables
+    String name;
+    int age;
+    private String password;
+
+    public void setPassword(String pw) {
+        if(pw.length()>=6)
+            password = pw;
+        else
+            System.out.println("Password too short.");
+    }
+
+    void hello() {
+        System.out.println("Hello " + name + ", you are " + age + " years old and your password is " + password);
+    }
+}
