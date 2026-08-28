@@ -1,0 +1,37 @@
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        int totalSales = 0;
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line= br.readLine();  //skip headings
+
+            while ((line=br.readLine()) != null) {
+                String[] parts = line.split("\t");  //a string that stores the split parts
+
+                try {
+                    int qty = Integer.parseInt(parts[4].trim());  //converted string to int
+                    int unitPrice = Integer.parseInt(parts[5].trim());  //same here
+                    totalSales += qty*unitPrice;  //multiply to get total
+                } 
+                catch (NumberFormatException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            System.out.println("Total Sales: $" + totalSales);
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+//.trim() removes any spaces or invisible characters in the string. it is good practice to use
