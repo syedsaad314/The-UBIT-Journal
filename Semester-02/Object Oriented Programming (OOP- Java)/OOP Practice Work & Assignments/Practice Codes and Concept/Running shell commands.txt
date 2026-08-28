@@ -1,0 +1,37 @@
+Running shell commands:
+print files in current dir: builder.command("cmd", "/c", "dir");
+make new folder: builder.command("cmd", "/c", "mkdir newFolder");
+delete a file: builder.command("cmd", "/c", "del myfile.txt"); 
+rename a file: builder.command("cmd", "/c", "move myfile.txt myfile2.txt"); 
+copy contents of a file to another file: builder.command("cmd", "/c", "copy myfile.txt myfile2.txt");
+
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            ProcessBuilder builder = new ProcessBuilder();
+            builder.command("cmd", "/c", "start \"\" \"C:\\Program Files\\CCleaner\\CCleaner.exe\"");
+            //start chrome  //ping google.com  //start code
+
+            Process process = builder.start();
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            // Wait for the command to finish
+            int exitCode = process.waitFor();
+            System.out.println("\nProcess exited with code: " + exitCode);
+
+        } 
+	catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+syntax to open a file of any type:
+builder.command("cmd", "/c", "start \"\" \"C:\\Users\\wtc\\Desktop\\Studies\\sem2\\OOp in Java\\OOP Java to C++.docx\"");
