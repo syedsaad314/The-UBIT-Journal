@@ -1,0 +1,87 @@
+in Main.java:
+public class Main {
+    public static void main(String[] args) {
+
+        bookInfo b1 = new bookInfo();
+        bookInfo b2 = new bookInfo("title", "author", 456, 5);
+        bookInfo b3 = new bookInfo("title", "author", 50); //donated book
+
+        //bookInfo.noOfBooks += 1;  //classname.variablename
+        //System.out.println(bookInfo.noOfBooks);  //this works only when it is public. Otherwise, user will be able to register a new book even though no book was registered. So, we made it private.
+
+        System.out.println(b1.getNoOfBooks());
+        System.out.println(b2.getNoOfBooks());
+
+        ebookInfo eb = new ebookInfo("java", "author", 56, 10, "C:/my books/ebook.pdf");
+        System.out.println(eb.noOfPages);
+        System.out.println(eb.getNoOfBooks());
+    }
+}
+//objects have null value by default, primitive data types do not have null, rather 0, 0.0, "".
+//if noOfPages was float, and i wrote 456.0, it gave error. typecast by adding (float) before 456.0 or 456.0f.
+//same for short
+
+in bookInfo.java:
+public class bookInfo {
+
+    public String bookTitle, author; public int noOfPages, cost;
+    private static int noOfBooks = 0; //class level integer, we made it private so that the user can't change it
+
+    public bookInfo() {  //everytime bookInfo is accessed, a new book is added to the system
+        noOfBooks += 1; }
+
+    int getNoOfBooks() {
+        return noOfBooks; }
+
+    public bookInfo(String bookTitle, String author, int noOfPages, int cost) {  //method overloading
+        noOfBooks += 1;
+        this.bookTitle = bookTitle;
+        this.author = author;
+        this.noOfPages = noOfPages;
+        this.cost = cost;
+    }
+
+    //incase the book was donated, it has no cost, so:
+    public bookInfo(String bookTitle, String author, int noOfPages) {
+        this (bookTitle, author, noOfPages, 0);
+    }
+}
+
+class ebookInfo extends bookInfo { //inheritance
+    public String folderPath;
+
+    public ebookInfo(String ebookTitle, String ebookAuthor, int ebookNoOfPages, int ebookCost, String folderPath) {
+        super(ebookTitle, ebookAuthor, ebookNoOfPages, ebookCost);
+        this.folderPath = folderPath;
+    }
+}
+
+
+FOR USER INPUT:
+Scanner sc = new Scanner(System.in);
+        System.out.print("Enter no. of books to register: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        bookInfo[] books = new bookInfo[n];
+
+        for (int i=0; i<n; i++) {
+            System.out.println("Enter details for book " + (i + 1) + ":");
+            System.out.print("Title: ");
+            String title = sc.nextLine();
+            System.out.print("Author: ");
+            String author = sc.nextLine();
+            System.out.print("Pages: ");
+            int pages = sc.nextInt();
+            System.out.print("Cost: ");
+            int cost = sc.nextInt();
+            sc.nextLine();
+
+            books[i] = new bookInfo(title, author, pages, cost); // create object in loop
+        }
+
+        System.out.println("Books registered:");
+        for (int i=0; i<n; i++) {
+            System.out.println("Book " + (i + 1) + ":");
+            System.out.println(books[i].bookTitle + "\n" + books[i].author + "\n" + books[i].noOfPages + "\n" + books[i].cost);
+        }
