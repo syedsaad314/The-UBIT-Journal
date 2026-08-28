@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> regionWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String region = parts[1];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (regionWise.containsKey(region))
+                    regionWise.put(region, regionWise.get(region) + sale);
+                else
+                    regionWise.put(region, sale);
+
+            }
+
+            System.out.println("Region-wise Sum:");
+            for(String region : regionWise.keySet()) {
+                System.out.println(region + ": $" + regionWise.get(region));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
