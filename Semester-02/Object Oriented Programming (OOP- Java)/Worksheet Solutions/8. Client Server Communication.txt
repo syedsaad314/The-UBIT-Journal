@@ -1,0 +1,273 @@
+1. ECHO
+
+in Server.java:
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) throws IOException {
+
+        ServerSocket serverSocket = new ServerSocket(9090);
+        System.out.println("Server Started. Waiting for server to connect...");
+
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client Connected.");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));  //what we are receiving from Client i.e in
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);  //what we are sending to Client i.e out
+
+        String message = in.readLine();  //a variable that stores Client's message
+        System.out.println("Client says: " + message);  //display that message
+        out.println("Message received by server.");  //display on Client's screen:
+
+        clientSocket.close();
+        serverSocket.close();
+    }
+}
+
+in Client.java:
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args) throws IOException{
+
+        Socket socket = new Socket("localhost", 9090); //localhost: loopback ip address (127.0.0.1)
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));  //what we are receiving from Server i.e in
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);  //what we are sending to Server i.e out
+
+        out.println("Hello from client!");  //displayed on Server screen
+        String response = in.readLine();  //receive server's message upon receiving "Hello from client"
+        System.out.println("Server says: " + response);  //display that message
+
+        socket.close();
+    }
+}
+
+2. QUIT
+
+in Server.java:
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) throws IOException {
+
+        ServerSocket serverSocket = new ServerSocket(50);
+        System.out.println("Server Started. Waiting for client to connect...");
+
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client connected successfully!");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+        String message;
+        while ((message = in.readLine()) != null) {
+            if(message.equalsIgnoreCase("quit")) {
+                out.println("Quitting...");
+                System.out.println("Quitting...");
+                break;
+            }
+
+            out.println("Message received.");
+            System.out.println("Client says: " + message);
+        }
+
+        clientSocket.close();
+        serverSocket.close();
+    }
+}
+
+in Client.java:
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class Client {
+    public static void main(String[] args) throws IOException {
+
+        Socket socket = new Socket("localhost", 50);
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        Scanner userInput = new Scanner(System.in);
+
+        String input;
+        System.out.println("Type messages to send to server. Type 'quit' to exit.");
+
+        while (true) {
+            System.out.print("You: ");
+            input = userInput.nextLine();
+            out.println(input);
+
+            String response = in.readLine();
+            System.out.println("Server says: " + response);
+
+            if(input.equalsIgnoreCase("quit"))
+                break;
+        }
+        socket.close();
+    }
+}
+
+3. FILE
+
+in Server.java:
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) throws IOException {
+
+        ServerSocket serverSocket = new ServerSocket(50);
+        System.out.println("Server Started. Waiting for client to connect...");
+
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client connected successfully!");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+        String message;
+        while ((message = in.readLine()) != null) {
+            if (message.startsWith("file ")) {
+                String filename = message.substring(5).trim();
+                File file = new File(filename);
+
+                if (file.exists()) {
+                    BufferedReader br = new BufferedReader(new FileReader(file));
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        out.println("File has been displayed successfully.");
+                        System.out.println(line);
+                    }
+                    br.close();
+                }
+                else
+                    System.out.println("File not found.");
+            }
+            else
+                System.out.println("Invalid input.");
+
+        }
+
+        clientSocket.close();
+        serverSocket.close();
+    }
+}
+
+in Client.java:
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args) throws IOException {
+
+        Socket socket = new Socket("localhost", 50);
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+
+        String input;
+        System.out.println("Type messages to send to server. Type 'quit' to exit.");
+
+        while (true) {
+            System.out.print("You: ");
+            input = userInput.readLine();
+            out.println(input);
+
+            String response = in.readLine();
+            System.out.println("Server says: " + response);
+
+            if(input.equalsIgnoreCase("quit"))
+                break;
+        }
+        socket.close();
+    }
+}
+
+4. GET
+
+in Server.java:
+import java.io.*;
+import java.net.*;
+
+public class Server {
+    public static void main(String[] args) throws IOException {
+
+        ServerSocket serverSocket = new ServerSocket(49);
+        System.out.println("Server Started. Waiting for client to connect...");
+
+        Socket clientSocket = serverSocket.accept();
+        System.out.println("Client connected successfully!");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+        String message;
+        while ((message = in.readLine()) != null) {
+            if (message.startsWith("get ")) {
+                String filepath = message.substring(4).trim();
+                File file = new File(filepath);
+
+                if (file.exists()) {
+                    try {
+                        ProcessBuilder builder = new ProcessBuilder("cmd", "/c", "start", "\"\"", filepath);
+                        builder.start();
+                        out.println("Opened: " + file.getName());
+                    }
+                    catch (Exception e) {
+                        out.println("Error opening file: " + e.getMessage());
+                    }
+                }
+                else
+                    out.println("File not found.");
+            }
+            else if(message.equalsIgnoreCase("quit")) {
+                out.println("Quitting...");
+                System.out.println("Quitting...");
+                break;
+            }
+            else
+                System.out.println("Invalid input.");
+
+        }
+
+        clientSocket.close();
+        serverSocket.close();
+    }
+}
+
+in Client.java:
+import java.io.*;
+import java.net.*;
+
+public class Client {
+    public static void main(String[] args) throws IOException {
+
+        Socket socket = new Socket("localhost", 49);
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        BufferedReader userInput = new BufferedReader(new InputStreamReader(System.in));
+
+        String input;
+        System.out.println("Type messages to send to server. Type 'quit' to exit.");
+
+        while (true) {
+            System.out.print("You: ");
+            input = userInput.readLine();
+            out.println(input);
+
+            String response = in.readLine();
+            System.out.println("Server says: " + response);
+
+            if(input.equalsIgnoreCase("quit"))
+                break;
+        }
+        socket.close();
+    }
+}
