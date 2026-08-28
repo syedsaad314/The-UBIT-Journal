@@ -1,0 +1,179 @@
+in Server.java:
+package tcpPackage;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Server {
+
+    ServerSocket serverSocket;
+    Socket clientSocket;
+    BufferedReader in;
+    PrintWriter out;
+
+    public void start(int port) throws IOException {
+
+            serverSocket = new ServerSocket(port);
+            System.out.println("Server started. Waiting for clients...");
+
+            while (true) {
+                clientSocket = serverSocket.accept();
+                new Thread(new ClientHandler(clientSocket)).start();  //handle each client in its own thread
+            }
+    }
+
+    class ClientHandler implements Runnable {  //handles each connected client
+
+        Socket socket;
+        String name;
+
+        public ClientHandler(Socket socket) {  //constructor
+            this.socket = socket;
+        }
+
+        @Override
+        public void run() {
+
+            try {
+                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                out = new PrintWriter(socket.getOutputStream(), true);
+
+                name = in.readLine();
+                System.out.println(name + " has joined the chat!");
+
+                String message;
+                while ((message = in.readLine()) != null) {
+                    if (message.equalsIgnoreCase("quit")) {
+                        System.out.println(name + " has left the chat!");
+                        break;
+                    }
+
+                    System.out.println(name + ": " + message);
+                    out.println("Message received");
+                }
+
+            } catch (IOException e) {
+                System.out.println("Connection error with " + name);
+            }
+            finally {
+                try {
+                    socket.close();
+                }
+                catch (IOException e) {
+                    // Ignore
+                }
+            }
+        }
+    }
+}
+
+in Client.java:
+package tcpPackage;
+
+import java.io.*;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client {
+
+    Socket socket;
+    BufferedReader in;
+    PrintWriter out;
+    String ip;
+    int port;
+    String name;
+
+    public Client(String ip, int port, String name) {  //constructor
+        this.ip = ip;
+        this.port = port;
+        this.name = name;
+    }
+
+    public void send() {
+
+        try {
+            socket = new Socket(ip, port);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream(), true);
+            Scanner sc = new Scanner(System.in);
+
+            out.println(name);  //send the name to server
+
+            String message;
+            while (true) {
+                System.out.print("You: ");
+                message = sc.nextLine();
+                out.println(message);
+
+                if (message.equalsIgnoreCase("quit")) {
+                    System.out.println("You left the chat.");
+                    break;
+                }
+
+                String response = in.readLine();
+                System.out.println("Server: " + response);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+in Main.java:
+import tcpPackage.*;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter 's' if you're Server or 'c' if you're Client:");
+        char ch = sc.next().charAt(0);
+
+        if (ch == 's') {
+            System.out.println("Enter port number:");
+            int port = sc.nextInt();
+
+            Server server = new Server();
+
+            try {
+                server.start(port);
+            }
+            catch (Exception e) {
+                System.out.println("Server error: " + e.getMessage());
+            }
+        }
+
+        else if (ch == 'c') {
+
+            sc.nextLine();
+            System.out.println("Enter IP address of server you want to connect with:");
+            String IPAddress = sc.nextLine();
+
+            System.out.println("Enter port number:");
+            int port = sc.nextInt();
+            sc.nextLine();
+
+            System.out.println("Enter your name:");
+            String name = sc.nextLine();
+
+            Client client = new Client(IPAddress, port, name);
+            System.out.println("Type messages to send to server. Type 'quit' to exit.");
+
+            try {
+                client.send();
+            }
+            catch (Exception e) {
+                System.out.println("Client error: " + e.getMessage());
+            }
+        }
+
+        else {
+            System.out.println("Invalid input.");
+        }
+    }
+}
