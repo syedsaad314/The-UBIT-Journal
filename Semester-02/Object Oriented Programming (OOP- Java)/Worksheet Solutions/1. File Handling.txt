@@ -1,0 +1,156 @@
+File Handling in Java 
+
+Classes:
+File
+FileReader
+FileWriter
+BufferedReader
+BufferedWriter
+Scanner
+
+Methods:
+canRead()
+canWrite()
+createNewFile()
+delete()
+exists()
+length()
+getName()
+getAbsolutePath()
+isFile()
+isDirectory()
+read()
+write()
+renameTo()
+
+Exceptions:
+IOException
+FileNotFoundException
+FileAlreadyExistsException
+SecurityException
+Exception
+ArrayIndexOutOfBoundsException
+
+
+Creating a file:
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        File file = new File("C:/Users/wtc/Desktop/testingnotepad.txt");
+        try {
+            if(file.createNewFile())
+                System.out.println("File created");
+            else
+                System.out.println("File already exists");
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        }
+        catch (IOException e) {
+            System.out.println("I/O Error");
+        }
+        catch (Exception e) {
+            System.out.println("Unexpected Error");
+        }
+    }
+}
+
+
+File Information:
+import java.io.File;
+
+public class Main {
+    public static void main(String[] args) {
+        File myfile = new File("C:/Users/wtc/Desktop/testingnotepad.txt");
+        if (myfile.exists()) {
+            System.out.println("File exists. Here are the details:");
+            System.out.println("File name: " + myfile.getName());
+            System.out.println("File size: " + myfile.length());
+            System.out.println("File location: " + myfile.getAbsolutePath());
+            System.out.println("File last modified: " + myfile.lastModified());
+            System.out.println("File writable:" + myfile.canWrite());
+            System.out.println("File executable: " + myfile.canExecute());
+            System.out.println("File readable: " + myfile.canRead());
+            //System.out.println("File removed: " + myfile.delete());
+        }
+        else
+            System.out.println("File does not exist.");
+    }
+}
+
+
+Reading from a file (using BufferedReader):
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("C:\\Users\\wtc\\Desktop\\testingnotepad.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+            br.close();
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+Writing in a file:
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter myfile = new FileWriter("C:\\Users\\wtc\\Desktop\\testingnotepad.txt", true);
+            //here, true stops the program from deleting previous text from the file
+            myfile.write("\nHello world!!");
+            myfile.close();
+            System.out.println("File written Successfully");
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+}
+
+
+Writing in a file (using BufferedWriter):
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter fw = new FileWriter("C:\\Users\\wtc\\Desktop\\testingnotepad.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("\nHello, world!");
+            System.out.println("File updated successfully");
+            bw.close();
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+
+Changing the file name:
+import java.io.*;
+
+public class Main {
+    public static void main(String[] args) {
+        File f1 = new File ("C:\\Users\\wtc\\Desktop\\testingnotepad.txt");
+        File f2 = new File ("C:\\Users\\wtc\\Desktop\\testingnotepad123.txt");
+        if (f1.exists()) {
+            f1.renameTo(f2);
+            System.out.println("File renamed");
+        }
+        else
+            System.out.println("File does not exist");
+    }
+}
