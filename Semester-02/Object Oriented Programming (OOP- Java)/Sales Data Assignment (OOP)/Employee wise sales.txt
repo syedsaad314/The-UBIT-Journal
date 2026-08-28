@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> employeeWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String repID = parts[2];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (employeeWise.containsKey(repID))  //if the employee exists then add the sale to their sum
+                    employeeWise.put(repID, employeeWise.get(repID) + sale);
+                else  //else create a new employee and add their sale
+                    employeeWise.put(repID, sale);
+
+            }
+
+            System.out.println("Employee-wise Sum:");
+            for(String employee : employeeWise.keySet()) {
+                System.out.println(employee + ": $" + employeeWise.get(employee));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
