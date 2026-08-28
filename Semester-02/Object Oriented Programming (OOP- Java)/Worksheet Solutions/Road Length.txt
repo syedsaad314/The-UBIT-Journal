@@ -1,0 +1,24 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] img = {
+                {0,0,0,0,0},
+                {0,0,0,0,0},
+                {1,1,1,1,1},
+                {0,0,0,0,0},
+                {0,0,0,0,0} };
+
+        System.out.println("Road Length: " + rl(img,2,2));
+    }
+
+    public static int rl(int[][] img, int r, int c) {
+        int rMax=5, cMax=5;
+        if(r<0 || c<0 || r>=rMax || c>=cMax)
+            return 0;
+        else if (img[r][c] == 0)
+            return 0;
+        img[r][c]=0;
+        return 1+ rl(img,r-1,c-1)+ rl(img,r-1, c)+ rl(img,r-1,c+1)+ rl(img, r,c+1)
+                + rl(img,r+1,c+1)+ rl(img,r+1, c)+ rl(img,r+1,c-1)+ rl(img, r,c-1);
+    }
+}
