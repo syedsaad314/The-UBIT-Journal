@@ -1,0 +1,229 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        String parts[]= {};
+
+        //Step 1: extract heading for menu
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();
+            parts = line.split("\t");
+            br.close();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        Scanner sc = new Scanner(System.in);
+        int choice=0;
+
+        do {
+
+            //Step 2: create menu
+            System.out.println("\n---- MENU ----\n\t1. Total Sales");
+            for(int i=0; i<4; i++) {
+                System.out.println("\t" + (i+2) + ". " + parts[i] + "-Wise Sales");
+            }
+            System.out.println("\t6. QUIT\n");
+
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            System.out.println(); //just for neatness
+
+            //Step 3: calculate and display user's choice
+            switch(choice) {
+                case 1: totalSales(); break;
+                case 2: employeeSales(); break;
+                case 3: productSales(); break;
+                case 4: regionSales(); break;
+                case 5: monthSales(); break;
+                case 6: System.out.println("Quitting..."); break;
+                default: System.out.println("Invalid choice. Please try again.");
+            }
+
+        } while(choice !=6);
+
+        sc.close();
+    }
+
+    public static void totalSales() {
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        int totalSales = 0;
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+
+            String line= br.readLine();  //skip headings
+
+            while ((line=br.readLine()) != null) {
+                String[] parts = line.split("\t");  //a string that stores the split parts
+
+                try {
+                    int qty = Integer.parseInt(parts[4]);  //converted string to int
+                    int unitPrice = Integer.parseInt(parts[5]);  //same here
+                    totalSales += qty*unitPrice;  //multiply to get total
+                } 
+                catch (NumberFormatException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            System.out.println("Total Sales: $" + totalSales);
+            br.close();
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void employeeSales() {
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> employeeWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String repID = parts[2];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (employeeWise.containsKey(repID))  //if the employee exists then add the sale to their sum
+                    employeeWise.put(repID, employeeWise.get(repID) + sale);
+                else  //else create a new employee and add their sale
+                    employeeWise.put(repID, sale);
+
+            }
+
+            System.out.println("Employee-wise Sum:");
+            for(String employee : employeeWise.keySet()) {
+                System.out.println(employee + ": $" + employeeWise.get(employee));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void productSales() {
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> productWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String product = parts[3];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (productWise.containsKey(product))
+                    productWise.put(product, productWise.get(product) + sale);
+                else
+                    productWise.put(product, sale);
+
+            }
+
+            System.out.println("Product-wise Sum:");
+            for(String product : productWise.keySet()) {
+                System.out.println(product + ": $" + productWise.get(product));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void regionSales() {
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> regionWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String region = parts[1];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (regionWise.containsKey(region))
+                    regionWise.put(region, regionWise.get(region) + sale);
+                else
+                    regionWise.put(region, sale);
+
+            }
+
+            System.out.println("Region-wise Sum:");
+            for(String region : regionWise.keySet()) {
+                System.out.println(region + ": $" + regionWise.get(region));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void monthSales() {
+        String file = "C://Users//wtc//Desktop//EVE01Sales.txt";
+        HashMap<String, Integer> monthWise = new HashMap<String, Integer>();
+
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            String line = br.readLine();  //skip headings
+
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split("\t");
+
+                String[] dateParts = parts[0].split("-");
+                String month = dateParts[1];
+                int qty = Integer.parseInt(parts[4]);
+                int unitPrice = Integer.parseInt(parts[5]);
+                int sale = qty * unitPrice;
+
+                if (monthWise.containsKey(month))
+                    monthWise.put(month, monthWise.get(month) + sale);
+                else
+                    monthWise.put(month, sale);
+
+            }
+
+            System.out.println("Month-wise Sum:");
+            for(String month : monthWise.keySet()) {
+                System.out.println(month + ": $" + monthWise.get(month));
+            }
+            br.close();
+
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
