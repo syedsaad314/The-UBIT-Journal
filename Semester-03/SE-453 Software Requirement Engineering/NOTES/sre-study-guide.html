@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SRE Final Exam Study Guide — SE-453</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 24px 16px 60px;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0f2027 100%);
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  }
+  .hero .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: #f59e0b; margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: 2rem; font-weight: 800; color: #fff;
+    line-height: 1.25; margin-bottom: 8px;
+  }
+  .hero p { color: #94a3b8; font-size: .9rem; margin-bottom: 18px; }
+  .hero-pills { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .pill {
+    font-size: .78rem; font-weight: 600; padding: 5px 16px;
+    border-radius: 999px;
+  }
+  .pill-dark { background: rgba(255,255,255,.1); color: #e2e8f0; }
+  .pill-amber { background: rgba(245,158,11,.15); color: #fbbf24; }
+
+  /* ── Card ── */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 28px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+
+  .card-header {
+    background: linear-gradient(90deg, #1e293b, #334155);
+    padding: 20px 24px;
+  }
+  .card-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
+  }
+  .q-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #64748b; }
+  .marks-badge {
+    background: #f59e0b; color: #1e293b; font-size: 11px;
+    font-weight: 800; padding: 3px 12px; border-radius: 999px;
+  }
+  .card-header h2 { color: #f8fafc; font-size: 1rem; font-weight: 600; line-height: 1.45; margin-bottom: 10px; }
+  .topic-tag {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 999px;
+  }
+
+  /* topic colours */
+  .tag-blue   { background:#dbeafe; color:#1d4ed8; }
+  .tag-purple { background:#ede9fe; color:#6d28d9; }
+  .tag-green  { background:#dcfce7; color:#15803d; }
+  .tag-red    { background:#fee2e2; color:#b91c1c; }
+  .tag-yellow { background:#fef9c3; color:#854d0e; }
+  .tag-indigo { background:#e0e7ff; color:#3730a3; }
+  .tag-pink   { background:#fce7f3; color:#9d174d; }
+
+  /* ── Tabs ── */
+  .tab-bar { display: flex; border-bottom: 1px solid #e2e8f0; background: #f8fafc; }
+  .tab-btn {
+    flex: 1; padding: 13px; font-size: .85rem; font-weight: 600;
+    border: none; background: transparent; cursor: pointer;
+    color: #64748b; transition: color .2s, border-color .2s;
+    border-bottom: 3px solid transparent; margin-bottom: -1px;
+  }
+  .tab-btn.active { background: #fff; color: #0f172a; border-bottom-color: #f59e0b; }
+  .tab-btn:hover:not(.active) { color: #334155; }
+
+  /* ── Tab Content ── */
+  .tab-content { display: none; padding: 24px; }
+  .tab-content.active { display: block; }
+
+  .section-label {
+    font-size: 10px; font-weight: 800; letter-spacing: .12em;
+    text-transform: uppercase; color: #94a3b8; margin-bottom: 14px;
+  }
+
+  /* Strategy */
+  .strategy-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .strategy-list li { display: flex; gap: 12px; align-items: flex-start; font-size: .88rem; color: #374151; }
+  .step-num {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: #fef3c7; color: #b45309; font-size: 11px;
+    font-weight: 800; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Answer */
+  .answer-box {
+    background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
+    padding: 18px 20px; font-size: .84rem; line-height: 1.75;
+    color: #334155; white-space: pre-wrap; font-family: 'Courier New', monospace;
+    max-height: 480px; overflow-y: auto;
+  }
+  .answer-box::-webkit-scrollbar { width: 6px; }
+  .answer-box::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+  /* ── Footer ── */
+  .footer { text-align: center; margin-top: 40px; color: #94a3b8; font-size: .8rem; }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .tab-bar { display: none; }
+    .tab-content { display: block !important; }
+    .card { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+    .hero { background: #1e293b !important; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.4rem; }
+    .card-header h2 { font-size: .92rem; }
+    .answer-box { font-size: .78rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="eyebrow">SE-453 &bull; Final Exam Preparation</div>
+    <h1>Software Requirements<br>Engineering</h1>
+    <p>7 Questions &mdash; 15 Marks Each &bull; Strategy + Model Answer</p>
+    <div class="hero-pills">
+      <span class="pill pill-dark">7 Questions</span>
+      <span class="pill pill-amber">105 Total Marks</span>
+      <span class="pill pill-dark">Sommerville 10th Ed.</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q1 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 1</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>Give a comprehensive overview of the Software Requirements Process.</h2>
+      <span class="topic-tag tag-blue">Requirement Process</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s1')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a1')">📝 Full Answer</button>
+    </div>
+    <div id="s1" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>Start with a one-line definition of what the requirements process IS.</li>
+        <li><span class="step-num">2</span>Describe each phase in order — this is a process, so sequence matters.</li>
+        <li><span class="step-num">3</span>Use keywords from Sommerville: feasibility, elicitation, specification, validation.</li>
+        <li><span class="step-num">4</span>End with why the process matters (link to project failure if skipped).</li>
+        <li><span class="step-num">5</span>Draw/describe a simple diagram if you can — examiners love a visual.</li>
+      </ul>
+    </div>
+    <div id="a1" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">The software requirements process is a structured set of activities performed to define, document, and maintain the requirements for a software system before and during development. It acts as a bridge between what the client wants and what the development team builds.
+
+The requirements process consists of four major phases:
+
+1. Feasibility Study
+This is the initial phase where the organization determines whether the proposed system is technically, financially, and operationally viable. A feasibility study answers: "Should we build this system at all?" It considers existing technology, budget constraints, and the timeline. The output is a feasibility report that recommends whether to proceed.
+
+2. Requirements Elicitation and Analysis
+This is the most critical and most difficult phase. Engineers work with stakeholders — clients, end users, domain experts — to discover what the system should do. Techniques used include interviews, questionnaires, observation, prototyping, and use case modeling. During analysis, conflicts between requirements are identified and resolved. Problems include: stakeholders who cannot articulate their needs, conflicting requirements from different users, and domain knowledge gaps.
+
+3. Requirements Specification
+The requirements discovered are formally written into a Software Requirements Specification (SRS) document. The SRS describes:
+   - Functional Requirements: What the system must do (features, functions, behaviors).
+   - Non-Functional Requirements: How the system must perform (speed, security, reliability, usability).
+   - Domain Requirements: Constraints imposed by the business domain.
+The SRS must be clear, consistent, complete, and verifiable.
+
+4. Requirements Validation
+The SRS is reviewed to ensure it correctly reflects what the stakeholders actually need. Validation techniques include requirements reviews/inspections, prototyping, and test case generation. If a defect in requirements is found after development begins, the cost to fix it is exponentially higher — this is why validation is critical.
+
+5. Requirements Management
+Once baselined, requirements must be tracked and managed as they change over time. This involves maintaining a requirements traceability matrix and impact analysis for each change.
+
+Importance: Studies show that a significant percentage of software project failures stem from poor requirements — not poor coding. A well-executed requirements process reduces rework, controls scope creep, and aligns stakeholder expectations with the delivered product.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q2 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 2</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>Establish a baseline for a basic Collaborative Requirements Gathering Meeting. What are its key elements and how is it conducted?</h2>
+      <span class="topic-tag tag-purple">Collaborative Requirements Gathering</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s2')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a2')">📝 Full Answer</button>
+    </div>
+    <div id="s2" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>Define what collaborative requirements gathering IS first.</li>
+        <li><span class="step-num">2</span>Explain WHY collaboration is needed (no single stakeholder knows everything).</li>
+        <li><span class="step-num">3</span>List the participants, pre-meeting preparation, and meeting steps in order.</li>
+        <li><span class="step-num">4</span>Mention JAD (Joint Application Development) — it's the formal name for this.</li>
+        <li><span class="step-num">5</span>Conclude with what the output/deliverable of the meeting is.</li>
+      </ul>
+    </div>
+    <div id="a2" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">Collaborative requirements gathering is a team-oriented approach where developers, clients, and end users jointly define, refine, and agree upon system requirements in a structured meeting environment. The goal is to surface all perspectives in one place and reach consensus before documentation.
+
+The formal methodology behind this is called JAD — Joint Application Development — introduced by IBM. It replaces a series of one-on-one interviews with a focused group session facilitated by a neutral leader.
+
+Participants in a Collaborative Meeting:
+- Facilitator: A neutral person (not the developer, not the client) who guides the meeting.
+- Developers/Engineers: Who understand technical constraints.
+- Stakeholders/Clients: Who understand business needs.
+- End Users: Who understand day-to-day usage.
+- Scribe/Recorder: Who documents everything said.
+- Product Owner / Domain Expert (if applicable).
+
+Baseline Elements of the Meeting:
+
+Pre-Meeting Preparation:
+- Define the scope of the system to be discussed.
+- Distribute any pre-reading material (existing system docs, business briefs).
+- Identify and invite all relevant stakeholders.
+- Prepare an agenda with time allocations.
+- Set up the meeting room with whiteboards, markers, sticky notes, or collaborative tools.
+
+Meeting Opening:
+- The facilitator opens by stating objectives and ground rules (e.g., no hierarchy, every idea is valid, stay on topic).
+- A brief review of the business context and project goals.
+
+Requirements Discovery:
+- Each stakeholder presents their perspective on what the system must do.
+- Use-cases or user stories are narrated: "As a [user type], I need to [do something] so that [outcome]."
+- Issues and conflicts are noted, NOT resolved immediately — this avoids derailing the meeting.
+
+Negotiation and Prioritization:
+- Conflicting requirements are discussed.
+- Requirements are prioritized using MoSCoW (Must have, Should have, Could have, Won't have) or similar.
+- Agreement is reached through discussion, not voting where possible.
+
+Closure:
+- All agreed requirements are read back to participants.
+- Outstanding issues are listed as action items with owners and deadlines.
+- A requirements baseline document is committed to.
+
+Output / Deliverable:
+The output of the meeting is a preliminary requirements list or a draft SRS that all parties have signed off on. This baseline document becomes the reference point for all future development and change management.
+
+Key advantage: By involving all stakeholders simultaneously, misunderstandings are caught early, saving enormous time and cost compared to a sequential interview-then-review approach.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q3 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 3</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>Define Software and its characteristics. Also define Legacy Software and explain why it remains a challenge in modern software engineering.</h2>
+      <span class="topic-tag tag-green">Software &amp; Legacy Software</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s3')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a3')">📝 Full Answer</button>
+    </div>
+    <div id="s3" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>Start with Pressman's or Sommerville's definition of software — NOT just "programs".</li>
+        <li><span class="step-num">2</span>List the 3-part definition: instructions + data structures + documentation.</li>
+        <li><span class="step-num">3</span>Cover software characteristics (at least 5).</li>
+        <li><span class="step-num">4</span>Then transition clearly to Legacy Software with its own definition.</li>
+        <li><span class="step-num">5</span>Explain why legacy software is not simply replaced — cost, risk, business dependency.</li>
+      </ul>
+    </div>
+    <div id="a3" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">Definition of Software:
+Software is more than just programs. According to Roger S. Pressman, software is defined as:
+(1) Instructions (programs) that, when executed, provide desired features, functions, and performance;
+(2) Data structures that enable the programs to adequately store and manipulate information; and
+(3) Descriptive documentation that describes the operation and use of the programs.
+
+Unlike hardware, software does not wear out — it deteriorates through change. Each change introduces the possibility of new errors, causing software quality to degrade over time if not properly managed.
+
+Key Characteristics of Software:
+1. Software is developed/engineered, not manufactured — quality control is built into the development process, not the assembly line.
+2. Software does not "wear out" — it doesn't have physical degradation, but it suffers from entropy through poor maintenance.
+3. Software is complex — it is one of the most complex human-made products because of the number of interactions between components.
+4. Software is flexible — unlike hardware, it can be changed, updated, and customized relatively easily.
+5. Software is intangible — it cannot be seen or touched, making quality difficult to measure.
+6. Most software is custom-built — even today, bespoke software is more common than off-the-shelf for enterprise systems.
+
+Categories of Software:
+- System Software (OS, compilers)
+- Application Software (business apps, web apps)
+- Engineering/Scientific Software
+- Embedded Software
+- Real-time Software
+- AI/ML Software
+- Web Applications
+
+Definition of Legacy Software:
+Legacy software refers to older software systems that remain in critical use within organizations despite being outdated in terms of technology, architecture, or design practices. These systems were often built decades ago using now-obsolete programming languages (e.g., COBOL in banking, Fortran in scientific systems).
+
+Characteristics of Legacy Software:
+- Written in older languages (COBOL, Fortran, assembly).
+- Poor or missing documentation.
+- Monolithic architecture — difficult to break into components.
+- Hard to maintain — original developers often unavailable.
+- Tightly coupled to outdated hardware.
+- No formal testing suites.
+
+Why Legacy Software Remains in Use (The Challenge):
+1. Critical Business Dependency: Banks, governments, and hospitals rely on legacy systems for critical daily operations. Replacing them risks operational disruption.
+2. Enormous Replacement Cost: The cost and risk of rewriting or replacing a large legacy system often exceeds the budget and risk tolerance of organizations.
+3. Data Migration Risk: Decades of critical business data must be migrated without loss or corruption — extremely risky.
+4. Functionality Completeness: Legacy systems often do exactly what the business needs. If it works, organizations ask "why fix it?"
+5. Fear of Unknown: Rewriting a system may introduce new bugs that did not exist before.
+
+Legacy software evolution is one of the most expensive challenges in software engineering, consuming a majority of software maintenance budgets in large organizations worldwide.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q4 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 4</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>Why is it Difficult to Gather Basic Requirements from Customers? Discuss the major challenges faced during requirements elicitation.</h2>
+      <span class="topic-tag tag-red">Difficulties in Gathering Requirements</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s4')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a4')">📝 Full Answer</button>
+    </div>
+    <div id="s4" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>Open by acknowledging this is the most human-intensive part of SE.</li>
+        <li><span class="step-num">2</span>Organize challenges into categories: stakeholder-side, communication-side, technical-side.</li>
+        <li><span class="step-num">3</span>Use specific named problems: the "know-it-when-I-see-it" problem, scope creep.</li>
+        <li><span class="step-num">4</span>Give brief examples to support each point — examiners appreciate context.</li>
+        <li><span class="step-num">5</span>Conclude with the consequence of getting this wrong (cost, failure statistics).</li>
+      </ul>
+    </div>
+    <div id="a4" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">Requirements elicitation is widely considered the most challenging phase of software engineering. Unlike coding, which follows logical rules, elicitation is a deeply human activity involving communication, psychology, and domain knowledge. The following are the major reasons why gathering requirements from customers is inherently difficult:
+
+1. Customers Do Not Know What They Want
+Stakeholders often have a vague idea of the desired system but cannot articulate it precisely. They may say "I want the system to be faster" without defining what "faster" means. This is called the "know-it-when-I-see-it" problem — customers recognize a good solution only when they see it, not before.
+
+2. Communication Gap Between Customers and Engineers
+Customers speak in business/domain language; engineers speak in technical terms. Both parties can misinterpret the other. What a customer calls "real-time processing" may mean something very different to a developer than to the customer.
+
+3. Stakeholder Conflicts and Multiple Viewpoints
+Large organizations have multiple stakeholders with conflicting needs. The finance department, operations, and management may all want different things from the same system. Reconciling these competing requirements is difficult.
+
+4. Incomplete or Tacit Domain Knowledge
+Domain experts often take certain knowledge for granted and do not state obvious requirements — because to them, they are common sense. Engineers who lack domain knowledge may miss these implicit requirements entirely.
+
+5. Changing Requirements (Scope Creep)
+As development begins, customers see the system taking shape and start changing or adding requirements. This is natural — their understanding of what they need evolves — but it is disruptive to the requirements baseline.
+
+6. Organizational and Political Factors
+In large organizations, requirements can be influenced by internal politics. Some stakeholders may exaggerate requirements to gain budget, or downplay them to avoid cost. Some stakeholders may not want the new system to succeed at all (fear of job loss, loss of power).
+
+7. Requirements at the Wrong Level of Abstraction
+Customers often describe requirements at too high a level ("I want a good system") or too low a level ("I want this exact field in this exact position"), neither of which is appropriate for early specification.
+
+8. Difficulty in Prioritization
+When hundreds of requirements are gathered, determining which are truly "must-haves" and which are "nice-to-haves" is politically and technically difficult.
+
+9. Ambiguity in Natural Language
+Requirements written in natural language are inherently ambiguous. "The system should respond quickly" does not specify a measurable performance criterion.
+
+10. Access to the Right Stakeholders
+The people who know the most about what the system needs to do (end users, domain experts) are often the busiest people in the organization, making it hard to schedule time with them.
+
+Consequence: Research by the Standish Group (CHAOS Report) consistently shows that poor requirements are among the top causes of software project failure — leading to cost overruns, missed deadlines, and systems that do not meet user needs.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q5 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 5</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>Describe the major Requirement Analysis Approaches used in Software Engineering.</h2>
+      <span class="topic-tag tag-yellow">Requirement Analysis Approaches</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s5')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a5')">📝 Full Answer</button>
+    </div>
+    <div id="s5" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>First define what requirement analysis IS (distinct from elicitation).</li>
+        <li><span class="step-num">2</span>Then present each approach as a named method with a brief description.</li>
+        <li><span class="step-num">3</span>Include: structured analysis, object-oriented analysis, prototype-based, use-case driven.</li>
+        <li><span class="step-num">4</span>Mention the models/diagrams associated with each approach.</li>
+        <li><span class="step-num">5</span>A comparison table at the end is a great exam technique for 15-mark questions.</li>
+      </ul>
+    </div>
+    <div id="a5" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">Requirements Analysis is the process of studying and refining requirements gathered during elicitation to resolve conflicts, remove ambiguity, identify missing information, and prepare for formal specification. It bridges the gap between raw stakeholder inputs and a formal, verifiable requirements document.
+
+The major Requirements Analysis Approaches are:
+
+1. Structured Analysis (SA)
+Developed in the 1970s-80s, structured analysis treats the system as a set of transformations on data. The primary modeling tool is the Data Flow Diagram (DFD), which shows how data moves through the system, what processes transform it, and where it is stored.
+Tools/Models: DFDs, Data Dictionary, Entity-Relationship (ER) Diagrams, State Transition Diagrams.
+Best for: Batch processing systems, data-intensive business applications.
+Limitation: Struggles to model complex object-oriented or real-time systems.
+
+2. Object-Oriented Analysis (OOA)
+OOA views the system as a collection of interacting objects, each encapsulating both data (attributes) and behavior (methods). Requirements are analyzed in terms of classes, relationships, and interactions.
+Tools/Models: Use Case Diagrams, Class Diagrams, Sequence Diagrams (all from UML).
+Best for: Interactive systems, GUIs, complex business domains.
+Advantage: Models closely mirror the real world, reducing the conceptual gap between analysis and design.
+
+3. Prototype-Based Analysis
+A working prototype (partial or mock version) of the system is built to help stakeholders visualize what they want. Stakeholders interact with the prototype and provide feedback, which refines the requirements.
+Types:
+- Throwaway Prototyping: Built only for elicitation, then discarded.
+- Evolutionary Prototyping: The prototype grows into the final system.
+Best for: Systems where requirements are unclear or highly volatile.
+Limitation: Customers may mistake the prototype for the finished product.
+
+4. Use Case-Driven Analysis
+A use case describes a specific interaction between a user (Actor) and the system to achieve a goal. Each use case captures a scenario of system usage from the user's perspective — including main flow, alternate flows, and exception flows.
+Tools/Models: Use Case Diagrams, Use Case Narratives.
+Best for: Transaction-based, interactive software systems.
+Advantage: Very stakeholder-friendly — non-technical users can understand and validate use cases.
+
+5. Agile-Based Analysis (User Stories)
+In agile methodologies, requirements are expressed as User Stories:
+"As a [user role], I want to [capability] so that [benefit]."
+Requirements are not all defined upfront; they emerge over multiple iterations (sprints).
+Tools/Models: Product Backlog, User Story Cards, Story Maps.
+Best for: Projects with rapidly changing requirements and close client involvement.
+Limitation: Difficult to apply to safety-critical or regulated systems.
+
+6. Viewpoint-Oriented Analysis (VOSE)
+Different stakeholders (called viewpoints) are identified and their requirements analyzed separately before being integrated. This approach explicitly handles multiple conflicting perspectives.
+Best for: Large organizational systems with many diverse stakeholders.
+
+Summary Comparison:
+Approach          | Model Used           | Best For
+------------------+----------------------+-------------------------
+Structured        | DFD, ER              | Data-intensive systems
+OOA               | UML, Class Diagrams  | OOP-based systems
+Prototype         | Working Mock         | Unclear requirements
+Use Case          | Use Case Diagrams    | Interactive systems
+Agile             | User Stories         | Fast-changing requirements
+VOSE              | Viewpoint Matrix     | Multi-stakeholder systems</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q6 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 6</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>Define QFD (Quality Function Deployment) and FAST (Facilitated Application Specification Technique). Explain their role in software requirements engineering.</h2>
+      <span class="topic-tag tag-indigo">QFD and FAST Techniques</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s6')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a6')">📝 Full Answer</button>
+    </div>
+    <div id="s6" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>QFD and FAST are two separate techniques — answer them in two distinct, clearly labelled parts.</li>
+        <li><span class="step-num">2</span>For QFD: define it, explain the "House of Quality", link it to the customer voice concept.</li>
+        <li><span class="step-num">3</span>For FAST: define it, list the steps/rules, explain how it bridges customer and developer.</li>
+        <li><span class="step-num">4</span>Connect both back to WHY they matter in requirements (they reduce communication gaps).</li>
+        <li><span class="step-num">5</span>End with a comparison table — it shows the examiner you understand both side by side.</li>
+      </ul>
+    </div>
+    <div id="a6" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">PART A — QFD: Quality Function Deployment
+
+Definition:
+QFD is a quality management technique originally developed in Japan (by Yoji Akao in the 1960s) and later adapted for software engineering. In the context of SRE, QFD is used to translate the voice of the customer — what the customer wants — into specific technical requirements for the software. It ensures that every technical feature of the system is traceable to a real customer need.
+
+QFD in Software Engineering — Three Types of Requirements:
+1. Normal Requirements: What the customer explicitly asks for ("I want to be able to search by date").
+2. Expected Requirements: So obvious that the customer does not state them ("The system should not crash").
+3. Exciting Requirements: Features the customer did not ask for but which delight them when delivered ("The system automatically suggests the best option based on past behavior").
+
+The House of Quality:
+The primary tool of QFD is the House of Quality — a matrix that maps:
+- Customer requirements (WHATs) against technical/engineering requirements (HOWs).
+- Relative priority of customer needs.
+- Correlations between technical requirements (do they support or conflict with each other?).
+
+Value of QFD:
+- Ensures no customer need is lost during translation to technical specs.
+- Prioritizes development effort toward high-value customer requirements.
+- Provides a traceable, documented link from customer voice to software feature.
+
+---
+
+PART B — FAST: Facilitated Application Specification Technique
+
+Definition:
+FAST is a team-based, facilitated meeting approach to requirements gathering and specification. It brings together software engineers and customers in a structured, collaborative environment to jointly identify requirements, propose solution elements, and negotiate a preliminary specification. It was popularized by Edward Yourdon.
+
+FAST is specifically designed to overcome the limitations of traditional interviews — where requirements are gathered one person at a time and reconciled later.
+
+Key Rules of the FAST Meeting:
+- Held at a neutral location (not the customer's office, not the developer's office) to avoid power dynamics.
+- A facilitator (not the developer) leads the meeting.
+- All participants prepare a short list of objects (things the system will create/use/produce) and services (functions it must perform) BEFORE arriving.
+
+Steps in a FAST Meeting:
+1. Each attendee pre-writes a list of objects, constraints, and services.
+2. The facilitator opens and reviews ground rules.
+3. Participants present lists; facilitator posts them on the board.
+4. Discussion leads to consensus on a combined list.
+5. Mini-specs (preliminary requirement descriptions) are drafted by subgroups.
+6. The complete draft is presented for group review.
+7. An action plan with follow-up items is produced.
+
+Output of FAST:
+A preliminary requirements draft document agreed upon by both customers and developers, which serves as the foundation for the formal SRS.
+
+Comparison Table:
+Feature         | QFD                              | FAST
+----------------+----------------------------------+----------------------------------
+Purpose         | Map customer needs to features   | Collaboratively elicit requirements
+Origin          | Manufacturing / quality mgt.     | Software engineering practice
+Primary Tool    | House of Quality matrix          | Facilitated group meeting
+Output          | Prioritized technical features   | Preliminary requirements draft
+Strength        | Customer voice traceability      | Speed and consensus building</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ Q7 ══ -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-meta">
+        <span class="q-label">Question 7</span>
+        <span class="marks-badge">15 Marks</span>
+      </div>
+      <h2>What are the Guidelines for Writing User Requirements? Why is it important to follow these guidelines in an SRS document?</h2>
+      <span class="topic-tag tag-pink">Guidelines for User Requirements</span>
+    </div>
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab(this,'s7')">📋 Exam Strategy</button>
+      <button class="tab-btn"        onclick="switchTab(this,'a7')">📝 Full Answer</button>
+    </div>
+    <div id="s7" class="tab-content active">
+      <p class="section-label">How to Approach This Question</p>
+      <ul class="strategy-list">
+        <li><span class="step-num">1</span>Define user requirements first — distinguish from system requirements clearly.</li>
+        <li><span class="step-num">2</span>Present guidelines as a numbered list — each with a brief justification, not just a label.</li>
+        <li><span class="step-num">3</span>Include: avoid jargon, use standard format, avoid stating "how", identify stakeholder, make testable.</li>
+        <li><span class="step-num">4</span>Reference Sommerville's guidelines if you remember them — examiners appreciate it.</li>
+        <li><span class="step-num">5</span>End with WHY these guidelines matter (ambiguity leads to project failure).</li>
+      </ul>
+    </div>
+    <div id="a7" class="tab-content">
+      <p class="section-label">Model Answer</p>
+      <div class="answer-box">User Requirements vs. System Requirements:
+User requirements are high-level statements of what the system must do, written in natural language for non-technical stakeholders (clients, managers, end users). They describe WHAT the user needs, not HOW the system will implement it. System requirements, by contrast, are detailed, precise, technical descriptions intended for developers.
+
+Because user requirements are written in natural language and consumed by non-technical readers, they are highly susceptible to ambiguity, inconsistency, and misinterpretation. To prevent this, the following guidelines must be followed:
+
+Guideline 1 — Invent a Standard Format and Use It Consistently
+All requirements should follow a consistent template:
+"The system SHALL [do something] [under what conditions] [to what standard]."
+Using "SHALL" for mandatory requirements and "SHOULD" for desirable ones creates clear enforceability.
+
+Guideline 2 — Use Language Consistently
+Use "shall" for mandatory requirements and "should" for desirable requirements. Never mix these terms arbitrarily — confusion about what is negotiable versus mandatory causes serious misalignment.
+
+Guideline 3 — Use Text Highlighting to Identify Key Parts
+Bold, italics, or color coding can be used to highlight the most critical requirements or key terms. This aids stakeholders in quickly locating critical information during reviews.
+
+Guideline 4 — Avoid the Use of Computer Jargon
+User requirements must be understandable by business stakeholders and managers — not just developers. Terms like "database normalization," "API endpoint," or "polymorphism" have no place in user requirements. Plain business language must be used.
+
+Guideline 5 — Include a Rationale with Each Requirement
+Each requirement should state WHY it exists. This helps when requirements are re-evaluated later — if the rationale is documented, it is much easier to determine whether a requirement is still valid when the business context changes.
+
+Guideline 6 — Do Not Mix Functional and Non-Functional Requirements
+Functional requirements (what the system does) and non-functional requirements (how well it does it) should be kept in clearly labeled separate sections. Mixing them causes confusion and makes individual requirements harder to test.
+
+Guideline 7 — Avoid Stating "How" the System Does Something
+User requirements must be solution-independent. They should state WHAT is needed, not HOW it is implemented.
+Wrong: "The system shall use a MySQL database to store records."
+Right: "The system shall permanently store all customer transaction records."
+
+Guideline 8 — Be Precise and Avoid Vague Language
+Terms like "fast," "user-friendly," "flexible," "robust," and "modern" are meaningless unless measured. Every requirement must be verifiable.
+Wrong: "The system shall respond quickly."
+Right: "The system shall respond to any user query within 2 seconds under normal load."
+
+Guideline 9 — Identify the Source/Stakeholder of Each Requirement
+Each requirement should be tagged to the stakeholder who requested it. This enables traceability and helps resolve conflicts by knowing whose need the requirement represents.
+
+Guideline 10 — Requirements Must Be Testable
+Each user requirement must be written in a way that allows a test case to be derived from it. If you cannot write a test to verify it, it is not a good requirement.
+
+Importance of These Guidelines:
+Poorly written user requirements are one of the leading causes of software project failure. Ambiguous requirements lead to conflicting interpretations between client and developer, resulting in rework, cost overruns, missed deadlines, and ultimately, a system that does not meet the user's actual needs. Following these guidelines ensures that requirements are a reliable contract between the stakeholder and the development team.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Based on Sommerville's Software Engineering 10th Ed. &bull; Good luck on your exam, Saad! 🎯</p>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(btn, contentId) {
+    const card = btn.closest('.card');
+    card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(contentId).classList.add('active');
+  }
+</script>
+</body>
+</html>
