@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اردو امتحان تیاری — سید سعد بن عرفان</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --bg-main:       #F7F4EF;
+    --bg-card:       #FFFFFF;
+    --bg-soft:       #EEF6F5;
+    --bg-accent:     #E8F4F3;
+    --teal-deep:     #2D7D74;
+    --teal-mid:      #3D9E94;
+    --teal-light:    #7FCCC5;
+    --teal-pale:     #C8EBEA;
+    --rose-soft:     #F2E8E8;
+    --rose-mid:      #C97B7B;
+    --gold:          #B5873A;
+    --gold-pale:     #F5EDD8;
+    --text-main:     #1A2B2A;
+    --text-body:     #2E4442;
+    --text-muted:    #5C7A78;
+    --text-light:    #8AACA9;
+    --border:        #D4E9E7;
+    --shadow-sm:     0 2px 8px rgba(45,125,116,0.08);
+    --shadow-md:     0 4px 20px rgba(45,125,116,0.12);
+    --shadow-lg:     0 8px 40px rgba(45,125,116,0.16);
+    --radius-sm:     8px;
+    --radius-md:     14px;
+    --radius-lg:     20px;
+    --radius-xl:     28px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Nastaliq Urdu', 'Noto Sans Arabic', serif;
+    background: var(--bg-main);
+    color: var(--text-main);
+    line-height: 2;
+    font-size: 17px;
+  }
+
+  /* ═══════════════════════════════════════════
+     TOP NAV
+  ═══════════════════════════════════════════ */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(247,244,239,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid var(--border);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .topnav-brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--teal-deep);
+    letter-spacing: 0.02em;
+  }
+
+  .topnav-links {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .topnav-links a {
+    text-decoration: none;
+    color: var(--text-body);
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .topnav-links a:hover {
+    background: var(--teal-pale);
+    color: var(--teal-deep);
+    border-color: var(--teal-light);
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO
+  ═══════════════════════════════════════════ */
+  .hero {
+    background: linear-gradient(135deg, #2D7D74 0%, #3D9E94 45%, #5BBDB4 100%);
+    padding: 70px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 18px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    letter-spacing: 0.05em;
+  }
+
+  .hero h1 {
+    color: #fff;
+    font-size: 2.6rem;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+    line-height: 2;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero-pill {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 7px 20px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  /* ═══════════════════════════════════════════
+     SIDEBAR NAV (questions)
+  ═══════════════════════════════════════════ */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 80px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--border);
+    padding: 24px 18px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .sidebar-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--border);
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sidebar-nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-body);
+    font-size: 14px;
+    padding: 9px 14px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+    border-right: 3px solid transparent;
+    line-height: 1.7;
+  }
+
+  .sidebar-nav a:hover {
+    background: var(--bg-soft);
+    color: var(--teal-deep);
+    border-right-color: var(--teal-mid);
+  }
+
+  .sidebar-qnum {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal-light);
+    display: block;
+  }
+
+  /* ═══════════════════════════════════════════
+     MAIN CONTENT
+  ═══════════════════════════════════════════ */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* ═══════════════════════════════════════════
+     SECTION CARD
+  ═══════════════════════════════════════════ */
+  .section-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--border);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .section-header {
+    padding: 28px 36px 24px;
+    background: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal-mid) 100%);
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .section-num {
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .section-title-wrap {}
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .section-title {
+    color: #fff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .section-marks {
+    margin-right: auto;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .section-body {
+    padding: 32px 36px;
+  }
+
+  /* ═══════════════════════════════════════════
+     EXAM TIP BOX
+  ═══════════════════════════════════════════ */
+  .exam-tip {
+    background: var(--gold-pale);
+    border: 1.5px solid #E6C97A;
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .tip-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .tip-text {
+    font-size: 14.5px;
+    color: #7A5A1A;
+    line-height: 2;
+  }
+
+  .tip-label {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ═══════════════════════════════════════════
+     SABAQ (LESSON) BLOCK
+  ═══════════════════════════════════════════ */
+  .sabaq-block {
+    margin-bottom: 40px;
+  }
+
+  .sabaq-block:last-child { margin-bottom: 0; }
+
+  .sabaq-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--teal-deep);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--teal-pale);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sabaq-heading::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 24px;
+    background: var(--teal-mid);
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* KHULASA */
+  .khulasa-box {
+    background: var(--bg-soft);
+    border: 1.5px solid var(--teal-pale);
+    border-radius: var(--radius-md);
+    padding: 24px 26px;
+    margin-bottom: 28px;
+  }
+
+  .khulasa-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal-mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .khulasa-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--teal-pale);
+  }
+
+  .khulasa-box p {
+    font-size: 16px;
+    color: var(--text-body);
+    line-height: 2.2;
+    margin-bottom: 10px;
+  }
+
+  .khulasa-box p:last-child { margin-bottom: 0; }
+
+  /* HAWALA */
+  .hawala-box {
+    background: linear-gradient(135deg, #EEF6F5 0%, #F7F4EF 100%);
+    border: 1.5px solid var(--teal-pale);
+    border-right: 5px solid var(--teal-mid);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+
+  .hawala-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--teal-deep);
+    letter-spacing: 0.08em;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .hawala-box p {
+    font-size: 15.5px;
+    color: var(--text-body);
+    line-height: 2.2;
+  }
+
+  /* IQTIBAS */
+  .iqtibas-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    margin-bottom: 22px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+
+  .iqtibas-card:hover { box-shadow: var(--shadow-md); }
+
+  .iqtibas-num-bar {
+    background: linear-gradient(90deg, var(--teal-deep), var(--teal-mid));
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .iqtibas-num {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .iqtibas-num-title {
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .iqtibas-body {
+    padding: 20px 24px;
+  }
+
+  .iqtibas-text {
+    background: linear-gradient(135deg, #F0F9F8, #EEF6F5);
+    border-right: 4px solid var(--teal-light);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-size: 17px;
+    color: var(--teal-deep);
+    font-weight: 600;
+    line-height: 2.2;
+  }
+
+  .tashreeh-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 8px;
+  }
+
+  .tashreeh-text {
+    font-size: 15.5px;
+    color: var(--text-body);
+    line-height: 2.3;
+  }
+
+  /* ═══════════════════════════════════════════
+     AFSANA / Q2
+  ═══════════════════════════════════════════ */
+  .tarreef-box {
+    background: linear-gradient(135deg, var(--rose-soft), #FDF0F0);
+    border: 1.5px solid #E8C5C5;
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+
+  .tarreef-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--rose-mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .tarreef-box p {
+    font-size: 16px;
+    color: #4A2A2A;
+    line-height: 2.2;
+  }
+
+  .afsana-block {
+    margin-bottom: 36px;
+  }
+
+  .afsana-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--rose-mid);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #F0D5D5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .afsana-heading::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    background: var(--rose-mid);
+    border-radius: 3px;
+  }
+
+  .tabsira-text {
+    font-size: 15.5px;
+    color: var(--text-body);
+    line-height: 2.3;
+    background: #FDFAFA;
+    border: 1.5px solid #F0D5D5;
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+  }
+
+  /* ═══════════════════════════════════════════
+     NAZM / Q3
+  ═══════════════════════════════════════════ */
+  .nazm-block { margin-bottom: 36px; }
+
+  .nazm-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #5A3D8A;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #E8DEFF;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nazm-heading::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    background: #8A6DC0;
+    border-radius: 3px;
+  }
+
+  .nazm-hawala {
+    background: linear-gradient(135deg, #F3EEFF, #EDE4FF);
+    border: 1.5px solid #D4C0FF;
+    border-right: 5px solid #8A6DC0;
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+
+  .nazm-hawala-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #5A3D8A;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .nazm-hawala p {
+    font-size: 15px;
+    color: #3D2A6A;
+    line-height: 2.2;
+  }
+
+  .tajzia-box {
+    background: #FDFAFF;
+    border: 1.5px solid #E0D0FF;
+    border-radius: var(--radius-md);
+    padding: 22px 26px;
+    margin-bottom: 16px;
+  }
+
+  .tajzia-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8A6DC0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 10px;
+  }
+
+  .tajzia-box p {
+    font-size: 15.5px;
+    color: var(--text-body);
+    line-height: 2.3;
+    margin-bottom: 10px;
+  }
+
+  .funni-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  .funni-item {
+    background: linear-gradient(135deg, #F5F0FF, #EDE4FF);
+    border: 1.5px solid #D4C0FF;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+  }
+
+  .funni-item-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #5A3D8A;
+    margin-bottom: 6px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .funni-item p {
+    font-size: 14px;
+    color: #3D2A6A;
+    line-height: 2;
+  }
+
+  /* ═══════════════════════════════════════════
+     ASHAAR / Q4
+  ═══════════════════════════════════════════ */
+  .shair-card {
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
+    margin-bottom: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+
+  .shair-card:hover { box-shadow: var(--shadow-md); }
+
+  .shair-header {
+    background: linear-gradient(90deg, #3D5A8A, #5A7AB0);
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shair-num {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 12px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+  }
+
+  .shair-poet {
+    color: rgba(255,255,255,0.9);
+    font-size: 13.5px;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-weight: 600;
+  }
+
+  .shair-body {
+    padding: 22px 26px;
+  }
+
+  .shair-text {
+    background: linear-gradient(135deg, #EEF2FF, #E8EDFF);
+    border-right: 4px solid #7A9ACC;
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+    margin-bottom: 18px;
+    font-size: 18px;
+    color: #2A3D6A;
+    font-weight: 600;
+    line-height: 2.4;
+    text-align: center;
+  }
+
+  .hawala-shair {
+    background: #F8F9FF;
+    border: 1.5px solid #D0D8F0;
+    border-radius: var(--radius-sm);
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+
+  .hawala-shair-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #5A7AB0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 6px;
+  }
+
+  .hawala-shair p {
+    font-size: 14.5px;
+    color: #2A3D6A;
+    line-height: 2;
+  }
+
+  .tashreeh-shair-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: 'Noto Sans Arabic', sans-serif;
+    margin-bottom: 8px;
+  }
+
+  .tashreeh-shair-text {
+    font-size: 15.5px;
+    color: var(--text-body);
+    line-height: 2.3;
+  }
+
+  /* ═══════════════════════════════════════════
+     DIVIDER
+  ═══════════════════════════════════════════ */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 32px 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     FOOTER
+  ═══════════════════════════════════════════ */
+  .footer {
+    background: var(--teal-deep);
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 14px;
+    line-height: 2.2;
+    margin-top: 60px;
+  }
+
+  .footer strong {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .footer-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--teal-light);
+    margin: 14px auto;
+    border-radius: 2px;
+  }
+
+  /* ═══════════════════════════════════════════
+     RESPONSIVE
+  ═══════════════════════════════════════════ */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .topnav-links { display: none; }
+    .hero h1 { font-size: 1.8rem; }
+    .funni-grid { grid-template-columns: 1fr; }
+    .section-body { padding: 22px 20px; }
+  }
+
+  /* ═══════════════════════════════════════════
+     SCROLL TO TOP
+  ═══════════════════════════════════════════ */
+  .scroll-top {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    width: 44px;
+    height: 44px;
+    background: var(--teal-deep);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 999;
+  }
+
+  .scroll-top:hover { background: var(--teal-mid); }
+
+  /* highlight */
+  .hl { color: var(--teal-deep); font-weight: 700; }
+  .hl-gold { color: var(--gold); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <div class="topnav-brand">اردو امتحان تیاری</div>
+  <ul class="topnav-links">
+    <li><a href="#q1">سوال ۱ — اقتباس</a></li>
+    <li><a href="#q2">سوال ۲ — افسانہ</a></li>
+    <li><a href="#q3">سوال ۳ — نظم</a></li>
+    <li><a href="#q4">سوال ۴ — اشعار</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">فائنل امتحان — تیاری گائیڈ</div>
+  <h1>اردو امتحان تیاری</h1>
+  <p class="hero-sub">سید سعد بن عرفان<br>BS Software Engineering — Semester 3 — DCS-UBIT، جامعہ کراچی</p>
+  <div class="hero-meta">
+    <span class="hero-pill">⏱ ڈیڑھ گھنٹہ</span>
+    <span class="hero-pill">📝 چار سوالات</span>
+    <span class="hero-pill">✨ مکمل تیاری</span>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">فہرست</div>
+    <ul class="sidebar-nav">
+      <li><a href="#q1"><span class="sidebar-qnum">سوال ۱ — ۱۵ نمبر</span>سیاق و سباق کے حوالے سے اقتباس کی تشریح</a></li>
+      <li><a href="#q2"><span class="sidebar-qnum">سوال ۲ — ۱۰ نمبر</span>افسانے کا تبصرہ</a></li>
+      <li><a href="#q3"><span class="sidebar-qnum">سوال ۳ — ۱۰ نمبر</span>نظم کا تجزیہ / فنی محاسن</a></li>
+      <li><a href="#q4"><span class="sidebar-qnum">سوال ۴ — ۲۰ نمبر</span>منتخب اشعار کی تشریح</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- ══════════════════════════════════════
+         سوال ۱ — اقتباس کی تشریح
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="q1">
+      <div class="section-header">
+        <div class="section-num">۱</div>
+        <div class="section-title-wrap">
+          <span class="section-label">Question 1</span>
+          <div class="section-title">سیاق و سباق کے حوالے سے اقتباس کی تشریح کریں</div>
+        </div>
+        <div class="section-marks">۱۵ نمبر</div>
+      </div>
+      <div class="section-body">
+
+        <div class="exam-tip">
+          <span class="tip-icon">💡</span>
+          <div>
+            <span class="tip-label">امتحانی ٹِپ</span>
+            <span class="tip-text">دونوں اسباق میں سے کوئی ایک اقتباس آئے گا — دونوں کی تیاری کریں۔ اقتباس کی تشریح میں سیاق و سباق ضرور لکھیں۔ گرامر کی غلطی پر منفی نمبر ہوں گے — احتیاط لازم ہے۔</span>
+          </div>
+        </div>
+
+        <!-- سبق ۱ -->
+        <div class="sabaq-block" id="sabaq1">
+          <h2 class="sabaq-heading">سبق اوّل: سیر دوسرے درویش کی</h2>
+
+          <div class="khulasa-box">
+            <div class="khulasa-label">مکمل خلاصہ</div>
+            <p>یہ سبق <span class="hl">میر امن دہلوی</span> کی مشہور کتاب <span class="hl">"باغ و بہار"</span> سے لیا گیا ہے۔ اس کہانی میں دوسرے درویش کی اپنی زندگی کی کہانی بیان کی گئی ہے۔</p>
+            <p><strong>کہانی کا آغاز:</strong> دوسرا درویش اپنے ساتھیوں کو اپنا ماجرا سناتا ہے۔ وہ بتاتا ہے کہ وہ فارس کے بادشاہ کا بیٹا تھا۔ اس کا ملک بہت خوبصورت اور مشہور تھا — اصفہان جیسا شہر بھی وہیں تھا۔ بادشاہ نے اپنے بیٹے کی تعلیم کے لیے ہر علم و فن کے بڑے بڑے استاد مقرر کیے۔ چودہ برس کی عمر تک وہ ہر علم میں ماہر ہو گیا۔</p>
+            <p><strong>حاتم طائی کا قصہ:</strong> ایک روز ایک عالم مصاحب نے اسے حاتم طائی کا قصہ سنایا — کہ حاتم ایک عرب بادشاہ کا نوفل نامی دشمن تھا، جس نے حاتم کو پکڑوانے کے لیے فوج بھیجی۔ لیکن حاتم نے ڈرنے کے بجائے تنہا جنگل میں جانے کا فیصلہ کیا تاکہ اس کے ساتھیوں کو نقصان نہ ہو۔ حاتم کی غیرت اور سخاوت کی یہ کہانی سن کر شہزادے کے دل میں بھی سخاوت کی چاہت پیدا ہوئی۔</p>
+            <p><strong>حاتم کو ڈھونڈنے کا سفر:</strong> نوفل نے حاتم کو ڈھونڈنے کے لیے منادی کرائی کہ جو حاتم کو پکڑ لائے اسے انعام ملے گا۔ ایک بوڑھا اور اس کے بچے لکڑیاں کاٹنے جنگل میں جاتے تھے — بوڑھے نے حاتم کو جنگل میں چھپا دیکھا تھا۔ بوڑھے اور اس کی بیوی کے درمیان بات ہوئی کہ حاتم کو پکڑوا دیں تو انعام ملے گا۔ حاتم نے یہ بات سن لی۔ حاتم نے خود آ کر بوڑھے سے کہا کہ مجھے نوفل کے پاس لے جاؤ — کیونکہ وہ یہ نہیں چاہتا تھا کہ کوئی بے گناہ اس کی وجہ سے مصیبت میں پڑے۔</p>
+            <p><strong>نوفل اور حاتم کی ملاقات:</strong> جب حاتم نوفل کے سامنے آیا تو نوفل نے پوچھا کہ تمہیں کون پکڑ لایا؟ حاتم نے سچ بولا کہ میں خود آپ کے لیے چلا آیا ہوں۔ نوفل کو حاتم کی سخاوت اور بہادری پر بہت تعجب ہوا۔ نوفل نے حاتم کی ہمت اور بے نفسی سے متاثر ہو کر اسے چھوڑ دیا، اپنی قبیلے کی سرداری دی، پانچ سو اشرفیاں دیں اور دعا دے کر رخصت کیا۔</p>
+            <p><strong>فقیر کا قصہ اور سخاوت کا سبق:</strong> اس کہانی کے بعد درویش بتاتا ہے کہ اس نے ایک فقیر سے ملاقات کی۔ فقیر نے اسے سخاوت کے بارے میں سمجھایا اور بتایا کہ <span class="hl">"ص"</span> سے فاقہ، <span class="hl">"ق"</span> سے قناعت اور <span class="hl">"ر"</span> سے ریاضت نفلی — یہی سچے فقیر کی پہچان ہے۔ فقیر نے کہا کہ ایک دن کی روزی پر اکتفا کرنا چاہیے۔</p>
+            <p><strong>آخر میں:</strong> درویش اپنے سفر کے بارے میں بتاتا ہے کہ اس نے بصرے کی بادشاہ زادی کی تعریف سنی اور اسے دیکھنے کی خواہش پیدا ہوئی۔ سخاوت کا جامہ پہنایا لیکن بصرے کی بادشاہ زادی کے علاوہ کسی نے سخاوت نہیں اپنائی اس لیے وہ بصرے کی طرف روانہ ہو گیا۔</p>
+          </div>
+
+          <div class="hawala-box">
+            <div class="hawala-label">📜 حوالہ مصنف — تمام اقتباسات کے لیے</div>
+            <p><span class="hl">"سیر دوسرے درویش کی"</span> اردو کے مشہور ادیب <span class="hl">میر امن دہلوی</span> کی شہرہ آفاق تصنیف <span class="hl">"باغ و بہار"</span> سے ماخوذ ہے۔ میر امن دہلوی نے یہ کتاب <span class="hl">۱۸۰۱ء</span> میں لکھی۔ اس کتاب کو اخلاق محسنی (۱۸۰۳ء) سے بھی نسبت دی جاتی ہے۔ "باغ و بہار" اردو نثر کی ابتدائی اور اہم کتابوں میں سے ایک ہے جس میں چار درویشوں کی کہانیاں بیان کی گئی ہیں۔ اس کی زبان سادہ، روزمرہ اور دلچسپ ہے جو اردو ادب میں ایک نئی روایت کی بنیاد بنی۔</p>
+          </div>
+
+          <h3 style="font-size:1rem; color:var(--teal-deep); margin-bottom:16px; font-weight:700;">✏️ اقتباسات و تشریح</h3>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۱</span><span class="iqtibas-num-title">درویش کا آغازِ کہانی</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"اے یارو! اس فقیر کا تا مَک ماجرا سُنو! میں ابتدا سے کہتا ہوں تا انتہا سُنو! جس کا علاج کرنہیں سکتا کوئی حکیم ہے نگا ہمارا درد نیت لادوا سُنو!"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ دوسرے درویش کے ہیں جو اپنے ساتھیوں کو اپنی کہانی سنانے سے پہلے کہتا ہے۔ وہ کہتا ہے کہ اے دوستو! میری پوری کہانی شروع سے آخر تک غور سے سنو۔ میرے دل میں جو درد ہے وہ اتنا گہرا ہے کہ کوئی حکیم یا طبیب بھی اس کا علاج نہیں کر سکتا — یہ درد لاعلاج ہے۔ یہ جملے اس بات کی طرف اشارہ کرتے ہیں کہ درویش کی زندگی میں کوئی بڑا دکھ اور تکلیف آئی ہے جسے وہ دوسروں کے ساتھ بانٹنا چاہتا ہے۔ اس اقتباس میں درویش کی بے بسی اور غم کا اظہار بہت مؤثر انداز میں کیا گیا ہے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۲</span><span class="iqtibas-num-title">حاتم کی بے نفسی</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"یہ بات سوچ کر، تن تنہا اپنی جان لے کر، ایک پہاڑ کی کھوہ میں جا چھپا۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ حاتم طائی کے بارے میں ہیں۔ جب نوفل نے حاتم کو پکڑنے کے لیے فوج بھیجی تو حاتم نے سوچا کہ اگر وہ ڈٹ کر لڑا تو اس کے ساتھی بھی مریں گے اور خون خرابہ ہوگا — اور اس صورت میں خدا کے دفتر میں اس کا نام بد نام ہو گا۔ اس لیے اس نے بہادری اور دانائی کا مظاہرہ کرتے ہوئے اکیلے تنہا جنگل میں ایک پہاڑ کی غار میں چھپ جانے کا فیصلہ کیا۔ یہ اقتباس حاتم کی بے نفسی، قربانی کے جذبے اور دوسروں کی فکر کو ظاہر کرتا ہے۔ اس میں یہ سبق ہے کہ سچا بہادر وہ ہوتا ہے جو دوسروں کو بچانے کے لیے خود تکلیف اٹھائے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۳</span><span class="iqtibas-num-title">نوفل کا انصاف</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"حاتم نے اپنی ہمت کی سن کر متعجب ہوا کہ بے تیری سخاوت! اپنی جان کا بھی خطرہ نہ کیا! جتنے جھوٹے دعوے حاتم کے کرتے تھے کہ ان کی ٹنٹنیاں کس کر: پان سو اشرفی کے بدلے پان پان سے جوتیاں ان کے سر پر لگاؤ، کہ ان کی جان نکل پڑے۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ اس وقت کے ہیں جب حاتم نوفل کے پاس خود چل کر آیا۔ نوفل کو حاتم کی بے خوف سخاوت پر بہت حیرت اور تعجب ہوا۔ نوفل نے جو لوگ حاتم کے بارے میں جھوٹے دعوے کرتے تھے کہ وہ بہت سخی ہے — ان تمام جھوٹے دعوے کرنے والوں کو سزا دی اور ان کے سر پر جوتیاں مار کر رسوا کیا۔ یہ اقتباس اس بات کو واضح کرتا ہے کہ سچی سخاوت اور جھوٹی تعریف میں بہت فرق ہوتا ہے۔ نوفل نے حاتم کی اصل قدر پہچانی اور جھوٹوں کو ان کی سزا دی۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۴</span><span class="iqtibas-num-title">درد دل کا مقصد</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"درد دل کے واسطے پیدا کیا انسان کو، ورنہ طاعت کے لیے کچھ کم نہ تھے کَر و بیاں!"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ شعر اس وقت آتا ہے جب بوڑھا اور اس کی بیوی حاتم کو پکڑوانے کے بارے میں بات کر رہے تھے۔ اس شعر کا مطلب یہ ہے کہ اللہ تعالیٰ نے انسان کو محض عبادت کے لیے نہیں بنایا — اگر عبادت گزار چاہیے ہوتے تو فرشتے موجود تھے۔ انسان کو اس لیے بنایا گیا کہ وہ دوسروں کے دکھ کو سمجھے، ہمدردی کرے اور درد دل رکھے۔ جو انسان دوسروں کے درد کو نہیں سمجھتا وہ انسان نہیں بلکہ قصائی کے برابر ہے۔ یہ اقتباس انسانی ہمدردی اور درد مندی کی اہمیت کو بہت خوبصورتی سے بیان کرتا ہے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۵</span><span class="iqtibas-num-title">فقیر کا سبق</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"فاقہ سے فقر، قناعت سے قوت، ریاضتِ نفلی سے رہے تکلیف نہیں — فقیر کو کام فرما کہ ایک دن کی روزی پر اکتفا کرو۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ اس فقیر کے ہیں جس نے درویش کو سخاوت اور قناعت کا سبق سکھایا۔ فقیر نے بتایا کہ "ص" یعنی صبر — فاقہ برداشت کرنا، "ق" یعنی قناعت — تھوڑے پر راضی رہنا، اور "ر" یعنی ریاضتِ نفلی — نفس کو قابو میں رکھنا، یہی سچے فقیر کی پہچان ہے۔ فقیر نے یہ بھی کہا کہ ایک دن کی روزی پر اکتفا کرنا چاہیے — آگے کے لیے جمع کرنا لالچ ہے۔ یہ اقتباس قناعت، صبر اور سادہ زندگی گزارنے کی اہمیت کو اجاگر کرتا ہے اور درویشانہ زندگی کا اصل مفہوم سمجھاتا ہے۔</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- سبق ۲ -->
+        <div class="sabaq-block" id="sabaq2">
+          <h2 class="sabaq-heading">سبق دوم: خط غالب</h2>
+
+          <div class="khulasa-box">
+            <div class="khulasa-label">مکمل خلاصہ</div>
+            <p>یہ خط <span class="hl">مرزا اسداللہ خان غالب</span> نے <span class="hl">مرزا حاتم علی صاحب</span> کو لکھا۔ یہ <span class="hl">اوائل نومبر ۱۸۵۸ء</span> کا خط ہے۔</p>
+            <p><strong>خط کا آغاز:</strong> غالب نے خط کا آغاز اس بات سے کیا کہ میں نے لکھنے کا ایک نیا انداز ایجاد کیا ہے جس نے مراسلے کو مکالمہ بنا دیا ہے۔ یعنی خط لکھنا ایسا ہو گیا جیسے آمنے سامنے بیٹھ کر باتیں ہو رہی ہوں۔ انہوں نے کہا کہ ہزار کوس کی دوری ہو لیکن قلم کے ذریعے باتیں ہو سکتی ہیں اور جدائی میں بھی ملاقات کا مزہ لیا جا سکتا ہے۔</p>
+            <p><strong>شکایت:</strong> غالب نے مرزا حاتم علی سے شکایت کی کہ برسوں سے نہ تو ان کا خط آیا، نہ انہوں نے اپنی خیر و عافیت لکھی اور نہ ہی کتابوں کا بیورا بھیجا۔</p>
+            <p><strong>کتاب خانے کی تباہی:</strong> غالب نے بتایا کہ ان کے کلام کا مسودہ نواب ضیاء الدین خان اور نواب مرزا حسین کے پاس تھا — وہ دونوں گھر لوٹ گئے اور ہزاروں روپے کے کتاب خانے برباد ہو گئے۔</p>
+            <p><strong>ایک خوشی:</strong> اس دکھ کے ساتھ غالب نے ایک خوشی کی بات بھی لکھی کہ کئی دنوں سے ایک فقیر ہے جو بہت خوش آواز اور زمزمہ پرداز ہے — اس نے کہیں سے غالب کی ایک غزل لکھوا لائی اور وہ غزل غالب کو دکھائی۔ غالب کو یقین آ گیا کہ وہ غزل انہی کی ہے۔</p>
+            <p><strong>خط کا اختتام:</strong> غالب نے کہا کہ وہ وہ غزل مرزا حاتم علی کو بھیج رہے ہیں اور اس خط کے جواب میں صلہ یعنی بدلہ چاہتے ہیں۔</p>
+          </div>
+
+          <div class="hawala-box">
+            <div class="hawala-label">📜 حوالہ مصنف — تمام اقتباسات کے لیے</div>
+            <p>یہ خط اردو کے عظیم شاعر اور ادیب <span class="hl">مرزا اسداللہ خان غالب</span> نے لکھا۔ غالب <span class="hl">۱۷۹۷ء</span> میں آگرہ میں پیدا ہوئے اور <span class="hl">۱۸۶۹ء</span> میں دہلی میں وفات پائی۔ ان کی تصانیف میں عود ہندی، دیوان غالب، کلیات نثر اردو، قاطع برہان اور ذرفش کاویانی شامل ہیں۔ غالب نے اردو خطوط نگاری میں انقلاب برپا کیا اور مراسلے کو مکالمے میں بدل دیا۔ ان کے خطوط بے ساختہ، مختصر اور گفتگو جیسے ہیں جو اردو نثر کا قیمتی سرمایہ ہیں۔</p>
+          </div>
+
+          <h3 style="font-size:1rem; color:var(--teal-deep); margin-bottom:16px; font-weight:700;">✏️ اقتباسات و تشریح</h3>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۱</span><span class="iqtibas-num-title">غالب کا انقلابی انداز</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"میں نے وہ انداز تحریر ایجاد کیا ہے کہ مراسلے کو مکالمہ بنا دیا ہے۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ مرزا غالب نے خط کے شروع میں لکھے ہیں۔ غالب کہتے ہیں کہ انہوں نے خط لکھنے کا ایک بالکل نیا اور انوکھا انداز ایجاد کیا ہے۔ پہلے خطوط بہت رسمی، بھاری بھرکم اور تکلف بھرے ہوتے تھے۔ غالب نے خط لکھنے کو اس قدر سادہ اور بے تکلف بنا دیا کہ پڑھنے والے کو ایسا لگتا ہے جیسے غالب خود اس کے سامنے بیٹھ کر باتیں کر رہے ہوں۔ یہ جملہ غالب کی خطوط نگاری کا سب سے بڑا کارنامہ بیان کرتا ہے اور اردو نثر میں ان کے انقلابی کردار کو واضح کرتا ہے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۲</span><span class="iqtibas-num-title">قلم سے ملاقات</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"ہزار کوس سے بزبانِ قلم باتیں کرو، ہجر میں وصال کے مزے لیا کرو۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ غالب کی خطوط نگاری کا خوبصورت ترین جوہر ہیں۔ غالب کہتے ہیں کہ خط لکھنا صرف پیغام بھیجنا نہیں بلکہ یہ دور بیٹھے دوست سے قلم کے ذریعے باتیں کرنا ہے۔ ہزار میل کی دوری بھی کوئی رکاوٹ نہیں — قلم اس فاصلے کو ختم کر دیتا ہے۔ جدائی میں بھی خط کے ذریعے ملاقات کا لطف اٹھایا جا سکتا ہے۔ یہ اقتباس یہ بتاتا ہے کہ غالب کے نزدیک خط لکھنا محبت، دوستی اور تعلق کو زندہ رکھنے کا سب سے بہترین ذریعہ ہے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۳</span><span class="iqtibas-num-title">دوستانہ شکایت</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"نہ اپنی خیر و عافیت لکھی، نہ کتابوں کا بیورا بھجوایا۔ برسوں ہو گئے کہ تمہارا خط نہیں آیا۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ غالب نے مرزا حاتم علی کو شکایت کے انداز میں لکھے ہیں۔ غالب کہتے ہیں کہ برسوں سے نہ تو ان کا کوئی خط آیا، نہ انہوں نے اپنی خیریت لکھی اور نہ ہی کتابوں کی تفصیلی فہرست بھیجی۔ اس اقتباس میں غالب کا شکایتی لیکن دوستانہ اور محبت بھرا انداز نظر آتا ہے۔ وہ ناراضگی بھی اس طرح ظاہر کرتے ہیں کہ اس میں تکلف یا غصہ نہیں بلکہ قریبی دوست کی محبت بھری شکایت ہے۔ یہ غالب کے بے تکلف اور گفتگو جیسے انداز کی بہترین مثال ہے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۴</span><span class="iqtibas-num-title">فقیر اور غزل</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"کئی دن ہوئے کہ ایک فقیر کہ وہ خوش آواز بھی ہے اور زمزمہ پرداز بھی ہے، ایک غزل میری کہیں سے لکھوالایا۔ غزل تم کو بھیجتا ہوں اور صلے میں اس خط کے جواب چاہتا ہوں۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ خط کے آخری حصے سے ہیں۔ غالب بتاتے ہیں کہ کئی دنوں سے ایک خوش آواز اور گانے والا فقیر ان کے پاس آتا ہے جو کہیں سے غالب کی ایک غزل لکھوا کر لے آیا اور انہیں دکھائی۔ غالب کو یقین ہو گیا کہ یہ غزل انہی کی ہے۔ اب وہ وہ غزل مرزا حاتم علی کو بھیج رہے ہیں اور اس کے بدلے میں جواب کا تقاضا کر رہے ہیں۔ اس اقتباس میں روزمرہ کی باتوں اور شاعری کا خوبصورت امتزاج ہے۔ یہ غالب کے خطوط کا خاص انداز ہے کہ عام باتوں میں بھی ادبی رنگ شامل ہوتا ہے۔</div>
+            </div>
+          </div>
+
+          <div class="iqtibas-card">
+            <div class="iqtibas-num-bar"><span class="iqtibas-num">اقتباس ۵</span><span class="iqtibas-num-title">کتاب خانوں کی تباہی</span></div>
+            <div class="iqtibas-body">
+              <div class="iqtibas-text">"میر اکلام میرے پاس کچھ نہیں رہا۔ نواب ضیاء الدین خان اور نواب مرزا حسین جمع کرتے تھے، جو میں نے لکھ لیا۔ ان دونوں کے گھر لٹ گئے — ہزاروں روپے کے کتاب خانے برباد ہو گئے۔"</div>
+              <div class="tashreeh-label">تشریح</div>
+              <div class="tashreeh-text">یہ الفاظ غالب نے بڑے دکھ اور افسوس کے ساتھ لکھے ہیں۔ وہ بتاتے ہیں کہ ان کا اپنا کلام ان کے پاس محفوظ نہیں رہا۔ جو کچھ انہوں نے لکھا تھا وہ نواب ضیاء الدین خان اور نواب مرزا حسین کے پاس تھا — لیکن ان دونوں کے گھر لوٹ لیے گئے اور ہزاروں روپے مالیت کے کتب خانے تباہ ہو گئے۔ یہ اقتباس اس دور کے سیاسی اور سماجی حالات کی عکاسی بھی کرتا ہے جب ۱۸۵۷ء کے ہنگاموں میں دہلی میں بڑی تباہی ہوئی۔ اس میں غالب کا دکھ اور بے بسی صاف نظر آتی ہے۔</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         سوال ۲ — افسانے کا تبصرہ
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="q2">
+      <div class="section-header">
+        <div class="section-num">۲</div>
+        <div class="section-title-wrap">
+          <span class="section-label">Question 2</span>
+          <div class="section-title">افسانے کی تعریف کو ملحوظ رکھتے ہوئے تبصرہ کیجیے</div>
+        </div>
+        <div class="section-marks">۱۰ نمبر</div>
+      </div>
+      <div class="section-body">
+
+        <div class="exam-tip">
+          <span class="tip-icon">💡</span>
+          <div>
+            <span class="tip-label">امتحانی ٹِپ</span>
+            <span class="tip-text">پہلے افسانے کی مختصر تعریف لکھیں، پھر مصنف کا حوالہ، پھر تبصرہ۔ دونوں افسانوں کی تیاری کریں — کوئی ایک یا دونوں آ سکتے ہیں۔</span>
+          </div>
+        </div>
+
+        <div class="tarreef-box">
+          <div class="tarreef-label">📖 افسانے کی تعریف</div>
+          <p>افسانہ ایک ایسی تخیلی اور خیالی تحریر ہوتی ہے جو حقیقت سے قریب ہو اور ایک نشست میں پڑھی جا سکے۔ اس میں زندگی کے کسی ایک پہلو کی ترجمانی کی جاتی ہے۔ افسانے میں کردار، واقعات اور جذبات اس طرح پیش کیے جاتے ہیں کہ پڑھنے والا اپنی زندگی کی جھلک اس میں دیکھ سکے۔</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="afsana-block">
+          <h2 class="afsana-heading">افسانہ اوّل: اوور کوٹ</h2>
+          <div class="hawala-box">
+            <div class="hawala-label">📜 حوالہ مصنف</div>
+            <p>افسانہ <span class="hl">"اوور کوٹ"</span> کے مصنف <span class="hl">غلام عباس</span> ہیں۔ ان کی ولادت <span class="hl">۱۹۰۹ء</span> میں امرتسر میں ہوئی اور وفات <span class="hl">۱۹۸۲ء</span> میں کراچی میں ہوئی۔ ان کی تصانیف میں آنندی، کن رس، جاڑے کی چاندنی، دھنک، المحرا کے افسانے، جزیرہ سخنوراں اور کلیات غلام عباس شامل ہیں۔ وہ اردو افسانے کے ایک بڑے نام ہیں جنہوں نے متوسط طبقے کی نفسیات اور احساسات کو بہت خوبصورتی سے بیان کیا۔</p>
+          </div>
+          <div class="tabsira-text">
+            <p>افسانہ <strong>"اوور کوٹ"</strong> ایک نوجوان کی کہانی ہے جو جنوری کی سرد شام میں مال روڈ پر گھومتا ہے۔ یہ نوجوان خوش پوش اور فیشن ایبل نظر آتا ہے — بادامی رنگ کا گرم اوور کوٹ، گلاب کا پھول، سبز فیلٹ ہیٹ اور سفید سلک کا گلوبند پہنے ہوئے ہے۔ لیکن جب اس کے کپڑے اتارے جاتے ہیں تو اصل حقیقت سامنے آتی ہے۔</p>
+            <br>
+            <p>اس افسانے میں <strong>بیرونی دکھاوے اور اندرونی حقیقت</strong> کا تضاد بہت خوبصورتی سے دکھایا گیا ہے۔ نوجوان باہر سے امیر اور خوشحال نظر آتا ہے مگر اندر سے وہ بوسیدہ سوئٹر، الگ الگ جرابیں اور پھٹے ہوئے کپڑے پہنے ہوتا ہے۔ اس کے جسم پر میل تھی، وہ مدت سے نہایا نہیں تھا — یہ سب اس کی اصل غربت اور بے چارگی کو ظاہر کرتا ہے۔</p>
+            <br>
+            <p>نوجوان پوری شام مال روڈ پر گھومتا ہے — سینما دیکھتا ہے، موسیقی کی دکان میں جاتا ہے، ریستوران میں بیٹھتا ہے — لیکن صرف دیکھنے کے لیے، خریدنے کے لیے نہیں۔ وہ امیر لوگوں کی دنیا میں شامل ہونے کا خواب رکھتا ہے مگر اس کی اوقات اس سے کہیں کم ہے۔ ایک لڑکی سے ملاقات کا واقعہ اور اس کے بعد حادثے کا منظر کہانی کو اپنے اختتام تک لے جاتا ہے۔</p>
+            <br>
+            <p>جب نوجوان ہسپتال پہنچتا ہے تو نرسیں اس کے کپڑے اتارتی ہیں اور حقیقت کھل کر سامنے آ جاتی ہے۔ <strong>اوور کوٹ</strong> اس کی واحد عزت اور ڈھال تھا — جس نے اس کی تمام غربت چھپا رکھی تھی۔ یہ افسانہ متوسط اور غریب طبقے کی نفسیات کی عکاسی کرتا ہے کہ کس طرح لوگ اپنی بے بسی چھپانے کے لیے بیرونی دکھاوے کا سہارا لیتے ہیں۔ غلام عباس نے اس افسانے میں زندگی کے اس ایک پہلو کو اس خوبصورتی سے پیش کیا ہے کہ پڑھنے والے کے دل میں نوجوان کے لیے ہمدردی پیدا ہو جاتی ہے۔ یہ افسانہ افسانے کی تعریف پر پوری طرح پورا اترتا ہے۔</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="afsana-block">
+          <h2 class="afsana-heading">افسانہ دوم: کفن</h2>
+          <div class="hawala-box">
+            <div class="hawala-label">📜 حوالہ مصنف</div>
+            <p>افسانہ <span class="hl">"کفن"</span> کے مصنف <span class="hl">منشی پریم چند</span> ہیں۔ ان کی ولادت <span class="hl">۱۸۸۰ء</span> میں بنارس میں ہوئی اور وفات <span class="hl">۱۹۳۶ء</span> میں بنارس ہی میں ہوئی۔ ان کی تصانیف میں وارادات، سوزوطن، خواب و خیال، زاد راہ، گودان، پریم پچیسی اور پریم بتیسی شامل ہیں۔ منشی پریم چند اردو اور ہندی کے سب سے بڑے افسانہ نگار مانے جاتے ہیں جنہوں نے غریب، مظلوم اور کسان طبقے کی زندگی کو اپنے افسانوں کا موضوع بنایا۔</p>
+          </div>
+          <div class="tabsira-text">
+            <p>افسانہ <strong>"کفن"</strong> ایک ایسی تلخ اور حقیقت پر مبنی کہانی ہے جو انسانی بے حسی، غربت اور سماجی بے انصافی کو بے نقاب کرتی ہے۔</p>
+            <br>
+            <p>کہانی کے دو مرکزی کردار ہیں — <strong>گھیسو</strong> اور اس کا بیٹا <strong>مادھو</strong>۔ یہ دونوں چمار ہیں، گاؤں میں بدنام ہیں اور کام چور مشہور ہیں۔ گھیسو دن بھر کام کرنے کی بجائے آرام کرتا ہے اور مادھو بھی اسی کے نقش قدم پر چلتا ہے۔ گھر میں مٹی کے دو چار برتنوں کے سوا کچھ نہیں۔</p>
+            <br>
+            <p>کہانی اس وقت شروع ہوتی ہے جب مادھو کی <strong>نوجوان بیوی بدھیا</strong> درد زہ سے تڑپ رہی ہوتی ہے۔ باپ اور بیٹا چھپڑ کے دروازے کے پاس آلو بھون کر خاموشی سے کھاتے رہتے ہیں — عورت کی تکلیف کی طرف کوئی توجہ نہیں دیتے۔ صبح جب مادھو اندر جاتا ہے تو عورت مر چکی ہوتی ہے اور اس کے پیٹ میں بچہ بھی مر گیا ہوتا ہے۔</p>
+            <br>
+            <p>اب گاؤں والے <strong>کفن</strong> کے لیے پیسے اکٹھے کرتے ہیں۔ زمیندار بھی کچھ دیتا ہے۔ گھیسو اور مادھو کو پانچ روپے مل جاتے ہیں۔ لیکن یہ دونوں کفن لانے کی بجائے شام تک ادھر ادھر گھومتے رہتے ہیں۔ آخر وہ ایک شراب خانے کے سامنے پہنچ جاتے ہیں اور اندر چلے جاتے ہیں۔ شراب خانے میں وہ کھانا کھاتے ہیں، شراب پیتے ہیں، ناچتے گاتے ہیں اور پوری رات مستی میں گزار دیتے ہیں۔ پیسے ختم ہو جاتے ہیں — کفن نہیں آتا۔</p>
+            <br>
+            <p><strong>گھیسو</strong> اس موقع پر بڑے فلسفیانہ انداز میں کہتا ہے: <em>"ہماری آتما تو پن نہ ہو گا۔"</em> اور مادھو آسمان کی طرف دیکھ کر کہتا ہے: <em>"دنیا کا دستور ہے — یہی لوگ برہمنوں کو ہزاروں روپے دیتے ہیں، کوئی دیکھتا ہے یا نہیں۔"</em> یہ افسانہ یہ بتاتا ہے کہ غربت انسان کو اس حد تک بے حس بنا دیتی ہے کہ وہ اپنی مری ہوئی عورت کے کفن کے بارے میں بھی نہیں سوچتا۔ منشی پریم چند نے یہ دکھایا ہے کہ جس سماج میں انسان کو انسان نہ سمجھا جائے، وہاں انسانی جذبات بھی مر جاتے ہیں۔ یہ افسانہ افسانے کی تعریف پر پوری طرح پورا اترتا ہے۔</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         سوال ۳ — نظم کا تجزیہ
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="q3">
+      <div class="section-header">
+        <div class="section-num">۳</div>
+        <div class="section-title-wrap">
+          <span class="section-label">Question 3</span>
+          <div class="section-title">شاعر کے حوالے کے ساتھ نظم کا تجزیہ کیجیے / فنی محاسن بیان کیجیے</div>
+        </div>
+        <div class="section-marks">۱۰ نمبر</div>
+      </div>
+      <div class="section-body">
+
+        <div class="exam-tip">
+          <span class="tip-icon">💡</span>
+          <div>
+            <span class="tip-label">امتحانی ٹِپ</span>
+            <span class="tip-text">شاعر کا مختصر تعارف ضرور لکھیں۔ پھر نظم کا تجزیہ اور فنی محاسن — دونوں ساتھ لکھنے سے جواب مکمل اور بھرپور ہوگا۔ کوئی ایک نظم آئے گی — دونوں کی تیاری کریں۔</span>
+          </div>
+        </div>
+
+        <!-- نظم ۱ -->
+        <div class="nazm-block">
+          <h2 class="nazm-heading">نظم اوّل: انسان — علامہ اقبال</h2>
+
+          <div class="nazm-hawala">
+            <div class="nazm-hawala-label">📜 تعارفِ شاعر</div>
+            <p>نظم <span style="color:#5A3D8A;font-weight:700;">"انسان"</span> کے شاعر <span style="color:#5A3D8A;font-weight:700;">علامہ محمد اقبال</span> ہیں جنہیں <span style="color:#5A3D8A;font-weight:700;">شاعرِ مشرق</span> کہا جاتا ہے۔ یہ نظم ان کے مشہور شعری مجموعے <span style="color:#5A3D8A;font-weight:700;">"بانگِ درا"</span> سے لی گئی ہے۔ علامہ اقبال اردو اور فارسی کے عظیم شاعر ہیں جنہوں نے اپنی شاعری میں انسان کی عظمت، خودی اور فکرِ اسلامی کو موضوع بنایا۔ ان کی شاعری میں فلسفہ، حکمت اور درد دونوں ساتھ ساتھ چلتے ہیں۔</p>
+          </div>
+
+          <div class="tajzia-box">
+            <div class="tajzia-label">نظم کا تجزیہ</div>
+            <p>نظم <strong>"انسان"</strong> میں علامہ اقبال نے انسان کی عجیب اور پراسرار حالت کو بیان کیا ہے۔ نظم کا مرکزی خیال یہ ہے کہ اللہ تعالیٰ نے انسان کو راز بنایا ہے — ایک ایسا راز جو انسان خود بھی نہیں جانتا۔</p>
+            <p><strong>پہلے بند میں</strong> اقبال کہتے ہیں کہ قدرت کا یہ کتنا عجیب ستم ہے کہ انسان کو راز بنا کر اس راز کو اس کی اپنی نگاہ سے بھی چھپا دیا۔ انسان میں ذوقِ آگہی یعنی جاننے کی چاہت تو ہے مگر زندگی کا بھید کبھی کھلتا نہیں۔ زندگی کا آغاز کہاں سے ہوا اور انتہا کہاں ہوگی — یہ حیرت ہمیشہ باقی رہتی ہے۔ آئینے کے گھر میں یعنی اس دنیا میں آ کر انسان کو اور کیا ملا — بس حیرانی اور سوال۔</p>
+            <p><strong>دوسرے بند میں</strong> اقبال نے فطرت کی تصویریں کھینچی ہیں — گرم موج والا دریا بھی بحر کی طرف جا رہا ہے، بادل کو ہوا اڑائے لیے جا رہی ہے، ستارے مست ہیں، سورج پہاڑوں کے پیچھے چھپ کر پھر نکلتا ہے۔ یہ سب چیزیں اپنے اپنے راستے پر چل رہی ہیں — لیکن انسان ان سب میں بھی اپنا سکون نہیں پاتا۔</p>
+            <p><strong>آخری مصرعوں میں</strong> اقبال بڑے درد کے ساتھ کہتے ہیں: <em>"کوئی نہیں غمگسارِ انسان! کیا تلخ ہے روزگارِ انسان!"</em> یعنی انسان کا کوئی غم بانٹنے والا نہیں اور اس کی زندگی بہت تلخ ہے۔</p>
+          </div>
+
+          <div class="tajzia-box">
+            <div class="tajzia-label">فنی محاسن</div>
+            <div class="funni-grid">
+              <div class="funni-item">
+                <div class="funni-item-title">۱۔ زبان و بیان</div>
+                <p>نظم کی زبان سادہ مگر پُراثر ہے۔ اقبال نے مشکل فلسفیانہ باتوں کو آسان الفاظ میں بیان کیا ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۲۔ تشبیہات اور استعارے</div>
+                <p>دریا، بادل، ستارے اور سورج کو استعارے کے طور پر استعمال کیا گیا ہے جو انسانی زندگی کی بے ثباتی کو ظاہر کرتے ہیں۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۳۔ مرکزی خیال</div>
+                <p>نظم کا مرکزی خیال انسان کی بے بسی، حیرت اور تلخ زندگی ہے۔ اقبال نے انسان کو قدرت کا سب سے عجیب راز قرار دیا ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۴۔ جذباتی اثر</div>
+                <p>نظم کا آخری مصرع "کیا تلخ ہے روزگارِ انسان" پڑھنے والے کے دل میں ایک گہرا درد پیدا کرتا ہے اور سوچنے پر مجبور کرتا ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۵۔ ہیئت</div>
+                <p>یہ نظم آزاد نظم کے قریب ہے جس میں اقبال نے فطرت کے مناظر اور فلسفیانہ سوالات کو یکجا کیا ہے۔</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- نظم ۲ -->
+        <div class="nazm-block">
+          <h2 class="nazm-heading">نظم دوم: دلِ من مسافرِ من — فیض احمد فیض</h2>
+
+          <div class="nazm-hawala">
+            <div class="nazm-hawala-label">📜 تعارفِ شاعر</div>
+            <p>نظم <span style="color:#5A3D8A;font-weight:700;">"دلِ من مسافرِ من"</span> کے شاعر <span style="color:#5A3D8A;font-weight:700;">فیض احمد فیض</span> ہیں۔ یہ نظم حکومتِ وقت کے <span style="color:#5A3D8A;font-weight:700;">جلاوطنی کے حکم</span> کے تناظر میں لکھی گئی ہے۔ فیض احمد فیض اردو کے عظیم ترقی پسند شاعر ہیں جنہوں نے ظلم، جدائی اور محبت کو اپنی شاعری کا موضوع بنایا۔ انہوں نے اپنی زندگی میں قید اور جلاوطنی دونوں برداشت کیں اور ان تجربات نے ان کی شاعری کو بہت گہرا اور اثر انگیز بنایا۔</p>
+          </div>
+
+          <div class="tajzia-box">
+            <div class="tajzia-label">نظم کا تجزیہ</div>
+            <p>نظم <strong>"دلِ من مسافرِ من"</strong> میں فیض نے اپنے دل کو مخاطب کیا ہے۔ نظم کا مرکزی خیال <strong>جلاوطنی کا درد اور وطن سے بچھڑنے کا غم</strong> ہے۔</p>
+            <p><strong>پہلے حصے میں</strong> فیض اپنے دل سے کہتے ہیں کہ اے میرے دل، اے میرے مسافر دل — ایک بار پھر حکم آ گیا ہے کہ ہم وطن بدر کر دیے گئے ہیں۔ اب گلی گلی آوازیں دو، شہر شہر ڈھونڈو کہ شاید کسی یار کی کوئی خبر ملے، کسی پرانے دوست کا کوئی پتہ مل جائے۔ ہر اجنبی سے پوچھو کہ اپنے گھر کا کوئی نشان بتائے۔</p>
+            <p><strong>دوسرے حصے میں</strong> فیض کہتے ہیں کہ ہمیں دن کو رات کرنا ہے — یعنی مشکل حالات میں بھی گزارہ کرنا ہے۔ کبھی اس سے بات کرنی ہے، کبھی اس سے — تمہیں کیا کہوں کہ کیا ہے یعنی یہ درد بیان سے باہر ہے۔</p>
+            <p><strong>تیسرے حصے میں</strong> فیض کہتے ہیں کہ رات کا غم بری بلا ہے مگر یہ بھی غنیمت تھا کہ کوئی ہم سے شمار ہوتا۔ پھر کہتے ہیں: <em>"ہمیں کیا بُرا تھا مرنا — اگر ایک بار ہوتا!"</em> یعنی ایک بار مر جانا آسان تھا لیکن یہ بار بار کی جدائی اور تکلیف مرنے سے بھی بدتر ہے۔</p>
+          </div>
+
+          <div class="tajzia-box">
+            <div class="tajzia-label">فنی محاسن</div>
+            <div class="funni-grid">
+              <div class="funni-item">
+                <div class="funni-item-title">۱۔ زبان و بیان</div>
+                <p>فیض نے فارسی اور اردو کا خوبصورت امتزاج کیا ہے۔ "دلِ من مسافرِ من" فارسی ترکیب ہے جو نظم کو ایک خاص ادبی وقار دیتی ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۲۔ جذبات کی عکاسی</div>
+                <p>یہ نظم جلاوطنی کے ذاتی تجربے پر مبنی ہے اس لیے اس میں درد بالکل سچا اور دل کو چھونے والا ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۳۔ علامات اور استعارے</div>
+                <p>"شبِ غم" ظلم اور مشکل حالات کی علامت ہے۔ "مسافر دل" جلاوطنی اور بے گھری کی علامت ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۴۔ دہرانے کا انداز</div>
+                <p>"کبھی اس سے بات کرنا — کبھی اس سے بات کرنا" — یہ دہراؤ نظم میں ایک درد بھری موسیقیت پیدا کرتا ہے۔</p>
+              </div>
+              <div class="funni-item">
+                <div class="funni-item-title">۵۔ مرکزی خیال</div>
+                <p>جلاوطنی بار بار مرنے کے برابر ہے — ایک بار مر جانا آسان ہوتا مگر بار بار کی جدائی کا درد ناقابلِ برداشت ہے۔</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         سوال ۴ — منتخب اشعار کی تشریح
+    ══════════════════════════════════════ -->
+    <section class="section-card" id="q4">
+      <div class="section-header">
+        <div class="section-num">۴</div>
+        <div class="section-title-wrap">
+          <span class="section-label">Question 4</span>
+          <div class="section-title">شاعر کے حوالے کے ساتھ اشعار کی تشریح کیجیے</div>
+        </div>
+        <div class="section-marks">۲۰ نمبر</div>
+      </div>
+      <div class="section-body">
+
+        <div class="exam-tip">
+          <span class="tip-icon">💡</span>
+          <div>
+            <span class="tip-label">امتحانی ٹِپ</span>
+            <span class="tip-text">کوئی سے بھی <strong>چار اشعار</strong> کی تشریح کرنی ہے — وہ چنیں جو آپ کو سب سے آسان اور یاد رکھنے والے لگیں۔ ہر شعر کے ساتھ شاعر کا نام اور مختصر حوالہ ضرور لکھیں۔ ڈیڑھ گھنٹے میں وقت کا خیال رکھیں۔</span>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۱</span>
+            <span class="shair-poet">میر تقی میر</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">اشک آنکھوں میں کب نہیں آتا<br>لہو آتا ہے جب نہیں آتا</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر اردو کے عظیم شاعر <strong>میر تقی میر</strong> کی غزل کے مطلع سے لیا گیا ہے۔ میر تقی میر کو اردو شاعری میں <strong>"خدائے سخن"</strong> کہا جاتا ہے۔ وہ درد اور غم کے شاعر ہیں اور ان کی شاعری دل کی گہرائیوں سے نکلتی ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں میر کہتے ہیں کہ آنکھوں میں آنسو تو ہمیشہ آتے رہتے ہیں — درد اس قدر بڑھ گیا ہے کہ ہر وقت آنسو جاری رہتے ہیں۔ لیکن جب یہ آنسو بھی نہ آئیں تو سمجھو کہ دل کا درد اتنا شدید ہو گیا ہے کہ اب آنکھوں سے آنسو کی جگہ خون بہہ رہا ہے۔ یعنی ظاہری آنسوؤں کا تھم جانا درد کے ختم ہونے کی نہیں بلکہ <strong>کرب کی انتہا</strong> کی علامت ہے۔ یہ شعر دل کے انتہائی درد اور تکلیف کو بیان کرتا ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۲</span>
+            <span class="shair-poet">میر تقی میر</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">دل سے رخصت ہوئی کوئی خواہش<br>گریہ کچھ بے سبب نہیں آتا</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر بھی <strong>میر تقی میر</strong> کی غزل سے لیا گیا ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں میر کہتے ہیں کہ دل رو رہا ہے اور یہ رونا بے وجہ نہیں ہے۔ دل کی کوئی خواہش، کوئی آرزو، کوئی امید ہمیشہ کے لیے ختم ہو گئی ہے — اور یہ آہ و زاری اسی کا نتیجہ ہے۔ بلکہ اسی دل میں بسنے والی کسی کی موت کی خواہش بھی اس آہ و زاری کا سبب ہے۔ یعنی ہر آنسو کے پیچھے <strong>کوئی ٹوٹی ہوئی امید کا ماتم</strong> ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۳</span>
+            <span class="shair-poet">مرزا اسداللہ خان غالب</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">بازیچہ اطفال ہے دنیا مرے آگے<br>ہوتا ہے شب و روز تماشا مرے آگے</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر اردو کے عظیم شاعر <strong>مرزا اسداللہ خان غالب</strong> کا ہے۔ غالب ۱۷۹۷ء میں آگرہ میں پیدا ہوئے اور ۱۸۶۹ء میں دہلی میں وفات پائی۔ وہ اردو کے سب سے بڑے شاعروں میں شمار ہوتے ہیں۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں غالب کہتے ہیں کہ یہ دنیا ان کے نزدیک بچوں کے کھیل کی جگہ کے برابر ہے۔ دنیاوی حادثات اور مصائب کو وہ بے وقعت سمجھتے ہیں۔ ان کے نزدیک دنیا میں جو واقعات ہر روز ہوتے ہیں وہ محض ایک تماشے سے زیادہ اہمیت نہیں رکھتے — جیسے وہ ایک خاموش تماشائی کی طرح دیکھ کر محفوظ رہتے ہیں۔ یہ شعر غالب کی <strong>فلسفیانہ بے نیازی</strong> اور دنیا کی بے ثباتی کو ظاہر کرتا ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۴</span>
+            <span class="shair-poet">مرزا اسداللہ خان غالب</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">جز نام نہیں صورت عالم مجھے منظور<br>جز وہم نہیں ہستی اشیا مرے آگے</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر بھی <strong>مرزا اسداللہ خان غالب</strong> کی تخلیق ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں غالب نے <strong>وحدت الوجود</strong> کا فلسفہ بیان کیا ہے۔ وہ کہتے ہیں کہ اس دنیا کی ظاہری شکل و صورت ان کے نزدیک صرف ایک نام ہے — اس کی کوئی حقیقت نہیں۔ یہ ساری مادی دنیا محض ایک وہم اور سراب ہے۔ کائنات میں صرف ایک ذات برحق ہے اور باقی تمام چیزوں کا وجود ایک دھوکہ ہے۔ یعنی حقیقی اور مطلق وجود صرف اللہ تعالیٰ کا ہے، باقی سب کچھ فانی اور وہم ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۵</span>
+            <span class="shair-poet">حسرت موہانی</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">دیکھنا بھی توانہیں دور سے دیکھا کرنا<br>شیوہ عشق نہیں حسن کو رسوا کرنا</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر <strong>حسرت موہانی</strong> کی غزل سے لیا گیا ہے۔ حسرت موہانی اردو کے مشہور شاعر ہیں۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں شاعر کہتا ہے کہ محبت کا انداز ایسا ہونا چاہیے کہ محبوب کو دور سے دیکھا جائے اور حسن کو رسوا نہ کیا جائے۔ سچے عاشق کے نزدیک عزت، نرمی اور وقار کا خیال رکھنا اصل محبت کا شیوہ ہے۔ محبت میں محبوب کی عزت اور آبرو کا خیال رکھنا ضروری ہے — محبوب کو ذلیل یا بدنام کرنا محبت نہیں بلکہ اس کے خلاف ہے۔ یہ شعر <strong>محبت کے اعلیٰ ترین آداب</strong> کو بیان کرتا ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۶</span>
+            <span class="shair-poet">علامہ اقبال</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">ظاہر کی آنکھ سے نہ تماشا کرے کوئی<br>ہو دیکھنا تو دیدہ دل وا کرے کوئی</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر <strong>علامہ محمد اقبال</strong> کا ہے جنہیں <strong>شاعرِ مشرق</strong> کہا جاتا ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں اقبال کا پیغام ہے کہ اس کائنات کو محض جسمانی آنکھوں سے سطحی طور پر دیکھنے کا کوئی فائدہ نہیں۔ ظاہری آنکھ صرف دنیاوی اور سطحی نگاہ رکھتی ہے۔ اگر حقیقت، کائنات اور ذاتِ الٰہی کو پانے کا مقصد ہو تو انسان کو اپنی <strong>باطنی بصیرت اور روحانی نظر</strong> کو بیدار کرنا ہوگا — یعنی دیدہ دل کھولنا ہوگا۔ ظاہری آنکھ سے دیکھنا بے سود ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۷</span>
+            <span class="shair-poet">علامہ اقبال</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">اڑ بیٹھے کیا سمجھ کے بھلا طور پر کلیم<br>طاقت ہو دید کی تو تقاضا کرے کوئی</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر بھی <strong>علامہ اقبال</strong> کا ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں اقبال حضرت موسیٰ علیہ السلام کے واقعے کا حوالہ دیتے ہیں۔ حضرت موسیٰ علیہ السلام کوہِ طور پر خدا کا جلوہ دیکھنے کی ضد میں بیٹھے تھے اور وہ اس جلوے کی تجلی برداشت نہ کر سکے اور بے ہوش ہو گئے۔ اقبال طنزیہ انداز میں کہتے ہیں کہ جب خدا کا جلوہ دیکھنے کی طاقت ہی نہیں تھی تو طور پر جا کر تقاضا کیوں کیا؟ یعنی <strong>پہلے روحانی طاقت اور خودی پیدا کرو</strong> — پھر اللہ کے دیدار کی خواہش کرو۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۸</span>
+            <span class="shair-poet">ناصر کاظمی</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">وہ دل نواز ہے لیکن نظرشناس نہیں<br>مرا علاج مرے چارہ گر کے پاس نہیں</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر <strong>ناصر کاظمی</strong> کی غزل سے لیا گیا ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں شاعر کہتا ہے کہ میرا محبوب بظاہر مہربان اور دل نواز ہے — لیکن وہ آنکھوں کے پیچھے چھپے اصل دل کی کیفیت پہچاننے کی صلاحیت سے محروم ہے۔ جب طبیب ہی اصل بیماری یعنی دلی کیفیت سے ناواقف ہو تو علاج کیسے ممکن ہے؟ یہ ایک انداز سے نظرانداز کیے گئے وجود کا نوحہ ہے۔ یعنی <strong>محبوب قریب ہے مگر درد سمجھنے والا نہیں۔</strong></div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۹</span>
+            <span class="shair-poet">خواجہ حیدر علی آتش</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">مری طرح سے مہ و مہر بھی ہیں آوارہ<br>کسی حبیب کی یہ بھی ہیں جستجو کرتے</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر <strong>خواجہ حیدر علی آتش</strong> کی غزل سے لیا گیا ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں شاعر کہتا ہے کہ میری طرح چاند اور سورج بھی آوارہ پھرتے ہیں — یہ محض طبیعی عمل نہیں بلکہ یہ بھی کسی محبوب کی تلاش اور جستجو میں سرگرداں ہیں۔ شاعر نے اپنے ذاتی عشق کو کائنات کی وسعتوں سے جوڑ دیا ہے۔ اس کا یہ مطلب بھی ہے کہ <strong>عشق صرف انسان کا خاصہ نہیں</strong> بلکہ کائنات کا ہر ذرہ جستجو اور کشش کے قانون کے تحت حرکت میں ہے۔</div>
+          </div>
+        </div>
+
+        <div class="shair-card">
+          <div class="shair-header">
+            <span class="shair-num">شعر ۱۰</span>
+            <span class="shair-poet">ادا جعفری</span>
+          </div>
+          <div class="shair-body">
+            <div class="shair-text">کیا راہ بدلنے کا گلہ ہم سفروں سے<br>جس رہ سے چلے تیرے دروبام ہی آئے</div>
+            <div class="hawala-shair">
+              <div class="hawala-shair-label">حوالہ</div>
+              <p>یہ شعر <strong>ادا جعفری</strong> کی تخلیق ہے۔</p>
+            </div>
+            <div class="tashreeh-shair-label">تشریح</div>
+            <div class="tashreeh-shair-text">اس شعر میں شاعرہ کہتی ہیں کہ ساتھ چلنے والوں سے راستہ بدلنے کا کیا شکوہ کریں — کیونکہ ہم جس راستے پر بھی چلے، ہمیں اپنے محبوب کے گھر کے دروازے اور چھت ہی ملتے آئے۔ یعنی عشق میں <strong>ہر راستہ محبوب تک پہنچاتا ہے</strong> — منزل غیر مستقیم ہو سکتی ہے مگر عزم پختہ ہو تو محبوب کا در مل ہی جاتا ہے۔</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <strong>سید سعد بن عرفان</strong>
+  <div class="footer-divider"></div>
+  <div>BS Software Engineering — Semester 3</div>
+  <div>DCS-UBIT، جامعہ کراچی</div>
+  <div style="margin-top:12px; font-size:13px; color:rgba(255,255,255,0.6);">اردو فائنل امتحان تیاری گائیڈ — ۲۰۲۶</div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="اوپر جائیں">↑</button>
+
+</body>
+</html>
