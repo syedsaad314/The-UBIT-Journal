@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DLD Final Exam — Exam-Length Answers</title>
+<style>
+  :root{--teal-dark:#1B4F57;--teal:#2A7A87;--teal-light:#E8F3F4;--bg:#FAFCFC;--text:#1c2a2c;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;}
+  header{background:linear-gradient(135deg,var(--teal-dark),var(--teal));color:#fff;padding:26px 24px 22px;}
+  header h1{margin:0 0 4px;font-size:1.5rem;}
+  header p{margin:0;opacity:.9;font-size:.9rem;}
+  nav{position:sticky;top:0;z-index:50;background:var(--teal-dark);padding:8px 12px;display:flex;flex-wrap:wrap;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+  nav a{color:#fff;text-decoration:none;font-size:.82rem;padding:6px 11px;border-radius:18px;background:rgba(255,255,255,.12);}
+  nav a:hover{background:var(--teal);}
+  main{max-width:880px;margin:0 auto;padding:16px 16px 50px;}
+  section{background:#fff;border:1px solid #dbe9ea;border-radius:10px;padding:16px 20px;margin:16px 0;box-shadow:0 2px 8px rgba(27,79,87,.05);}
+  section h2{color:var(--teal-dark);border-bottom:2px solid var(--teal-light);padding-bottom:7px;margin-top:0;font-size:1.2rem;}
+  h3.part{color:var(--teal);font-size:1rem;margin:16px 0 6px;padding:5px 10px;background:var(--teal-light);border-left:4px solid var(--teal);border-radius:4px;}
+  h4.sub{color:var(--teal-dark);margin:10px 0 4px;font-size:.92rem;}
+  .tip{background:#fff8e6;border-left:3px solid #e0a900;padding:6px 10px;border-radius:5px;font-size:.82rem;margin:8px 0;}
+  .example{background:var(--teal-light);border:1px dashed var(--teal);border-radius:7px;padding:10px 12px;margin:8px 0;}
+  .example .ex-title{font-weight:600;color:var(--teal-dark);margin-bottom:4px;font-size:.9rem;}
+  table{border-collapse:collapse;width:100%;margin:8px 0;font-size:.83rem;}
+  th,td{border:1px solid #b9d4d6;padding:4px 8px;text-align:center;}
+  th{background:var(--teal-dark);color:#fff;}
+  tr:nth-child(even){background:#f2f9f9;}
+  .kmap td{width:40px;height:32px;font-weight:600;}
+  ol,ul{padding-left:20px;margin:6px 0;}
+  li{margin:2px 0;}
+  code,.mono{font-family:Consolas,Menlo,monospace;background:#eef6f6;padding:1px 5px;border-radius:4px;}
+  .step{margin:3px 0;font-size:.92rem;}
+  .step b{color:var(--teal-dark);}
+  .diagram-box{background:#fff;border:1px solid #cfe4e5;border-radius:7px;padding:8px;text-align:center;margin:8px 0;overflow-x:auto;}
+  .diagram-box svg{max-width:100%;height:auto;}
+  .footer-note{text-align:center;color:#5b7679;font-size:.82rem;padding:16px;}
+  .qbadge{display:inline-block;background:var(--teal);color:#fff;border-radius:6px;padding:2px 9px;font-size:.78rem;margin-right:6px;}
+  p{margin:6px 0;font-size:.93rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>DLD Final — Exam-Length Answers</h1>
+  <p>Trimmed to what you can realistically write in ~25–30 min per question. Attempt any 5 of 6.</p>
+</header>
+
+<nav>
+  <a href="#q1">Q1</a><a href="#q2">Q2</a><a href="#q3">Q3</a><a href="#q4">Q4</a><a href="#q5">Q5</a><a href="#q6">Q6</a>
+</nav>
+
+<svg width="0" height="0" style="position:absolute">
+<defs>
+  <symbol id="andgate" viewBox="0 0 44 40"><path d="M0,0 L20,0 A20,20 0 0 1 20,40 L0,40 Z" fill="#fff" stroke="#1B4F57" stroke-width="2"/></symbol>
+  <symbol id="orgate" viewBox="0 0 44 40"><path d="M0,0 Q15,20 0,40 Q30,38 42,20 Q30,2 0,0 Z" fill="#fff" stroke="#1B4F57" stroke-width="2"/></symbol>
+  <symbol id="notgate" viewBox="0 0 44 40"><path d="M0,0 L0,40 L35,20 Z" fill="#fff" stroke="#1B4F57" stroke-width="2"/><circle cx="39" cy="20" r="4" fill="#fff" stroke="#1B4F57" stroke-width="2"/></symbol>
+  <symbol id="nandgate" viewBox="0 0 48 40"><path d="M0,0 L20,0 A20,20 0 0 1 20,40 L0,40 Z" fill="#fff" stroke="#1B4F57" stroke-width="2"/><circle cx="44" cy="20" r="4" fill="#fff" stroke="#1B4F57" stroke-width="2"/></symbol>
+  <symbol id="norgate" viewBox="0 0 48 40"><path d="M0,0 Q15,20 0,40 Q30,38 42,20 Q30,2 0,0 Z" fill="#fff" stroke="#1B4F57" stroke-width="2"/><circle cx="46" cy="20" r="4" fill="#fff" stroke="#1B4F57" stroke-width="2"/></symbol>
+</defs>
+</svg>
+
+<main>
+
+<!-- Q1 -->
+<section id="q1">
+<h2><span class="qbadge">Q1</span>Digital Signal, Circuit Components & Triggering</h2>
+
+<h3 class="part">(a) Digital Signal + Basic Components</h3>
+<p><b>Digital signal:</b> a signal that carries information as a sequence of discrete values (usually two levels, 0 and 1), each corresponding to a fixed voltage range, unlike an analog signal which varies continuously.</p>
+<p><b>Basic components of a digital circuit:</b></p>
+<ol>
+<li>Logic Gates (AND, OR, NOT, NAND, NOR, XOR)</li>
+<li>Flip-Flops / Latches (memory element, 1 bit)</li>
+<li>Registers (group of flip-flops)</li>
+<li>Counters (count clock pulses)</li>
+<li>Multiplexers / Demultiplexers</li>
+<li>Encoders / Decoders</li>
+<li>Clock / timing source</li>
+</ol>
+
+<h3 class="part">(b) Four Clock Triggering Methods</h3>
+<p><b>1. Positive Edge Triggering:</b> flip-flop responds only at the 0→1 transition of clock. Symbol: arrowhead, no bubble.</p>
+<p><b>2. Negative Edge Triggering:</b> responds only at the 1→0 transition. Symbol: arrowhead + bubble.</p>
+<p><b>3. Positive Level Triggering:</b> flip-flop stays active/transparent the whole time clock = 1. No arrowhead.</p>
+<p><b>4. Negative Level Triggering:</b> stays active the whole time clock = 0. Bubble, no arrowhead.</p>
+</section>
+
+<!-- Q2 -->
+<section id="q2">
+<h2><span class="qbadge">Q2</span>Logic Diagram, Boolean Algebra & K-Map</h2>
+<div class="tip">No expression was given in the original paper, so one exam-style example is solved for each part.</div>
+
+<h3 class="part">(a) Draw the Logic Diagram</h3>
+<div class="example">
+<div class="ex-title">F = A.B + C</div>
+<p>AND gate combines A, B → then OR gate combines that result with C.</p>
+<div class="diagram-box">
+<svg viewBox="0 0 300 140" width="360">
+  <text x="10" y="35" font-size="13">A</text><line x1="25" y1="30" x2="80" y2="30" stroke="#1B4F57" stroke-width="2"/>
+  <text x="10" y="75" font-size="13">B</text><line x1="25" y1="70" x2="80" y2="70" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="80" y="30" width="44" height="40"/>
+  <line x1="124" y1="50" x2="170" y2="50" stroke="#1B4F57" stroke-width="2"/>
+  <text x="10" y="115" font-size="13">C</text><line x1="25" y1="110" x2="170" y2="110" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="170" y1="50" x2="170" y2="60" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="170" y1="110" x2="170" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#orgate" x="170" y="60" width="44" height="40"/>
+  <line x1="212" y1="80" x2="260" y2="80" stroke="#1B4F57" stroke-width="2"/>
+  <text x="264" y="84" font-size="13" font-weight="bold">F</text>
+</svg>
+</div>
+</div>
+
+<h3 class="part">(b) Simplify / Prove using Boolean Algebra</h3>
+<div class="example">
+<div class="ex-title">Simplify: F = AB + AB' + A'B</div>
+<div class="step">F = A(B+B') + A'B &nbsp;<i>(common factor A)</i></div>
+<div class="step">F = A(1) + A'B &nbsp;<i>(B+B'=1)</i></div>
+<div class="step">F = A + A'B &nbsp;<i>(Identity)</i></div>
+<div class="step">F = A + B &nbsp;<i>(Absorption: A+A'B = A+B)</i></div>
+<div class="step"><b>Final: F = A + B</b></div>
+</div>
+
+<h3 class="part">(c) Truth Table → SOP → K-Map → Simplify</h3>
+<div class="example">
+<div class="ex-title">F(A,B,C,D) = Σm(0,1,2,3,8,9,10,11)</div>
+
+<table>
+<tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+</table>
+
+<p><b>SOP:</b> F = A'B'C'D' + A'B'C'D + A'B'CD' + A'B'CD + AB'C'D' + AB'C'D + AB'CD' + AB'CD</p>
+
+<p><b>K-Map</b> (rows AB, cols CD, order 00-01-11-10):</p>
+<table class="kmap">
+<tr><th>AB＼CD</th><th>00</th><th>01</th><th>11</th><th>10</th></tr>
+<tr><th>00</th><td style="background:#c9ecec;">1</td><td style="background:#c9ecec;">1</td><td style="background:#c9ecec;">1</td><td style="background:#c9ecec;">1</td></tr>
+<tr><th>01</th><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>11</th><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><th>10</th><td style="background:#c9ecec;">1</td><td style="background:#c9ecec;">1</td><td style="background:#c9ecec;">1</td><td style="background:#c9ecec;">1</td></tr>
+</table>
+<p>Top row + bottom row (AB=00 & AB=10) group as one octet (rows wrap top-bottom). B=0 throughout the group; A, C, D all vary → drop out.</p>
+<p><b>Final: F = B'</b></p>
+</div>
+</section>
+
+<!-- Q3 -->
+<section id="q3">
+<h2><span class="qbadge">Q3</span>Comparisons & De Morgan's Laws</h2>
+
+<h3 class="part">(a) Differences</h3>
+<table>
+<tr><th>EPROM</th><th>EEPROM</th></tr>
+<tr><td>Erased using UV light</td><td>Erased electrically</td></tr>
+<tr><td>Must be removed to erase</td><td>Erasable in-circuit</td></tr>
+<tr><td>Whole chip erased at once</td><td>Byte-level erase possible</td></tr>
+</table>
+<table>
+<tr><th>Combinational Circuit</th><th>Sequential Circuit</th></tr>
+<tr><td>Output depends only on present input</td><td>Output depends on present input + past state</td></tr>
+<tr><td>No memory element</td><td>Has memory (flip-flops)</td></tr>
+<tr><td>No clock needed</td><td>Usually clock-driven</td></tr>
+</table>
+<table>
+<tr><th>RAM</th><th>ROM</th></tr>
+<tr><td>Volatile</td><td>Non-volatile</td></tr>
+<tr><td>Read + Write</td><td>Read-only (special write)</td></tr>
+<tr><td>Temporary storage</td><td>Permanent storage</td></tr>
+</table>
+<table>
+<tr><th>Level Triggering</th><th>Edge Triggering</th></tr>
+<tr><td>Active for full clock level duration</td><td>Active only at the transition instant</td></tr>
+<tr><td>Can suffer race-around condition</td><td>Free of race-around problem</td></tr>
+<tr><td>No arrowhead symbol</td><td>Arrowhead symbol</td></tr>
+</table>
+
+<h3 class="part">(b) De Morgan's Laws</h3>
+<p><b>Law 1:</b> (A.B)' = A' + B' &nbsp;&nbsp; <b>Law 2:</b> (A+B)' = A'.B'</p>
+<p><b>Verify Law 1:</b></p>
+<table>
+<tr><th>A</th><th>B</th><th>(AB)'</th><th>A'+B'</th></tr>
+<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+</table>
+<p>Columns match in every row → (AB)' = A' + B' verified.</p>
+<div class="diagram-box">
+<svg viewBox="0 0 480 140" width="480">
+  <text x="0" y="20" font-size="11" fill="#1B4F57" font-weight="bold">(A.B)'</text>
+  <text x="20" y="45" font-size="12">A</text><line x1="32" y1="40" x2="80" y2="40" stroke="#1B4F57" stroke-width="2"/>
+  <text x="20" y="85" font-size="12">B</text><line x1="32" y1="80" x2="80" y2="80" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#nandgate" x="80" y="40" width="48" height="40"/>
+  <line x1="128" y1="60" x2="160" y2="60" stroke="#1B4F57" stroke-width="2"/>
+
+  <text x="260" y="20" font-size="11" fill="#1B4F57" font-weight="bold">A' + B'</text>
+  <text x="260" y="45" font-size="12">A</text><line x1="272" y1="40" x2="300" y2="40" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#notgate" x="300" y="20" width="36" height="40"/>
+  <line x1="336" y1="40" x2="360" y2="40" stroke="#1B4F57" stroke-width="2"/>
+  <text x="260" y="105" font-size="12">B</text><line x1="272" y1="100" x2="300" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#notgate" x="300" y="80" width="36" height="40"/>
+  <line x1="336" y1="100" x2="360" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="360" y1="40" x2="360" y2="55" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="360" y1="100" x2="360" y2="85" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#orgate" x="360" y="55" width="44" height="40"/>
+  <line x1="404" y1="75" x2="430" y2="75" stroke="#1B4F57" stroke-width="2"/>
+</svg>
+</div>
+</section>
+
+<!-- Q4 -->
+<section id="q4">
+<h2><span class="qbadge">Q4</span>Not Confirmed — Quick Backup Notes</h2>
+<div class="tip">Q4 wasn't recalled by the student. Quick-glance backups, most likely of these topics.</div>
+<p><b>JK Flip-Flop:</b> fixes SR's invalid state. J=K=1 → toggles output (Q→Q'). Truth table: 00=Hold, 01=Reset, 10=Set, 11=Toggle.</p>
+<p><b>Half Adder:</b> Sum=A⊕B, Carry=AB. <b>Full Adder:</b> Sum=A⊕B⊕Cin, Carry-out=AB+Cin(A⊕B).</p>
+<p><b>Sync vs Async Counter:</b> Async = ripple, each FF clocked by previous FF's output (delay builds up). Sync = all FFs share same clock (change together, faster).</p>
+<p><b>Code conversion:</b> BCD = 4-bit code per decimal digit. Excess-3 = BCD + 0011. Gray code = adjacent values differ by only 1 bit.</p>
+</section>
+
+<!-- Q5 -->
+<section id="q5">
+<h2><span class="qbadge">Q5</span>Simplification + SR Flip-Flop</h2>
+
+<h3 class="part">(a) Simplify + Draw Logic Diagram</h3>
+<div class="example">
+<div class="ex-title">F = A'BC + AB'C + ABC' + ABC</div>
+<div class="step">Repeat ABC (Idempotent Law) to pair with each term:</div>
+<div class="step">F = BC(A'+A) + AC(B'+B) + AB(C'+C)</div>
+<div class="step">F = BC(1) + AC(1) + AB(1)</div>
+<div class="step"><b>F = AB + AC + BC</b> (majority function)</div>
+<div class="diagram-box">
+<svg viewBox="0 0 380 190" width="380">
+  <text x="10" y="35" font-size="12">A</text><line x1="22" y1="30" x2="70" y2="30" stroke="#1B4F57" stroke-width="2"/>
+  <text x="10" y="65" font-size="12">B</text><line x1="22" y1="60" x2="70" y2="60" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="70" y="20" width="44" height="40"/>
+  <text x="10" y="105" font-size="12">A</text><line x1="22" y1="100" x2="70" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <text x="10" y="135" font-size="12">C</text><line x1="22" y1="130" x2="70" y2="130" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="70" y="90" width="44" height="40"/>
+  <text x="10" y="175" font-size="12">B</text><line x1="22" y1="170" x2="70" y2="170" stroke="#1B4F57" stroke-width="2"/>
+  <text x="10" y="200" font-size="12">C</text><line x1="22" y1="196" x2="70" y2="196" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="70" y="160" width="44" height="40"/>
+  <line x1="114" y1="40" x2="180" y2="40" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="114" y1="110" x2="150" y2="110" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="180" y1="40" x2="180" y2="50" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="150" y1="110" x2="150" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="150" y1="100" x2="180" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#orgate" x="180" y="50" width="44" height="40"/>
+  <line x1="224" y1="70" x2="260" y2="70" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="114" y1="180" x2="240" y2="180" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="260" y1="70" x2="260" y2="140" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="240" y1="180" x2="240" y2="160" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="240" y1="160" x2="260" y2="160" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#orgate" x="260" y="120" width="44" height="40"/>
+  <line x1="304" y1="140" x2="340" y2="140" stroke="#1B4F57" stroke-width="2"/>
+  <text x="344" y="144" font-size="13" font-weight="bold">F</text>
+</svg>
+</div>
+</div>
+
+<h3 class="part">(b) SR Flip-Flop using NOR Gates</h3>
+<div class="diagram-box">
+<svg viewBox="0 0 380 210" width="380">
+  <text x="6" y="45" font-size="12">S</text><line x1="18" y1="40" x2="80" y2="40" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#norgate" x="80" y="20" width="48" height="40"/>
+  <line x1="128" y1="40" x2="300" y2="40" stroke="#1B4F57" stroke-width="2"/>
+  <text x="304" y="44" font-size="13" font-weight="bold">Q</text>
+  <text x="6" y="165" font-size="12">R</text><line x1="18" y1="160" x2="80" y2="160" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#norgate" x="80" y="140" width="48" height="40"/>
+  <line x1="128" y1="160" x2="300" y2="160" stroke="#1B4F57" stroke-width="2"/>
+  <text x="304" y="164" font-size="13" font-weight="bold">Q'</text>
+  <line x1="230" y1="40" x2="230" y2="150" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="230" y1="150" x2="80" y2="150" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="250" y1="160" x2="250" y2="30" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="250" y1="30" x2="80" y2="30" stroke="#1B4F57" stroke-width="2"/>
+</svg>
+</div>
+<p>Top gate: NOR(R, Q') → Q. Bottom gate: NOR(S, Q) → Q'.</p>
+<table>
+<tr><th>S</th><th>R</th><th>Q(next)</th><th>State</th></tr>
+<tr><td>0</td><td>0</td><td>Q (hold)</td><td>No change</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>Set</td></tr>
+<tr><td>0</td><td>1</td><td>0</td><td>Reset</td></tr>
+<tr><td>1</td><td>1</td><td>Invalid</td><td>Forbidden (Q=Q')</td></tr>
+</table>
+</section>
+
+<!-- Q6 -->
+<section id="q6">
+<h2><span class="qbadge">Q6</span>Complex Simplification & Conversions</h2>
+
+<h3 class="part">(a) Simplify + Draw Logic Diagram</h3>
+<div class="example">
+<div class="ex-title">F = [(A.B)' + C].D</div>
+<div class="step">(A.B)' = A' + B' &nbsp;<i>(De Morgan)</i></div>
+<div class="step">F = (A' + B' + C).D</div>
+<div class="step">F = A'D + B'D + CD &nbsp;<i>(Distribute D)</i></div>
+<div class="step"><b>Final: F = A'D + B'D + CD</b></div>
+<div class="diagram-box">
+<svg viewBox="0 0 420 220" width="420">
+  <text x="4" y="25" font-size="11">A</text><line x1="14" y1="20" x2="50" y2="20" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#notgate" x="50" y="0" width="36" height="40"/>
+  <line x1="86" y1="20" x2="120" y2="20" stroke="#1B4F57" stroke-width="2"/>
+  <text x="4" y="55" font-size="11">D</text><line x1="14" y1="50" x2="120" y2="50" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="120" y="10" width="44" height="40"/>
+  <line x1="164" y1="30" x2="330" y2="30" stroke="#1B4F57" stroke-width="2"/>
+  <text x="4" y="95" font-size="11">B</text><line x1="14" y1="90" x2="50" y2="90" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#notgate" x="50" y="70" width="36" height="40"/>
+  <line x1="86" y1="90" x2="120" y2="90" stroke="#1B4F57" stroke-width="2"/>
+  <text x="4" y="125" font-size="11">D</text><line x1="14" y1="120" x2="120" y2="120" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="120" y="80" width="44" height="40"/>
+  <line x1="164" y1="100" x2="200" y2="100" stroke="#1B4F57" stroke-width="2"/>
+  <text x="4" y="165" font-size="11">C</text><line x1="14" y1="160" x2="120" y2="160" stroke="#1B4F57" stroke-width="2"/>
+  <text x="4" y="195" font-size="11">D</text><line x1="14" y1="190" x2="120" y2="190" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#andgate" x="120" y="150" width="44" height="40"/>
+  <line x1="164" y1="170" x2="330" y2="170" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="200" y1="30" x2="200" y2="90" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="330" y1="30" x2="330" y2="45" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="200" y1="100" x2="200" y2="90" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#orgate" x="330" y="45" width="44" height="40"/>
+  <line x1="200" y1="90" x2="264" y2="90" stroke="#1B4F57" stroke-width="2"/>
+  <use href="#orgate" x="264" y="70" width="44" height="40"/>
+  <line x1="308" y1="90" x2="330" y2="90" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="330" y1="170" x2="330" y2="105" stroke="#1B4F57" stroke-width="2"/>
+  <line x1="374" y1="65" x2="410" y2="65" stroke="#1B4F57" stroke-width="2"/>
+  <text x="414" y="69" font-size="13" font-weight="bold">F</text>
+</svg>
+</div>
+</div>
+
+<h3 class="part">(b) Number System Conversions</h3>
+<p><b>1. Decimal→Binary:</b> 156÷2 repeatedly → remainders (bottom-up): <span class="mono">10011100</span> → <b>156₁₀ = 10011100₂</b></p>
+<p><b>2. Binary→Decimal:</b> 11010101₂ = 128+64+16+4+1 = <b>213₁₀</b></p>
+<p><b>3. Decimal→Octal:</b> 156÷8 repeatedly → remainders: 4,3,2 → <b>156₁₀ = 234₈</b></p>
+<p><b>4. Decimal→Hex:</b> 156÷16 repeatedly → remainders: C,9 → <b>156₁₀ = 9C₁₆</b></p>
+<p><b>5. Hex→Binary:</b> 9→1001, C→1100 → <b>9C₁₆ = 10011100₂</b></p>
+</section>
+
+</main>
+<div class="footer-note">Realistic exam pacing: keep each answer to what's above — show the working, skip the commentary.</div>
+</body>
+</html>
