@@ -1,0 +1,3152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRE SE-453 | Complete Exam Preparation Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --deep: #0d1117;
+    --dark: #161b22;
+    --card: #1e2a3a;
+    --border: #2d3f55;
+    --accent: #f0a500;
+    --gold: #ffd166;
+    --green: #06d6a0;
+    --red: #ef476f;
+    --blue: #118ab2;
+    --purple: #9b5de5;
+    --text: #e8edf3;
+    --muted: #8b9ab0;
+    --diagram-bg: #0a1628;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: linear-gradient(135deg, #0a1628 0%, #1a2740 50%, #0d1117 100%);
+    border-bottom: 3px solid var(--accent);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(240,165,0,0.08) 0%, transparent 60%);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .hero .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin: 4px;
+  }
+  .hero .badge.red { background: var(--red); color: #fff; }
+  .hero .badge.green { background: var(--green); color: #000; }
+
+  /* ── EXAM STRATEGY BOX ── */
+  .strategy-box {
+    background: linear-gradient(135deg, #1a2f1a, #0d2018);
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    padding: 30px 36px;
+    margin: 30px 40px;
+  }
+  .strategy-box h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--green);
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .strat-card {
+    background: rgba(6,214,160,0.07);
+    border: 1px solid rgba(6,214,160,0.3);
+    border-radius: 8px;
+    padding: 16px 20px;
+  }
+  .strat-card h4 { color: var(--green); font-size: 0.95rem; margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; }
+  .strat-card p { font-size: 0.88rem; color: #b8d4c8; line-height: 1.6; }
+
+  /* ── MAIN LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 40px 80px; }
+
+  /* ── WEEK HEADER ── */
+  .week-block {
+    margin: 50px 0 0;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+  .week-header {
+    padding: 22px 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+  }
+  .week-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(0,0,0,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .week-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #fff;
+  }
+  .week-body { background: var(--dark); padding: 36px; }
+
+  /* Week colour themes */
+  .w1 .week-header { background: linear-gradient(90deg, #1a1a3e, #2d1b69); }
+  .w2 .week-header { background: linear-gradient(90deg, #1a2f1a, #0d3825); }
+  .w3 .week-header { background: linear-gradient(90deg, #2a1a10, #4a2c10); }
+  .w4 .week-header { background: linear-gradient(90deg, #1a1f2e, #1e3a5f); }
+  .w5 .week-header { background: linear-gradient(90deg, #2a1020, #5c1a3a); }
+  .w6 .week-header { background: linear-gradient(90deg, #10202a, #1a4040); }
+  .w7 .week-header { background: linear-gradient(90deg, #1e1a10, #4a3a10); }
+  .w9 .week-header { background: linear-gradient(90deg, #0d1f1f, #1a3d3d); }
+  .w10 .week-header { background: linear-gradient(90deg, #1f0d2a, #3d1a5c); }
+  .w11 .week-header { background: linear-gradient(90deg, #1a0d10, #3d1a20); }
+  .w12 .week-header { background: linear-gradient(90deg, #101a1a, #1a3a3a); }
+  .w13 .week-header { background: linear-gradient(90deg, #0d1a10, #1a3d20); }
+
+  /* ── TOPIC SECTIONS ── */
+  .topic { margin: 28px 0; }
+  .topic h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--gold);
+    border-left: 4px solid var(--accent);
+    padding-left: 14px;
+    margin-bottom: 14px;
+  }
+  .topic h4 {
+    font-size: 1rem;
+    color: var(--blue);
+    margin: 18px 0 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+  }
+  .topic p { color: #c8d8e8; margin-bottom: 10px; }
+  .topic ul, .topic ol { margin-left: 22px; color: #c8d8e8; margin-bottom: 10px; }
+  .topic li { margin-bottom: 5px; }
+
+  /* ── DIAGRAM BOX ── */
+  .diagram {
+    background: var(--diagram-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin: 18px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: #a0c4e8;
+    white-space: pre;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+  .diagram-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  /* ── Q&A SECTION ── */
+  .qa-section { margin: 30px 0; }
+  .qa-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+  .qa-header.mcq { background: rgba(155,93,229,0.2); color: var(--purple); border: 1px solid var(--purple); }
+  .qa-header.short { background: rgba(17,138,178,0.2); color: #4fc3f7; border: 1px solid #4fc3f7; }
+  .qa-header.situation { background: rgba(240,165,0,0.15); color: var(--gold); border: 1px solid var(--accent); }
+
+  .q-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 14px 0;
+    position: relative;
+  }
+  .q-item .q-text {
+    color: #e0ecf8;
+    font-size: 0.97rem;
+    margin-bottom: 10px;
+  }
+  .q-item .q-label {
+    position: absolute;
+    top: -10px;
+    left: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    background: var(--card);
+    padding: 2px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  /* MCQ options */
+  .mcq-options { margin: 10px 0; }
+  .mcq-opt {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 7px 12px;
+    border-radius: 6px;
+    margin: 4px 0;
+    font-size: 0.93rem;
+    color: #b0c8e0;
+  }
+  .mcq-opt.correct {
+    background: rgba(6,214,160,0.12);
+    border: 1px solid rgba(6,214,160,0.4);
+    color: var(--green);
+  }
+  .mcq-opt .opt-letter {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    min-width: 20px;
+  }
+
+  /* Answer box */
+  .answer {
+    background: rgba(6,214,160,0.06);
+    border-left: 3px solid var(--green);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin-top: 10px;
+  }
+  .answer .ans-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .answer p { color: #a8d8c0; font-size: 0.93rem; margin: 0; }
+  .answer ul { margin-left: 18px; color: #a8d8c0; font-size: 0.93rem; }
+
+  /* Situation box */
+  .situation-scenario {
+    background: rgba(240,165,0,0.08);
+    border: 1px solid rgba(240,165,0,0.3);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+    color: #f0d090;
+    font-style: italic;
+  }
+  .situation-scenario strong { font-style: normal; color: var(--gold); }
+
+  /* Key concept pill */
+  .key-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-weight: 600;
+  }
+  .pill.gold { background: rgba(240,165,0,0.15); color: var(--gold); border: 1px solid rgba(240,165,0,0.4); }
+  .pill.blue { background: rgba(17,138,178,0.15); color: #60c8f0; border: 1px solid rgba(17,138,178,0.4); }
+  .pill.green { background: rgba(6,214,160,0.12); color: var(--green); border: 1px solid rgba(6,214,160,0.35); }
+  .pill.red { background: rgba(239,71,111,0.12); color: #ff8fa8; border: 1px solid rgba(239,71,111,0.4); }
+  .pill.purple { background: rgba(155,93,229,0.12); color: #c090ff; border: 1px solid rgba(155,93,229,0.4); }
+
+  /* Comparison table */
+  table.comp {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  table.comp th {
+    background: var(--border);
+    color: var(--gold);
+    font-family: 'JetBrains Mono', monospace;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  table.comp td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    color: #c0d4e8;
+  }
+  table.comp tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  /* Memory tip */
+  .memory-tip {
+    background: linear-gradient(135deg, rgba(255,209,102,0.08), rgba(240,165,0,0.04));
+    border: 1px dashed var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .memory-tip .mt-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .memory-tip p { color: #e0c870; font-size: 0.9rem; }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 28px 0;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 36px;
+    margin: 30px 0;
+  }
+  .toc h3 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 16px; font-size: 1.2rem; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+  .toc-item {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    color: #90aec8;
+    display: flex;
+    gap: 10px;
+  }
+  .toc-item .wk { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 0.75rem; }
+
+  /* Negative marking warning */
+  .warning {
+    background: rgba(239,71,111,0.1);
+    border: 1px solid rgba(239,71,111,0.4);
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    color: #ff9ab8;
+  }
+  .warning strong { color: var(--red); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--deep); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>SRE Complete Exam Guide</h1>
+  <p class="subtitle">Software Requirements Engineering · SE-453 · Sir Hussain Saleem</p>
+  <div style="margin-top:14px;">
+    <span class="badge">All 14 Weeks Covered</span>
+    <span class="badge red">⚠ Negative Marking in MCQs</span>
+    <span class="badge green">📊 Diagrams Included</span>
+  </div>
+  <div style="margin-top:10px; font-size:0.82rem; color:var(--muted);">
+    Reference: Software Engineering 10th Ed. – Ian Sommerville · Software Requirements – Wiegers & Beatty
+  </div>
+</div>
+
+<!-- EXAM STRATEGIES -->
+<div class="strategy-box" style="margin:30px 40px;">
+  <h2>🎯 Exam Ace Strategy — Read This First!</h2>
+  <div class="strategy-grid">
+    <div class="strat-card">
+      <h4>⚠️ MCQs — Negative Marking!</h4>
+      <p>Only mark if 80%+ confident. Eliminate wrong options first. MCQs test precise definitions — know exact terms. If unsure between 2 options, SKIP. One wrong = marks deducted.</p>
+    </div>
+    <div class="strat-card">
+      <h4>✍️ Short Questions</h4>
+      <p>Answer in 3–5 sentences max. Start with a clear one-line definition. Use bullet points. Draw a small diagram if the topic has one. Never pad — be precise and technical.</p>
+    </div>
+    <div class="strat-card">
+      <h4>📋 Situation-Based</h4>
+      <p>Identify the topic in the scenario first. Then apply: Definition → Apply to Scenario → Diagram if possible → Recommendation/Solution. Use technical terms from the course.</p>
+    </div>
+    <div class="strat-card">
+      <h4>🖊️ Diagrams = Extra Marks</h4>
+      <p>Sir explicitly said diagrams = point scoring! For every question, ask: "Can I draw something here?" Use labeled boxes, arrows, hierarchies. Even a small diagram helps.</p>
+    </div>
+    <div class="strat-card">
+      <h4>🧠 Memory Trick: ESEN</h4>
+      <p>Elicitation → Specification → Evolution/change → Negotiation/validation. The RE process always follows this pattern. Use this as your anchor for any question.</p>
+    </div>
+    <div class="strat-card">
+      <h4>⏰ 3-Day Plan</h4>
+      <p>Day 1: Weeks 1–5 (foundations). Day 2: Weeks 6–11 (elicitation, spec, management). Day 3: Weeks 12–14 + practice all Q&As. Sleep well before exam!</p>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="container">
+<div class="toc">
+  <h3>📚 Contents — All 14 Weeks</h3>
+  <div class="toc-grid">
+    <div class="toc-item"><span class="wk">W01</span> Intro to RE & Req. Classification</div>
+    <div class="toc-item"><span class="wk">W02</span> Requirements Process & Levels</div>
+    <div class="toc-item"><span class="wk">W03</span> Systems Engineering Context</div>
+    <div class="toc-item"><span class="wk">W04</span> Prioritization & Trade-off</div>
+    <div class="toc-item"><span class="wk">W05</span> Risk & Impact, Req. Management</div>
+    <div class="toc-item"><span class="wk">W06</span> Req. ↔ Architecture, Elicitation</div>
+    <div class="toc-item"><span class="wk">W07</span> Elicitation Techniques & Spec.</div>
+    <div class="toc-item"><span class="wk">W08</span> Course Review (Midterm)</div>
+    <div class="toc-item"><span class="wk">W09</span> Specification & Validation</div>
+    <div class="toc-item"><span class="wk">W10</span> Requirements Management</div>
+    <div class="toc-item"><span class="wk">W11</span> Req. Mgmt Problems & Acquisition</div>
+    <div class="toc-item"><span class="wk">W12</span> Supplier & Product Organizations</div>
+    <div class="toc-item"><span class="wk">W13</span> Agile Requirements Engineering</div>
+    <div class="toc-item"><span class="wk">W14</span> Final Course Review</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ WEEK 1 ═══ -->
+<div class="week-block w1">
+  <div class="week-header">
+    <span class="week-num">WEEK 01</span>
+    <h2>Introduction to Requirements Engineering & Classification of Requirements</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>1.1 What is Requirements Engineering (RE)?</h3>
+      <p>Requirements Engineering is the process of <strong>finding out, analyzing, documenting, and checking</strong> the services a system should provide and the constraints under which it must operate.</p>
+      <p>In simple words: <em>Before you build a system, you must clearly understand WHAT it needs to do, WHO will use it, and WHAT rules it must follow. That whole process = Requirements Engineering.</em></p>
+
+      <div class="key-pills">
+        <span class="pill gold">Services</span>
+        <span class="pill blue">Constraints</span>
+        <span class="pill green">Stakeholders</span>
+        <span class="pill red">Feasibility</span>
+        <span class="pill purple">Documentation</span>
+      </div>
+
+      <h4>Why RE matters so much:</h4>
+      <ul>
+        <li>Studies show that <strong>most software failures</strong> are due to poor or missing requirements, NOT bad coding.</li>
+        <li>Fixing a requirements error AFTER development costs 100x more than fixing it during RE.</li>
+        <li>Requirements are the foundation — if the foundation is wrong, everything built on it collapses.</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>1.2 What is a Requirement?</h3>
+      <p>A <strong>requirement</strong> is a description of what a system should do OR a constraint on how it should operate. It can range from:</p>
+      <ul>
+        <li><strong>High-level abstract statement</strong>: "The system should manage patient records."</li>
+        <li><strong>Detailed formal definition</strong>: "The system shall store patient records with a unique 8-digit ID and allow search by name within 2 seconds."</li>
+      </ul>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Types of Requirements (Overview)</div>
+┌─────────────────────────────────────────────────────────────┐
+│                    REQUIREMENTS                             │
+│                                                             │
+│   ┌──────────────────────┐   ┌───────────────────────────┐ │
+│   │  USER REQUIREMENTS   │   │   SYSTEM REQUIREMENTS     │ │
+│   │                      │   │                           │ │
+│   │ • High-level          │   │ • Detailed & precise      │ │
+│   │ • Natural language   │   │ • Technical description   │ │
+│   │ • For managers/users │   │ • For developers/testers  │ │
+│   │ • "What" the system  │   │ • "How" the system        │ │
+│   │   should do broadly  │   │   does it specifically    │ │
+│   └──────────────────────┘   └───────────────────────────┘ │
+│                                                             │
+│   Example (Mentcare Hospital System):                       │
+│   USER:   "Generate monthly drug cost reports"             │
+│   SYSTEM: 1.1 Summary generated on last working day        │
+│           1.2 Report printed after 17:30                   │
+│           1.3 List each drug with cost per clinic          │
+│           1.4 Separate reports per dose unit               │
+│           1.5 Access restricted to authorized users        │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Key Difference — User vs System Requirements:</h4>
+      <table class="comp">
+        <tr><th>Aspect</th><th>User Requirements</th><th>System Requirements</th></tr>
+        <tr><td>Audience</td><td>Managers, clients, non-technical users</td><td>Developers, system architects, testers</td></tr>
+        <tr><td>Language</td><td>Natural language + simple diagrams</td><td>Precise, formal, detailed</td></tr>
+        <tr><td>Detail level</td><td>High-level, general</td><td>Detailed, specific</td></tr>
+        <tr><td>Example</td><td>"System generates monthly reports"</td><td>"On last working day, after 17:30, generate drug cost report per clinic"</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>1.3 Classification of Requirements</h3>
+      <h4>A) Functional Requirements</h4>
+      <p>These describe <strong>what the system should DO</strong> — the services, behaviors, and functions the system must provide.</p>
+      <p>Examples (Mentcare System):</p>
+      <ul>
+        <li>A user shall be able to search the appointments list for all clinics.</li>
+        <li>The system shall generate a daily list of patients for each clinic.</li>
+        <li>Each staff member shall be identified by an 8-digit employee number.</li>
+      </ul>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Functional Requirements Characteristics</div>
+┌─────────────────────────────────────────────────────────┐
+│            FUNCTIONAL REQUIREMENTS MUST BE:             │
+│                                                         │
+│   ✅ COMPLETE — all needed services defined             │
+│   ✅ CONSISTENT — no contradicting requirements         │
+│   ✅ PRECISE — no ambiguous language                    │
+│   ✅ VERIFIABLE — can be tested                         │
+│                                                         │
+│   ❌ "The system should be fast" → BAD (vague)          │
+│   ✅ "System responds within 2 seconds" → GOOD          │
+└─────────────────────────────────────────────────────────┘</div>
+
+      <h4>B) Non-Functional Requirements (NFRs)</h4>
+      <p>These describe <strong>constraints and qualities</strong> — NOT what the system does, but HOW WELL it does it, or what rules it must follow.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Non-Functional Requirements Classification Tree (Sommerville Figure 4.3)</div>
+                    NON-FUNCTIONAL REQUIREMENTS
+                              │
+            ┌─────────────────┼─────────────────┐
+            │                 │                 │
+      PRODUCT REQS      ORG. REQS        EXTERNAL REQS
+            │                 │                 │
+    ┌───────┴───────┐   ┌──────┴──────┐   ┌─────┴──────┐
+    │               │   │             │   │            │
+ Efficiency   Dependability  Environmental  Regulatory  Ethical
+    │         Reliability    Operational    Legislative  Accounting
+ Performance  Usability      Development   Safety/Sec
+ Space        Security</div>
+
+      <table class="comp">
+        <tr><th>NFR Type</th><th>What it covers</th><th>Example</th></tr>
+        <tr><td>Product (Performance)</td><td>Speed, memory, accuracy</td><td>"System processes 100 transactions/sec"</td></tr>
+        <tr><td>Product (Reliability)</td><td>Failure rate, availability</td><td>"System available 99.9% of time"</td></tr>
+        <tr><td>Product (Usability)</td><td>Ease of use, training time</td><td>"Users trained within 2 hours"</td></tr>
+        <tr><td>Organizational</td><td>Policies, processes, standards</td><td>"System developed in Java per company standard"</td></tr>
+        <tr><td>External (Regulatory)</td><td>Laws, compliance, privacy</td><td>"System must comply with HStan-03-2006-priv"</td></tr>
+        <tr><td>External (Ethical)</td><td>Moral acceptability</td><td>"No patient data shared without consent"</td></tr>
+      </table>
+
+      <h4>Metrics for Specifying NFRs (Sommerville Fig 4.5):</h4>
+      <table class="comp">
+        <tr><th>Property</th><th>How to Measure</th></tr>
+        <tr><td>Speed</td><td>Transactions per second, response time</td></tr>
+        <tr><td>Size</td><td>Megabytes, ROM chips</td></tr>
+        <tr><td>Ease of Use</td><td>Training time, # of help frames</td></tr>
+        <tr><td>Reliability</td><td>Mean Time To Failure (MTTF)</td></tr>
+        <tr><td>Robustness</td><td>Time to restart after failure</td></tr>
+        <tr><td>Portability</td><td>% of target-dependent statements</td></tr>
+      </table>
+
+      <h4>C) Domain Requirements</h4>
+      <p>Requirements derived from the <strong>application domain</strong> — specific rules of the industry/field. Example: In a banking system, "Interest must be calculated using compound interest formula" — this is a financial domain rule, not a user request.</p>
+    </div>
+
+    <div class="memory-tip">
+      <div class="mt-label">🧠 Memory Trick</div>
+      <p><strong>F-N-D</strong> = Functional (what system DOES) · Non-functional (how WELL it does it) · Domain (industry RULES)<br>
+      NFR Types: <strong>POE</strong> = Product · Organizational · External</p>
+    </div>
+
+    <!-- WEEK 1 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+      <div class="warning"><strong>⚠️ NEGATIVE MARKING:</strong> Only answer if very sure. Wrong MCQ = marks deducted.</div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">Which of the following BEST defines a non-functional requirement?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> A description of what function the system must perform</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> A constraint on how the system should provide its services</div>
+          <div class="mcq-opt correct"><span class="opt-letter">C.</span> A constraint on the services or functions offered by the system, relating to emergent properties</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> A requirement derived from the application domain</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: C</div><p>NFRs constrain the system as a whole (speed, reliability, security) rather than specifying individual services. They relate to emergent system properties.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">The requirement "All staff must use their health authority ID card to log into the system" is an example of:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Functional requirement</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Organizational non-functional requirement</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> External regulatory requirement</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Domain requirement</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>This is an organizational requirement — it comes from the health authority's policy/procedure about how staff identify themselves, not from law or user needs.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 3</span>
+        <p class="q-text">User requirements should be written in:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt correct"><span class="opt-letter">A.</span> Natural language with simple diagrams and tables</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> Formal mathematical notation</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> UML diagrams only</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Pseudocode and flowcharts</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: A</div><p>User requirements are for non-technical stakeholders (managers, clients) so they must use simple natural language, easy diagrams, and tables — not technical notations.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 4</span>
+        <p class="q-text">Which property ensures that there are no contradictory constraints in requirements?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Completeness</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Consistency</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Verifiability</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Traceability</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Consistency means no two requirements contradict each other. Completeness means all needed services are defined.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 5</span>
+        <p class="q-text">Requirements Engineering is primarily the first stage of the software engineering process. Which document is produced as its primary output?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> System Design Document</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Software Requirements Specification (SRS)</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Test Plan Document</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Project Management Plan</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>The SRS (also called Requirements Document) is the key output of RE. It records user and system requirements and may form part of the development contract.</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Differentiate between functional and non-functional requirements with one example each.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Functional Requirements</strong> describe what the system should DO — specific behaviors, functions, and services. Example: "The system shall allow users to search patient records by name."</p>
+          <p style="margin-top:8px;"><strong>Non-Functional Requirements</strong> describe HOW WELL the system performs — constraints on quality, performance, and process. Example: "The system shall respond to any search query within 2 seconds."</p>
+          <p style="margin-top:8px;">Key difference: Functional = functionality. Non-functional = quality/constraint. NFRs often affect the entire system, not just one component.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What is a Domain Requirement? Why are they difficult to manage?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Domain requirements come from the application domain (industry-specific rules) rather than user needs. Example: "Train braking distance must be calculated using the ISO safety formula."</p>
+          <p style="margin-top:8px;">They are difficult because: (1) Software engineers may not understand the domain deeply. (2) Domain experts use specialized jargon. (3) If a domain requirement is missed, the system may be legally non-compliant or unsafe.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 3</span>
+        <p class="q-text">Why is it important to write NFRs quantitatively? Give an example.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Quantitative NFRs are measurable and can be objectively tested, preventing disputes between client and developer.</p>
+          <p style="margin-top:8px;"><strong>Bad (qualitative):</strong> "The system should be easy to use."<br>
+          <strong>Good (quantitative):</strong> "Medical staff shall use all system functions after 2 hours of training, with no more than 2 errors per hour."</p>
+          <p style="margin-top:8px;">The good version can actually be tested and verified — the bad version cannot.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 4</span>
+        <p class="q-text">What are stakeholders? Give 4 examples from a hospital system.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Stakeholders are anyone who is affected by the system or has a legitimate interest in it. In the Mentcare (hospital) system, stakeholders include:</p>
+          <ul>
+            <li>Patients (whose data is stored)</li>
+            <li>Doctors (who use the system for patient care)</li>
+            <li>Nurses (who coordinate appointments)</li>
+            <li>IT staff (who maintain the system)</li>
+            <li>Medical ethics manager (ensures legal/ethical compliance)</li>
+          </ul>
+          <p>Each stakeholder has different needs, which can sometimes conflict with each other.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A team is building an online banking system. The client says "The system should be fast, secure, and easy to use." A junior developer says these are all functional requirements. The senior developer disagrees.</div>
+        <p class="q-text">Who is correct? Classify each statement and explain.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>The <strong>senior developer is correct</strong>. "Fast," "secure," and "easy to use" are all <strong>Non-Functional Requirements (NFRs)</strong>, not functional requirements.</p>
+          <ul>
+            <li><strong>Fast</strong> → Performance NFR. Should be specified as: "Response time ≤ 3 seconds for any transaction."</li>
+            <li><strong>Secure</strong> → Security NFR. Should be: "All data must be encrypted using AES-256. No unauthorized access permitted."</li>
+            <li><strong>Easy to use</strong> → Usability NFR. Should be: "New users complete first transaction within 10 minutes without help."</li>
+          </ul>
+          <p>The client's statements are goals, not requirements. They must be rewritten quantitatively to become proper NFRs.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 2</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A university is developing a student portal. Different stakeholders have given these requirements: The Registrar says "Students must not see other students' grades." The IT Head says "The system must run on all browsers." The Dean says "Students can see their full transcript." A developer notices these may conflict.</div>
+        <p class="q-text">Identify the requirements type for each, and explain the conflict.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <ul>
+            <li><strong>Registrar's requirement</strong>: Security NFR (privacy/external requirement)</li>
+            <li><strong>IT Head's requirement</strong>: Product/technical NFR (portability)</li>
+            <li><strong>Dean's requirement</strong>: Functional requirement</li>
+          </ul>
+          <p><strong>Conflict:</strong> "Students cannot see other students' grades" vs. "Students can see their full transcript" — these could conflict if "full transcript" is interpreted to include grade comparisons or if system access controls are poorly designed.</p>
+          <p>This is a classic stakeholder requirements conflict that must be resolved through <strong>requirements negotiation</strong> — all parties meet and agree on a compromise (e.g., students see ONLY their own full transcript).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 1 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 2 ═══ -->
+<div class="week-block w2">
+  <div class="week-header">
+    <span class="week-num">WEEK 02</span>
+    <h2>Requirements Process, Levels/Layers of Requirements & Requirement Characteristics</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>2.1 The Requirements Engineering Process</h3>
+      <p>RE is NOT a simple linear process — it is <strong>iterative and spiral</strong>. Requirements keep evolving as understanding grows.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 The Spiral View of RE Process (Sommerville Fig 4.6)</div>
+                Requirements
+                Specification
+              _______________
+             /               \
+            / System reqs     \
+           / specification     \
+          /  and modeling       \
+         /  ──────────────────── \
+        / User reqs specification  \
+       /  ──────────────────────── \
+      /  Business reqs specification \
+     ● ─────────────────────────────── ●  → System
+    Start                              Requirements
+     │ Requirements  │ System          Document
+     │ Elicitation   │ req.
+     │               │ elicitation
+     │ Feasibility   │
+     │ study         │  User reqs
+     │               │  elicitation
+      \_____________/
+        Requirements Validation
+        (Prototyping + Reviews)</div>
+
+      <p>The three core RE activities, always interleaved:</p>
+      <ol>
+        <li><strong>Elicitation & Analysis</strong>: Discovering requirements by interacting with stakeholders</li>
+        <li><strong>Specification</strong>: Converting requirements into a standard, documented form</li>
+        <li><strong>Validation</strong>: Checking that requirements define the system the customer actually wants</li>
+      </ol>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>2.2 Levels / Layers of Requirements</h3>
+      <p>Requirements exist at different levels of abstraction. Understanding which level you're at is crucial:</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Levels / Layers of Requirements</div>
+┌──────────────────────────────────────────────────────────┐
+│                BUSINESS REQUIREMENTS                     │
+│  (Why the system is needed — Business goals/objectives)  │
+│  "The hospital needs to reduce patient wait times by 30%" │
+└──────────────────────────┬───────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────┐
+│                 USER REQUIREMENTS                        │
+│   (What users need to do — their tasks and goals)       │
+│   "Receptionist must schedule appointments quickly"      │
+└──────────────────────────┬───────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────┐
+│               SYSTEM REQUIREMENTS                        │
+│  (What the system must do — detailed technical specs)   │
+│  "System shall allow appointment booking in ≤ 3 clicks"  │
+└──────────────────────────┬───────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────┐
+│            SOFTWARE DESIGN SPECIFICATION                 │
+│  (How the system will do it — design decisions)          │
+│  "Use calendar API, database schema: appointment(id,     │
+│   patient_id, doctor_id, date, time, status)"           │
+└──────────────────────────────────────────────────────────┘</div>
+
+      <p><strong>Important Rule</strong>: Requirements should tell us WHAT the system does, NOT HOW it does it. Architecture/design comes later.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>2.3 Requirement Characteristics — What Makes a Good Requirement?</h3>
+      <p>A well-written requirement must satisfy these characteristics (remember: <strong>C-U-C-V-T-A-N</strong>):</p>
+
+      <table class="comp">
+        <tr><th>Characteristic</th><th>What it Means</th><th>Bad Example</th><th>Good Example</th></tr>
+        <tr><td><strong>Complete</strong></td><td>All needed info is present, nothing missing</td><td>"System generates reports"</td><td>"System generates daily patient reports per clinic showing all appointments"</td></tr>
+        <tr><td><strong>Unambiguous</strong></td><td>Only ONE possible interpretation</td><td>"System shall support fast searches"</td><td>"System shall return search results within 2 seconds"</td></tr>
+        <tr><td><strong>Consistent</strong></td><td>No contradictions with other requirements</td><td>Req1: "All data encrypted" + Req2: "Data sent as plain text to SMS"</td><td>Both encryption requirements aligned</td></tr>
+        <tr><td><strong>Verifiable</strong></td><td>Can be tested/measured objectively</td><td>"System should be reliable"</td><td>"System MTBF ≥ 1000 hours"</td></tr>
+        <tr><td><strong>Traceable</strong></td><td>Can be traced back to source/stakeholder</td><td>No source mentioned</td><td>"Per Patient Privacy Act 2019, data shall not be shared"</td></tr>
+        <tr><td><strong>Attainable/Feasible</strong></td><td>Technically and financially achievable</td><td>"System processes 1 billion transactions/ms"</td><td>"System processes 1000 transactions/second"</td></tr>
+        <tr><td><strong>Necessary</strong></td><td>Every requirement has a real purpose</td><td>Adding features no stakeholder needs</td><td>Only requirements from identified stakeholders</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>2.4 Analyzing Quality Requirements</h3>
+      <p>Quality requirements are essentially NFRs — they define HOW GOOD the system must be. Analyzing them involves:</p>
+
+      <ol>
+        <li><strong>Identify the quality attribute</strong>: Performance? Security? Reliability?</li>
+        <li><strong>Make it quantitative</strong>: Express with measurable metrics</li>
+        <li><strong>Check for conflicts</strong>: Security vs. Performance often conflict</li>
+        <li><strong>Prioritize</strong>: Not all quality attributes can be maximized simultaneously</li>
+        <li><strong>Validate with stakeholders</strong>: Confirm the numbers are realistic and acceptable</li>
+      </ol>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Quality Attributes and Their Conflicts</div>
+┌─────────────────────────────────────────────────────────────┐
+│             COMMON QUALITY ATTRIBUTE CONFLICTS              │
+│                                                             │
+│   SECURITY ←──────────────────→ PERFORMANCE               │
+│   (Encryption slows things down)                           │
+│                                                             │
+│   RELIABILITY ←──────────────→ COST                       │
+│   (High reliability = expensive redundancy)                 │
+│                                                             │
+│   USABILITY ←────────────────→ SECURITY                   │
+│   (Easy login = less secure)                               │
+│                                                             │
+│   PORTABILITY ←──────────────→ PERFORMANCE                │
+│   (Cross-platform code often slower than native)           │
+│                                                             │
+│   → Always prioritize based on system criticality!         │
+└─────────────────────────────────────────────────────────────┘</div>
+    </div>
+
+    <!-- WEEK 2 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">The RE process is best described as:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> A strictly sequential process that always follows Elicitation → Specification → Validation</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> An iterative process where elicitation, specification, and validation activities are interleaved</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> A one-time process that happens before development begins and never changes</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> A process that only involves the development team and not stakeholders</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>RE is iterative. Understanding grows with each cycle. The spiral model shows how activities are interleaved and repeated.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">Which level of requirements focuses on WHY the system is needed — the organization's business goals?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt correct"><span class="opt-letter">A.</span> Business requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> User requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> System requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Domain requirements</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: A</div><p>Business requirements define the high-level goals of the organization. User requirements address what users need to do. System requirements specify what the system must do.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 3</span>
+        <p class="q-text">A requirement that states "The system shall be user-friendly" violates which key characteristic?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Completeness</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Verifiability (and Unambiguousness)</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Traceability</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Necessity</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>"User-friendly" cannot be objectively tested (not verifiable) and has multiple interpretations (ambiguous). It must be rewritten as: "Users complete primary task within 10 minutes without assistance."</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Explain the spiral view of the Requirements Engineering process.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>The spiral model of RE shows that requirements engineering is <strong>not a simple linear process but an iterative one</strong>. The activities — elicitation, specification, and validation — are organized in a spiral where each loop represents one cycle of increasing detail and understanding.</p>
+          <p style="margin-top:8px;">Early loops focus on high-level business and user requirements. Later loops dive into detailed system requirements. The output at the center is the System Requirements Document. This model allows requirements to evolve as stakeholder understanding improves.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">List and briefly explain 5 characteristics of good requirements.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <ul>
+            <li><strong>Complete</strong>: All necessary information is included, nothing is missing.</li>
+            <li><strong>Unambiguous</strong>: Has exactly one clear interpretation — no vagueness.</li>
+            <li><strong>Consistent</strong>: No contradictions between requirements.</li>
+            <li><strong>Verifiable</strong>: Can be tested with objective methods or measurements.</li>
+            <li><strong>Traceable</strong>: Can be traced back to its source — which stakeholder or document required it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A startup is building an e-commerce app. The CEO says "We need a fast, beautiful app that customers love." The Product Manager writes these requirements: 1) App should look good. 2) Loading should be fast. 3) Customers should be happy. The developer complains these requirements are useless.</div>
+        <p class="q-text">Evaluate each requirement against the characteristics of good requirements and rewrite them properly.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>All three requirements are <strong>bad requirements</strong>. Here's the analysis:</p>
+          <ul>
+            <li><strong>Req 1 "App should look good"</strong>: Fails Unambiguousness (what is "good"?) and Verifiability (cannot be tested). Rewrite: "App UI must follow company brand guidelines. User satisfaction score ≥ 4/5 in usability testing."</li>
+            <li><strong>Req 2 "Loading should be fast"</strong>: Fails Verifiability (how fast?). Rewrite: "App loads fully within 3 seconds on a 4G connection."</li>
+            <li><strong>Req 3 "Customers should be happy"</strong>: Fails Completeness, Verifiability, and Unambiguousness. Rewrite: "Monthly active user retention rate ≥ 70% after first month."</li>
+          </ul>
+          <p>The developer is correct — requirements must be testable, measurable, and precise to be useful.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 2 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 3 ═══ -->
+<div class="week-block w3">
+  <div class="week-header">
+    <span class="week-num">WEEK 03</span>
+    <h2>Software Requirements in Systems Engineering · Requirement Evolution & Traceability</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>3.1 Software Requirements in the Context of Systems Engineering</h3>
+      <p>Software rarely exists alone. It is usually part of a <strong>larger system</strong> that includes hardware, people, processes, and organizations. Understanding this context is essential.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Software as Part of a Larger System</div>
+┌────────────────────────────────────────────────────────────────┐
+│                      SOCIOTECHNICAL SYSTEM                    │
+│                                                               │
+│  ┌──────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐  │
+│  │ HARDWARE │   │SOFTWARE  │   │  PEOPLE  │   │PROCESSES │  │
+│  │ Servers  │◄──│   App    │◄──│ Doctors  │──►│ Clinical │  │
+│  │ Sensors  │   │Database  │   │ Nurses   │   │Workflows │  │
+│  │ Devices  │   │ UI Layer │   │ Admin    │   │Protocols │  │
+│  └──────────┘   └──────────┘   └──────────┘   └──────────┘  │
+│                                                               │
+│  ↳ Software requirements must consider ALL these components! │
+│    A change in any one affects requirements for the others.  │
+└────────────────────────────────────────────────────────────────┘</div>
+
+      <p>In systems engineering context, software requirements come from:</p>
+      <ul>
+        <li><strong>System requirements allocation</strong>: High-level system requirements broken down and allocated to software subsystems</li>
+        <li><strong>Interface requirements</strong>: How the software must interface with hardware, other software, and users</li>
+        <li><strong>Operational requirements</strong>: The environment in which the software will run</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>3.2 Requirement Evolution</h3>
+      <p>Requirements ALWAYS change. This is not a problem — it is a fact of life in software development.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Requirements Evolution Over Time (Sommerville Fig 4.18)</div>
+        Initial                    Changed
+        Understanding    Time      Understanding
+        of Problem       ─────►   of Problem
+              │                        │
+              ▼                        ▼
+        Initial                   Changed
+        Requirements    ────────► Requirements
+
+        Why requirements change:
+        ┌─────────────────────────────────────────────────┐
+        │  1. Business environment changes                 │
+        │     (new laws, new competitors, new strategies) │
+        │  2. Better understanding of the problem         │
+        │     (users didn't know what they wanted)        │
+        │  3. New stakeholders identified later           │
+        │  4. Technical changes (new hardware available)  │
+        │  5. System errors/omissions found in use        │
+        └─────────────────────────────────────────────────┘</div>
+
+      <h4>Types of Requirements by Volatility:</h4>
+      <table class="comp">
+        <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+        <tr><td><strong>Enduring Requirements</strong></td><td>Stable, change rarely — tied to core business activities</td><td>"System must maintain patient medical records"</td></tr>
+        <tr><td><strong>Volatile Requirements</strong></td><td>Change frequently — tied to supporting activities and how work is done</td><td>"System must support Card payment" (payments change often)</td></tr>
+        <tr><td><strong>Emergent Requirements</strong></td><td>Appear only when the system is in use</td><td>"We need a mobile app too" (discovered after web app deployed)</td></tr>
+        <tr><td><strong>Consequential Requirements</strong></td><td>Result from introducing the new system</td><td>New data security requirements needed because sensitive data now computerized</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>3.3 Requirement Traceability</h3>
+      <p>Requirement traceability means being able to <strong>track every requirement</strong> from its origin through development to the final system. It answers: WHERE did this requirement come from? WHAT design components implement it? WHAT tests verify it?</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Requirement Traceability Matrix (RTM)</div>
+┌─────────────────────────────────────────────────────────────────┐
+│              REQUIREMENT TRACEABILITY MATRIX                    │
+├──────┬────────────────┬──────────┬───────────┬────────────────┐
+│ REQ# │ DESCRIPTION    │ SOURCE   │ DESIGN    │ TEST CASE      │
+├──────┼────────────────┼──────────┼───────────┼────────────────┤
+│ R001 │ User login     │ Sec.Mgr  │ Module-A  │ TC-001, TC-002 │
+│ R002 │ Search patient │ Doctor   │ Module-B  │ TC-003         │
+│ R003 │ Generate report│ Manager  │ Module-C  │ TC-004, TC-005 │
+│ R004 │ Data encrypt   │ IT/Legal │ Module-D  │ TC-006         │
+└──────┴────────────────┴──────────┴───────────┴────────────────┘
+
+TRACEABILITY LINKS:
+  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+  │ STAKEHOLDER  │────►│ REQUIREMENT  │────►│ DESIGN COMP  │
+  │   (Source)   │     │              │────►│ TEST CASE    │
+  └──────────────┘     └──────────────┘     └──────────────┘
+         ↑                                        │
+         └────────────────────────────────────────┘
+                  (Backward Traceability)</div>
+
+      <h4>Two Types of Traceability:</h4>
+      <ul>
+        <li><strong>Forward Traceability</strong>: From requirements → design → code → tests (tracking implementation)</li>
+        <li><strong>Backward Traceability</strong>: From design/tests back to the original requirement or stakeholder (tracking origin)</li>
+      </ul>
+
+      <h4>Why Traceability Matters:</h4>
+      <ul>
+        <li>When a requirement changes, traceability tells you WHAT ELSE is affected (impact analysis)</li>
+        <li>Ensures ALL requirements are implemented — nothing is missed</li>
+        <li>Helps verify that the final system meets all original requirements</li>
+        <li>Required for safety-critical and regulated systems (medical, aviation, defense)</li>
+      </ul>
+    </div>
+
+    <div class="memory-tip">
+      <div class="mt-label">🧠 Memory Trick</div>
+      <p><strong>SEED</strong> = Sources, Evolution, Enduring/volatile, Documentation — the 4 things to think about for requirement traceability and evolution.<br>
+      <strong>RTM</strong> (Requirement Traceability Matrix) = The main tool for traceability. Remember: Req# → Source → Design → Test.</p>
+    </div>
+
+    <!-- WEEK 3 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">Requirements that are associated with the core activities of an organization and change rarely are called:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Volatile requirements</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Enduring requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Emergent requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Consequential requirements</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Enduring requirements are stable and tied to fundamental work activities. Volatile requirements are more likely to change as they relate to how the organization works rather than what it does.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">Forward traceability in requirements engineering means:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt correct"><span class="opt-letter">A.</span> Tracing from requirements through design to code and test cases</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> Tracing from code back to the original stakeholder requirement</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Tracing requirements to past versions of the system</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Tracing between different stakeholder groups</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: A</div><p>Forward traceability goes forward in the development lifecycle: Requirement → Design → Code → Test. Backward traceability goes the other way.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 3</span>
+        <p class="q-text">Which of the following BEST explains why requirements always change?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Because developers make mistakes in implementation</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Because large systems address "wicked problems" that cannot be completely defined, and the business environment changes</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Because clients don't know what software is</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Because RE processes are inherently flawed</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Sommerville explains that large systems address "wicked problems" (problems that can't be fully defined upfront). Additionally, business environments, technologies, and stakeholder needs constantly change.</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">What is requirement traceability and why is it important?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Requirement traceability</strong> is the ability to track every requirement from its origin (stakeholder/business goal) through the development process to design, code, and test cases, and back again.</p>
+          <p style="margin-top:8px;"><strong>Importance:</strong></p>
+          <ul>
+            <li>Enables impact analysis — when a requirement changes, you know what else is affected</li>
+            <li>Ensures all requirements are implemented (nothing missed)</li>
+            <li>Proves the system meets what was originally required</li>
+            <li>Essential for safety-critical systems (aviation, medical, nuclear)</li>
+          </ul>
+          <p>Tool used: Requirement Traceability Matrix (RTM) that maps Req# → Source → Design Component → Test Case.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">Why is software development considered to address "wicked problems"?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Sommerville uses the term "wicked problems" for problems that <strong>cannot be completely defined upfront</strong>. They have no definitive solution and the full understanding of the problem only emerges as you work on it.</p>
+          <p style="margin-top:8px;">For software, this means: the requirements are inherently incomplete when first gathered, because users don't fully know what they want until they see a working system. New requirements emerge, old ones change, and the business environment itself shifts during development. This is WHY requirements always evolve.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 3</span>
+        <p class="q-text">How does systems engineering context affect software requirements?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>In systems engineering, software is part of a larger <strong>sociotechnical system</strong> that includes hardware, people, and organizational processes. This means:</p>
+          <ul>
+            <li>Software requirements must account for interfaces with hardware components</li>
+            <li>Requirements from higher-level system design are "allocated" to software</li>
+            <li>Changes in hardware or processes may force changes in software requirements</li>
+            <li>Software cannot be fully specified without understanding the complete system context</li>
+          </ul>
+          <p>Example: A hospital software system's requirements depend on what sensors are available, what the nurses' workflow is, and what data regulations apply — not just what the software itself should do.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A government agency built a tax-filing software. After 2 years, the government changed tax laws, the agency got new hardware servers, and users complained the mobile interface was added as an afterthought. The requirements document from Year 1 is now completely outdated and nobody knows which design components relate to which requirement.</div>
+        <p class="q-text">Identify the requirement evolution issues, classify the changed requirements, and explain what traceability mechanisms should have been in place.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Issues identified:</strong></p>
+          <ul>
+            <li>Tax law changes → <strong>Volatile requirements</strong> (external regulatory requirements that changed)</li>
+            <li>New hardware servers → <strong>Consequential requirements</strong> (new technical requirements due to infrastructure change)</li>
+            <li>Mobile interface → <strong>Emergent requirements</strong> (discovered after deployment)</li>
+          </ul>
+          <p><strong>What should have been in place:</strong></p>
+          <ul>
+            <li>A <strong>Requirement Traceability Matrix (RTM)</strong> mapping each requirement to its source, design component, and test case</li>
+            <li>A <strong>change management process</strong> to evaluate impact of tax law changes before implementation</li>
+            <li>Unique IDs for each requirement to track changes over time</li>
+            <li>Separate classification of volatile vs. enduring requirements so volatile ones get extra attention</li>
+          </ul>
+          <p>Without traceability, when tax law changed, the team couldn't identify which requirements, design components, and test cases needed updating — causing massive rework.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 3 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 4 ═══ -->
+<div class="week-block w4">
+  <div class="week-header">
+    <span class="week-num">WEEK 04</span>
+    <h2>Requirement Prioritization & Trade-off Analysis</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>4.1 Requirement Prioritization</h3>
+      <p>When resources (time, money, people) are limited, you can't implement ALL requirements at once. Prioritization decides WHICH requirements to implement FIRST.</p>
+
+      <h4>Why Prioritize?</h4>
+      <ul>
+        <li>Resources (time, money, team) are always limited</li>
+        <li>Some requirements are critical; others are "nice to have"</li>
+        <li>Helps manage stakeholder conflicts — when two stakeholders want different things, priority resolves disputes</li>
+        <li>Essential for iterative/agile development (what goes in Sprint 1?)</li>
+      </ul>
+
+      <h4>Prioritization Techniques:</h4>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 MoSCoW Prioritization Method</div>
+┌─────────────────────────────────────────────────────────────┐
+│                    MoSCoW METHOD                           │
+│                                                           │
+│  M — MUST HAVE     (Critical, system fails without it)    │
+│      "The system MUST authenticate users"                 │
+│                                                           │
+│  S — SHOULD HAVE  (Important but not critical)            │
+│      "The system SHOULD generate PDF reports"             │
+│                                                           │
+│  C — COULD HAVE   (Nice to have, low priority)           │
+│      "The system COULD have dark mode"                    │
+│                                                           │
+│  W — WON'T HAVE   (Not for this version, maybe later)    │
+│      "The system WON'T have AI chatbot in v1.0"           │
+│                                                           │
+│  ⚠️ Start with MUST, then SHOULD, then COULD              │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Other Prioritization Methods:</h4>
+      <table class="comp">
+        <tr><th>Method</th><th>How it Works</th><th>Best For</th></tr>
+        <tr><td><strong>MoSCoW</strong></td><td>Classify into Must/Should/Could/Won't</td><td>Simple projects, quick decisions</td></tr>
+        <tr><td><strong>Kano Model</strong></td><td>Classify by user satisfaction: Basic, Performance, Excitement</td><td>Customer-focused systems</td></tr>
+        <tr><td><strong>Numerical Assignment</strong></td><td>Score 1–5 for importance, effort, risk</td><td>Large requirement sets</td></tr>
+        <tr><td><strong>100-Dollar Test</strong></td><td>Stakeholders "spend" 100 points across requirements</td><td>Stakeholder workshops</td></tr>
+        <tr><td><strong>Wiegers' Priority</strong></td><td>Priority = (Benefit × Weight + Penalty × Weight) / (Cost × Weight + Risk × Weight)</td><td>Complex trade-offs</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>4.2 Trade-off Analysis</h3>
+      <p>Trade-off analysis means evaluating <strong>competing options or conflicting requirements</strong> to find the best balance. When you can't have everything, what do you choose?</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 The Classic Project Triangle — Trade-offs</div>
+                         SCOPE/QUALITY
+                              △
+                             /│\
+                            / │ \
+                           /  │  \
+                          /   │   \
+                         /    │    \
+                        /   Pick   \
+                       /    any 2   \
+                      /──────────────\
+                 TIME                  COST
+
+  Examples of trade-offs:
+  ┌─────────────────────────────────────────────────────────┐
+  │  SECURITY vs. PERFORMANCE:                              │
+  │  More encryption = slower system. Must choose balance.  │
+  │                                                         │
+  │  FEATURES vs. TIME-TO-MARKET:                          │
+  │  More features = longer development. Prioritize core.  │
+  │                                                         │
+  │  RELIABILITY vs. COST:                                  │
+  │  99.999% uptime needs expensive redundancy.             │
+  │                                                         │
+  │  USABILITY vs. SECURITY:                               │
+  │  Simple password = less secure. Complex = forgotten.   │
+  └─────────────────────────────────────────────────────────┘</div>
+
+      <h4>Steps in Trade-off Analysis:</h4>
+      <ol>
+        <li><strong>Identify the conflict</strong>: Which requirements or quality attributes are competing?</li>
+        <li><strong>Define evaluation criteria</strong>: Cost, risk, performance impact, user value</li>
+        <li><strong>Analyze options</strong>: What are the consequences of choosing each option?</li>
+        <li><strong>Involve stakeholders</strong>: Who is affected? Their input is essential</li>
+        <li><strong>Make and document the decision</strong>: Record WHY you chose this trade-off</li>
+        <li><strong>Review</strong>: As the project progresses, re-evaluate if the trade-off is still valid</li>
+      </ol>
+    </div>
+
+    <div class="memory-tip">
+      <div class="mt-label">🧠 Memory Trick</div>
+      <p><strong>MoSCoW = Must · Should · Could · Won't</strong> — use this in any exam question about prioritization.<br>
+      Trade-off mantra: <strong>Every gain has a cost</strong>. Security costs performance. More features cost time. More reliability costs money. Always explain BOTH sides.</p>
+    </div>
+
+    <!-- WEEK 4 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">In the MoSCoW prioritization method, which category contains requirements that the system absolutely MUST have to function?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt correct"><span class="opt-letter">A.</span> Must Have</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> Should Have</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Could Have</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Won't Have</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: A</div><p>Must Have requirements are non-negotiable — the system cannot be delivered without them. Should Have are important but can be worked around. Could Have are low priority. Won't Have are deferred.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">Trade-off analysis is primarily used when:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> All requirements are already clearly defined and consistent</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Competing requirements or quality attributes cannot all be fully satisfied simultaneously</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> The development team wants to add extra features</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> There are no stakeholders involved in the project</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Trade-off analysis is needed when you cannot satisfy all competing constraints/requirements simultaneously — you must choose which to prioritize and what to sacrifice.</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Explain the MoSCoW method with a practical example from an ATM banking system.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>MoSCoW classifies requirements by priority:</p>
+          <ul>
+            <li><strong>Must Have</strong>: ATM must authenticate user PIN, dispense cash, show balance. System CANNOT work without these.</li>
+            <li><strong>Should Have</strong>: ATM should print transaction receipt, should support multiple languages. Important but workarounds exist.</li>
+            <li><strong>Could Have</strong>: ATM could show promotional offers, could have touch-screen animations. Nice but low impact.</li>
+            <li><strong>Won't Have</strong>: ATM won't have voice assistant in v1.0, won't have facial recognition yet. Planned for future versions.</li>
+          </ul>
+          <p>This helps the team focus development effort on Must-haves first, ensuring a working system even if resources run short.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What is trade-off analysis and when is it necessary?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Trade-off analysis</strong> is the process of evaluating competing options or conflicting requirements to find the best balance given constraints of time, cost, and resources.</p>
+          <p style="margin-top:8px;">It is necessary when: (1) Two quality attributes conflict (e.g., security vs. performance). (2) Budget cannot support all requirements. (3) Different stakeholders have competing priorities. (4) Technical limitations prevent satisfying all requirements fully.</p>
+          <p style="margin-top:8px;">Example: An e-commerce system needs both maximum security (NFR) and fast page load (NFR). Full encryption of all data would slow the site dramatically. Trade-off: Encrypt only payment data, cache static content for speed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A startup has 3 months to launch a food delivery app. The CEO wants real-time GPS tracking, AI-powered restaurant recommendations, multi-currency payment, social sharing, and basic order management. The developer says 3 months is not enough for all features.</div>
+        <p class="q-text">Apply the MoSCoW method to prioritize these features and justify your choices.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>MoSCoW Analysis for Food Delivery App:</strong></p>
+          <ul>
+            <li><strong>MUST HAVE</strong>: Basic order management — Without this, the app doesn't function at all. This is the core functionality.</li>
+            <li><strong>MUST HAVE</strong>: Multi-currency payment — Without payment, no revenue. App is useless without it.</li>
+            <li><strong>SHOULD HAVE</strong>: Real-time GPS tracking — Very valuable for user experience and driver coordination, but basic order delivery can work without it initially.</li>
+            <li><strong>COULD HAVE</strong>: AI-powered recommendations — Nice feature that improves experience but not essential for core functionality.</li>
+            <li><strong>WON'T HAVE (v1.0)</strong>: Social sharing — Least critical to core business. Can be added post-launch.</li>
+          </ul>
+          <p><strong>Trade-off reasoning:</strong> With 3-month deadline, team should focus on Must-Haves to launch a functional MVP (Minimum Viable Product). GPS tracking can be added in Sprint 2, AI in Sprint 3, social features later. This ensures launch happens on time with core functionality working.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 4 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 5 ═══ -->
+<div class="week-block w5">
+  <div class="week-header">
+    <span class="week-num">WEEK 05</span>
+    <h2>Risk Analysis & Impact Analysis · Requirement Management</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>5.1 Risk Analysis in Requirements</h3>
+      <p><strong>Risk</strong> is the possibility of something going wrong that affects the project. In RE, risk analysis identifies requirements that are <strong>high-risk</strong> — difficult to implement, likely to change, or unclear.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Risk Analysis Process</div>
+┌─────────────────────────────────────────────────────────────┐
+│                 RISK ANALYSIS PROCESS                       │
+│                                                             │
+│  Step 1: IDENTIFY RISKS                                     │
+│          • Unclear/ambiguous requirements                   │
+│          • Technically difficult requirements               │
+│          • Requirements from unreliable stakeholders        │
+│          • Requirements dependent on new/unproven tech      │
+│                                                             │
+│  Step 2: ASSESS RISK (Probability × Impact)                 │
+│                                                             │
+│         HIGH IMPACT │ Monitor    │ Critical!   │            │
+│                     │ (Handle)   │ (Avoid)     │            │
+│         ─────────────────────────────────────              │
+│         LOW IMPACT  │ Accept     │ Monitor     │            │
+│                     │ (Ignore)   │ (Mitigate)  │            │
+│                     │            │             │            │
+│                    LOW PROB      HIGH PROB                  │
+│                                                             │
+│  Step 3: PLAN RESPONSE (Avoid, Mitigate, Transfer, Accept) │
+│  Step 4: MONITOR during development                         │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Risk Types in Requirements:</h4>
+      <table class="comp">
+        <tr><th>Risk Type</th><th>Description</th><th>Example</th></tr>
+        <tr><td>Requirement risk</td><td>Requirement is unclear, incomplete, or changing rapidly</td><td>"System must integrate with client's legacy system" — legacy system undocumented</td></tr>
+        <tr><td>Technical risk</td><td>Technology needed is new, unproven, or unavailable</td><td>"System must use AI for real-time fraud detection" — AI model not built yet</td></tr>
+        <tr><td>Business risk</td><td>Requirement tied to unstable business strategy</td><td>"System supports cryptocurrency payments" — regulation may ban it</td></tr>
+        <tr><td>Stakeholder risk</td><td>Key stakeholder unavailable or unreliable</td><td>Domain expert goes on leave during RE phase</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>5.2 Impact Analysis</h3>
+      <p>Impact analysis determines the <strong>consequences of making a change</strong> to a requirement. Before accepting any change, you must understand what will be affected.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Impact Analysis When a Requirement Changes</div>
+     Change Request: "Add two-factor authentication (2FA)"
+                              │
+                              ▼
+     ┌────────────────────────────────────────────────────┐
+     │              IMPACT ANALYSIS                       │
+     │                                                    │
+     │  Requirements affected:                            │
+     │  ✦ R-005 (Login requirement) must be updated       │
+     │  ✦ R-012 (User profile) needs phone number field   │
+     │  ✦ New requirement: R-087 (SMS service needed)     │
+     │                                                    │
+     │  Design affected:                                  │
+     │  ✦ Login module redesign needed                    │
+     │  ✦ Database schema change (add phone field)        │
+     │                                                    │
+     │  Code affected:                                    │
+     │  ✦ auth.js, user_profile.js, sms_service.js        │
+     │                                                    │
+     │  Tests affected:                                   │
+     │  ✦ TC-001, TC-004 must be rewritten                │
+     │  ✦ New test cases needed: TC-088, TC-089           │
+     │                                                    │
+     │  Cost estimate: 2 weeks extra, $5000               │
+     └────────────────────────────────────────────────────┘
+                              │
+                   Client approves? Yes/No</div>
+
+      <p>Impact analysis prevents <strong>"scope creep"</strong> — uncontrolled changes that expand the project without budget/timeline adjustment.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>5.3 Requirement Management</h3>
+      <p>Requirement management is the process of <strong>managing, tracking, and controlling changes</strong> to requirements throughout the project lifecycle.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Requirements Management Activities</div>
+┌─────────────────────────────────────────────────────────────┐
+│             REQUIREMENTS MANAGEMENT                         │
+│                                                             │
+│  1. REQUIREMENTS IDENTIFICATION                             │
+│     • Each requirement gets a unique ID (e.g., R-001)      │
+│     • Can be referenced and tracked                         │
+│                                                             │
+│  2. CHANGE MANAGEMENT PROCESS                               │
+│     Problem → Analysis → Impact → Decision → Implementation │
+│                                                             │
+│  3. TRACEABILITY POLICIES                                   │
+│     • What relationships to track (req → design → test)    │
+│     • How to maintain these records                         │
+│                                                             │
+│  4. TOOL SUPPORT                                            │
+│     • DOORS (IBM) — enterprise RE tool                     │
+│     • Jira, Azure DevOps — for agile teams                 │
+│     • Simple: Shared spreadsheets, wikis                   │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>The Change Management Process (Sommerville Fig 4.19):</h4>
+      <div class="diagram">
+        <div class="diagram-title">📐 Requirements Change Management Process</div>
+  Identified     Problem Analysis    Change Analysis    Change           Revised
+  Problem   ───► & Change           & Costing     ───► Implementation ► Requirements
+                 Specification
+                                         │
+                                    Decision:
+                                   Approve?
+                                  YES → Proceed
+                                   NO → Reject/Revise</div>
+    </div>
+
+    <!-- WEEK 5 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">In risk analysis, when a requirement has HIGH probability of change AND HIGH impact on the system, the appropriate response is:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Accept the risk and proceed without changes</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> Monitor and handle it when it occurs</div>
+          <div class="mcq-opt correct"><span class="opt-letter">C.</span> Treat it as critical — plan to avoid, mitigate, or redesign to handle it</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Ignore it — low probability events rarely happen</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: C</div><p>High probability + high impact = Critical risk. Must be actively managed — either avoided, mitigated through design, transferred (e.g., to insurance/vendor), or accepted only with explicit decision.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">Impact analysis is performed:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt correct"><span class="opt-letter">A.</span> Before accepting a change to a requirement, to understand what will be affected</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> After implementing the change, to verify it worked</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Only when the project is complete</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> During the initial requirements gathering phase only</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: A</div><p>Impact analysis is done BEFORE accepting a change — to understand the full ripple effects on other requirements, design, code, and tests, and to estimate the cost and schedule impact.</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">What is the Requirements Change Management process? Explain each step.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>The Requirements Change Management process (Sommerville) has three main stages:</p>
+          <ul>
+            <li><strong>1. Problem Analysis & Change Specification:</strong> The identified problem or change request is analyzed. The requester clarifies the problem. A specific change proposal is formulated. If the problem is invalid, it's rejected here.</li>
+            <li><strong>2. Change Analysis & Costing:</strong> The proposed change's effects are assessed using traceability information. What requirements, design, and code will be affected? What is the estimated cost and time? Based on this, a decision is made whether to proceed.</li>
+            <li><strong>3. Change Implementation:</strong> If approved, the requirements document, design, and code are updated. The system is retested. The requirements document should be updated BEFORE or immediately with the system change — never after, as they will get out of sync.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What is "scope creep" and how does proper requirements management prevent it?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Scope creep</strong> is the uncontrolled, gradual expansion of project scope through unauthorized or informal requirement additions without corresponding adjustments to budget, schedule, or resources.</p>
+          <p style="margin-top:8px;">Requirements management prevents it through: (1) <strong>Formal change control</strong> — all changes must go through the change management process. (2) <strong>Impact analysis</strong> — every change is evaluated for cost/schedule impact before approval. (3) <strong>Unique requirement IDs</strong> — every change is tracked. (4) <strong>Stakeholder approval</strong> — changes are approved by authorized stakeholders, not just requested informally.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> Mid-way through development of an online education platform, the client says: "Add live video streaming for all lectures." The project manager hasn't heard of impact analysis and simply tells the developer to "just add it." Two months later, the project is 6 months behind schedule, costs have doubled, and the existing search feature is broken.</div>
+        <p class="q-text">Explain what went wrong and how impact analysis should have been applied.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>What went wrong:</strong> The change was accepted without impact analysis. No one evaluated how live video streaming would affect: (1) Bandwidth/server requirements (NFRs), (2) Existing search module that used same database, (3) Budget and timeline, (4) New requirements for streaming service integration.</p>
+          <p><strong>Proper impact analysis should have identified:</strong></p>
+          <ul>
+            <li><strong>Requirements impact:</strong> New functional requirements (R-NEW-01: Live streaming) and NFRs (bandwidth, latency)</li>
+            <li><strong>Design impact:</strong> New streaming server architecture needed, database changes</li>
+            <li><strong>Code impact:</strong> Video module, search module integration conflicts</li>
+            <li><strong>Test impact:</strong> All existing video-related tests need rework</li>
+            <li><strong>Cost estimate:</strong> 3 months extra work, $50,000 additional</li>
+          </ul>
+          <p>With this analysis, the client could have made an informed decision: Approve with extended deadline/budget, or defer the feature to v2.0.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 5 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 6 ═══ -->
+<div class="week-block w6">
+  <div class="week-header">
+    <span class="week-num">WEEK 06</span>
+    <h2>Interaction Between Requirements & Architecture · Requirement Elicitation</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>6.1 Interaction Between Requirements and Architecture</h3>
+      <p>Requirements and architecture influence each other in a <strong>bidirectional relationship</strong>. Ideally, requirements come first, then architecture — but in practice, they co-evolve.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Requirements ↔ Architecture Bidirectional Relationship</div>
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   REQUIREMENTS ◄────────────────────► ARCHITECTURE        │
+│                                                             │
+│   Requirements DRIVE Architecture:                         │
+│   • NFR "99.9% availability" → Need redundant servers      │
+│   • NFR "10,000 users/day" → Need distributed architecture │
+│   • Security requirement → Need firewall, encryption layer │
+│                                                             │
+│   Architecture CONSTRAINS Requirements:                     │
+│   • "We use a 3-tier architecture" → Affects how DB       │
+│     requirements are specified                             │
+│   • Legacy system architecture → New requirements must     │
+│     be compatible                                          │
+│   • Chosen architecture → Limits or enables features      │
+│                                                             │
+│   Example: If architecture uses microservices,             │
+│   requirements for inter-service communication must         │
+│   be added. Architecture shaped the requirements!          │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Why Architecture Appears in Requirements Documents:</h4>
+      <p>Sommerville identifies three reasons why design/architecture sometimes appears in requirements:</p>
+      <ol>
+        <li>Need an initial architecture to <strong>structure</strong> the requirements specification</li>
+        <li>Systems must interoperate with <strong>existing systems</strong>, constraining design choices</li>
+        <li>Use of specific architecture to <strong>satisfy NFRs</strong> (e.g., N-version programming for reliability) may be mandated by regulators</li>
+      </ol>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>6.2 Requirement Elicitation</h3>
+      <p>Elicitation is the process of <strong>discovering, extracting, and gathering requirements</strong> from stakeholders and other sources. It is often the hardest part of RE.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Elicitation & Analysis Process (Sommerville Fig 4.7)</div>
+    ┌─────────────────────────────────────────────────────────┐
+    │                                                         │
+    │   1. Requirements Discovery & Understanding             │
+    │      (Interact with stakeholders, read documents)      │
+    │              │                                          │
+    │              ▼                                          │
+    │   2. Requirements Classification & Organization         │
+    │      (Group related requirements, structure them)       │
+    │              │                                          │
+    │              ▼                                          │
+    │   3. Requirements Prioritization & Negotiation         │
+    │      (Resolve conflicts, agree on priorities)           │
+    │              │                                          │
+    │              ▼                                          │
+    │   4. Requirements Documentation                         │
+    │      (Write down and formalize requirements)            │
+    │              │                                          │
+    │              └─────────────(feedback)──────────────►   │
+    │                                                         │
+    └─────────────────────────────────────────────────────────┘
+    ⟳ This is iterative — each cycle produces better requirements!</div>
+
+      <h4>Why Elicitation is Difficult:</h4>
+      <ul>
+        <li>Stakeholders don't know exactly what they want</li>
+        <li>Stakeholders express requirements in their own domain jargon</li>
+        <li>Different stakeholders have conflicting requirements</li>
+        <li>Political factors influence what stakeholders say</li>
+        <li>Business environment changes during the process</li>
+        <li>Stakeholders assume some things are "obvious" and don't mention them</li>
+      </ul>
+    </div>
+
+    <!-- WEEK 6 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Explain the interaction between requirements and system architecture.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Requirements and architecture have a <strong>bidirectional relationship</strong>:</p>
+          <ul>
+            <li><strong>Requirements → Architecture</strong>: NFRs especially drive architectural choices. A requirement for 99.9% availability leads to a redundant, fault-tolerant architecture. A security requirement leads to security layers in the design.</li>
+            <li><strong>Architecture → Requirements</strong>: The chosen architecture constrains requirements. If a legacy system uses a certain database, new requirements must be compatible with it. Architecture decisions may generate new requirements.</li>
+          </ul>
+          <p>Although ideally requirements come first, in practice they co-evolve. Sommerville notes that architectural design information sometimes appears in requirements documents because: (1) Initial architecture helps structure requirements, (2) Interoperability with existing systems constrains design, (3) External regulators may mandate specific architectures.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What are the main challenges in requirements elicitation?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <ul>
+            <li><strong>Stakeholder uncertainty</strong>: Users often don't know what they want until they see it</li>
+            <li><strong>Domain jargon</strong>: Stakeholders use technical domain terms that RE engineers may not understand</li>
+            <li><strong>Conflicting requirements</strong>: Different stakeholders have different needs that may contradict each other</li>
+            <li><strong>Political factors</strong>: Managers may request requirements to increase their organizational influence, not for genuine system need</li>
+            <li><strong>Dynamic environment</strong>: Business conditions change during elicitation, making requirements obsolete</li>
+            <li><strong>Tacit knowledge</strong>: Experts don't mention things they consider "obvious" — yet engineers don't know them</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A team is building a real-time stock trading platform. The requirement says "System must be fast." The architect proposes using a simple relational database with standard server. Later, performance testing shows the system can only handle 50 transactions/second but the requirement (now clarified) is 10,000/second. The architect says "You should have told me this earlier — my entire design would have been different."</div>
+        <p class="q-text">Explain the relationship between this NFR and the architectural decision, and what should have been done differently.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Problem:</strong> The NFR "fast" was not properly specified quantitatively. Had it been written as "10,000 transactions/second," the architect would have immediately known a standard relational DB was insufficient.</p>
+          <p><strong>Requirements → Architecture impact:</strong> A 10,000 TPS requirement would have driven a completely different architecture: in-memory databases (Redis), distributed computing, message queues (Kafka), load balancers, and horizontal scaling — none of which were in the current design.</p>
+          <p><strong>What should have been done:</strong></p>
+          <ul>
+            <li>NFR written quantitatively: "System shall process minimum 10,000 transactions per second"</li>
+            <li>Early architectural review with these NFRs before any design started</li>
+            <li>The architect and RE team should collaborate at requirements stage to validate feasibility</li>
+            <li>Prototype/benchmark test with a small architecture spike to validate performance NFR</li>
+          </ul>
+          <p>This illustrates why "fast" is a terrible requirement — and why architecture and requirements must be reviewed together.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 6 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 7 ═══ -->
+<div class="week-block w7">
+  <div class="week-header">
+    <span class="week-num">WEEK 07</span>
+    <h2>Elicitation Sources & Techniques · Requirement Specification & Documentation</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>7.1 Sources of Requirements</h3>
+      <p>Requirements come from many different sources. A complete RE process must tap ALL relevant sources:</p>
+
+      <table class="comp">
+        <tr><th>Source</th><th>What it provides</th><th>How to access</th></tr>
+        <tr><td><strong>Stakeholders</strong></td><td>User needs, business goals, domain knowledge</td><td>Interviews, workshops, surveys</td></tr>
+        <tr><td><strong>Existing systems</strong></td><td>What the current system does, its limitations</td><td>System documentation, observation</td></tr>
+        <tr><td><strong>Domain documents</strong></td><td>Industry standards, regulations, best practices</td><td>Technical manuals, standards bodies</td></tr>
+        <tr><td><strong>Competitor products</strong></td><td>What features are expected in this type of system</td><td>Market research, product demos</td></tr>
+        <tr><td><strong>Laws & regulations</strong></td><td>External requirements the system must comply with</td><td>Legal review, regulatory documents</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>7.2 Elicitation Techniques</h3>
+
+      <h4>A) Interviews</h4>
+      <div class="diagram">
+        <div class="diagram-title">📐 Types of Interviews</div>
+┌────────────────────────────────────────────────────────────┐
+│                    INTERVIEWS                              │
+│                                                            │
+│  ┌──────────────────────┐    ┌─────────────────────────┐  │
+│  │   CLOSED INTERVIEWS  │    │    OPEN INTERVIEWS       │  │
+│  │                      │    │                          │  │
+│  │ • Predefined set of  │    │ • No fixed agenda        │  │
+│  │   questions          │    │ • Free-form discussion   │  │
+│  │ • Structured answers │    │ • Explores range of      │  │
+│  │ • Consistent data    │    │   issues                 │  │
+│  │   collection         │    │ • Better understanding   │  │
+│  │                      │    │   of context             │  │
+│  └──────────────────────┘    └─────────────────────────┘  │
+│                                                            │
+│  In practice: Mix of both — start open, add structure     │
+│                                                            │
+│  ⚠️ Interviews DON'T work well for:                       │
+│  • Organizational/political requirements                   │
+│  • Domain knowledge requiring deep expertise               │
+│  • Hidden/unconscious knowledge                            │
+└────────────────────────────────────────────────────────────┘</div>
+
+      <h4>B) Ethnography</h4>
+      <p>An <strong>observational technique</strong> where the analyst immerses themselves in the work environment to observe actual work practices.</p>
+      <div class="diagram">
+        <div class="diagram-title">📐 Ethnography + Prototyping Combined (Sommerville Fig 4.8)</div>
+  Ethnographic      Debriefing      Focused
+  Analysis    ───►  Meetings   ───► Ethnography
+                                        │
+                                        ▼
+  Generic System ◄─── System  ◄─── Prototype
+  Development         Prototyping    Evaluation
+
+  Why combine them?
+  ✓ Ethnography informs prototype → fewer refinement cycles
+  ✓ Prototype focuses ethnography → better targeted observation
+  ✓ Discovers IMPLICIT requirements people don't think to mention</div>
+
+      <p>Ethnography discovers:</p>
+      <ul>
+        <li>How people actually work (not how process diagrams say they should)</li>
+        <li>Cooperative/awareness requirements (how people coordinate with each other)</li>
+      </ul>
+
+      <h4>C) Stories and Scenarios</h4>
+      <table class="comp">
+        <tr><th>Aspect</th><th>Stories</th><th>Scenarios</th></tr>
+        <tr><td>Format</td><td>Free narrative text</td><td>Structured with specific fields</td></tr>
+        <tr><td>Level of detail</td><td>High-level "big picture"</td><td>Detailed interaction description</td></tr>
+        <tr><td>Purpose</td><td>Facilitate discussion</td><td>Propose specific requirements</td></tr>
+        <tr><td>Contains</td><td>Context, setting, actors, tasks</td><td>Initial state, normal flow, exceptions, final state</td></tr>
+      </table>
+
+      <p><strong>A Scenario includes:</strong></p>
+      <ol>
+        <li>What system and users expect at the start</li>
+        <li>Normal flow of events</li>
+        <li>What can go wrong and how it's handled</li>
+        <li>Other activities going on at the same time</li>
+        <li>System state when scenario ends</li>
+      </ol>
+
+      <h4>D) Other Techniques:</h4>
+      <ul>
+        <li><strong>Prototyping</strong>: Build a quick model for stakeholders to react to</li>
+        <li><strong>Workshops (JAD)</strong>: Joint Application Development — structured group sessions</li>
+        <li><strong>Surveys/Questionnaires</strong>: For gathering data from many stakeholders</li>
+        <li><strong>Document analysis</strong>: Study existing documents, forms, reports</li>
+        <li><strong>Viewpoints</strong>: Organize requirements by stakeholder group</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>7.3 Requirement Specification</h3>
+      <p>Specification is the process of <strong>formally writing down</strong> the requirements in a clear, precise, organized form.</p>
+
+      <h4>Notations for Writing Requirements:</h4>
+      <table class="comp">
+        <tr><th>Notation</th><th>Description</th><th>When to Use</th></tr>
+        <tr><td><strong>Natural Language</strong></td><td>Numbered sentences in plain English using "shall"/"should"</td><td>Most common — for user and system requirements</td></tr>
+        <tr><td><strong>Structured Natural Language</strong></td><td>Natural language in a standard template/form</td><td>More consistency needed, functional specs</td></tr>
+        <tr><td><strong>Graphical Notations</strong></td><td>UML Use Case, Sequence Diagrams</td><td>Visual interaction descriptions</td></tr>
+        <tr><td><strong>Mathematical Specifications</strong></td><td>Formal methods, Z-notation, state machines</td><td>Safety-critical systems, formal verification</td></tr>
+      </table>
+
+      <h4>Natural Language Guidelines:</h4>
+      <ol>
+        <li>Use <strong>standard format</strong> — one requirement per numbered sentence</li>
+        <li>Use <strong>"shall"</strong> for mandatory requirements, <strong>"should"</strong> for desirable ones</li>
+        <li>Use <strong>text highlighting</strong> (bold/italic) for key terms</li>
+        <li>Avoid jargon and technical terms when writing user requirements</li>
+        <li>Include <strong>rationale</strong> — WHY was this requirement included?</li>
+      </ol>
+
+      <h4>Use Case Diagrams (Graphical Notation):</h4>
+      <div class="diagram">
+        <div class="diagram-title">📐 Use Case Diagram Structure (Mentcare Example — Fig 4.15)</div>
+  ┌─────────────────────────────────────────────────────────────┐
+  │                      SYSTEM BOUNDARY                       │
+  │                                                             │
+  │    ○─── Medical Receptionist ─→ ( Register Patient )      │
+  │    │                             ( View Personal Info )    │
+  │    │                             ( Setup Consultation )    │
+  │    │                                                        │
+  │    ○─── Doctor ─────────────→ ( View Record )             │
+  │    │                           ( Edit Record )             │
+  │    │                                                        │
+  │    ○─── Nurse ──────────────→ ( View Record )             │
+  │                                                             │
+  │    ○─── Manager ────────────→ ( Export Statistics )       │
+  │                               ( Generate Report )          │
+  └─────────────────────────────────────────────────────────────┘
+  
+  KEY: ○─── = Actor (Stick Figure)   ( ) = Use Case (Ellipse)</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>7.4 The Software Requirements Document (SRS)</h3>
+      <p>The SRS is the official statement of what the system should implement. It serves different audiences with different needs.</p>
+
+      <h4>SRS Structure (IEEE Standard — Sommerville Fig 4.17):</h4>
+      <div class="diagram">
+        <div class="diagram-title">📐 SRS Document Structure</div>
+┌─────────────────────────────────────────────────────────────┐
+│                   SRS DOCUMENT STRUCTURE                    │
+├─────────────────────────────────────────────────────────────┤
+│  1. PREFACE          │ Version history, expected readers    │
+│  2. INTRODUCTION     │ System purpose, overview             │
+│  3. GLOSSARY         │ Technical terms defined              │
+│  4. USER REQUIREMENTS│ Services for users, NFRs             │
+│     DEFINITION       │ Natural language + diagrams           │
+│  5. SYSTEM ARCHITECTURE│ High-level architecture overview   │
+│  6. SYSTEM REQUIREMENTS│ Detailed functional & NFRs         │
+│     SPECIFICATION    │ Interface definitions                 │
+│  7. SYSTEM MODELS    │ Object models, data-flow, ER diagrams │
+│  8. SYSTEM EVOLUTION │ Anticipated changes, assumptions      │
+│  9. APPENDICES       │ Hardware, database requirements       │
+│  10. INDEX           │ Alphabetic, function, diagram indexes │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Users of the SRS Document:</h4>
+      <table class="comp">
+        <tr><th>Who</th><th>Why they read it</th></tr>
+        <tr><td>System customers</td><td>Specify requirements, check it meets their needs</td></tr>
+        <tr><td>Managers</td><td>Plan bids, plan development process</td></tr>
+        <tr><td>System engineers</td><td>Understand what system to develop</td></tr>
+        <tr><td>Test engineers</td><td>Develop validation tests</td></tr>
+        <tr><td>Maintenance engineers</td><td>Understand system for future changes</td></tr>
+      </table>
+    </div>
+
+    <div class="memory-tip">
+      <div class="mt-label">🧠 Memory Trick</div>
+      <p><strong>I-E-S-V</strong> for elicitation: Interviews · Ethnography · Stories/Scenarios · (other: workshops, prototyping)<br>
+      <strong>SRS structure: PIGU-ASSE-I</strong> = Preface → Introduction → Glossary → User Reqs → Architecture → System Reqs → System Models → Evolution → Appendices → Index</p>
+    </div>
+
+    <!-- WEEK 7 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">Ethnography as a requirements elicitation technique is MOST effective for:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Discovering high-level business requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> Gathering data from a large number of stakeholders simultaneously</div>
+          <div class="mcq-opt correct"><span class="opt-letter">C.</span> Discovering implicit requirements from actual work practices and cooperation patterns</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Formally specifying requirements in a structured notation</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: C</div><p>Ethnography is observational — it reveals how people actually work (not how processes say they should work) and discovers implicit, unstated requirements about cooperation and awareness that stakeholders don't think to mention.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">In natural language requirements specification, the word "shall" is used to indicate:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt correct"><span class="opt-letter">A.</span> A mandatory requirement that the system must provide</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> A desirable but optional requirement</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> A future planned requirement</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> A constraint derived from external regulations</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: A</div><p>"Shall" = mandatory requirement. "Should" = desirable but not essential. This distinction is critical in formal requirements documents.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 3</span>
+        <p class="q-text">What is the primary difference between a story and a scenario in requirements elicitation?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Stories are written by developers; scenarios by users</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Stories are high-level narrative descriptions; scenarios are detailed structured descriptions of specific interactions</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Stories describe non-functional requirements; scenarios describe functional requirements</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> There is no difference — they are exactly the same thing</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Stories are high-level narrative texts that set the "big picture." Scenarios are structured, detailed descriptions with specific fields (initial state, normal flow, exceptions, final state) that are closer to actual requirements.</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Compare and contrast Open vs. Closed Interviews as elicitation techniques.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <table style="width:100%; border-collapse: collapse; font-size:0.9rem; margin-top:8px;">
+            <tr style="color:var(--gold);"><td style="padding:6px; border-bottom: 1px solid var(--border);"><strong>Aspect</strong></td><td style="padding:6px; border-bottom: 1px solid var(--border);"><strong>Closed</strong></td><td style="padding:6px; border-bottom: 1px solid var(--border);"><strong>Open</strong></td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border-bottom: 1px solid var(--border);">Structure</td><td style="padding:6px; border-bottom: 1px solid var(--border);">Predefined questions</td><td style="padding:6px; border-bottom: 1px solid var(--border);">No fixed agenda</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border-bottom: 1px solid var(--border);">Good for</td><td style="padding:6px; border-bottom: 1px solid var(--border);">Specific data gathering</td><td style="padding:6px; border-bottom: 1px solid var(--border);">Understanding context and issues</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border-bottom: 1px solid var(--border);">Flexibility</td><td style="padding:6px; border-bottom: 1px solid var(--border);">Low</td><td style="padding:6px; border-bottom: 1px solid var(--border);">High</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border-bottom: 1px solid var(--border);">Risk</td><td style="padding:6px; border-bottom: 1px solid var(--border);">Misses unexpected info</td><td style="padding:6px; border-bottom: 1px solid var(--border);">Can go off-topic</td></tr>
+          </table>
+          <p style="margin-top:8px;">In practice: use a mix — start open to explore, then use structured questions to get specific details. Always come prepared with a prototype or proposal to focus discussion.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What is a Use Case? Draw and explain a simple use case diagram for a library system.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>A <strong>Use Case</strong> identifies the actors involved in a system interaction and names the type of interaction. It describes what a user can DO with the system, not HOW the system does it.</p>
+          <div class="diagram" style="margin-top:10px;">
+        <div class="diagram-title">Library System Use Case Diagram</div>
+┌────────────────────────────────────────────────┐
+│                LIBRARY SYSTEM                  │
+│                                                │
+│  ○─── Member ─────→ ( Search Books )          │
+│                      ( Borrow Book  )          │
+│                      ( Return Book  )          │
+│                      ( Reserve Book )          │
+│                                                │
+│  ○─── Librarian ──→ ( Add New Book  )         │
+│                      ( Remove Book  )          │
+│                      ( Generate Report )        │
+│                                                │
+│  ○─── Admin ──────→ ( Manage Members )        │
+│                      ( Set Fines )             │
+└────────────────────────────────────────────────┘</div>
+          <p>Each use case (ellipse) represents one complete interaction. Actors (stick figures/circles) are the people or external systems that interact with the system.</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 3</span>
+        <p class="q-text">What is the Software Requirements Specification (SRS)? Who are its different users and why do they need it?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>The <strong>SRS</strong> is the official document that records both user and system requirements. It may form part of the contract between the system buyer and software developer.</p>
+          <p style="margin-top:8px;">Different users and why they need it:</p>
+          <ul>
+            <li><strong>Customers</strong>: Check that the system meets their needs; specify changes</li>
+            <li><strong>Managers</strong>: Use it to plan development and cost estimates</li>
+            <li><strong>System engineers</strong>: Use it to understand what to build</li>
+            <li><strong>Test engineers</strong>: Use it to design test cases for validation</li>
+            <li><strong>Maintenance engineers</strong>: Use it to understand the system for future changes</li>
+          </ul>
+          <p>The SRS must balance being detailed enough for developers and testers, while being understandable for non-technical managers and customers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A hospital is building a new Electronic Health Records (EHR) system. The team has already interviewed 3 doctors and 2 managers. A nurse points out "You haven't watched how we actually work — we do so many things that aren't in any process document." The team also has a 40-page requirement document that clients say is "confusing and too technical."</div>
+        <p class="q-text">Which elicitation techniques should the team additionally use, and how should the requirements document be improved?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Additional elicitation techniques needed:</strong></p>
+          <ul>
+            <li><strong>Ethnography</strong>: The nurse is absolutely right. Actual work practices differ from documented processes. A team member should spend days observing nurses and doctors at work — this will reveal implicit, unstated requirements about how the system must support real clinical workflows.</li>
+            <li><strong>Stories & Scenarios</strong>: Create narratives like "A nurse's workday using the EHR" — these help stakeholders validate requirements in context they understand.</li>
+            <li><strong>Prototyping</strong>: Build a simple clickable mockup for stakeholders to react to — much easier than reading a 40-page document.</li>
+          </ul>
+          <p><strong>Document improvement:</strong></p>
+          <ul>
+            <li>Separate USER requirements (in plain language for clients/managers) from SYSTEM requirements (technical, for developers)</li>
+            <li>Add a Glossary to explain technical terms</li>
+            <li>Use diagrams — Use Case diagrams, workflow diagrams — instead of walls of text</li>
+            <li>Have non-technical stakeholders review the user requirements section</li>
+            <li>Include a one-page executive summary at the front</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 2</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A requirements engineer writes: "The online shopping system shall process all orders." The developer asks "What does 'process' mean exactly? And what about failed payments? And what about out-of-stock items?" The RE engineer is confused — "I thought it was clear!"</div>
+        <p class="q-text">Identify the problem with this requirement and rewrite it as a proper structured specification.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Problem:</strong> The requirement violates: Unambiguousness ("process" has multiple meanings), Completeness (doesn't address errors/exceptions), Verifiability (how do you test "processes all orders"?).</p>
+          <p><strong>Rewritten using structured specification form:</strong></p>
+          <table style="width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:8px;">
+            <tr style="color:var(--gold);"><td style="padding:6px; border:1px solid var(--border);"><strong>Field</strong></td><td style="padding:6px; border:1px solid var(--border);"><strong>Value</strong></td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border:1px solid var(--border);">Function</td><td style="padding:6px; border:1px solid var(--border);">Process Customer Order</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border:1px solid var(--border);">Description</td><td style="padding:6px; border:1px solid var(--border);">Validate and confirm a customer's purchase order</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border:1px solid var(--border);">Inputs</td><td style="padding:6px; border:1px solid var(--border);">Customer ID, Product ID(s), Quantity, Payment details</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border:1px solid var(--border);">Action</td><td style="padding:6px; border:1px solid var(--border);">Check stock availability → Verify payment → Deduct stock → Generate order confirmation email within 30 seconds</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border:1px solid var(--border);">Exceptions</td><td style="padding:6px; border:1px solid var(--border);">If out of stock → Notify user, offer alternatives. If payment fails → Notify user, don't process order.</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:6px; border:1px solid var(--border);">Outputs</td><td style="padding:6px; border:1px solid var(--border);">Order confirmation with unique order ID, or error message</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 7 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 8 ═══ -->
+<div class="week-block" style="border-radius:14px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.4); margin:50px 0 0;">
+  <div class="week-header" style="background:linear-gradient(90deg,#2a2a0a,#3d3d10); padding:22px 36px; display:flex; align-items:center; gap:20px;">
+    <span class="week-num">WEEK 08</span>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#fff;">Course Review (Midterm) — Key Summary of Weeks 1–7</h2>
+  </div>
+  <div class="week-body">
+    <div class="topic">
+      <h3>Quick Revision: Everything Covered So Far</h3>
+      <div class="diagram">
+        <div class="diagram-title">📐 Weeks 1–7 Master Concept Map</div>
+                    SOFTWARE REQUIREMENTS ENGINEERING
+                               │
+              ┌────────────────┼────────────────────┐
+              │                │                    │
+         TYPES OF           RE PROCESS          MANAGEMENT
+        REQUIREMENTS                                │
+              │                │                    │
+     ┌────────┴──────┐  ┌──────┴──────┐    ┌───────┴──────┐
+     │  Functional   │  │  Elicitation│    │ Traceability │
+     │ Non-Functional│  │(Interviews, │    │ Change Mgmt  │
+     │  Domain       │  │Ethnography, │    │ Risk Analysis│
+     │               │  │Stories)     │    │ Impact Anal  │
+     └────────┬──────┘  └──────┬──────┘    └───────┬──────┘
+              │                │                    │
+     ┌────────┴──────┐  ┌──────┴──────┐    ┌───────┴──────┐
+     │  Levels:      │  │Specification│    │Prioritization│
+     │  Business     │  │(NL,Struct,  │    │ MoSCoW       │
+     │  User         │  │UML,Formal)  │    │ Trade-offs   │
+     │  System       │  └─────────────┘    └──────────────┘
+     └───────────────┘
+     
+     CHARACTERISTICS: Complete·Unambiguous·Consistent·Verifiable·Traceable</div>
+
+      <p><strong>Remember for the exam — the 3 core activities of RE:</strong></p>
+      <ol>
+        <li><strong>Elicitation</strong> (discovery) → Who needs what?</li>
+        <li><strong>Specification</strong> (documentation) → Write it clearly</li>
+        <li><strong>Validation</strong> (checking) → Is it correct?</li>
+      </ol>
+      <p>All supported by <strong>Requirements Management</strong> (ongoing control of changes).</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════ WEEK 9 ═══ -->
+<div class="week-block w9">
+  <div class="week-header">
+    <span class="week-num">WEEK 09</span>
+    <h2>Specification Sources & Techniques · Requirements Validation & Techniques</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>9.1 Specification Sources</h3>
+      <p>The same sources used for elicitation also inform specification. Additionally:</p>
+      <ul>
+        <li><strong>Domain standards</strong>: Industry-specific templates and formats</li>
+        <li><strong>Organizational standards</strong>: Company policies on how requirements must be written</li>
+        <li><strong>IEEE/ISO standards</strong>: International standards for SRS structure (IEEE 830, ISO 29148)</li>
+        <li><strong>Existing requirements documents</strong>: From previous projects or similar systems</li>
+      </ul>
+
+      <h4>Structured Specification Template (from Sommerville Fig 4.13):</h4>
+      <table class="comp">
+        <tr><th>Field</th><th>Purpose</th></tr>
+        <tr><td>Function</td><td>Name/title of the requirement</td></tr>
+        <tr><td>Description</td><td>What the function does</td></tr>
+        <tr><td>Inputs</td><td>What data the function takes and where it comes from</td></tr>
+        <tr><td>Source</td><td>Who provided the input data</td></tr>
+        <tr><td>Outputs</td><td>What the function produces and where it goes</td></tr>
+        <tr><td>Destination</td><td>Where output goes</td></tr>
+        <tr><td>Action</td><td>Step-by-step description of the computation/action</td></tr>
+        <tr><td>Requires</td><td>Other requirements/data this depends on</td></tr>
+        <tr><td>Precondition</td><td>What must be true before the function runs</td></tr>
+        <tr><td>Postcondition</td><td>What is true after the function runs</td></tr>
+        <tr><td>Side effects</td><td>Any other changes caused by this function</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>9.2 Requirements Validation</h3>
+      <p>Validation ensures that the requirements <strong>define the system the customer really wants</strong>. Done BEFORE development — errors caught here are MUCH cheaper to fix than later.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Cost of Fixing Errors at Different Stages</div>
+    COST TO FIX
+         │
+    $$$$$│                                    ████████
+         │                               ████████████
+    $$$$│                          ████████████████
+         │                     ████████████████████
+    $$$│                ████████████████████████
+         │          ████████████████████████████
+    $$│        ████████████████████████████████
+         │   ████████████████████████████████████
+    $│ ████████████████████████████████████████
+         └───────────────────────────────────────────
+           Req  Design  Code   Test  Deploy  Live
+           
+    Fix errors DURING REQUIREMENTS = Cheapest!
+    Fix errors AFTER DEPLOYMENT = 100× more expensive!</div>
+
+      <h4>Types of Checks in Requirements Validation:</h4>
+      <table class="comp">
+        <tr><th>Check Type</th><th>What it verifies</th><th>Question asked</th></tr>
+        <tr><td><strong>Validity checks</strong></td><td>Requirements reflect real user needs</td><td>"Does the user still need this? Has anything changed?"</td></tr>
+        <tr><td><strong>Consistency checks</strong></td><td>No contradictions between requirements</td><td>"Does this requirement conflict with any other?"</td></tr>
+        <tr><td><strong>Completeness checks</strong></td><td>All functions and constraints are included</td><td>"Is anything missing? Are all exceptions covered?"</td></tr>
+        <tr><td><strong>Realism checks</strong></td><td>Requirements can be implemented within budget</td><td>"Is this technically and financially achievable?"</td></tr>
+        <tr><td><strong>Verifiability</strong></td><td>Requirements can be tested</td><td>"Can we write a test to prove this is met?"</td></tr>
+      </table>
+
+      <h4>Requirements Validation Techniques:</h4>
+      <div class="diagram">
+        <div class="diagram-title">📐 3 Main Validation Techniques</div>
+┌──────────────────────────────────────────────────────────────┐
+│  1. REQUIREMENTS REVIEWS                                     │
+│     • Team reads requirements document in detail            │
+│     • Check for errors, inconsistencies, anomalies          │
+│     • Both customer and developer representatives           │
+│     • Find issues → Negotiate solutions                     │
+│                                                              │
+│  2. PROTOTYPING                                              │
+│     • Build executable model of the system                  │
+│     • Stakeholders experiment with it                        │
+│     • See if it meets their needs and expectations          │
+│     • Feed back changes to development team                 │
+│                                                              │
+│  3. TEST-CASE GENERATION                                     │
+│     • Design tests FOR requirements BEFORE development      │
+│     • If a test is hard to design → requirement is          │
+│       probably unclear or ambiguous → fix it!               │
+│     • Foundation of Test-Driven Development (TDD)           │
+└──────────────────────────────────────────────────────────────┘</div>
+    </div>
+
+    <!-- WEEK 9 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">Requirements validation is primarily concerned with:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Verifying that the system has been built according to requirements</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Checking that the requirements define the system the customer actually wants</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Testing the software system after implementation</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Managing changes to requirements over time</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Validation = building the RIGHT system. Verification = building the system RIGHT. Validation checks that requirements reflect true customer needs BEFORE development starts.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">If a test case for a requirement is very difficult or impossible to design, this typically indicates:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> The testing team is not skilled enough</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> The requirement is unclear, ambiguous, or impossible to implement and should be reconsidered</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> The system is too complex to test</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> The requirement is a non-functional requirement and doesn't need testing</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>Sommerville states that if you cannot design a test for a requirement, the requirement is likely ambiguous or impossible. This is actually a useful validation technique — try to write tests and see which requirements fail.</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">List and explain the 5 types of checks performed during requirements validation.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <ul>
+            <li><strong>1. Validity Checks</strong>: Ensure requirements still reflect actual user needs. Circumstances may have changed since requirements were first gathered.</li>
+            <li><strong>2. Consistency Checks</strong>: Ensure no two requirements contradict each other. No conflicting constraints or duplicate descriptions of the same function.</li>
+            <li><strong>3. Completeness Checks</strong>: Ensure all functions and constraints needed by the user are included. Nothing is missing — all exceptions and edge cases covered.</li>
+            <li><strong>4. Realism Checks</strong>: Ensure requirements can actually be implemented within the available budget and schedule using current technology.</li>
+            <li><strong>5. Verifiability</strong>: Ensure each requirement can be tested objectively. A requirement you cannot test is dangerous — you can never prove the system meets it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">Why is prototyping useful in requirements validation?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Prototyping builds an <strong>executable model</strong> of the system that stakeholders can actually interact with. It is valuable because:</p>
+          <ul>
+            <li>People find it much easier to react to a working prototype than to read abstract requirements</li>
+            <li>Stakeholders can discover missing or incorrect requirements by experiencing the prototype</li>
+            <li>Misunderstandings become immediately visible when users interact with the system</li>
+            <li>It reduces the risk of building the wrong system — errors are caught cheaply during requirements rather than after development</li>
+          </ul>
+          <p>Prototyping can be combined with ethnography — ethnographic observations inform the prototype, which then focuses further observations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A team has written requirements for a hospital pharmacy system. Requirement R-201: "System shall process prescriptions quickly." Requirement R-202: "System shall verify with the doctor before dispensing any medication." A reviewer says "These requirements need validation before development starts."</div>
+        <p class="q-text">Perform validation checks on R-201 and R-202, and identify any issues.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Validation of R-201: "System shall process prescriptions quickly."</strong></p>
+          <ul>
+            <li>❌ <strong>Verifiability FAIL</strong>: "quickly" is not measurable. How fast? 1 second? 1 minute? Cannot write a test.</li>
+            <li>❌ <strong>Unambiguous FAIL</strong>: "quickly" has different meanings for different people.</li>
+            <li>✅ Validity: Generally valid — speed is important for a pharmacy system.</li>
+          </ul>
+          <p><strong>Fix R-201</strong>: "System shall process standard prescriptions within 30 seconds of submission."</p>
+          <p style="margin-top:8px;"><strong>Validation of R-202: "System shall verify with doctor before dispensing any medication."</strong></p>
+          <ul>
+            <li>✅ Completeness OK: Covers the general workflow</li>
+            <li>❌ <strong>Potential Conflict with R-201</strong>: If verification requires contacting a doctor, processing will NOT be quick — these requirements may conflict!</li>
+            <li>❌ <strong>Completeness issue</strong>: What if the doctor is unreachable? Emergency situations?</li>
+          </ul>
+          <p><strong>Fix</strong>: Add exception handling — "In emergency cases, pharmacist supervisor approval may substitute for doctor verification." Also resolve the speed conflict.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 9 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 10 ═══ -->
+<div class="week-block w10">
+  <div class="week-header">
+    <span class="week-num">WEEK 10</span>
+    <h2>Management of Requirements · Introduction to Requirements Management</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>10.1 What is Requirements Management?</h3>
+      <p>Requirements management is the process of <strong>managing and controlling changes</strong> to requirements over the lifetime of the system. It starts as soon as the first draft requirements document is available and continues throughout the project.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Requirements Management Planning Decisions</div>
+┌─────────────────────────────────────────────────────────────┐
+│         REQUIREMENTS MANAGEMENT PLANNING DECISIONS          │
+│                                                             │
+│  1. REQUIREMENTS IDENTIFICATION                             │
+│     Each requirement gets a unique ID for cross-referencing │
+│     Example: R-001, R-002, FR-01, NFR-01                   │
+│                                                             │
+│  2. CHANGE MANAGEMENT PROCESS                               │
+│     Define activities for evaluating impact and cost       │
+│     of changes before they are accepted                     │
+│                                                             │
+│  3. TRACEABILITY POLICIES                                   │
+│     Define what relationships to track:                     │
+│     • Req → Source (stakeholder)                           │
+│     • Req → Design component                               │
+│     • Req → Test case                                       │
+│     • Req → Req (dependencies)                             │
+│                                                             │
+│  4. TOOL SUPPORT                                            │
+│     Small project: Shared spreadsheets, wikis               │
+│     Large project: DOORS (IBM), JIRA, Azure DevOps         │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Tool Support for Requirements Management:</h4>
+      <table class="comp">
+        <tr><th>Need</th><th>What Tools Provide</th></tr>
+        <tr><td>Requirements storage</td><td>Secure, managed database accessible to all team members</td></tr>
+        <tr><td>Change management</td><td>Track change requests, responses, decisions</td></tr>
+        <tr><td>Traceability management</td><td>Automatically identify related requirements; some use NLP</td></tr>
+      </table>
+
+      <h4>Why Requirements Always Need Management:</h4>
+      <ul>
+        <li>Large systems are never fully specified at first — understanding evolves</li>
+        <li>Business environment changes (new laws, new competitors)</li>
+        <li>Different stakeholders have different priorities — these shift over time</li>
+        <li>System errors and omissions are discovered during use</li>
+      </ul>
+    </div>
+
+    <!-- WEEK 10 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Why is requirements management planning necessary? What decisions must be made?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>Requirements management planning is necessary because requirements ALWAYS change, and without a plan for managing them, changes become chaotic, leading to inconsistencies, missed requirements, and project failure.</p>
+          <p style="margin-top:8px;"><strong>Key planning decisions:</strong></p>
+          <ul>
+            <li><strong>Requirements identification</strong>: How to uniquely identify each requirement (naming convention)</li>
+            <li><strong>Change management process</strong>: The formal process for evaluating, approving, and implementing changes</li>
+            <li><strong>Traceability policies</strong>: What relationships to track and how to maintain them</li>
+            <li><strong>Tool support</strong>: Which tools (DOORS, JIRA, etc.) will manage requirements — chosen based on project size and complexity</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What is DOORS and when would you use it?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>DOORS (Dynamic Object-Oriented Requirements System)</strong> by IBM is a specialized requirements management tool used for large, complex projects with many requirements.</p>
+          <p style="margin-top:8px;">It provides: requirements storage with unique IDs, change tracking, traceability links between requirements and design/tests, version control for requirements, and impact analysis support.</p>
+          <p style="margin-top:8px;">Use it for: Large enterprise systems, safety-critical systems (medical, aerospace, defense), outsourced projects with hundreds or thousands of requirements. For small projects, a shared spreadsheet or wiki is sufficient.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 10 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 11 ═══ -->
+<div class="week-block w11">
+  <div class="week-header">
+    <span class="week-num">WEEK 11</span>
+    <h2>Requirements Management Problems · Managing Requirements in an Acquisition Organization</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>11.1 Common Requirements Management Problems</h3>
+
+      <table class="comp">
+        <tr><th>Problem</th><th>Description</th><th>How to Address</th></tr>
+        <tr><td><strong>Requirements creep</strong></td><td>Uncontrolled addition of new requirements without budget/time adjustment</td><td>Strict change management process; impact analysis for every change</td></tr>
+        <tr><td><strong>Gold-plating</strong></td><td>Developers add features beyond what was specified</td><td>Stick to requirements; any addition must go through change control</td></tr>
+        <tr><td><strong>Contradictory requirements</strong></td><td>Different stakeholders give conflicting requirements</td><td>Requirements negotiation sessions; clear prioritization</td></tr>
+        <tr><td><strong>Unclear ownership</strong></td><td>No one is responsible for a requirement</td><td>Every requirement must have a named stakeholder owner</td></tr>
+        <tr><td><strong>Poor traceability</strong></td><td>Can't track requirements through development</td><td>RTM from day one; tool support</td></tr>
+        <tr><td><strong>Volatile requirements</strong></td><td>Key requirements keep changing</td><td>Identify and flag volatile requirements; use agile for high-volatility areas</td></tr>
+        <tr><td><strong>Missing stakeholders</strong></td><td>Important stakeholders not consulted</td><td>Thorough stakeholder analysis at project start</td></tr>
+      </table>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>11.2 Managing Requirements in an Acquisition Organization</h3>
+      <p>An <strong>acquisition organization</strong> is an organization that buys (acquires) software systems from suppliers/contractors rather than developing software itself. Government agencies, military, and large corporations are typical examples.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Acquisition Organization Context</div>
+┌─────────────────────────────────────────────────────────────┐
+│            ACQUISITION SCENARIO                             │
+│                                                             │
+│  ┌─────────────────────────┐   CONTRACT   ┌──────────────┐ │
+│  │  ACQUISITION ORGANIZATION│◄──────────►│  SUPPLIER    │ │
+│  │  (Customer/Buyer)        │             │  (Developer) │ │
+│  │                          │             │              │ │
+│  │  • Defines requirements  │             │  • Builds    │ │
+│  │  • May not be technical  │             │    system    │ │
+│  │  • Must communicate      │             │  • Interprets│ │
+│  │    requirements clearly  │             │    SRS       │ │
+│  └──────────────────────────┘             └──────────────┘ │
+│                                                             │
+│  CHALLENGES:                                                │
+│  • Requirements must be very precise — no ambiguity        │
+│  • Any change = contract amendment = extra cost            │
+│  • Supplier may interpret requirements differently          │
+│  • Distance between customer and developer team            │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Key Requirements Management Practices for Acquisition:</h4>
+      <ol>
+        <li><strong>Formal, precise SRS</strong>: The requirements document becomes part of the legal contract — must be extremely clear and unambiguous</li>
+        <li><strong>Formal change control</strong>: Every change requires a contract modification — all changes go through strict process</li>
+        <li><strong>Requirements reviews</strong>: Regular reviews between acquisition org and supplier to catch misunderstandings early</li>
+        <li><strong>Independent verification</strong>: The acquisition org may use third-party auditors to verify that what the supplier built matches requirements</li>
+        <li><strong>Traceability mandatory</strong>: Supplier must demonstrate that every requirement has been implemented — evidence required</li>
+      </ol>
+    </div>
+
+    <!-- WEEK 11 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Explain "requirements creep" and "gold-plating." How are they different and how can both be controlled?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Requirements creep:</strong> Uncontrolled expansion of scope by adding new requirements from stakeholders without corresponding changes to budget, schedule, or resources. Comes from the CLIENT/stakeholder side.</p>
+          <p style="margin-top:8px;"><strong>Gold-plating:</strong> Adding unnecessary features, functions, or technical complexity beyond what the requirements specify. Comes from the DEVELOPER side — developers "improve" the system beyond what was asked.</p>
+          <p style="margin-top:8px;"><strong>How to control both:</strong></p>
+          <ul>
+            <li>Formal change management process — all changes (from any source) must be evaluated and approved</li>
+            <li>Clear, unambiguous requirements — if requirements are precise, both clients and developers know exactly what is needed</li>
+            <li>Regular reviews — compare what is being built against the approved requirements</li>
+            <li>Requirements ownership — each requirement has a named owner who approves changes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">What special challenges arise in managing requirements when software is acquired from an external supplier?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <ul>
+            <li><strong>Contractual precision</strong>: Requirements become part of a legal contract — every ambiguity can cause expensive disputes</li>
+            <li><strong>Change cost</strong>: Each requirement change requires a formal contract amendment, which is expensive and time-consuming</li>
+            <li><strong>Interpretation risk</strong>: Supplier may interpret requirements differently from what the acquisition org intended</li>
+            <li><strong>Verification challenge</strong>: Acquisition org must verify that supplier built exactly what was required — needs strong traceability</li>
+            <li><strong>Communication distance</strong>: Supplier may be in a different location/country — misunderstandings accumulate over time</li>
+          </ul>
+          <p><strong>Solutions</strong>: Very precise SRS, formal requirements reviews, regular milestone reviews, third-party independent verification, mandatory traceability documentation from supplier.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> The Pakistan Air Force contracts a private software company to build a pilot training management system. During development, the PAF keeps informally telling the developer "also add a module for aircraft maintenance tracking" and "add biometric login." The original SRS had neither. The developer adds them to "keep the client happy." 8 months in, PAF says the contract wasn't fulfilled — the core training system was incomplete — and refuses payment.</div>
+        <p class="q-text">Identify all requirements management failures and how they should have been handled.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Failures identified:</strong></p>
+          <ul>
+            <li><strong>Requirements creep</strong>: Maintenance tracking and biometric login were added without SRS update</li>
+            <li><strong>No formal change control</strong>: Changes were made "informally" — no contract amendment, no impact analysis</li>
+            <li><strong>Gold-plating risk</strong>: Developer added features not in contract, diverting resources from contracted features</li>
+            <li><strong>Poor traceability</strong>: No documentation linking new requirements to original contract</li>
+          </ul>
+          <p><strong>How it should have been handled:</strong></p>
+          <ol>
+            <li>When PAF requested new features, developer should have REFUSED informal requests and directed them through the formal change control process</li>
+            <li>Formal change request → Impact analysis → Contract amendment → Additional budget/time agreed</li>
+            <li>New requirements should have been added to the SRS with unique IDs and signed off by both parties</li>
+            <li>Regular progress reviews against the original SRS to ensure core requirements being delivered first</li>
+          </ol>
+          <p>In acquisition contexts, informal requirement additions without contract amendments leave the developer with no legal protection.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 11 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 12 ═══ -->
+<div class="week-block w12">
+  <div class="week-header">
+    <span class="week-num">WEEK 12</span>
+    <h2>Managing Requirements in Supplier Organizations & Product Organizations</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>12.1 Supplier Organizations</h3>
+      <p>A <strong>supplier organization</strong> builds software for one or more acquisition (buyer) organizations. They face unique challenges in requirements management.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Supplier Organization RE Challenges</div>
+┌───────────────────────────────────────────────────────────┐
+│              SUPPLIER ORGANIZATION CONTEXT                │
+│                                                           │
+│  Multiple Clients ────────────────────────────────────►  │
+│  Client A (Ministry of Education) ──────────► SUPPLIER   │
+│  Client B (Private University)    ──────────►    │        │
+│  Client C (Online School)         ──────────►    │        │
+│                                                  │        │
+│  Challenges:                                     ▼        │
+│  ✦ Multiple clients = conflicting requirements   │        │
+│  ✦ Must build ONE system to serve MANY clients  │        │
+│  ✦ Client requirements may be unclear/informal  │        │
+│  ✦ Must manage customer expectations carefully  │        │
+│                                                           │
+│  Solutions:                                               │
+│  ✦ Requirements prioritization across clients            │
+│  ✦ Core requirements (all clients) vs features (few)     │
+│  ✦ Configurable systems with client-specific settings    │
+│  ✦ Formal requirements documentation per client          │
+└───────────────────────────────────────────────────────────┘</div>
+
+      <h4>Key RE Practices for Suppliers:</h4>
+      <ol>
+        <li><strong>Requirements elicitation from multiple clients</strong>: Gather requirements from all clients to find common core</li>
+        <li><strong>Common vs. variant requirements</strong>: Identify requirements common to all clients (build once) vs. client-specific (configure)</li>
+        <li><strong>Configuration management</strong>: Manage different versions/configurations for different clients</li>
+        <li><strong>Contract-based requirements</strong>: Each client's requirements specified in their contract</li>
+      </ol>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>12.2 Product Organizations</h3>
+      <p>A <strong>product organization</strong> builds software products for a <strong>general market</strong> (not a specific client). They must gather requirements from potential users, not an actual paying customer.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Product Organization vs. Other Types</div>
+┌─────────────────┬──────────────────────┬────────────────────┐
+│    CONTEXT       │ REQUIREMENTS SOURCE  │ EXAMPLES           │
+├─────────────────┼──────────────────────┼────────────────────┤
+│ Bespoke         │ Specific client with │ Custom hospital     │
+│ (Custom) Dev    │ clear needs & contract│ software           │
+├─────────────────┼──────────────────────┼────────────────────┤
+│ Acquisition     │ Formal contract with  │ Government defense  │
+│ Organization    │ very precise SRS      │ system             │
+├─────────────────┼──────────────────────┼────────────────────┤
+│ Supplier        │ Multiple clients,     │ Software house     │
+│ Organization    │ conflicting needs     │ building SaaS      │
+├─────────────────┼──────────────────────┼────────────────────┤
+│ PRODUCT         │ Market research,      │ Microsoft Word,    │
+│ Organization    │ user research, domain │ WhatsApp, Uber app │
+│                 │ knowledge, competitors│                    │
+└─────────────────┴──────────────────────┴────────────────────┘</div>
+
+      <h4>RE for Product Organizations:</h4>
+      <ul>
+        <li><strong>Market research</strong>: What features do users in this market segment need?</li>
+        <li><strong>User research</strong>: Surveys, user interviews, usability studies with representative users</li>
+        <li><strong>Competitive analysis</strong>: What do competitor products offer? What is their shortcoming?</li>
+        <li><strong>Product roadmap</strong>: Plan which features go in which versions</li>
+        <li><strong>Usage analytics</strong>: For existing products, analyze how users actually use the software</li>
+        <li><strong>A/B testing</strong>: Test different feature implementations with real users</li>
+      </ul>
+
+      <h4>Challenges for Product Organizations:</h4>
+      <ul>
+        <li>No single paying client to interview — must represent a market</li>
+        <li>Requirements must satisfy diverse users with different needs</li>
+        <li>Must predict future market needs — requirements are forecasts</li>
+        <li>Competitive pressure: requirements must exceed what competitors offer</li>
+      </ul>
+    </div>
+
+    <!-- WEEK 12 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">Compare requirements management in a supplier organization vs. a product organization.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <table style="width:100%; border-collapse:collapse; font-size:0.88rem;">
+            <tr style="color:var(--gold);"><td style="padding:7px; border:1px solid var(--border);"><strong>Aspect</strong></td><td style="padding:7px; border:1px solid var(--border);"><strong>Supplier Organization</strong></td><td style="padding:7px; border:1px solid var(--border);"><strong>Product Organization</strong></td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:7px; border:1px solid var(--border);">Requirements source</td><td style="padding:7px; border:1px solid var(--border);">Multiple named clients</td><td style="padding:7px; border:1px solid var(--border);">General market, user research</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:7px; border:1px solid var(--border);">Contract</td><td style="padding:7px; border:1px solid var(--border);">Yes — formal contracts per client</td><td style="padding:7px; border:1px solid var(--border);">No single contract</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:7px; border:1px solid var(--border);">Main challenge</td><td style="padding:7px; border:1px solid var(--border);">Balancing conflicting client needs</td><td style="padding:7px; border:1px solid var(--border);">Predicting market needs</td></tr>
+            <tr style="color:#c0d4e8;"><td style="padding:7px; border:1px solid var(--border);">Key tool</td><td style="padding:7px; border:1px solid var(--border);">Configurable systems</td><td style="padding:7px; border:1px solid var(--border);">Market research, analytics</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A software company has built a School Management System. Three schools buy it: School A needs Urdu medium support, School B wants Cambridge curriculum tracking, School C needs O/A-level grading. The company also wants to sell it to 100 more schools next year.</div>
+        <p class="q-text">How should this supplier organization manage requirements from multiple clients, and how does this differ from a product organization approach?</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>Supplier approach — managing multiple clients:</strong></p>
+          <ul>
+            <li><strong>Identify core requirements</strong> (all schools need): Student registration, attendance, grade recording, report cards, teacher management</li>
+            <li><strong>Identify variant requirements</strong>: Urdu medium (School A), Cambridge curriculum (School B), O/A-level grading (School C)</li>
+            <li><strong>Build configurable system</strong>: Core features built once, variants implemented as configuration options or modules</li>
+            <li><strong>Separate contracts</strong>: Each school has a contract defining their specific requirements</li>
+            <li><strong>Requirements traceability per client</strong>: Track which features each client paid for</li>
+          </ul>
+          <p><strong>If they want to sell to 100+ schools (Product approach):</strong></p>
+          <ul>
+            <li>Conduct market research with representative sample of schools</li>
+            <li>Build a generic product with high configurability</li>
+            <li>Use usage analytics to discover which features are most used</li>
+            <li>No single contract — focus on satisfying the broad market segment</li>
+            <li>Version roadmap: which features go in v1.0, v2.0, v3.0</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 12 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 13 ═══ -->
+<div class="week-block w13">
+  <div class="week-header">
+    <span class="week-num">WEEK 13</span>
+    <h2>Requirements Engineering for Agile Methods</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>13.1 Agile RE vs. Traditional RE</h3>
+      <p>Traditional RE (waterfall-style) produces a complete requirements document BEFORE development. Agile RE accepts that requirements will evolve and develops them <strong>incrementally alongside the code</strong>.</p>
+
+      <div class="diagram">
+        <div class="diagram-title">📐 Traditional vs. Agile Requirements Approach</div>
+TRADITIONAL (Plan-Based):
+─────────────────────────────────────────────────────────
+Requirements → Design → Code → Test → Deploy
+(Complete SRS before anything else is built)
+
+AGILE (Incremental):
+─────────────────────────────────────────────────────────
+Sprint 1: Elicit a few requirements → Design → Code → Test → RELEASE small increment
+Sprint 2: Elicit more requirements → Design → Code → Test → RELEASE
+Sprint 3: ... continues until system is complete
+
+Requirements evolve with each sprint — they are NOT fixed upfront!
+─────────────────────────────────────────────────────────
+
+KEY AGILE PRINCIPLE: "Working software over comprehensive documentation"
+(Requirements documentation is minimized but not eliminated)</div>
+
+      <h4>User Stories — Agile Requirements Format:</h4>
+      <p>In agile, requirements are written as <strong>User Stories</strong> on cards or in tools like JIRA:</p>
+      <div class="diagram">
+        <div class="diagram-title">📐 User Story Format</div>
+┌─────────────────────────────────────────────────────────────┐
+│                    USER STORY FORMAT                        │
+│                                                             │
+│  AS A [type of user]                                        │
+│  I WANT [some goal/feature]                                 │
+│  SO THAT [benefit/reason]                                   │
+│                                                             │
+│  Example:                                                   │
+│  "AS A student,                                             │
+│   I WANT to see my assignment grades online,               │
+│   SO THAT I can track my academic progress                  │
+│   without waiting for paper reports."                       │
+│                                                             │
+│  Each user story has:                                       │
+│  • Acceptance criteria (when is it "done"?)                │
+│  • Story points (effort estimate)                           │
+│  • Priority (which sprint?)                                 │
+└─────────────────────────────────────────────────────────────┘</div>
+
+      <h4>Key Agile RE Practices:</h4>
+      <table class="comp">
+        <tr><th>Practice</th><th>Description</th></tr>
+        <tr><td><strong>Product Backlog</strong></td><td>Prioritized list of all user stories. Maintained throughout project. Highest priority items done first.</td></tr>
+        <tr><td><strong>Sprint Planning</strong></td><td>At start of each sprint, team selects stories from backlog to implement. These become the sprint's requirements.</td></tr>
+        <tr><td><strong>Product Owner</strong></td><td>Represents the customer. Responsible for the product backlog — prioritizes user stories, clarifies requirements for the team.</td></tr>
+        <tr><td><strong>Acceptance Tests</strong></td><td>Each user story has acceptance criteria. Tests written to verify when a story is "done."</td></tr>
+        <tr><td><strong>Definition of Done</strong></td><td>Agreed criteria for when a user story is fully implemented and tested.</td></tr>
+        <tr><td><strong>Refining Backlog</strong></td><td>Regularly adding, removing, reprioritizing, and clarifying user stories.</td></tr>
+      </table>
+
+      <h4>Challenges of Agile RE:</h4>
+      <ul>
+        <li>Customers must be highly available (Product Owner is a full-time role)</li>
+        <li>Harder to do for large systems with many stakeholders</li>
+        <li>Systems are often outsourced — need a formal contract, not a backlog</li>
+        <li>Regulatory/safety-critical systems may require formal requirements documentation</li>
+        <li>New team members have difficulty understanding the full system when requirements are scattered in stories</li>
+      </ul>
+    </div>
+
+    <div class="memory-tip">
+      <div class="mt-label">🧠 Memory Trick</div>
+      <p><strong>Agile RE in one sentence</strong>: "Gather requirements just-in-time, in small pieces, as user stories, validated by the product owner each sprint."<br>
+      <strong>User Story structure</strong>: "As a [WHO] I want [WHAT] so that [WHY]" — Remember: WHO-WHAT-WHY</p>
+    </div>
+
+    <!-- WEEK 13 Q&A -->
+    <div class="qa-section">
+      <span class="qa-header mcq">MCQ Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 1</span>
+        <p class="q-text">In agile requirements engineering, the Product Owner is responsible for:</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Writing all the code for the product</div>
+          <div class="mcq-opt correct"><span class="opt-letter">B.</span> Maintaining and prioritizing the product backlog, representing customer interests</div>
+          <div class="mcq-opt"><span class="opt-letter">C.</span> Managing the development team's schedules</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> Writing the formal SRS document</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: B</div><p>The Product Owner is the customer representative in agile. They maintain the product backlog, prioritize user stories, and provide continuous clarification of requirements to the development team.</p></div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">MCQ 2</span>
+        <p class="q-text">Which of the following statements about agile requirements is INCORRECT?</p>
+        <div class="mcq-options">
+          <div class="mcq-opt"><span class="opt-letter">A.</span> Requirements are developed incrementally alongside code</div>
+          <div class="mcq-opt"><span class="opt-letter">B.</span> User stories are the primary format for agile requirements</div>
+          <div class="mcq-opt correct"><span class="opt-letter">C.</span> Agile eliminates all need for requirements documentation</div>
+          <div class="mcq-opt"><span class="opt-letter">D.</span> The product backlog contains prioritized user stories</div>
+        </div>
+        <div class="answer"><div class="ans-label">Answer: C</div><p>Agile MINIMIZES documentation but does NOT eliminate it. Some documentation is still needed, especially for regulated systems, large teams, and for onboarding new members. The agile manifesto says "working software OVER comprehensive documentation" — not "instead of."</p></div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header short">Short Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SQ 1</span>
+        <p class="q-text">What is a User Story? Write a user story for an online banking system feature.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p>A <strong>User Story</strong> is a short, informal description of a feature from the perspective of the end user, written in the format: "As a [user type], I want [feature], so that [benefit]."</p>
+          <p style="margin-top:8px;"><strong>Example for online banking:</strong></p>
+          <p style="background:rgba(255,255,255,0.05); padding:12px; border-radius:6px; font-family:'JetBrains Mono',monospace; font-size:0.85rem; margin-top:6px;">
+            As a <span style="color:var(--green);">bank customer</span>,<br>
+            I want to <span style="color:var(--gold);">transfer money to another account instantly using just a mobile number</span>,<br>
+            So that <span style="color:#60c8f0;">I don't need to know the recipient's full account number and can send money quickly in emergencies.</span>
+          </p>
+          <p style="margin-top:8px;"><strong>Acceptance criteria:</strong></p>
+          <ul>
+            <li>Transfer completes within 5 seconds</li>
+            <li>Confirmation SMS sent to both sender and receiver</li>
+            <li>Transaction visible in statement immediately</li>
+            <li>If mobile number not registered, clear error message displayed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <span class="q-label">SQ 2</span>
+        <p class="q-text">When is agile RE not appropriate? Give 3 circumstances.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <ul>
+            <li><strong>1. Large outsourced systems</strong>: When software is contracted to an external supplier, a formal SRS is needed as part of the legal contract — you can't use a flexible backlog in a contractual relationship.</li>
+            <li><strong>2. Safety-critical systems</strong>: Medical, aerospace, nuclear systems require comprehensive formal documentation of ALL requirements for regulatory compliance. Regulators will not accept "we'll figure it out as we go."</li>
+            <li><strong>3. Large distributed teams</strong>: When teams are spread across locations and time zones, informal user stories don't provide enough shared understanding. Formal documentation is needed for coordination.</li>
+            <li><strong>4. Systems with stable requirements</strong>: If requirements are well-understood and unlikely to change, agile's overhead (constant customer involvement, sprint ceremonies) may not be justified.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-section">
+      <span class="qa-header situation">Situation-Based Questions</span>
+
+      <div class="q-item">
+        <span class="q-label">SITUATION 1</span>
+        <div class="situation-scenario"><strong>Scenario:</strong> A startup wants to build a food delivery app. They have a small team of 5 developers. The market is changing rapidly. The founders are not technical but have very clear customer insights. They want to launch something usable in 3 months. Should they use agile requirements engineering?</div>
+        <p class="q-text">Analyze this scenario and explain how agile RE should be applied, including the role of each stakeholder and what practices to use.</p>
+        <div class="answer">
+          <div class="ans-label">Answer</div>
+          <p><strong>YES — Agile RE is the right choice.</strong> Here's why and how:</p>
+          <p><strong>Why Agile fits:</strong></p>
+          <ul>
+            <li>Small team (5 devs) — low coordination overhead</li>
+            <li>Rapidly changing market — requirements WILL evolve, agile handles this well</li>
+            <li>3-month deadline — need MVP fast, not comprehensive documentation</li>
+            <li>Founders have customer insights — they can act as Product Owner</li>
+          </ul>
+          <p><strong>How to apply Agile RE:</strong></p>
+          <ul>
+            <li><strong>Product Owner</strong>: One founder acts as PO — maintains backlog, prioritizes stories, answers developer questions daily</li>
+            <li><strong>Sprint 1 (weeks 1–2)</strong>: Core user stories — restaurant listing, menu browsing, basic ordering (Must Haves)</li>
+            <li><strong>Sprint 2 (weeks 3–4)</strong>: Payment integration, order tracking</li>
+            <li><strong>Sprint 3 (weeks 5–6)</strong>: User accounts, order history</li>
+            <li>Continue until 3-month launch with working MVP</li>
+            <li><strong>Acceptance criteria</strong>: Each user story has clear "done" criteria defined by PO</li>
+            <li><strong>Daily standups</strong>: Quick requirements clarification when developers have questions</li>
+          </ul>
+          <p><strong>What to document</strong>: Keep product backlog in JIRA, write acceptance criteria per story, maintain a lightweight architecture document. Don't write a 50-page SRS — it will be outdated by week 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 13 -->
+
+
+<!-- ═══════════════════════════════════════════ WEEK 14 ═══ -->
+<div class="week-block" style="border-radius:14px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.4); margin:50px 0 0;">
+  <div class="week-header" style="background:linear-gradient(90deg,#1a2f1a,#0d3825); padding:22px 36px; display:flex; align-items:center; gap:20px;">
+    <span class="week-num">WEEK 14</span>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#fff;">Final Course Review — Master Summary & Exam Preparation</h2>
+  </div>
+  <div class="week-body">
+
+    <div class="topic">
+      <h3>🎯 Complete Course Master Map</h3>
+      <div class="diagram">
+        <div class="diagram-title">📐 SRE Complete Knowledge Map — All 14 Weeks</div>
+╔══════════════════════════════════════════════════════════════════╗
+║           SOFTWARE REQUIREMENTS ENGINEERING (SE-453)           ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  WHAT ARE REQUIREMENTS?                                          ║
+║  ├─ Functional (what system DOES)                               ║
+║  ├─ Non-Functional (how WELL it does it)                        ║
+║  │    ├─ Product (performance, reliability, usability)          ║
+║  │    ├─ Organizational (policies, standards)                   ║
+║  │    └─ External (regulatory, ethical, legal)                  ║
+║  └─ Domain (industry-specific rules)                            ║
+║                                                                  ║
+║  LEVELS OF REQUIREMENTS                                          ║
+║  Business → User → System → (Design — NOT a requirement)       ║
+║                                                                  ║
+║  CHARACTERISTICS (good requirements must be):                   ║
+║  Complete · Unambiguous · Consistent · Verifiable · Traceable  ║
+║                                                                  ║
+║  RE PROCESS (iterative spiral):                                  ║
+║  Elicitation → Specification → Validation                       ║
+║  (All supported by Requirements Management)                      ║
+║                                                                  ║
+║  ELICITATION TECHNIQUES:                                         ║
+║  Interviews (Open/Closed) · Ethnography · Stories · Scenarios  ║
+║  Prototyping · Workshops · Document Analysis                    ║
+║                                                                  ║
+║  SPECIFICATION NOTATIONS:                                        ║
+║  Natural Language · Structured NL · UML/Use Cases · Formal     ║
+║                                                                  ║
+║  VALIDATION TECHNIQUES:                                          ║
+║  Requirements Reviews · Prototyping · Test Case Generation      ║
+║  Validity·Consistency·Completeness·Realism·Verifiability checks ║
+║                                                                  ║
+║  MANAGEMENT:                                                     ║
+║  Traceability (RTM) · Change Management · Risk & Impact Anal.  ║
+║  Prioritization (MoSCoW) · Trade-off Analysis                  ║
+║                                                                  ║
+║  ORGANIZATIONAL CONTEXTS:                                        ║
+║  Acquisition Org · Supplier Org · Product Org · Agile          ║
+╚══════════════════════════════════════════════════════════════════╝</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>🎯 20 High-Probability Exam Questions with Answers</h3>
+      <p style="color:var(--muted); font-size:0.9rem; margin-bottom:20px;">These questions cover topics Sir is most likely to ask based on the weekly plan. Practice ALL of these.</p>
+
+      <div class="qa-section">
+        <span class="qa-header short">Final Practice Questions</span>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q1</span>
+          <p class="q-text">Define Requirements Engineering and explain why it is considered the most critical phase of software development.</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <p>Requirements Engineering (RE) is the systematic process of discovering, analyzing, documenting, and validating the services a system should provide and the constraints under which it must operate.</p>
+            <p style="margin-top:8px;">It is the most critical phase because: (1) Requirements errors caught during RE cost ~1× to fix. The same error found during coding costs ~10×, during testing ~50×, and after deployment ~100× more. (2) ALL subsequent phases (design, coding, testing) are based on requirements — a wrong foundation means everything built on it is also wrong. (3) Most software project failures trace back to incorrect or incomplete requirements, not poor coding.</p>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q2</span>
+          <p class="q-text">Explain with a diagram the difference between User Requirements and System Requirements. Give an example of each.</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <div class="diagram" style="margin-top:8px;">
+<div class="diagram-title">User vs System Requirements</div>
+USER REQUIREMENT (high-level, for managers/clients):
+"The system shall generate monthly financial reports for management."
+
+                    ↓ expands into ↓
+
+SYSTEM REQUIREMENTS (detailed, for developers):
+1.1 Report generated on last working day of each month after 17:30
+1.2 Report lists each department's expenses with subtotals
+1.3 Report exported as PDF and sent to authorized managers by email
+1.4 Access restricted to users with Finance-Manager role
+1.5 Report generation must complete within 5 minutes</div>
+            <p style="margin-top:8px;">User requirements: high-level, natural language, for non-technical readers. System requirements: detailed, precise, for developers and testers.</p>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q3</span>
+          <p class="q-text">What is the Requirement Traceability Matrix (RTM)? Why is it important?</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <p>The RTM is a document that maps every requirement to its source (stakeholder), its design component, and its test cases. It provides bidirectional traceability — forward (req → design → tests) and backward (tests → design → req → stakeholder).</p>
+            <p style="margin-top:8px;">Importance: (1) Ensures every requirement is implemented — nothing missed. (2) Enables impact analysis — when a requirement changes, RTM shows all affected components. (3) Proves system meets requirements — can trace every test to a requirement. (4) Required for safety-critical and regulated systems for legal compliance.</p>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q4</span>
+          <p class="q-text">Explain ethnography as a requirements elicitation technique. What does it discover that interviews miss?</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <p>Ethnography is an observational technique where a requirements analyst immerses themselves in the actual work environment, observing day-to-day work rather than asking questions about it.</p>
+            <p style="margin-top:8px;">What it discovers that interviews miss:</p>
+            <ul>
+              <li><strong>Implicit requirements</strong>: Things workers do naturally without thinking — so obvious to them they never mention in interviews</li>
+              <li><strong>Actual vs. formal processes</strong>: People rarely follow official process diagrams. Ethnography reveals the real workflow</li>
+              <li><strong>Cooperation requirements</strong>: How people coordinate with each other, cover for absent colleagues — systems must support this</li>
+            </ul>
+            <p>Best combined with prototyping: ethnography informs the prototype, prototype focuses the next phase of observation.</p>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q5</span>
+          <p class="q-text">What is requirements validation? How does it differ from requirements verification?</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <p><strong>Requirements Validation</strong>: Checking that the requirements define the system the customer ACTUALLY WANTS. "Are we building the RIGHT system?" Done during RE phase.</p>
+            <p style="margin-top:8px;"><strong>Requirements Verification</strong>: Checking that the system has been built ACCORDING TO the requirements. "Are we building the system RIGHT?" Done during testing phase.</p>
+            <p style="margin-top:8px;">Validation techniques: Requirements reviews, prototyping, test-case generation. Validation is done BEFORE development because fixing requirement errors then is far cheaper than after building the wrong system.</p>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q6</span>
+          <p class="q-text">What are the advantages of using structured natural language over plain natural language for requirements specification?</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <ul>
+              <li><strong>Consistency</strong>: Standard template ensures all requirements have the same format — easier to read, compare, and audit</li>
+              <li><strong>Completeness</strong>: Template fields (inputs, outputs, preconditions, etc.) act as a checklist — harder to miss information</li>
+              <li><strong>Reduced ambiguity</strong>: Structure forces requirements to be more precise than free-form text</li>
+              <li><strong>Easier review</strong>: Reviewers know exactly where to find each type of information</li>
+            </ul>
+            <p>Limitations: Still not as precise as formal mathematical specifications, so complex computations may still be hard to express clearly (solved by adding tables or diagrams).</p>
+          </div>
+        </div>
+
+        <div class="q-item">
+          <span class="q-label">FINAL Q7</span>
+          <p class="q-text">Explain the Requirements Change Management process with a diagram.</p>
+          <div class="answer">
+            <div class="ans-label">Answer</div>
+            <div class="diagram" style="margin-top:8px;">
+<div class="diagram-title">Requirements Change Management Process</div>
+IDENTIFIED PROBLEM/CHANGE REQUEST
+         │
+         ▼
+STAGE 1: Problem Analysis & Change Specification
+• Analyze if the problem is valid
+• Requester specifies exact change needed
+• If invalid → REJECT (returned to requester)
+         │
+         ▼
+STAGE 2: Change Analysis & Costing
+• Use RTM to find all affected requirements
+• Estimate impact on design, code, tests
+• Calculate cost in time and money
+• Decision: APPROVE or REJECT
+         │
+    ┌────┴────┐
+    │         │
+  APPROVE   REJECT
+    │
+    ▼
+STAGE 3: Change Implementation
+• Update requirements document
+• Update design where needed
+• Update code
+• Re-test affected areas
+    │
+    ▼
+REVISED REQUIREMENTS (new baseline)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="topic">
+      <h3>🎯 Final Exam Tips from Your Preparation</h3>
+
+      <div class="strategy-grid">
+        <div class="strat-card">
+          <h4>📝 In the Exam Hall</h4>
+          <p>Read ALL questions first (2 min). Choose the ones you're most confident about. For every answer: Definition → Explanation → Example/Diagram. Always label diagrams clearly.</p>
+        </div>
+        <div class="strat-card">
+          <h4>⚠️ MCQ Strategy</h4>
+          <p>Eliminate obvious wrong answers first. If 2 options remain and you're 50/50 — SKIP (negative marking). "All of the above" and "none of the above" are often correct in RE MCQs.</p>
+        </div>
+        <div class="strat-card">
+          <h4>🔑 Key Terms to Know Precisely</h4>
+          <p>Stakeholder · SRS · RTM · Elicitation · Validation · Traceability · NFR · MoSCoW · User Story · Ethnography · Scope creep · Gold-plating · Volatile/Enduring requirements</p>
+        </div>
+        <div class="strat-card">
+          <h4>📊 Diagrams to Memorize</h4>
+          <p>1. NFR classification tree · 2. Spiral RE process · 3. Requirements levels · 4. Change management process · 5. RTM structure · 6. Use Case diagram format · 7. MoSCoW priority</p>
+        </div>
+        <div class="strat-card">
+          <h4>🧠 Memory Anchors</h4>
+          <p>RE = E-S-V (Elicitation·Specification·Validation). NFR types = POE (Product·Organizational·External). Good req = CUCT (Complete·Unambiguous·Consistent·Traceable). Agile = WHO-WHAT-WHY user stories.</p>
+        </div>
+        <div class="strat-card">
+          <h4>🌙 Night Before Exam</h4>
+          <p>Review diagrams only (don't reread everything). Sleep by 11pm. Eat breakfast. Bring extra pens. Arrive 10 mins early. Breathe. You've got this! 💪</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- END WEEK 14 -->
+
+<div style="text-align:center; margin:60px 0 20px; color:var(--muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace;">
+  SRE SE-453 Complete Exam Prep · Based on Sommerville Software Engineering 10th Ed. + Wiegers & Beatty<br>
+  <span style="color:var(--accent);">Good luck on your final! You've prepared thoroughly — go ace it! 🎯</span>
+</div>
+
+</div><!-- .container -->
+</body>
+</html>
