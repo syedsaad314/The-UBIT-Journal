@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DLD Finals Prep — By Syed Saad Bin Irfan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+:root{--bg:#f0f4f7;--surface:#ffffff;--s2:#eaf0f4;--border:#cdd8e0;--bd2:#b0c4d0;--td:#1B4F57;--t:#2A7A87;--tl:#3a9aaa;--tp:#deeef2;--tp2:#c6dfe5;--gold:#b86f10;--goldp:#fef3e0;--red:#b83228;--redp:#fdecea;--green:#1a6e42;--greenp:#e6f3ec;--purple:#5a3880;--purpp:#f0ebf8;--tx:#1a2530;--tx2:#374858;--mu:#6a7e8a;--mu2:#8a9daa;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:'Inter',sans-serif;font-size:15px;line-height:1.75;}
+.hero{background:linear-gradient(135deg,#1B4F57 0%,#2A7A87 55%,#3aafbf 100%);padding:60px 36px 48px;text-align:center;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,255,255,0.07) 0%,transparent 70%);pointer-events:none;}
+.htag{display:inline-block;background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:4px 16px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;}
+.hero h1{font-size:clamp(26px,5vw,48px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-1px;margin-bottom:10px;}
+.hero h1 span{color:#aaecf5;}
+.hero-sub{color:rgba(255,255,255,0.78);font-size:14px;max-width:520px;margin:0 auto 24px;}
+.hero-credit{display:inline-block;background:rgba(255,255,255,0.13);border:1px solid rgba(255,255,255,0.28);border-radius:8px;padding:10px 22px;color:#fff;font-size:13px;}
+.hero-credit strong{color:#aaecf5;font-weight:700;}
+.nav-bar{position:sticky;top:0;z-index:200;background:#1B4F57;border-bottom:2px solid #2A7A87;padding:0 16px;display:flex;flex-wrap:wrap;gap:2px;}
+.nav-bar a{color:rgba(255,255,255,0.68);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.4px;padding:9px 11px;border-bottom:2px solid transparent;transition:all 0.2s;text-transform:uppercase;white-space:nowrap;}
+.nav-bar a:hover{color:#fff;border-bottom-color:#aaecf5;}
+.wrapper{max-width:980px;margin:0 auto;padding:36px 20px 80px;}
+.sh{display:flex;align-items:center;gap:14px;margin:52px 0 24px;padding-bottom:14px;border-bottom:2px solid var(--tp2);}
+.si{width:38px;height:38px;background:var(--t);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;flex-shrink:0;}
+.sh h2{font-size:21px;font-weight:800;color:var(--td);letter-spacing:-0.3px;}
+.badge{margin-left:auto;font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;text-transform:uppercase;letter-spacing:0.8px;flex-shrink:0;}
+.bh{background:#fdecea;color:var(--red);border:1px solid #f5b0aa;}
+.bk{background:var(--purpp);color:var(--purple);border:1px solid #c0a8e0;}
+.bt{background:var(--goldp);color:var(--gold);border:1px solid #e8b870;}
+.sub{font-size:17px;font-weight:700;color:var(--td);margin:26px 0 11px;padding-left:11px;border-left:4px solid var(--t);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:16px;}
+.card p{margin-bottom:10px;color:var(--tx2);}
+.card ul,.card ol{padding-left:20px;margin-bottom:10px;}
+.card li{margin-bottom:5px;color:var(--tx2);}
+.card strong{color:var(--td);}
+.bi{background:var(--tp);border:1px solid var(--tp2);border-left:4px solid var(--t);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:14px;color:var(--td);}
+.bw{background:var(--goldp);border:1px solid #e8b870;border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:14px;color:#7a4508;}
+.bd{background:var(--redp);border:1px solid #f5b0aa;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:14px;color:#7a1208;}
+.btip{background:var(--greenp);border:1px solid #a0d0b8;border-left:4px solid var(--green);border-radius:0 8px 8px 0;padding:12px 16px;margin:12px 0;font-size:14px;color:#0c4028;}
+.formula{text-align:center;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--td);background:var(--tp);border:1px solid var(--tp2);border-radius:8px;padding:13px 18px;margin:12px 0;font-weight:600;}
+pre{background:var(--td);color:#aaecf5;border-radius:10px;padding:16px 18px;font-family:'JetBrains Mono',monospace;font-size:13px;overflow-x:auto;margin:12px 0;line-height:1.7;}
+.mono{font-family:'JetBrains Mono',monospace;background:var(--s2);color:var(--td);padding:2px 6px;border-radius:4px;font-size:13px;font-weight:600;}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;}
+th{background:var(--td);color:#fff;padding:9px 13px;text-align:center;font-weight:700;font-size:13px;}
+td{padding:8px 13px;border:1px solid var(--border);text-align:center;color:var(--tx2);}
+tr:nth-child(even) td{background:var(--s2);}
+.t1{background:#e6f3ec;color:var(--green);font-weight:700;}
+.t0{color:var(--mu);}
+.tx{background:var(--goldp);color:var(--gold);font-weight:700;}
+.dw{background:var(--surface);border:1px solid var(--bd2);border-radius:12px;padding:18px;margin:14px 0;overflow-x:auto;text-align:center;}
+.dw svg{max-width:100%;height:auto;}
+.dl{font-size:11px;color:var(--mu);text-align:center;margin-top:7px;font-style:italic;}
+.qa{margin-bottom:11px;}
+.qh{background:var(--tp);border:1px solid var(--tp2);border-radius:10px 10px 0 0;padding:13px 17px;cursor:pointer;display:flex;align-items:flex-start;gap:11px;font-weight:600;font-size:14px;color:var(--td);user-select:none;transition:background 0.2s;}
+.qh:hover{background:var(--tp2);}
+.qn{background:var(--t);color:#fff;font-size:11px;font-weight:700;min-width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.qa-arr{margin-left:auto;color:var(--t);font-size:11px;transition:transform 0.25s;flex-shrink:0;margin-top:3px;}
+.qh.open .qa-arr{transform:rotate(90deg);}
+.qb{background:var(--surface);border:1px solid var(--tp2);border-top:none;border-radius:0 0 10px 10px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s;font-size:14px;}
+.qb.open{max-height:5000px;padding:18px 20px;}
+.qb h4{color:var(--td);font-size:12px;font-weight:700;margin:12px 0 6px;text-transform:uppercase;letter-spacing:0.5px;}
+.qb h4:first-child{margin-top:0;}
+.qb p{margin-bottom:8px;color:var(--tx2);}
+.qb ul,.qb ol{padding-left:18px;margin-bottom:8px;}
+.qb li{margin-bottom:4px;color:var(--tx2);}
+.qb strong{color:var(--td);}
+.ms{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:20px 22px;margin-bottom:12px;}
+.mq{font-weight:600;font-size:14px;color:var(--td);margin-bottom:12px;display:flex;gap:10px;align-items:flex-start;}
+.mqn{background:var(--red);color:#fff;font-size:11px;font-weight:700;min-width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.mo{list-style:none;display:grid;gap:6px;}
+.mo li{padding:8px 14px;border-radius:7px;border:1.5px solid var(--border);font-size:13px;cursor:pointer;transition:all 0.15s;display:flex;align-items:center;gap:9px;color:var(--tx2);}
+.mo li:hover:not(.lk){border-color:var(--t);background:var(--tp);}
+.mo li.ok{background:#e6f3ec;border-color:var(--green);color:var(--green);font-weight:600;}
+.mo li.nk{background:var(--redp);border-color:var(--red);color:var(--red);}
+.ol{font-weight:700;font-size:11px;color:var(--mu2);flex-shrink:0;}
+.me{margin-top:9px;padding:10px 14px;background:var(--s2);border-radius:7px;font-size:13px;color:var(--tx2);display:none;}
+.me.show{display:block;}
+.mth{background:var(--td);color:#fff;border-radius:9px;padding:13px 18px;margin:26px 0 14px;display:flex;align-items:center;gap:12px;}
+.mth h3{font-size:15px;font-weight:700;}
+.mth .mc{background:rgba(255,255,255,0.2);font-size:11px;padding:3px 10px;border-radius:11px;margin-left:auto;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:12px 0;}
+hr{border:none;border-top:2px solid var(--tp2);margin:36px 0;}
+@media(max-width:620px){.two{grid-template-columns:1fr;}.nav-bar a{font-size:10px;padding:7px 8px;}.wrapper{padding:20px 14px 60px;}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="htag">DLD Finals Prep · 2026</div>
+  <h1>Digital Logic &amp; Design<br><span>Complete Exam Guide</span></h1>
+  <p class="hero-sub">Every topic. Full detail. Exam-ready answers. Proper circuit diagrams. Built to help you score 4.0.</p>
+  <div class="hero-credit">By <strong>Syed Saad Bin Irfan</strong> · BSSE · DCS-UBIT, University of Karachi · Finals 2026</div>
+</div>
+<nav class="nav-bar">
+  <a href="#s1">1·Signals</a><a href="#s2">2·Conversions</a><a href="#s3">3·Gates</a>
+  <a href="#s4">4·Bool Laws</a><a href="#s5">5·K-Map</a><a href="#s6">6·SOP/POS</a>
+  <a href="#s7">7·Combinational</a><a href="#s8">8·Sequential</a><a href="#s9">9·Flip-Flops</a>
+  <a href="#s10">10·Counters</a><a href="#s11">11·Memory</a><a href="#s12">12·MCQ Bank</a>
+</nav>
+<div class="wrapper">
+
+<!-- ═══ S1: SIGNALS ═══ -->
+<div class="sh" id="s1"><div class="si">1</div><h2>Digital &amp; Analog Signals</h2><span class="badge bh">CORE</span></div>
+<div class="card">
+  <p>An <strong>Analog Signal</strong> is continuous — it can take any value at any point in time. Like a volume knob that smoothly goes from 0 to 100, or a microphone picking up sound waves that rise and fall smoothly. The problem with analog in computers: any tiny electrical noise changes the signal value and causes errors.</p>
+  <p>A <strong>Digital Signal</strong> has only TWO states: <strong>HIGH (logic 1)</strong> and <strong>LOW (logic 0)</strong>. Like a light switch — ON or OFF, nothing in between. All computers work with digital signals because noise cannot easily flip a 0 to 1 since both states are far apart in voltage.</p>
+  <div class="dw">
+    <svg viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+      <text x="20" y="20" font-size="13" font-weight="700" fill="#1B4F57">Analog Signal (Continuous)</text>
+      <line x1="20" y1="130" x2="300" y2="130" stroke="#cdd8e0" stroke-width="1.2"/>
+      <line x1="20" y1="40" x2="20" y2="135" stroke="#cdd8e0" stroke-width="1.2"/>
+      <path d="M24,85 C50,38 80,132 110,85 C140,38 170,132 200,85 C230,38 260,132 290,85" stroke="#2A7A87" stroke-width="2.5" fill="none"/>
+      <text x="100" y="158" font-size="11" fill="#6a7e8a" text-anchor="middle">Smooth wave — any value</text>
+      <text x="370" y="20" font-size="13" font-weight="700" fill="#1B4F57">Digital Signal (Discrete)</text>
+      <line x1="360" y1="130" x2="650" y2="130" stroke="#cdd8e0" stroke-width="1.2"/>
+      <line x1="360" y1="40" x2="360" y2="135" stroke="#cdd8e0" stroke-width="1.2"/>
+      <polyline points="364,122 394,122 394,50 434,50 434,122 474,122 474,50 514,50 514,122 554,122 554,50 594,50 594,122 634,122" stroke="#2A7A87" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+      <text x="368" y="47" font-size="10" fill="#1a6e42" font-weight="700">HIGH (1)</text>
+      <text x="368" y="128" font-size="10" fill="#b83228" font-weight="600">LOW (0)</text>
+      <text x="500" y="158" font-size="11" fill="#6a7e8a" text-anchor="middle">Only 0 or 1</text>
+    </svg>
+  </div>
+  <table>
+    <tr><th>Feature</th><th>Analog</th><th>Digital</th></tr>
+    <tr><td>Values</td><td>Infinite, continuous</td><td>Only 0 or 1</td></tr>
+    <tr><td>Noise sensitivity</td><td>High — easily corrupted</td><td>Low — very reliable</td></tr>
+    <tr><td>Example</td><td>Sound waves, temperature</td><td>Computer data, clock signal</td></tr>
+    <tr><td>Used in</td><td>Microphones, thermometers</td><td>Computers, phones, CPUs</td></tr>
+  </table>
+</div>
+
+<!-- ═══ S2: NUMBER CONVERSIONS ═══ -->
+<div class="sh" id="s2"><div class="si">2</div><h2>Number Systems &amp; All 12 Conversions</h2><span class="badge bh">HOT — All 12 types in MCQs</span></div>
+<div class="card">
+  <table>
+    <tr><th>System</th><th>Base</th><th>Digits Used</th><th>Example</th></tr>
+    <tr><td><strong>Binary</strong></td><td>2</td><td>0, 1</td><td>1011₂</td></tr>
+    <tr><td><strong>Octal</strong></td><td>8</td><td>0, 1, 2, 3, 4, 5, 6, 7</td><td>13₈</td></tr>
+    <tr><td><strong>Decimal</strong></td><td>10</td><td>0 through 9</td><td>11₁₀</td></tr>
+    <tr><td><strong>Hexadecimal</strong></td><td>16</td><td>0–9, A=10, B=11, C=12, D=13, E=14, F=15</td><td>B₁₆</td></tr>
+  </table>
+  <div class="bw">⚠️ Hex digits A–F must be memorized: A=10, B=11, C=12, D=13, E=14, F=15</div>
+</div>
+<div class="card">
+  <div class="sub" style="margin-top:0">1. Binary → Decimal</div>
+  <p>Multiply each bit by 2 raised to its position (rightmost = position 0), then add.</p>
+  <pre>1011₂ → 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8+0+2+1 = 11₁₀</pre>
+
+  <div class="sub">2. Decimal → Binary</div>
+  <p>Divide by 2 repeatedly. Collect remainders. Read from BOTTOM to TOP.</p>
+  <pre>Convert 25₁₀:
+25÷2=12 R1  ← read last (MSB)
+12÷2= 6 R0
+ 6÷2= 3 R0
+ 3÷2= 1 R1
+ 1÷2= 0 R1  ← read first (LSB)
+Answer: 11001₂   Verify: 16+8+1=25 ✓</pre>
+
+  <div class="sub">3. Binary → Octal</div>
+  <p>Group bits in sets of 3 from the RIGHT. Pad with 0s on the left if needed. Convert each group.</p>
+  <pre>1101110₂ → group from right: 1 | 101 | 110
+Pad: 001 | 101 | 110 = 1 | 5 | 6 → 156₈</pre>
+
+  <div class="sub">4. Octal → Binary</div>
+  <p>Replace each octal digit with its exact 3-bit binary equivalent.</p>
+  <pre>47₈ → 4=100, 7=111 → 100111₂</pre>
+
+  <div class="sub">5. Binary → Hexadecimal</div>
+  <p>Group bits in sets of 4 from the RIGHT. Pad with 0s on the left if needed.</p>
+  <pre>10110111₂ → 1011 | 0111 → B | 7 → B7₁₆</pre>
+
+  <div class="sub">6. Hexadecimal → Binary</div>
+  <p>Replace each hex digit with its exact 4-bit binary equivalent.</p>
+  <pre>3F₁₆ → 3=0011, F=1111 → 00111111₂</pre>
+
+  <div class="sub">7. Decimal → Octal</div>
+  <p>Divide by 8 repeatedly. Collect remainders from BOTTOM to TOP.</p>
+  <pre>255₁₀:
+255÷8=31 R7
+ 31÷8= 3 R7
+  3÷8= 0 R3  → 377₈
+Verify: 3×64+7×8+7=192+56+7=255 ✓</pre>
+
+  <div class="sub">8. Octal → Decimal</div>
+  <p>Multiply each digit by 8 raised to its position power, then add.</p>
+  <pre>156₈ → 1×64 + 5×8 + 6×1 = 64+40+6 = 110₁₀</pre>
+
+  <div class="sub">9. Decimal → Hexadecimal</div>
+  <p>Divide by 16. Remainders ≥10 become A,B,C,D,E,F. Read bottom to top.</p>
+  <pre>430₁₀:
+430÷16=26 R14 → E
+ 26÷16= 1 R10 → A
+  1÷16= 0 R 1 → 1
+Answer: 1AE₁₆   Verify: 256+160+14=430 ✓</pre>
+
+  <div class="sub">10. Hexadecimal → Decimal</div>
+  <p>Multiply each hex digit by 16 raised to its position, then add.</p>
+  <pre>2F₁₆ → 2×16 + 15×1 = 32+15 = 47₁₀</pre>
+
+  <div class="sub">11. Octal → Hexadecimal</div>
+  <p>Always go through Binary: Octal → Binary → Hex</p>
+  <pre>37₈ → 011 111 (binary) → group in 4: 0001 1111 → 1F₁₆</pre>
+
+  <div class="sub">12. Hexadecimal → Octal</div>
+  <p>Always go through Binary: Hex → Binary → Octal</p>
+  <pre>1F₁₆ → 0001 1111 (binary) → group in 3: 000 011 111 → 037 → 37₈</pre>
+  <div class="btip">✅ Shortcut rule: Octal ↔ Hex never directly. Always go through Binary. Binary is the universal bridge!</div>
+</div>
+
+<div class="sub">Solved Questions — Number Conversions</div>
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q1</span><span>Convert 45₁₀ to Binary, Octal, and Hexadecimal. Show full working.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>→ Binary (divide by 2)</h4>
+<pre>45÷2=22 R1
+22÷2=11 R0
+11÷2= 5 R1
+ 5÷2= 2 R1
+ 2÷2= 1 R0
+ 1÷2= 0 R1  → Read bottom to top: 101101₂
+Verify: 32+8+4+1=45 ✓</pre>
+<h4>→ Octal (divide by 8)</h4>
+<pre>45÷8=5 R5
+ 5÷8=0 R5  → 55₈   Verify: 5×8+5=45 ✓</pre>
+<h4>→ Hexadecimal (divide by 16)</h4>
+<pre>45÷16=2 R13 → D
+ 2÷16=0 R 2 → 2  → 2D₁₆   Verify: 2×16+13=45 ✓</pre>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q2</span><span>Convert 11010110₂ to Decimal, Octal, and Hexadecimal.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>→ Decimal</h4>
+<pre>1×128+1×64+0×32+1×16+0×8+1×4+1×2+0×1 = 128+64+16+4+2 = 214₁₀</pre>
+<h4>→ Octal (group binary in 3s from right)</h4>
+<pre>11010110 → 011|010|110 = 3|2|6 → 326₈   Verify: 3×64+2×8+6=214 ✓</pre>
+<h4>→ Hexadecimal (group binary in 4s from right)</h4>
+<pre>1101|0110 → D|6 → D6₁₆   Verify: 13×16+6=214 ✓</pre>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q3</span><span>Is 98₈ valid? Also convert 77₈ to Decimal and Binary.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<p><strong>98₈ is INVALID.</strong> Octal uses only digits 0–7. The digit 9 does not exist in base 8. This is a classic MCQ trap.</p>
+<h4>77₈ → Decimal</h4>
+<pre>7×8 + 7×1 = 56+7 = 63₁₀</pre>
+<h4>77₈ → Binary</h4>
+<pre>7→111, 7→111 → 111111₂   Verify: 32+16+8+4+2+1=63 ✓</pre>
+</div></div>
+
+<!-- ═══ S3: LOGIC GATES ═══ -->
+<div class="sh" id="s3"><div class="si">3</div><h2>Basic &amp; Universal Logic Gates</h2><span class="badge bk">KEY</span></div>
+<div class="card">
+  <p>A <strong>logic gate</strong> is the basic building block of all digital circuits. It takes one or more binary inputs (0 or 1) and produces a single binary output based on a specific Boolean operation. Everything from a calculator to a CPU is built from millions of these gates.</p>
+  <div class="sub" style="margin-top:0">AND Gate — Output 1 only when ALL inputs are 1</div>
+  <div class="two">
+    <div>
+      <table><tr><th>A</th><th>B</th><th>Y = A·B</th></tr>
+        <tr><td>0</td><td>0</td><td class="t0">0</td></tr><tr><td>0</td><td>1</td><td class="t0">0</td></tr>
+        <tr><td>1</td><td>0</td><td class="t0">0</td></tr><tr><td>1</td><td>1</td><td class="t1">1</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Y = A · B</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="12" y1="36" x2="70" y2="36" stroke="#1B4F57" stroke-width="2"/><line x1="12" y1="64" x2="70" y2="64" stroke="#1B4F57" stroke-width="2"/>
+        <text x="4" y="40" font-size="12" fill="#1B4F57" font-weight="700">A</text><text x="4" y="68" font-size="12" fill="#1B4F57" font-weight="700">B</text>
+        <path d="M70,22 L70,78 L108,78 Q144,78 144,50 Q144,22 108,22 Z" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="144" y1="50" x2="220" y2="50" stroke="#1B4F57" stroke-width="2"/>
+        <text x="185" y="46" font-size="12" fill="#1B4F57" font-weight="700">Y</text>
+        <text x="88" y="55" font-size="12" font-weight="700" fill="#2A7A87">AND</text>
+      </svg>
+      <div class="dl">AND Gate — flat back, curved front</div>
+    </div>
+  </div>
+
+  <div class="sub">OR Gate — Output 1 if ANY input is 1</div>
+  <div class="two">
+    <div>
+      <table><tr><th>A</th><th>B</th><th>Y = A+B</th></tr>
+        <tr><td>0</td><td>0</td><td class="t0">0</td></tr><tr><td>0</td><td>1</td><td class="t1">1</td></tr>
+        <tr><td>1</td><td>0</td><td class="t1">1</td></tr><tr><td>1</td><td>1</td><td class="t1">1</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Y = A + B</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="12" y1="36" x2="64" y2="36" stroke="#1B4F57" stroke-width="2"/><line x1="12" y1="64" x2="64" y2="64" stroke="#1B4F57" stroke-width="2"/>
+        <text x="4" y="40" font-size="12" fill="#1B4F57" font-weight="700">A</text><text x="4" y="68" font-size="12" fill="#1B4F57" font-weight="700">B</text>
+        <path d="M64,22 Q79,50 64,78 Q98,78 128,50 Q98,22 64,22 Z" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="128" y1="50" x2="220" y2="50" stroke="#1B4F57" stroke-width="2"/>
+        <text x="185" y="46" font-size="12" fill="#1B4F57" font-weight="700">Y</text>
+        <text x="80" y="55" font-size="12" font-weight="700" fill="#2A7A87">OR</text>
+      </svg>
+      <div class="dl">OR Gate — curved back, pointed front</div>
+    </div>
+  </div>
+
+  <div class="sub">NOT Gate — Inverts the input</div>
+  <div class="two">
+    <div>
+      <table><tr><th>A</th><th>Y = Ā</th></tr>
+        <tr><td>0</td><td class="t1">1</td></tr><tr><td>1</td><td class="t0">0</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Y = Ā</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="12" y1="40" x2="68" y2="40" stroke="#1B4F57" stroke-width="2"/>
+        <text x="4" y="44" font-size="12" fill="#1B4F57" font-weight="700">A</text>
+        <polygon points="68,20 68,60 116,40" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <circle cx="120" cy="40" r="4" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="124" y1="40" x2="200" y2="40" stroke="#1B4F57" stroke-width="2"/>
+        <text x="150" y="35" font-size="11" fill="#b83228" font-weight="700">Ā (Y)</text>
+        <text x="76" y="36" font-size="10" fill="#6a7e8a">triangle + bubble = NOT</text>
+      </svg>
+      <div class="dl">NOT Gate — triangle with inversion bubble (circle)</div>
+    </div>
+  </div>
+
+  <div class="sub">NAND Gate — Universal Gate (AND then NOT)</div>
+  <div class="two">
+    <div>
+      <table><tr><th>A</th><th>B</th><th>Y=(A·B)̄</th></tr>
+        <tr><td>0</td><td>0</td><td class="t1">1</td></tr><tr><td>0</td><td>1</td><td class="t1">1</td></tr>
+        <tr><td>1</td><td>0</td><td class="t1">1</td></tr><tr><td>1</td><td>1</td><td class="t0">0</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Y = (A·B)̄ = Ā+B̄</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="12" y1="36" x2="70" y2="36" stroke="#1B4F57" stroke-width="2"/><line x1="12" y1="64" x2="70" y2="64" stroke="#1B4F57" stroke-width="2"/>
+        <text x="4" y="40" font-size="12" fill="#1B4F57" font-weight="700">A</text><text x="4" y="68" font-size="12" fill="#1B4F57" font-weight="700">B</text>
+        <path d="M70,22 L70,78 L108,78 Q144,78 144,50 Q144,22 108,22 Z" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <circle cx="148" cy="50" r="4" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="152" y1="50" x2="220" y2="50" stroke="#1B4F57" stroke-width="2"/>
+        <text x="180" y="46" font-size="12" fill="#1B4F57" font-weight="700">Y</text>
+        <text x="85" y="55" font-size="11" font-weight="700" fill="#2A7A87">NAND</text>
+      </svg>
+      <div class="dl">NAND = AND shape + inversion bubble at output</div>
+    </div>
+  </div>
+
+  <div class="sub">NOR Gate — Universal Gate (OR then NOT)</div>
+  <div class="two">
+    <div>
+      <table><tr><th>A</th><th>B</th><th>Y=(A+B)̄</th></tr>
+        <tr><td>0</td><td>0</td><td class="t1">1</td></tr><tr><td>0</td><td>1</td><td class="t0">0</td></tr>
+        <tr><td>1</td><td>0</td><td class="t0">0</td></tr><tr><td>1</td><td>1</td><td class="t0">0</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Y = (A+B)̄ = Ā·B̄</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="12" y1="36" x2="62" y2="36" stroke="#1B4F57" stroke-width="2"/><line x1="12" y1="64" x2="62" y2="64" stroke="#1B4F57" stroke-width="2"/>
+        <text x="4" y="40" font-size="12" fill="#1B4F57" font-weight="700">A</text><text x="4" y="68" font-size="12" fill="#1B4F57" font-weight="700">B</text>
+        <path d="M62,22 Q77,50 62,78 Q96,78 126,50 Q96,22 62,22 Z" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <circle cx="130" cy="50" r="4" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="134" y1="50" x2="220" y2="50" stroke="#1B4F57" stroke-width="2"/>
+        <text x="180" y="46" font-size="12" fill="#1B4F57" font-weight="700">Y</text>
+        <text x="76" y="55" font-size="11" font-weight="700" fill="#2A7A87">NOR</text>
+      </svg>
+      <div class="dl">NOR = OR shape + inversion bubble at output</div>
+    </div>
+  </div>
+
+  <div class="sub">XOR Gate — Output 1 when inputs are DIFFERENT</div>
+  <div class="two">
+    <div>
+      <table><tr><th>A</th><th>B</th><th>Y=A⊕B</th></tr>
+        <tr><td>0</td><td>0</td><td class="t0">0</td></tr><tr><td>0</td><td>1</td><td class="t1">1</td></tr>
+        <tr><td>1</td><td>0</td><td class="t1">1</td></tr><tr><td>1</td><td>1</td><td class="t0">0</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Y = A⊕B = ĀB + AB̄</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 240 100" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+        <line x1="12" y1="36" x2="62" y2="36" stroke="#1B4F57" stroke-width="2"/><line x1="12" y1="64" x2="62" y2="64" stroke="#1B4F57" stroke-width="2"/>
+        <text x="4" y="40" font-size="12" fill="#1B4F57" font-weight="700">A</text><text x="4" y="68" font-size="12" fill="#1B4F57" font-weight="700">B</text>
+        <path d="M62,22 Q77,50 62,78 Q96,78 126,50 Q96,22 62,22 Z" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <path d="M56,22 Q71,50 56,78" fill="none" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="126" y1="50" x2="220" y2="50" stroke="#1B4F57" stroke-width="2"/>
+        <text x="180" y="46" font-size="12" fill="#1B4F57" font-weight="700">Y</text>
+        <text x="76" y="55" font-size="11" font-weight="700" fill="#2A7A87">XOR</text>
+      </svg>
+      <div class="dl">XOR = OR shape + extra curved line at the back</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Implementing Basic Gates Using NAND (Universal)</div>
+  <p>Since NAND is a universal gate, you can build any other gate using only NAND gates. This is a very common exam question.</p>
+  <div class="dw">
+    <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+      <!-- NOT using NAND -->
+      <text x="10" y="22" font-weight="700" fill="#1B4F57" font-size="13">NOT using 1 NAND</text>
+      <text x="8" y="58" fill="#2A7A87" font-weight="700">A</text>
+      <line x1="26" y1="54" x2="65" y2="46" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="26" y1="54" x2="65" y2="62" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M65,33 L65,76 L90,76 Q110,76 110,54 Q110,33 90,33 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="113" cy="54" r="3.5" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <line x1="116" y1="54" x2="158" y2="54" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="160" y="58" fill="#b83228" font-weight="700">Ā</text>
+      <text x="72" y="58" font-size="10" fill="#2A7A87" font-weight="600">NAND</text>
+      <text x="10" y="95" font-size="11" fill="#6a7e8a">Tie both inputs to same A → NAND(A,A) = (A·A)̄ = Ā</text>
+
+      <!-- AND using 2 NANDs -->
+      <text x="10" y="130" font-weight="700" fill="#1B4F57" font-size="13">AND using 2 NANDs</text>
+      <text x="8" y="162" fill="#2A7A87" font-weight="700">A</text>
+      <text x="8" y="190" fill="#2A7A87" font-weight="700">B</text>
+      <line x1="26" y1="158" x2="65" y2="150" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="26" y1="186" x2="65" y2="178" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M65,138 L65,192 L92,192 Q112,192 112,165 Q112,138 92,138 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="115" cy="165" r="3.5" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <line x1="118" y1="165" x2="150" y2="165" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="73" y="169" font-size="10" fill="#2A7A87">NAND1</text>
+      <line x1="150" y1="165" x2="170" y2="157" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="150" y1="165" x2="170" y2="173" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M170,145 L170,185 L195,185 Q215,185 215,165 Q215,145 195,145 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="218" cy="165" r="3.5" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <line x1="221" y1="165" x2="260" y2="165" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="263" y="169" fill="#b83228" font-weight="700">AB</text>
+      <text x="176" y="169" font-size="10" fill="#2A7A87">NAND2</text>
+      <text x="10" y="208" font-size="11" fill="#6a7e8a">NAND1 gives (AB)̄ → NAND2 inverts it → (AB)̄̄ = AB</text>
+
+      <!-- OR using 3 NANDs -->
+      <text x="360" y="22" font-weight="700" fill="#1B4F57" font-size="13">OR using 3 NANDs</text>
+      <text x="358" y="55" fill="#2A7A87" font-weight="700">A</text>
+      <text x="358" y="105" fill="#2A7A87" font-weight="700">B</text>
+      <line x1="376" y1="51" x2="400" y2="44" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="376" y1="51" x2="400" y2="58" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M400,32 L400,70 L424,70 Q442,70 442,51 Q442,32 424,32 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="445" cy="51" r="3" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="406" y="55" font-size="9" fill="#2A7A87">NA1</text>
+      <line x1="448" y1="51" x2="528" y2="68" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="376" y1="101" x2="400" y2="94" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="376" y1="101" x2="400" y2="108" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M400,82 L400,120 L424,120 Q442,120 442,101 Q442,82 424,82 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="445" cy="101" r="3" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="406" y="105" font-size="9" fill="#2A7A87">NA2</text>
+      <line x1="448" y1="101" x2="528" y2="84" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M528,57 L528,95 L554,95 Q574,95 574,76 Q574,57 554,57 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="577" cy="76" r="3" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="534" y="80" font-size="9" fill="#2A7A87">NA3</text>
+      <line x1="580" y1="76" x2="620" y2="76" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="623" y="80" fill="#b83228" font-weight="700">A+B</text>
+      <text x="360" y="135" font-size="11" fill="#6a7e8a">NOT-A, NOT-B via NAND, then NAND both results → A+B</text>
+
+      <!-- NAND truth table -->
+      <text x="360" y="165" font-weight="700" fill="#1B4F57" font-size="12">Combined Truth Table</text>
+      <rect x="360" y="175" width="320" height="95" rx="6" fill="#eaf0f4" stroke="#cdd8e0" stroke-width="1"/>
+      <text x="375" y="192" fill="#1B4F57" font-weight="700">Gate</text><text x="445" y="192" fill="#1B4F57" font-weight="700">Expression</text><text x="570" y="192" fill="#1B4F57" font-weight="700">NAND Implementation</text>
+      <line x1="362" y1="196" x2="678" y2="196" stroke="#b0c4d0" stroke-width="1"/>
+      <text x="375" y="212" fill="#374858">NOT</text><text x="445" y="212" fill="#374858">Ā</text><text x="570" y="212" fill="#374858">1 NAND (both inputs tied)</text>
+      <text x="375" y="228" fill="#374858">AND</text><text x="445" y="228" fill="#374858">AB</text><text x="570" y="228" fill="#374858">2 NANDs in series</text>
+      <text x="375" y="244" fill="#374858">OR</text><text x="445" y="244" fill="#374858">A+B</text><text x="570" y="244" fill="#374858">NOT each input, then NAND</text>
+      <text x="375" y="260" fill="#374858">NOR</text><text x="445" y="260" fill="#374858">(A+B)̄</text><text x="570" y="260" fill="#374858">3 NANDs (OR + inverter)</text>
+    </svg>
+  </div>
+  <div class="bi">📌 NOR implementations follow the same idea but mirrored: NOT using NOR = tie both inputs. OR = NOR then NOR(self). AND = NOT each input using NOR, then NOR both.</div>
+</div>
+
+<!-- ═══ S4: BOOLEAN LAWS ═══ -->
+<div class="sh" id="s4"><div class="si">4</div><h2>Boolean Laws &amp; De Morgan's Theorem</h2><span class="badge bh">HOT</span></div>
+<div class="card">
+  <p>Boolean Algebra is the mathematics behind logic circuits. These laws let you simplify complex expressions into simpler ones — fewer gates, cheaper circuits.</p>
+  <table>
+    <tr><th>Law</th><th>AND Form</th><th>OR Form</th></tr>
+    <tr><td><strong>Identity</strong></td><td>A · 1 = A</td><td>A + 0 = A</td></tr>
+    <tr><td><strong>Null/Annulment</strong></td><td>A · 0 = 0</td><td>A + 1 = 1</td></tr>
+    <tr><td><strong>Idempotent</strong></td><td>A · A = A</td><td>A + A = A</td></tr>
+    <tr><td><strong>Complement</strong></td><td>A · Ā = 0</td><td>A + Ā = 1</td></tr>
+    <tr><td><strong>Double Negation</strong></td><td colspan="2">Ā̄ = A</td></tr>
+    <tr><td><strong>Commutative</strong></td><td>AB = BA</td><td>A+B = B+A</td></tr>
+    <tr><td><strong>Associative</strong></td><td>(AB)C = A(BC)</td><td>(A+B)+C = A+(B+C)</td></tr>
+    <tr><td><strong>Distributive</strong></td><td>A(B+C) = AB+AC</td><td>A+(BC) = (A+B)(A+C)</td></tr>
+    <tr><td><strong>Absorption</strong></td><td>A(A+B) = A</td><td>A+AB = A</td></tr>
+    <tr><td><strong>De Morgan's</strong></td><td>(AB)̄ = Ā+B̄</td><td>(A+B)̄ = Ā·B̄</td></tr>
+  </table>
+</div>
+<div class="card">
+  <div class="sub" style="margin-top:0">De Morgan's Theorem — Full Detail ⭐</div>
+  <p>De Morgan's is perhaps the single most tested theorem in DLD. It tells you how to break a NOT (overbar) that covers multiple variables.</p>
+  <div class="formula">Rule 1: (A · B)̄ = Ā + B̄ &nbsp;&nbsp;&nbsp;&nbsp; Rule 2: (A + B)̄ = Ā · B̄</div>
+  <p><strong>3-Step Method — "Break, Flip, Bar Each":</strong></p>
+  <ol style="padding-left:22px;margin-bottom:12px;color:var(--tx2);">
+    <li style="margin-bottom:6px;"><strong>Break</strong> the main bar (remove it)</li>
+    <li style="margin-bottom:6px;"><strong>Flip</strong> the operator (AND · becomes OR +, and OR + becomes AND ·)</li>
+    <li style="margin-bottom:6px;"><strong>Bar each</strong> individual variable separately</li>
+  </ol>
+  <p><strong>Example 1:</strong> (A + B + C)̄</p>
+  <pre>Break the bar. Flip + to ·. Bar each variable:
+→ Ā · B̄ · C̄</pre>
+  <p><strong>Example 2:</strong> (Ā · B · C̄)̄</p>
+  <pre>Break the bar. Flip · to +. Bar each (double bars cancel):
+→ (Ā)̄ + B̄ + (C̄)̄ = A + B̄ + C</pre>
+  <div class="dw">
+    <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+      <text x="20" y="20" font-weight="700" fill="#1B4F57" font-size="13">De Morgan's — Gate Equivalence</text>
+      <text x="20" y="48" fill="#6a7e8a">NAND(A,B) is same as OR(Ā,B̄):</text>
+      <text x="20" y="75" fill="#2A7A87" font-weight="700">A</text><text x="20" y="100" fill="#2A7A87" font-weight="700">B</text>
+      <line x1="38" y1="71" x2="70" y2="63" stroke="#1B4F57" stroke-width="1.8"/><line x1="38" y1="96" x2="70" y2="88" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M70,50 L70,102 L96,102 Q116,102 116,76 Q116,50 96,50 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <circle cx="119" cy="76" r="3.5" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <line x1="122" y1="76" x2="158" y2="76" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="161" y="80" fill="#b83228" font-weight="700">(AB)̄</text>
+      <text x="76" y="80" font-size="10" fill="#2A7A87">NAND</text>
+      <text x="218" y="76" font-size="14" fill="#1B4F57" font-weight="700">≡</text>
+      <text x="258" y="48" fill="#6a7e8a">NOR form via De Morgan:</text>
+      <text x="258" y="75" fill="#b83228" font-weight="700">Ā</text><text x="258" y="100" fill="#b83228" font-weight="700">B̄</text>
+      <line x1="276" y1="71" x2="310" y2="63" stroke="#1B4F57" stroke-width="1.8"/><line x1="276" y1="96" x2="310" y2="88" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M310,50 Q323,76 310,102 Q342,102 366,76 Q342,50 310,50 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <line x1="366" y1="76" x2="410" y2="76" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="413" y="80" fill="#b83228" font-weight="700">Ā+B̄</text>
+      <text x="316" y="80" font-size="10" fill="#2A7A87">OR</text>
+      <text x="60" y="135" font-size="11" fill="#6a7e8a">(AB)̄ = Ā+B̄ — same output — this is De Morgan's Rule 1 in action</text>
+    </svg>
+  </div>
+</div>
+<div class="sub">Solved Questions — Boolean Laws</div>
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q4</span><span>Simplify: Y = AB + A(B + C) + B(B + C)</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<pre>Y = AB + A(B+C) + B(B+C)
+  = AB + AB + AC + BB + BC     [Distribute]
+  = AB + AB + AC + B + BC      [BB = B, Idempotent]
+  = AB + AC + B + BC           [AB+AB = AB, Idempotent]
+  = AC + B + BC                [B+AB = B, Absorption]
+  = AC + B                     [B+BC = B, Absorption]
+
+Final: Y = B + AC ✓</pre>
+<p><strong>Exam tip:</strong> Name each law used at every step — it shows understanding and earns full marks.</p>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q5</span><span>Apply De Morgan's: (a) (A+B+C)̄  (b) (ĀBC̄)̄  (c) What does (AB)̄ equal?</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>(a) (A+B+C)̄</h4>
+<pre>Break bar. Flip + to ·. Bar each:
+= Ā · B̄ · C̄</pre>
+<h4>(b) (ĀBC̄)̄</h4>
+<pre>Break bar. Flip · to +. Bar each (double bars cancel):
+= (Ā)̄ + B̄ + (C̄)̄ = A + B̄ + C</pre>
+<h4>(c) (AB)̄</h4>
+<pre>De Morgan's Rule 1: (A·B)̄ = Ā + B̄
+This is exactly what a NAND gate computes!</pre>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q6</span><span>Simplify using Boolean laws: Y = (A+B)(A+C̄)(B̄+C)</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<pre>Y = (A+B)(A+C̄)(B̄+C)
+
+Step 1: Combine first two terms:
+(A+B)(A+C̄) = A + BC̄   [Distributive: A+(BC)=(A+B)(A+C)]
+
+Step 2: Expand (A+BC̄)(B̄+C):
+= AB̄ + AC + BB̄C̄ + BC̄C
+
+Step 3: Apply complement law:
+BB̄ = 0 → BB̄C̄ = 0
+CC̄ = 0 → BC̄C = 0
+
+= AB̄ + AC = A(B̄+C)
+
+Final: Y = AB̄ + AC = A(B̄+C) ✓</pre>
+</div></div>
+
+<!-- ═══ S5: K-MAP ═══ -->
+<div class="sh" id="s5"><div class="si">5</div><h2>Karnaugh Maps (K-Map) — 3 &amp; 4 Variable</h2><span class="badge bh">HOT</span></div>
+<div class="card">
+  <p>A <strong>K-Map</strong> is a visual method for minimizing Boolean expressions. Instead of using algebra, you place truth table outputs on a grid, group the 1s, and read off the simplified terms. The bigger the group, the simpler the expression.</p>
+  <div class="bd">⚠️ CRITICAL: K-Map uses <strong>Gray Code order</strong> — NOT normal binary! Columns go: 00 → 01 → 11 → 10. Notice 11 before 10. Using normal binary order is the most common exam mistake.</div>
+</div>
+<div class="card">
+  <div class="sub" style="margin-top:0">3-Variable K-Map Layout</div>
+  <div class="dw">
+    <svg viewBox="0 0 480 175" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+      <text x="220" y="18" font-size="13" font-weight="700" fill="#1B4F57" text-anchor="middle">BC →</text>
+      <text x="10" y="80" font-size="12" font-weight="700" fill="#1B4F57">A ↓</text>
+      <text x="92" y="28" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=00</text>
+      <text x="182" y="28" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=01</text>
+      <text x="274" y="28" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=11</text>
+      <text x="366" y="28" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=10</text>
+      <text x="34" y="68" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">A=0</text>
+      <text x="34" y="128" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">A=1</text>
+      <g stroke="#2A7A87" stroke-width="1.5" fill="#f9fbfc">
+        <rect x="48" y="36" width="88" height="58"/><rect x="136" y="36" width="88" height="58"/>
+        <rect x="224" y="36" width="88" height="58"/><rect x="312" y="36" width="88" height="58"/>
+        <rect x="48" y="94" width="88" height="58"/><rect x="136" y="94" width="88" height="58"/>
+        <rect x="224" y="94" width="88" height="58"/><rect x="312" y="94" width="88" height="58"/>
+      </g>
+      <text x="92" y="61" font-size="11" fill="#2A7A87" text-anchor="middle">m0 (000)</text>
+      <text x="180" y="61" font-size="11" fill="#2A7A87" text-anchor="middle">m1 (001)</text>
+      <text x="268" y="61" font-size="11" fill="#2A7A87" text-anchor="middle">m3 (011)</text>
+      <text x="356" y="61" font-size="11" fill="#2A7A87" text-anchor="middle">m2 (010)</text>
+      <text x="92" y="119" font-size="11" fill="#2A7A87" text-anchor="middle">m4 (100)</text>
+      <text x="180" y="119" font-size="11" fill="#2A7A87" text-anchor="middle">m5 (101)</text>
+      <text x="268" y="119" font-size="11" fill="#2A7A87" text-anchor="middle">m7 (111)</text>
+      <text x="356" y="119" font-size="11" fill="#2A7A87" text-anchor="middle">m6 (110)</text>
+      <text x="220" y="168" font-size="11" fill="#b83228" text-anchor="middle" font-weight="600">⚠️ Gray Code: 00→01→11→10 (not 00→01→10→11)</text>
+    </svg>
+  </div>
+  <div class="sub">4-Variable K-Map Layout</div>
+  <div class="dw">
+    <svg viewBox="0 0 490 215" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+      <text x="270" y="16" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">CD →</text>
+      <text x="10" y="110" font-size="12" font-weight="700" fill="#1B4F57">AB ↓</text>
+      <text x="100" y="26" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">CD=00</text>
+      <text x="178" y="26" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">CD=01</text>
+      <text x="256" y="26" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">CD=11</text>
+      <text x="334" y="26" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">CD=10</text>
+      <text x="38" y="55" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">AB=00</text>
+      <text x="38" y="93" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">AB=01</text>
+      <text x="38" y="131" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">AB=11</text>
+      <text x="38" y="169" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">AB=10</text>
+      <g stroke="#2A7A87" stroke-width="1.3" fill="#f9fbfc">
+        <rect x="60" y="30" width="76" height="38"/><rect x="136" y="30" width="76" height="38"/><rect x="212" y="30" width="76" height="38"/><rect x="288" y="30" width="76" height="38"/>
+        <rect x="60" y="68" width="76" height="38"/><rect x="136" y="68" width="76" height="38"/><rect x="212" y="68" width="76" height="38"/><rect x="288" y="68" width="76" height="38"/>
+        <rect x="60" y="106" width="76" height="38"/><rect x="136" y="106" width="76" height="38"/><rect x="212" y="106" width="76" height="38"/><rect x="288" y="106" width="76" height="38"/>
+        <rect x="60" y="144" width="76" height="38"/><rect x="136" y="144" width="76" height="38"/><rect x="212" y="144" width="76" height="38"/><rect x="288" y="144" width="76" height="38"/>
+      </g>
+      <text x="98" y="45" font-size="10" fill="#2A7A87" text-anchor="middle">m0</text><text x="174" y="45" font-size="10" fill="#2A7A87" text-anchor="middle">m1</text><text x="250" y="45" font-size="10" fill="#2A7A87" text-anchor="middle">m3</text><text x="326" y="45" font-size="10" fill="#2A7A87" text-anchor="middle">m2</text>
+      <text x="98" y="83" font-size="10" fill="#2A7A87" text-anchor="middle">m4</text><text x="174" y="83" font-size="10" fill="#2A7A87" text-anchor="middle">m5</text><text x="250" y="83" font-size="10" fill="#2A7A87" text-anchor="middle">m7</text><text x="326" y="83" font-size="10" fill="#2A7A87" text-anchor="middle">m6</text>
+      <text x="98" y="121" font-size="10" fill="#2A7A87" text-anchor="middle">m12</text><text x="174" y="121" font-size="10" fill="#2A7A87" text-anchor="middle">m13</text><text x="250" y="121" font-size="10" fill="#2A7A87" text-anchor="middle">m15</text><text x="326" y="121" font-size="10" fill="#2A7A87" text-anchor="middle">m14</text>
+      <text x="98" y="159" font-size="10" fill="#2A7A87" text-anchor="middle">m8</text><text x="174" y="159" font-size="10" fill="#2A7A87" text-anchor="middle">m9</text><text x="250" y="159" font-size="10" fill="#2A7A87" text-anchor="middle">m11</text><text x="326" y="159" font-size="10" fill="#2A7A87" text-anchor="middle">m10</text>
+      <text x="200" y="202" font-size="11" fill="#6a7e8a" text-anchor="middle">Note: AB rows also follow Gray Code: 00→01→11→10</text>
+    </svg>
+  </div>
+  <div class="bi">📌 <strong>K-Map Grouping Rules:</strong><br>
+  1. Group only 1s (for SOP minimization) or only 0s (for POS)<br>
+  2. Group sizes must be powers of 2: 1, 2, 4, 8, 16<br>
+  3. Groups must be rectangles (squares allowed too)<br>
+  4. Wrap-around is allowed — left edge connects to right, top connects to bottom<br>
+  5. Make every group as LARGE as possible<br>
+  6. Every 1 must be in at least one group<br>
+  7. Use as FEW groups as possible<br>
+  8. Don't-Cares (X) can be treated as 1 to form larger groups</div>
+  <div class="btip">✅ How to read a group: If a variable stays SAME (all 0 or all 1) across all cells in the group → include it in the term. If it CHANGES (has both 0 and 1) → eliminate it. Bigger group = more variables eliminated = simpler term.</div>
+</div>
+
+<div class="sub">Solved Questions — K-Map</div>
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q7</span><span>Minimize using 3-variable K-Map: F(A,B,C) = Σm(0,1,2,4,5)</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>Step 1: Fill the K-Map (place 1s at minterms 0,1,2,4,5)</h4>
+<div class="dw">
+  <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+    <text x="92" y="22" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=00</text>
+    <text x="182" y="22" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=01</text>
+    <text x="274" y="22" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=11</text>
+    <text x="366" y="22" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">BC=10</text>
+    <text x="28" y="70" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">A=0</text>
+    <text x="28" y="126" font-size="11" font-weight="700" fill="#1B4F57" text-anchor="middle">A=1</text>
+    <!-- m0=1 green -->
+    <rect x="48" y="32" width="88" height="56" fill="#e6f3ec" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="92" y="66" font-size="20" fill="#1a6e42" text-anchor="middle" font-weight="700">1</text>
+    <!-- m1=1 green -->
+    <rect x="136" y="32" width="88" height="56" fill="#e6f3ec" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="180" y="66" font-size="20" fill="#1a6e42" text-anchor="middle" font-weight="700">1</text>
+    <!-- m3=0 -->
+    <rect x="224" y="32" width="88" height="56" fill="#f0f4f7" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="268" y="66" font-size="20" fill="#aaa" text-anchor="middle">0</text>
+    <!-- m2=1 green -->
+    <rect x="312" y="32" width="88" height="56" fill="#e6f3ec" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="356" y="66" font-size="20" fill="#1a6e42" text-anchor="middle" font-weight="700">1</text>
+    <!-- m4=1 green -->
+    <rect x="48" y="88" width="88" height="56" fill="#e6f3ec" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="92" y="122" font-size="20" fill="#1a6e42" text-anchor="middle" font-weight="700">1</text>
+    <!-- m5=1 green -->
+    <rect x="136" y="88" width="88" height="56" fill="#e6f3ec" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="180" y="122" font-size="20" fill="#1a6e42" text-anchor="middle" font-weight="700">1</text>
+    <!-- m7=0 -->
+    <rect x="224" y="88" width="88" height="56" fill="#f0f4f7" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="268" y="122" font-size="20" fill="#aaa" text-anchor="middle">0</text>
+    <!-- m6=0 -->
+    <rect x="312" y="88" width="88" height="56" fill="#f0f4f7" stroke="#2A7A87" stroke-width="1.5"/>
+    <text x="356" y="122" font-size="20" fill="#aaa" text-anchor="middle">0</text>
+    <!-- Group 1: m0,m1,m4,m5 red rectangle -->
+    <rect x="50" y="34" width="174" height="108" fill="none" stroke="#b83228" stroke-width="3" stroke-dasharray="7,3" rx="8"/>
+    <!-- Group 2: m0,m2 wrap-around purple -->
+    <rect x="50" y="34" width="30" height="56" fill="none" stroke="#5a3880" stroke-width="2.5" stroke-dasharray="5,3" rx="4"/>
+    <rect x="314" y="34" width="30" height="56" fill="none" stroke="#5a3880" stroke-width="2.5" stroke-dasharray="5,3" rx="4"/>
+    <text x="224" y="152" font-size="11" fill="#b83228" text-anchor="middle">Group 1 (m0,m1,m4,m5) → B̄ &nbsp;&nbsp;&nbsp; Group 2 (m0,m2 wrap) → ĀC̄</text>
+  </svg>
+</div>
+<h4>Step 2: Read Groups</h4>
+<pre>Group 1 (size 4 — red): m0, m1, m4, m5
+  m0=000, m1=001, m4=100, m5=101
+  A: changes (0 and 1) → eliminated
+  B: stays 0 throughout → B̄
+  C: changes (0 and 1) → eliminated
+  Term = B̄
+
+Group 2 (size 2 — wrap around): m0, m2
+  m0=000, m2=010
+  A: stays 0 → Ā
+  B: changes → eliminated
+  C: stays 0 → C̄
+  Term = ĀC̄</pre>
+<div class="formula">F = B̄ + ĀC̄</div>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q8</span><span>Minimize: F(A,B,C,D) = Σm(0,1,2,4,5,8,9,10) using 4-variable K-Map</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>Fill K-Map and identify groups</h4>
+<pre>4-variable K-Map (AB rows × CD cols):
+
+        CD=00  CD=01  CD=11  CD=10
+AB=00 |  1  |  1  |  0  |  1  |   (m0,m1,m3=0,m2)
+AB=01 |  1  |  1  |  0  |  0  |   (m4,m5,m7=0,m6=0)
+AB=11 |  0  |  0  |  0  |  0  |   (m12–m15 = 0)
+AB=10 |  1  |  1  |  0  |  1  |   (m8,m9,m11=0,m10)</pre>
+<h4>Groups:</h4>
+<pre>Group 1 (size 8 — wrap top+bottom): m0,m1,m4,m5,m8,m9,m10... 
+  Actually let's identify valid groups:
+
+Group A (size 4 — top+bottom wrap): m0,m1,m8,m9
+  (CD=00 and CD=01, AB=00 and AB=10)
+  A: changes → out. B: stays 0 → B̄. C: stays 0 → C̄. D: changes → out.
+  Term = B̄C̄
+
+Group B (size 4 — columns 00,01 rows AB=00,01): m0,m1,m4,m5
+  A: stays 0 → Ā. B: changes → out. C: stays 0 → C̄. D: changes → out.
+  Term = ĀC̄
+
+Group C (size 4 — wrap left+right): m0,m2,m8,m10
+  A: changes → out. B: stays 0 → B̄. C: changes → out. D: stays 0 → D̄.
+  Term = B̄D̄</pre>
+<div class="formula">F = B̄C̄ + ĀC̄ + B̄D̄ &nbsp;→ simplified: F = B̄(C̄+D̄) + ĀC̄</div>
+</div></div>
+
+<!-- ═══ S6: SOP & POS ═══ -->
+<div class="sh" id="s6"><div class="si">6</div><h2>SOP (Sum of Products) &amp; POS (Product of Sums)</h2><span class="badge bk">KEY</span></div>
+<div class="card">
+  <div class="sub" style="margin-top:0">SOP — Sum of Products</div>
+  <p>SOP means you write an OR (+) of AND (·) terms. You scan the truth table for rows where F = <strong>1</strong>, and write a <strong>minterm</strong> for each.</p>
+  <p><strong>Minterm rule (for F=1 rows):</strong> If variable = 0 → write with bar (Ā). If variable = 1 → write as-is (A). AND them together.</p>
+  <div class="formula">F = Σm(list of minterm numbers)</div>
+
+  <div class="sub">POS — Product of Sums</div>
+  <p>POS means you write an AND (·) of OR (+) terms. You scan the truth table for rows where F = <strong>0</strong>, and write a <strong>maxterm</strong> for each.</p>
+  <p><strong>Maxterm rule (for F=0 rows) — OPPOSITE of SOP:</strong> If variable = 0 → write WITHOUT bar (A). If variable = 1 → write WITH bar (Ā). OR them together.</p>
+  <div class="formula">F = ΠM(list of maxterm numbers)</div>
+  <div class="bd">⚠️ The most common exam mistake: students use the SOP rule for POS. Remember — for maxterms, 0 stays plain and 1 gets the bar. It is the OPPOSITE of minterms.</div>
+</div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q9</span><span>Write canonical SOP and POS from this truth table, then minimize using K-Map.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<table>
+  <tr><th>Row</th><th>A</th><th>B</th><th>C</th><th>F</th></tr>
+  <tr><td>m0</td><td>0</td><td>0</td><td>0</td><td class="t1">1</td></tr>
+  <tr><td>m1</td><td>0</td><td>0</td><td>1</td><td class="t0">0</td></tr>
+  <tr><td>m2</td><td>0</td><td>1</td><td>0</td><td class="t1">1</td></tr>
+  <tr><td>m3</td><td>0</td><td>1</td><td>1</td><td class="t1">1</td></tr>
+  <tr><td>m4</td><td>1</td><td>0</td><td>0</td><td class="t0">0</td></tr>
+  <tr><td>m5</td><td>1</td><td>0</td><td>1</td><td class="t0">0</td></tr>
+  <tr><td>m6</td><td>1</td><td>1</td><td>0</td><td class="t1">1</td></tr>
+  <tr><td>m7</td><td>1</td><td>1</td><td>1</td><td class="t0">0</td></tr>
+</table>
+<h4>Canonical SOP (F=1 at m0, m2, m3, m6)</h4>
+<pre>m0 (A=0,B=0,C=0): Ā·B̄·C̄
+m2 (A=0,B=1,C=0): Ā·B·C̄
+m3 (A=0,B=1,C=1): Ā·B·C
+m6 (A=1,B=1,C=0): A·B·C̄
+
+F = ĀB̄C̄ + ĀBC̄ + ĀBC + ABC̄  ← Canonical SOP</pre>
+<h4>Canonical POS (F=0 at m1, m4, m5, m7)</h4>
+<pre>m1 (A=0,B=0,C=1): (A + B + C̄)   [C=1→C̄, 0s stay plain]
+m4 (A=1,B=0,C=0): (Ā + B + C)   [A=1→Ā, 0s stay plain]
+m5 (A=1,B=0,C=1): (Ā + B + C̄)  [1s get bars]
+m7 (A=1,B=1,C=1): (Ā + B̄ + C̄) [all 1→bar]
+
+F = (A+B+C̄)(Ā+B+C)(Ā+B+C̄)(Ā+B̄+C̄)  ← Canonical POS</pre>
+<h4>Minimize via K-Map:</h4>
+<pre>Place 1s at m0, m2, m3, m6:
+Group 1: m2, m3 → A=0, B=1, C varies → ĀB
+Group 2: m2, m6 → A varies, B=1, C=0 → BC̄
+Group 3: m0, m2 → A=0, B varies, C=0 → ĀC̄ (covers m0)
+
+Minimized F = ĀB + BC̄  (m0 covered by ĀC̄ added)
+Or: F = ĀC̄ + BC̄ + ĀB  depending on grouping</pre>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q10</span><span>Build a truth table from: F = ĀB + BC̄. Then write in SOP notation.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>Evaluate F for all 8 rows</h4>
+<table>
+  <tr><th>A</th><th>B</th><th>C</th><th>ĀB</th><th>BC̄</th><th>F=ĀB+BC̄</th></tr>
+  <tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="t0">0</td></tr>
+  <tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="t0">0</td></tr>
+  <tr><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td class="t1">1</td></tr>
+  <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td class="t1">1</td></tr>
+  <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="t0">0</td></tr>
+  <tr><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td class="t0">0</td></tr>
+  <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td class="t1">1</td></tr>
+  <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td class="t0">0</td></tr>
+</table>
+<p>F = 1 at rows 2, 3, 6 → <strong>F = Σm(2, 3, 6)</strong></p>
+</div></div>
+
+<!-- ═══ S7: COMBINATIONAL CIRCUITS ═══ -->
+<div class="sh" id="s7"><div class="si">7</div><h2>Combinational Circuits</h2><span class="badge bh">HOT — Full question expected</span></div>
+<div class="card">
+  <p>A <strong>combinational circuit</strong> produces output based <em>only on current inputs</em>. No memory, no feedback, no clock. Same inputs always give same output. Examples: adders, subtractors, multiplexers, decoders, 7-segment display drivers.</p>
+  <table>
+    <tr><th>Feature</th><th>Combinational</th><th>Sequential</th></tr>
+    <tr><td>Output depends on</td><td>Current inputs only</td><td>Current inputs + previous state</td></tr>
+    <tr><td>Memory</td><td>No memory</td><td>Has flip-flops/latches</td></tr>
+    <tr><td>Clock</td><td>Not required</td><td>Usually required</td></tr>
+    <tr><td>Feedback</td><td>No feedback</td><td>Has feedback loops</td></tr>
+    <tr><td>Examples</td><td>Adder, MUX, Decoder, 7-Seg</td><td>Counter, Register, Flip-Flop</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Half Adder</div>
+  <p>Adds two 1-bit binary numbers A and B. Produces <strong>Sum (S)</strong> and <strong>Carry (C)</strong>. Called "half" because it cannot handle a carry from a previous stage.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>A</th><th>B</th><th>Sum (S)</th><th>Carry (C)</th></tr>
+        <tr><td>0</td><td>0</td><td class="t0">0</td><td class="t0">0</td></tr>
+        <tr><td>0</td><td>1</td><td class="t1">1</td><td class="t0">0</td></tr>
+        <tr><td>1</td><td>0</td><td class="t1">1</td><td class="t0">0</td></tr>
+        <tr><td>1</td><td>1</td><td class="t0">0</td><td class="t1">1</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">S = A ⊕ B &nbsp;(XOR)<br>C = A · B &nbsp;(AND)</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 290 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <line x1="12" y1="50" x2="110" y2="50" stroke="#1B4F57" stroke-width="1.8"/><line x1="12" y1="90" x2="110" y2="90" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="4" y="54" fill="#1B4F57" font-weight="700">A</text><text x="4" y="94" fill="#1B4F57" font-weight="700">B</text>
+        <circle cx="60" cy="50" r="3" fill="#1B4F57"/><circle cx="80" cy="90" r="3" fill="#1B4F57"/>
+        <!-- XOR for Sum -->
+        <line x1="60" y1="50" x2="112" y2="38" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="80" y1="90" x2="112" y2="62" stroke="#1B4F57" stroke-width="1.8"/>
+        <path d="M112,28 Q125,50 112,72 Q145,72 168,50 Q145,28 112,28 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <path d="M106,28 Q119,50 106,72" fill="none" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="168" y1="50" x2="248" y2="50" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="252" y="54" fill="#1a6e42" font-weight="700">S</text>
+        <text x="130" y="54" font-size="10" fill="#2A7A87" font-weight="600">XOR</text>
+        <!-- AND for Carry -->
+        <line x1="60" y1="50" x2="60" y2="118" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="80" y1="90" x2="80" y2="118" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="60" y1="118" x2="112" y2="110" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="80" y1="118" x2="112" y2="126" stroke="#1B4F57" stroke-width="1.8"/>
+        <path d="M112,100 L112,138 L136,138 Q158,138 158,119 Q158,100 136,100 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="158" y1="119" x2="248" y2="119" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="252" y="123" fill="#b83228" font-weight="700">C</text>
+        <text x="118" y="123" font-size="10" fill="#2A7A87" font-weight="600">AND</text>
+      </svg>
+      <div class="dl">Half Adder: XOR for Sum, AND for Carry</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Half Subtractor</div>
+  <p>Subtracts A − B. Produces <strong>Difference (D)</strong> and <strong>Borrow (Br)</strong>. Borrow = 1 means we needed to borrow from the next column.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>A</th><th>B</th><th>Diff (D)</th><th>Borrow (Br)</th></tr>
+        <tr><td>0</td><td>0</td><td class="t0">0</td><td class="t0">0</td></tr>
+        <tr><td>0</td><td>1</td><td class="t1">1</td><td class="t1">1</td></tr>
+        <tr><td>1</td><td>0</td><td class="t1">1</td><td class="t0">0</td></tr>
+        <tr><td>1</td><td>1</td><td class="t0">0</td><td class="t0">0</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">D = A ⊕ B &nbsp;(XOR)<br>Br = Ā · B &nbsp;(NOT A, AND B)</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 290 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <line x1="12" y1="50" x2="110" y2="50" stroke="#1B4F57" stroke-width="1.8"/><line x1="12" y1="90" x2="110" y2="90" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="4" y="54" fill="#1B4F57" font-weight="700">A</text><text x="4" y="94" fill="#1B4F57" font-weight="700">B</text>
+        <circle cx="60" cy="50" r="3" fill="#1B4F57"/><circle cx="80" cy="90" r="3" fill="#1B4F57"/>
+        <!-- XOR for D -->
+        <line x1="60" y1="50" x2="112" y2="38" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="80" y1="90" x2="112" y2="62" stroke="#1B4F57" stroke-width="1.8"/>
+        <path d="M112,28 Q125,50 112,72 Q145,72 168,50 Q145,28 112,28 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <path d="M106,28 Q119,50 106,72" fill="none" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="168" y1="50" x2="248" y2="50" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="252" y="54" fill="#1a6e42" font-weight="700">D</text>
+        <text x="130" y="54" font-size="10" fill="#2A7A87" font-weight="600">XOR</text>
+        <!-- NOT A -->
+        <line x1="60" y1="50" x2="60" y2="108" stroke="#1B4F57" stroke-width="1.8"/>
+        <polygon points="60,108 60,128 76,118" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <circle cx="79" cy="118" r="3" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="82" y1="118" x2="112" y2="112" stroke="#1B4F57" stroke-width="1.8"/>
+        <!-- AND for Borrow -->
+        <line x1="80" y1="90" x2="80" y2="128" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="80" y1="128" x2="112" y2="128" stroke="#1B4F57" stroke-width="1.8"/>
+        <path d="M112,104 L112,140 L136,140 Q156,140 156,122 Q156,104 136,104 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="156" y1="122" x2="248" y2="122" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="252" y="126" fill="#b83228" font-weight="700">Br</text>
+        <text x="118" y="126" font-size="10" fill="#2A7A87" font-weight="600">AND</text>
+      </svg>
+      <div class="dl">Half Subtractor: XOR for Diff, NOT(A) then AND(B) for Borrow</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Full Adder</div>
+  <p>Adds THREE bits: A, B, and Carry-in (Cin). Produces Sum (S) and Carry-out (Cout). Built from <strong>2 Half Adders + 1 OR gate</strong>. Used to chain multi-bit addition.</p>
+  <table>
+    <tr><th>A</th><th>B</th><th>Cin</th><th>S</th><th>Cout</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td class="t0">0</td><td class="t0">0</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td class="t1">1</td><td class="t0">0</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td class="t1">1</td><td class="t0">0</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td class="t0">0</td><td class="t1">1</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td class="t1">1</td><td class="t0">0</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td class="t0">0</td><td class="t1">1</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td><td class="t0">0</td><td class="t1">1</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td class="t1">1</td><td class="t1">1</td></tr>
+  </table>
+  <div class="formula">S = A ⊕ B ⊕ Cin &nbsp;&nbsp;&nbsp;&nbsp; Cout = AB + Cin(A⊕B)</div>
+  <div class="dw">
+    <svg viewBox="0 0 560 195" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+      <text x="10" y="18" font-size="13" font-weight="700" fill="#1B4F57">Full Adder = Half Adder 1 + Half Adder 2 + OR gate</text>
+      <text x="4" y="68" fill="#1B4F57" font-weight="700">A</text>
+      <text x="4" y="105" fill="#1B4F57" font-weight="700">B</text>
+      <text x="4" y="162" fill="#1B4F57" font-weight="700">Cin</text>
+      <line x1="22" y1="65" x2="100" y2="65" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="22" y1="102" x2="100" y2="102" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="22" y1="159" x2="295" y2="159" stroke="#1B4F57" stroke-width="1.8"/>
+      <!-- HA1 block -->
+      <rect x="100" y="44" width="120" height="78" rx="8" fill="#eaf0f4" stroke="#2A7A87" stroke-width="2"/>
+      <text x="160" y="80" font-size="13" font-weight="700" fill="#1B4F57" text-anchor="middle">Half</text>
+      <text x="160" y="96" font-size="13" font-weight="700" fill="#1B4F57" text-anchor="middle">Adder 1</text>
+      <!-- HA1 outputs -->
+      <line x1="220" y1="65" x2="295" y2="65" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="220" y1="102" x2="258" y2="102" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="224" y="60" font-size="10" fill="#6a7e8a">Sum1</text>
+      <text x="224" y="97" font-size="10" fill="#6a7e8a">C1</text>
+      <!-- HA2 block -->
+      <rect x="295" y="44" width="120" height="78" rx="8" fill="#eaf0f4" stroke="#2A7A87" stroke-width="2"/>
+      <text x="355" y="80" font-size="13" font-weight="700" fill="#1B4F57" text-anchor="middle">Half</text>
+      <text x="355" y="96" font-size="13" font-weight="700" fill="#1B4F57" text-anchor="middle">Adder 2</text>
+      <!-- HA2 outputs -->
+      <line x1="415" y1="65" x2="520" y2="65" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="524" y="69" fill="#b83228" font-weight="700">S</text>
+      <line x1="415" y1="102" x2="450" y2="102" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="420" y="97" font-size="10" fill="#6a7e8a">C2</text>
+      <!-- OR gate -->
+      <line x1="258" y1="102" x2="258" y2="138" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="450" y1="102" x2="450" y2="138" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="258" y1="138" x2="272" y2="148" stroke="#1B4F57" stroke-width="1.8"/>
+      <line x1="450" y1="138" x2="436" y2="148" stroke="#1B4F57" stroke-width="1.8"/>
+      <path d="M272,142 Q285,163 272,184 Q304,184 330,163 Q304,142 272,142 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="288" y="168" font-size="11" font-weight="700" fill="#2A7A87">OR</text>
+      <line x1="330" y1="163" x2="520" y2="163" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="524" y="167" fill="#b83228" font-weight="700">Cout</text>
+    </svg>
+  </div>
+  <div class="btip">✅ Full Adder equations breakdown: HA1 produces Sum1=A⊕B and C1=AB. HA2 produces S=Sum1⊕Cin and C2=Sum1·Cin. Final Cout = C1 + C2.</div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Full Subtractor</div>
+  <p>Performs A − B − Bin (Bin = borrow-in). Produces <strong>Difference (D)</strong> and <strong>Borrow-out (Bout)</strong>.</p>
+  <table>
+    <tr><th>A</th><th>B</th><th>Bin</th><th>D</th><th>Bout</th></tr>
+    <tr><td>0</td><td>0</td><td>0</td><td class="t0">0</td><td class="t0">0</td></tr>
+    <tr><td>0</td><td>0</td><td>1</td><td class="t1">1</td><td class="t1">1</td></tr>
+    <tr><td>0</td><td>1</td><td>0</td><td class="t1">1</td><td class="t1">1</td></tr>
+    <tr><td>0</td><td>1</td><td>1</td><td class="t0">0</td><td class="t1">1</td></tr>
+    <tr><td>1</td><td>0</td><td>0</td><td class="t1">1</td><td class="t0">0</td></tr>
+    <tr><td>1</td><td>0</td><td>1</td><td class="t0">0</td><td class="t0">0</td></tr>
+    <tr><td>1</td><td>1</td><td>0</td><td class="t0">0</td><td class="t0">0</td></tr>
+    <tr><td>1</td><td>1</td><td>1</td><td class="t1">1</td><td class="t1">1</td></tr>
+  </table>
+  <div class="formula">D = A ⊕ B ⊕ Bin &nbsp;&nbsp;&nbsp; Bout = ĀB + Bin(Ā ⊕ B) = ĀB + ĀBin + BBin</div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Multiplexer (MUX)</div>
+  <p>A <strong>multiplexer</strong> is a data selector. It selects one of several inputs and routes it to a single output based on <strong>select lines (S)</strong>. Think of a TV remote — you choose which channel (input) shows on screen (output).</p>
+  <div class="two">
+    <div>
+      <p><strong>2:1 MUX</strong> — 2 data inputs, 1 select, 1 output</p>
+      <table>
+        <tr><th>S</th><th>Output Y</th></tr>
+        <tr><td>0</td><td>I0</td></tr>
+        <tr><td>1</td><td>I1</td></tr>
+      </table>
+      <div class="formula" style="font-size:12px;">Y = S̄·I0 + S·I1</div>
+      <p style="font-size:13px;margin-top:10px;"><strong>4:1 MUX</strong> — 4 inputs, 2 select lines (S1,S0)</p>
+      <div class="formula" style="font-size:12px;">Y = S̄1S̄0·I0 + S̄1S0·I1<br>+ S1S̄0·I2 + S1S0·I3</div>
+      <div class="bi" style="font-size:13px;">📌 Rule: 2ⁿ:1 MUX needs n select lines.<br>4:1→2 lines, 8:1→3 lines, 16:1→4 lines</div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <text x="10" y="18" font-size="12" font-weight="700" fill="#1B4F57">2:1 Multiplexer</text>
+        <polygon points="100,32 100,148 200,128 200,52" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <line x1="30" y1="60" x2="100" y2="60" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="18" y="64" fill="#1B4F57" font-weight="700">I0</text>
+        <line x1="30" y1="120" x2="100" y2="120" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="18" y="124" fill="#1B4F57" font-weight="700">I1</text>
+        <line x1="150" y1="148" x2="150" y2="165" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="144" y="175" fill="#1B4F57" font-weight="700">S</text>
+        <line x1="200" y1="90" x2="255" y2="90" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="258" y="94" fill="#b83228" font-weight="700">Y</text>
+        <text x="134" y="82" font-size="12" font-weight="700" fill="#2A7A87">MUX</text>
+        <text x="134" y="97" font-size="11" font-weight="700" fill="#2A7A87">2:1</text>
+        <text x="22" y="52" font-size="9" fill="#6a7e8a">S=0→</text>
+        <text x="22" y="112" font-size="9" fill="#6a7e8a">S=1→</text>
+      </svg>
+      <div class="dl">MUX selects I0 when S=0, I1 when S=1</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">7-Segment Display</div>
+  <p>A 7-segment display has 7 LED segments labeled <strong>a, b, c, d, e, f, g</strong>. Lighting specific segments shows digits 0–9. A <strong>BCD-to-7-segment decoder</strong> takes a 4-bit BCD input and turns on the right segments.</p>
+  <div class="dw">
+    <svg viewBox="0 0 620 240" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+      <text x="20" y="18" font-size="13" font-weight="700" fill="#1B4F57">7-Segment Layout &amp; Example Digits</text>
+      <!-- Layout diagram -->
+      <text x="52" y="42" font-size="11" fill="#6a7e8a" font-weight="600">Layout:</text>
+      <rect x="68" y="48" width="58" height="12" rx="4" fill="#2A7A87"/><text x="97" y="68" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">a</text>
+      <rect x="52" y="62" width="12" height="48" rx="4" fill="#2A7A87"/><text x="34" y="92" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">f</text>
+      <rect x="130" y="62" width="12" height="48" rx="4" fill="#2A7A87"/><text x="156" y="92" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">b</text>
+      <rect x="68" y="112" width="58" height="12" rx="4" fill="#2A7A87"/><text x="97" y="132" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">g</text>
+      <rect x="52" y="126" width="12" height="48" rx="4" fill="#2A7A87"/><text x="34" y="156" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">e</text>
+      <rect x="130" y="126" width="12" height="48" rx="4" fill="#2A7A87"/><text x="156" y="156" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">c</text>
+      <rect x="68" y="176" width="58" height="12" rx="4" fill="#2A7A87"/><text x="97" y="200" font-size="11" fill="#1B4F57" text-anchor="middle" font-weight="700">d</text>
+
+      <!-- Digit 0: a,b,c,d,e,f ON, g OFF -->
+      <text x="220" y="42" font-size="11" fill="#6a7e8a" font-weight="600">Digit 0:</text>
+      <rect x="236" y="48" width="52" height="11" rx="3" fill="#2A7A87"/>
+      <rect x="220" y="61" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="294" y="61" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="236" y="108" width="52" height="11" rx="3" fill="#ddd"/>
+      <rect x="220" y="121" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="294" y="121" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="236" y="168" width="52" height="11" rx="3" fill="#2A7A87"/>
+
+      <!-- Digit 1: b,c only -->
+      <text x="350" y="42" font-size="11" fill="#6a7e8a" font-weight="600">Digit 1:</text>
+      <rect x="364" y="48" width="52" height="11" rx="3" fill="#ddd"/>
+      <rect x="348" y="61" width="11" height="45" rx="3" fill="#ddd"/>
+      <rect x="420" y="61" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="364" y="108" width="52" height="11" rx="3" fill="#ddd"/>
+      <rect x="348" y="121" width="11" height="45" rx="3" fill="#ddd"/>
+      <rect x="420" y="121" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="364" y="168" width="52" height="11" rx="3" fill="#ddd"/>
+
+      <!-- Digit 8: ALL ON -->
+      <text x="476" y="42" font-size="11" fill="#6a7e8a" font-weight="600">Digit 8 (all):</text>
+      <rect x="476" y="48" width="52" height="11" rx="3" fill="#2A7A87"/>
+      <rect x="460" y="61" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="534" y="61" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="476" y="108" width="52" height="11" rx="3" fill="#2A7A87"/>
+      <rect x="460" y="121" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="534" y="121" width="11" height="45" rx="3" fill="#2A7A87"/>
+      <rect x="476" y="168" width="52" height="11" rx="3" fill="#2A7A87"/>
+      <text x="310" y="222" font-size="11" fill="#6a7e8a" text-anchor="middle">Teal = ON, Grey = OFF</text>
+    </svg>
+  </div>
+  <table>
+    <tr><th>Digit</th><th>a</th><th>b</th><th>c</th><th>d</th><th>e</th><th>f</th><th>g</th></tr>
+    <tr><td><strong>0</strong></td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td></tr>
+    <tr><td><strong>1</strong></td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t0">0</td><td class="t0">0</td><td class="t0">0</td></tr>
+    <tr><td><strong>2</strong></td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t1">1</td></tr>
+    <tr><td><strong>3</strong></td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t0">0</td><td class="t1">1</td></tr>
+    <tr><td><strong>4</strong></td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td></tr>
+    <tr><td><strong>5</strong></td><td class="t1">1</td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td></tr>
+    <tr><td><strong>6</strong></td><td class="t1">1</td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td></tr>
+    <tr><td><strong>7</strong></td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t0">0</td><td class="t0">0</td><td class="t0">0</td></tr>
+    <tr><td><strong>8</strong></td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td></tr>
+    <tr><td><strong>9</strong></td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t1">1</td><td class="t0">0</td><td class="t1">1</td><td class="t1">1</td></tr>
+  </table>
+  <div class="btip">✅ Key facts: Digit 8 = ALL segments. Digit 0 = all except g. Digit 1 = only b,c. Digit 7 = a,b,c (adds segment 'a' to digit 1).</div>
+</div>
+
+<!-- ═══ S8: SEQUENTIAL CIRCUITS ═══ -->
+<div class="sh" id="s8"><div class="si">8</div><h2>Sequential Circuits — Latches &amp; Clock Types</h2><span class="badge bk">KEY</span></div>
+<div class="card">
+  <p>A <strong>sequential circuit</strong> remembers its previous state. Its output depends on <em>both the current input AND the stored state</em>. The memory element is a flip-flop or latch. Sequential circuits are used in counters, registers, and memory units.</p>
+</div>
+<div class="card">
+  <div class="sub" style="margin-top:0">SR Latch (NOR-based) — Most Basic Memory Element</div>
+  <p>The SR Latch stores 1 bit. S = Set (forces Q=1). R = Reset (forces Q=0). It is built using two NOR gates cross-coupled in a feedback loop. It is <strong>level-triggered</strong> — responds whenever inputs change, with no clock.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>S</th><th>R</th><th>Q (next)</th><th>State</th></tr>
+        <tr><td>0</td><td>0</td><td>Q (no change)</td><td>Hold</td></tr>
+        <tr><td>0</td><td>1</td><td class="t0">0</td><td>Reset</td></tr>
+        <tr><td>1</td><td>0</td><td class="t1">1</td><td>Set</td></tr>
+        <tr><td>1</td><td>1</td><td class="tx">?</td><td>INVALID!</td></tr>
+      </table>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <text x="10" y="18" font-size="12" font-weight="700" fill="#1B4F57">SR Latch (NOR gates)</text>
+        <!-- Top NOR gate -->
+        <text x="4" y="66" fill="#1B4F57" font-weight="700">S</text>
+        <line x1="22" y1="63" x2="58" y2="56" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="22" y1="80" x2="58" y2="72" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <path d="M58,44 Q71,62 58,80 Q85,80 108,62 Q85,44 58,44 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <circle cx="111" cy="62" r="3.5" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="114" y1="62" x2="200" y2="62" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="204" y="66" fill="#1a6e42" font-weight="700">Q</text>
+        <text x="65" y="66" font-size="10" fill="#2A7A87">NOR1</text>
+        <!-- Bottom NOR gate -->
+        <text x="4" y="130" fill="#1B4F57" font-weight="700">R</text>
+        <line x1="22" y1="127" x2="58" y2="120" stroke="#1B4F57" stroke-width="1.8"/>
+        <line x1="22" y1="142" x2="58" y2="136" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <path d="M58,108 Q71,128 58,148 Q85,148 108,128 Q85,108 58,108 Z" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <circle cx="111" cy="128" r="3.5" fill="white" stroke="#2A7A87" stroke-width="2"/>
+        <line x1="114" y1="128" x2="200" y2="128" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="204" y="132" fill="#b83228" font-weight="700">Q̄</text>
+        <text x="65" y="132" font-size="10" fill="#2A7A87">NOR2</text>
+        <!-- Feedback lines Q→NOR2, Q̄→NOR1 -->
+        <line x1="178" y1="62" x2="178" y2="22" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <line x1="178" y1="22" x2="22" y2="22" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <line x1="22" y1="22" x2="22" y2="142" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <line x1="185" y1="128" x2="185" y2="172" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <line x1="185" y1="172" x2="22" y2="172" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <line x1="22" y1="80" x2="22" y2="172" stroke="#b83228" stroke-width="1.5" stroke-dasharray="4,2"/>
+        <text x="140" y="18" font-size="9" fill="#b83228">Q feeds back to NOR2</text>
+        <text x="100" y="185" font-size="9" fill="#b83228">Q̄ feeds back to NOR1</text>
+      </svg>
+      <div class="dl">Red dashed = cross-coupled feedback paths</div>
+    </div>
+  </div>
+  <div class="bd">⚠️ S=1, R=1 is the FORBIDDEN state. Both NOR outputs are forced to 0 simultaneously, violating Q ≠ Q̄. The circuit becomes unpredictable.</div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Level Trigger vs Edge Trigger</div>
+  <table>
+    <tr><th>Feature</th><th>Level Triggered (Latch)</th><th>Edge Triggered (Flip-Flop)</th></tr>
+    <tr><td>Active when</td><td>Continuously while clock level is HIGH (or LOW)</td><td>Only at the instant clock transitions (0→1 rising, or 1→0 falling)</td></tr>
+    <tr><td>Also called</td><td>Transparent latch</td><td>Flip-flop</td></tr>
+    <tr><td>Stability</td><td>Less stable — input changes pass through any time clock is active</td><td>More stable — output changes exactly once per clock tick</td></tr>
+    <tr><td>Symbol</td><td>EN or G (enable pin)</td><td>Triangle (▷) on CLK pin</td></tr>
+    <tr><td>Example</td><td>D-Latch, SR-Latch</td><td>D FF, JK FF, T FF</td></tr>
+    <tr><td>Used in</td><td>Simple temporary holds</td><td>Modern digital systems (CPUs, memory)</td></tr>
+  </table>
+  <div class="dw">
+    <svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+      <text x="20" y="20" font-weight="700" fill="#1B4F57" font-size="13">Clock Types — Timing Diagram</text>
+      <text x="20" y="44" fill="#2A7A87" font-weight="600">Level Trigger:</text>
+      <polyline points="60,82 60,52 130,52 130,82 200,82 200,52 270,52 270,82" stroke="#1B4F57" stroke-width="2" fill="none"/>
+      <rect x="60" y="52" width="70" height="30" fill="rgba(42,122,135,0.15)"/>
+      <rect x="200" y="52" width="70" height="30" fill="rgba(42,122,135,0.15)"/>
+      <text x="95" y="72" font-size="10" fill="#1a6e42" text-anchor="middle" font-weight="700">ACTIVE</text>
+      <text x="235" y="72" font-size="10" fill="#1a6e42" text-anchor="middle" font-weight="700">ACTIVE</text>
+      <text x="165" y="100" font-size="10" fill="#6a7e8a" text-anchor="middle">Active for entire HIGH duration</text>
+      <text x="310" y="44" fill="#2A7A87" font-weight="600">Edge Trigger (Rising):</text>
+      <polyline points="350,82 350,52 420,52 420,82 490,82 490,52 540,52" stroke="#1B4F57" stroke-width="2" fill="none"/>
+      <line x1="350" y1="46" x2="350" y2="88" stroke="#b83228" stroke-width="2.5"/>
+      <polygon points="350,50 344,62 356,62" fill="#b83228"/>
+      <line x1="490" y1="46" x2="490" y2="88" stroke="#b83228" stroke-width="2.5"/>
+      <polygon points="490,50 484,62 496,62" fill="#b83228"/>
+      <text x="440" y="104" font-size="10" fill="#b83228" text-anchor="middle">Active ONLY at ↑ rising edge (instant)</text>
+    </svg>
+  </div>
+  <div class="bi">📌 <strong>Why edge-triggered is preferred:</strong> In level-triggered circuits, if the input changes multiple times while the clock is HIGH, all changes pass through. Edge-triggered circuits only capture the value at the precise clock edge — making digital systems much more predictable and reliable.</div>
+</div>
+
+<!-- ═══ S9: FLIP-FLOPS ═══ -->
+<div class="sh" id="s9"><div class="si">9</div><h2>Flip-Flops — SR, JK, D, T</h2><span class="badge bh">HOT — Full question certain</span></div>
+<div class="card">
+  <p>A <strong>flip-flop</strong> is an edge-triggered memory element. It stores exactly 1 bit and only updates at the clock edge (rising or falling). All modern digital systems use flip-flops as their basic storage unit — registers, counters, and memory all rely on them.</p>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">SR Flip-Flop</div>
+  <p>The clocked version of the SR latch. S = Set (Q→1). R = Reset (Q→0). The forbidden state S=R=1 still exists.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>CLK</th><th>S</th><th>R</th><th>Q(next)</th><th>Action</th></tr>
+        <tr><td>↑</td><td>0</td><td>0</td><td>Q</td><td>No change</td></tr>
+        <tr><td>↑</td><td>0</td><td>1</td><td class="t0">0</td><td>Reset</td></tr>
+        <tr><td>↑</td><td>1</td><td>0</td><td class="t1">1</td><td>Set</td></tr>
+        <tr><td>↑</td><td>1</td><td>1</td><td class="tx">?</td><td>INVALID</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Q(next) = S + R̄·Q<br><small style="color:var(--mu)">Constraint: S·R = 0</small></div>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 255 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <rect x="80" y="30" width="100" height="115" rx="8" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <text x="130" y="82" font-size="14" font-weight="700" fill="#1B4F57" text-anchor="middle">SR</text>
+        <text x="130" y="98" font-size="14" font-weight="700" fill="#1B4F57" text-anchor="middle">FF</text>
+        <line x1="20" y1="58" x2="80" y2="58" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="12" y="62" fill="#1B4F57" font-weight="700">S</text>
+        <line x1="20" y1="112" x2="80" y2="112" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="12" y="116" fill="#1B4F57" font-weight="700">R</text>
+        <polygon points="108,145 118,133 128,145" fill="#2A7A87"/>
+        <line x1="130" y1="145" x2="130" y2="160" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="118" y="162" fill="#1B4F57" font-weight="600" font-size="11">CLK</text>
+        <line x1="180" y1="58" x2="235" y2="58" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="62" fill="#1a6e42" font-weight="700">Q</text>
+        <line x1="180" y1="112" x2="235" y2="112" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="116" fill="#b83228" font-weight="700">Q̄</text>
+        <text x="86" y="55" font-size="10" fill="#6a7e8a">S</text><text x="86" y="109" font-size="10" fill="#6a7e8a">R</text>
+        <text x="165" y="55" font-size="10" fill="#6a7e8a">Q</text><text x="162" y="109" font-size="10" fill="#6a7e8a">Q̄</text>
+      </svg>
+      <div class="dl">Triangle (▷) on CLK = edge triggered</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">JK Flip-Flop ⭐ Most Important</div>
+  <p>The JK flip-flop fixes the forbidden state of SR. When J=K=1, instead of being invalid, the output <strong>toggles</strong> (flips to opposite). J behaves like S (set), K behaves like R (reset). No forbidden state exists.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>CLK</th><th>J</th><th>K</th><th>Q(next)</th><th>Action</th></tr>
+        <tr><td>↑</td><td>0</td><td>0</td><td>Q</td><td>No change</td></tr>
+        <tr><td>↑</td><td>0</td><td>1</td><td class="t0">0</td><td>Reset</td></tr>
+        <tr><td>↑</td><td>1</td><td>0</td><td class="t1">1</td><td>Set</td></tr>
+        <tr><td>↑</td><td>1</td><td>1</td><td class="tx">Q̄</td><td>Toggle ← unique!</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Q(next) = J·Q̄ + K̄·Q</div>
+      <p style="font-size:13px;margin-top:8px;color:var(--tx2);"><strong>Memory:</strong> J Sets, K Kills, both Toggle</p>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 255 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <rect x="80" y="30" width="100" height="115" rx="8" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <text x="130" y="82" font-size="14" font-weight="700" fill="#1B4F57" text-anchor="middle">JK</text>
+        <text x="130" y="98" font-size="14" font-weight="700" fill="#1B4F57" text-anchor="middle">FF</text>
+        <line x1="20" y1="58" x2="80" y2="58" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="14" y="62" fill="#1B4F57" font-weight="700">J</text>
+        <line x1="20" y1="112" x2="80" y2="112" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="14" y="116" fill="#1B4F57" font-weight="700">K</text>
+        <polygon points="108,145 118,133 128,145" fill="#2A7A87"/>
+        <line x1="130" y1="145" x2="130" y2="160" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="118" y="162" fill="#1B4F57" font-weight="600" font-size="11">CLK</text>
+        <line x1="180" y1="58" x2="235" y2="58" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="62" fill="#1a6e42" font-weight="700">Q</text>
+        <line x1="180" y1="112" x2="235" y2="112" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="116" fill="#b83228" font-weight="700">Q̄</text>
+        <text x="86" y="55" font-size="10" fill="#6a7e8a">J</text><text x="86" y="109" font-size="10" fill="#6a7e8a">K</text>
+        <text x="165" y="55" font-size="10" fill="#6a7e8a">Q</text><text x="162" y="109" font-size="10" fill="#6a7e8a">Q̄</text>
+      </svg>
+      <div class="dl">JK FF — same shape, no forbidden state</div>
+    </div>
+  </div>
+  <div class="bi">📌 JK is the most versatile flip-flop. It can act as: SR (J=S, K=R, avoid both=1), D (connect K=J̄), T (connect J=K=T).</div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">D Flip-Flop (Data / Delay)</div>
+  <p>The simplest and most commonly used flip-flop. One data input D. At each rising clock edge, whatever is at D is stored as Q. No invalid states. Also called delay FF because Q follows D after one clock cycle.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>CLK</th><th>D</th><th>Q(next)</th><th>Action</th></tr>
+        <tr><td>↑</td><td>0</td><td class="t0">0</td><td>Reset</td></tr>
+        <tr><td>↑</td><td>1</td><td class="t1">1</td><td>Set</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Q(next) = D</div>
+      <p style="font-size:13px;color:var(--tx2);margin-top:8px;">Made from JK: connect K = J̄ (K = NOT D)</p>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 255 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <rect x="80" y="30" width="100" height="115" rx="8" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <text x="130" y="88" font-size="14" font-weight="700" fill="#1B4F57" text-anchor="middle">D FF</text>
+        <line x1="20" y1="85" x2="80" y2="85" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="12" y="89" fill="#1B4F57" font-weight="700">D</text>
+        <polygon points="108,145 118,133 128,145" fill="#2A7A87"/>
+        <line x1="130" y1="145" x2="130" y2="160" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="118" y="162" fill="#1B4F57" font-weight="600" font-size="11">CLK</text>
+        <line x1="180" y1="65" x2="235" y2="65" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="69" fill="#1a6e42" font-weight="700">Q</text>
+        <line x1="180" y1="110" x2="235" y2="110" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="114" fill="#b83228" font-weight="700">Q̄</text>
+        <text x="86" y="82" font-size="10" fill="#6a7e8a">D</text>
+      </svg>
+      <div class="dl">D FF — single input, simplest design</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">T Flip-Flop (Toggle)</div>
+  <p>T = Toggle. When T=1, output flips on every clock edge. When T=0, output holds. Perfect for building binary counters — each T FF with T=1 permanently divides the clock by 2.</p>
+  <div class="two">
+    <div>
+      <table>
+        <tr><th>CLK</th><th>T</th><th>Q(next)</th><th>Action</th></tr>
+        <tr><td>↑</td><td>0</td><td>Q</td><td>No change</td></tr>
+        <tr><td>↑</td><td>1</td><td class="tx">Q̄</td><td>Toggle</td></tr>
+      </table>
+      <div class="formula" style="font-size:13px;">Q(next) = T ⊕ Q</div>
+      <p style="font-size:13px;color:var(--tx2);margin-top:8px;">Made from JK: connect J = K = T</p>
+    </div>
+    <div class="dw">
+      <svg viewBox="0 0 255 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+        <rect x="80" y="30" width="100" height="115" rx="8" fill="white" stroke="#2A7A87" stroke-width="2.5"/>
+        <text x="130" y="88" font-size="14" font-weight="700" fill="#1B4F57" text-anchor="middle">T FF</text>
+        <line x1="20" y1="85" x2="80" y2="85" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="14" y="89" fill="#1B4F57" font-weight="700">T</text>
+        <polygon points="108,145 118,133 128,145" fill="#2A7A87"/>
+        <line x1="130" y1="145" x2="130" y2="160" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="118" y="162" fill="#1B4F57" font-weight="600" font-size="11">CLK</text>
+        <line x1="180" y1="65" x2="235" y2="65" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="69" fill="#1a6e42" font-weight="700">Q</text>
+        <line x1="180" y1="110" x2="235" y2="110" stroke="#1B4F57" stroke-width="1.8"/>
+        <text x="238" y="114" fill="#b83228" font-weight="700">Q̄</text>
+        <text x="86" y="82" font-size="10" fill="#6a7e8a">T</text>
+      </svg>
+      <div class="dl">T FF — toggles output when T=1</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Full Flip-Flop Comparison Table</div>
+  <table>
+    <tr><th>Feature</th><th>SR FF</th><th>JK FF</th><th>D FF</th><th>T FF</th></tr>
+    <tr><td>Inputs</td><td>S, R, CLK</td><td>J, K, CLK</td><td>D, CLK</td><td>T, CLK</td></tr>
+    <tr><td>Forbidden state</td><td>S=R=1</td><td>None</td><td>None</td><td>None</td></tr>
+    <tr><td>Toggle behavior</td><td>No</td><td>J=K=1 toggles</td><td>No</td><td>T=1 always toggles</td></tr>
+    <tr><td>Characteristic Eq</td><td>S+R̄Q</td><td>JQ̄+K̄Q</td><td>D</td><td>T⊕Q</td></tr>
+    <tr><td>Main use</td><td>Basic storage</td><td>Universal, counters</td><td>Registers, data storage</td><td>Binary counters</td></tr>
+  </table>
+</div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q11</span><span>Compare SR and JK flip-flops. Why is JK preferred? Write a full exam answer.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<h4>SR Flip-Flop — Definition and Problem</h4>
+<p>The SR flip-flop is the basic clocked memory element. S stands for Set (makes Q=1) and R stands for Reset (makes Q=0). When S=0 and R=0, the output holds its previous state. When S=0, R=1, output resets to 0. When S=1, R=0, output sets to 1.</p>
+<p>However, the SR flip-flop has one critical flaw: the state S=1, R=1 is <strong>forbidden/invalid</strong>. When both S and R are 1 simultaneously, both Set and Reset are active at the same time and the circuit cannot decide which should win. Both Q and Q̄ are forced to 0, which violates the fundamental rule that Q and Q̄ must always be complements of each other. The output becomes unpredictable.</p>
+<h4>JK Flip-Flop — Solution</h4>
+<p>The JK flip-flop solves this completely. J works like S (sets Q to 1) and K works like R (resets Q to 0). For J=0,K=0 and for J=0,K=1 and J=1,K=0 — the behavior is identical to SR.</p>
+<p>The key difference is J=K=1: instead of being invalid, the JK flip-flop is designed so that J=K=1 causes the output to <strong>toggle</strong> — Q flips to its complement. If Q was 0, it becomes 1. If Q was 1, it becomes 0. This is well-defined, predictable behavior.</p>
+<h4>Why JK is preferred</h4>
+<p>The JK flip-flop is preferred because: (1) No forbidden state exists. (2) It can be configured as an SR FF (use J as S, K as R, avoid both=1). (3) By connecting J=K=T, it becomes a T flip-flop. (4) By connecting K=J̄, it becomes a D flip-flop. This makes JK the most versatile flip-flop — it can replace all others.</p>
+<p>Characteristic equations: SR: Q(next) = S + R̄·Q (with SR=0 constraint). JK: Q(next) = J·Q̄ + K̄·Q (no constraint needed).</p>
+</div></div>
+
+<div class="qa"><div class="qh" onclick="t(this)"><span class="qn">Q12</span><span>Draw the timing diagram for a D flip-flop (rising edge) with D = 1,0,1,1,0 over 5 clock cycles. Initial Q=0.</span><span class="qa-arr">▶</span></div>
+<div class="qb">
+<div class="dw">
+  <svg viewBox="0 0 580 165" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+    <text x="10" y="18" font-weight="700" fill="#1B4F57">D Flip-Flop Timing Diagram (Rising Edge Triggered)</text>
+    <!-- CLK -->
+    <text x="10" y="46" fill="#2A7A87" font-weight="600">CLK:</text>
+    <polyline points="55,50 55,35 130,35 130,50 205,50 205,35 280,35 280,50 355,50 355,35 430,35 430,50 505,50 505,35 555,35" stroke="#1B4F57" stroke-width="2" fill="none"/>
+    <!-- Rising edge marks -->
+    <line x1="55" y1="30" x2="55" y2="55" stroke="#b83228" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <line x1="205" y1="30" x2="205" y2="55" stroke="#b83228" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <line x1="355" y1="30" x2="355" y2="55" stroke="#b83228" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <line x1="505" y1="30" x2="505" y2="55" stroke="#b83228" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="92" y="26" font-size="9" fill="#b83228" text-anchor="middle">↑1</text>
+    <text x="242" y="26" font-size="9" fill="#b83228" text-anchor="middle">↑2</text>
+    <text x="392" y="26" font-size="9" fill="#b83228" text-anchor="middle">↑3</text>
+    <text x="542" y="26" font-size="9" fill="#b83228" text-anchor="middle">↑5</text>
+    <!-- D input -->
+    <text x="10" y="86" fill="#2A7A87" font-weight="600">D:</text>
+    <polyline points="55,72 130,72 130,92 205,92 205,72 280,72 280,72 355,72 355,92 430,92 430,72 555,72" stroke="#5a3880" stroke-width="2" fill="none"/>
+    <text x="92" y="68" font-size="10" fill="#5a3880" text-anchor="middle">1</text>
+    <text x="167" y="98" font-size="10" fill="#5a3880" text-anchor="middle">0</text>
+    <text x="317" y="68" font-size="10" fill="#5a3880" text-anchor="middle">1</text>
+    <text x="392" y="68" font-size="10" fill="#5a3880" text-anchor="middle">1</text>
+    <text x="480" y="98" font-size="10" fill="#5a3880" text-anchor="middle">0</text>
+    <!-- Q output (captures D at each ↑ edge) -->
+    <text x="10" y="128" fill="#2A7A87" font-weight="600">Q:</text>
+    <polyline points="55,138 55,120 205,120 205,138 355,138 355,120 430,120 430,120 505,120 505,138 555,138" stroke="#1a6e42" stroke-width="2.5" fill="none"/>
+    <text x="130" y="116" font-size="10" fill="#1a6e42" text-anchor="middle">Q=1</text>
+    <text x="280" y="144" font-size="10" fill="#1a6e42" text-anchor="middle">Q=0</text>
+    <text x="430" y="116" font-size="10" fill="#1a6e42" text-anchor="middle">Q=1</text>
+    <text x="530" y="144" font-size="10" fill="#1a6e42" text-anchor="middle">Q=0</text>
+    <text x="230" y="158" font-size="10" fill="#6a7e8a" text-anchor="middle">Q captures D value at each ↑ clock edge. Between edges, Q stays unchanged.</text>
+  </svg>
+</div>
+<pre>Clock edge 1 (↑): D=1 → Q becomes 1
+Clock edge 2 (↑): D=0 → Q becomes 0
+Clock edge 3 (↑): D=1 → Q becomes 1
+Clock edge 4 (↑): D=1 → Q stays 1
+Clock edge 5 (↑): D=0 → Q becomes 0
+
+Rule: Q(next) = D — D Flip-Flop simply stores whatever D is at the clock edge.</pre>
+</div></div>
+
+<!-- ═══ S10: COUNTERS & REGISTERS ═══ -->
+<div class="sh" id="s10"><div class="si">10</div><h2>Counters &amp; Registers</h2><span class="badge bt">THEORY</span></div>
+<div class="card">
+  <div class="sub" style="margin-top:0">Counters</div>
+  <p>A <strong>counter</strong> is a sequential circuit that counts clock pulses. Each time the clock ticks, the counter moves to the next state. Built using T or JK flip-flops.</p>
+  <table>
+    <tr><th>Type</th><th>How it works</th><th>Speed</th></tr>
+    <tr><td><strong>Asynchronous (Ripple)</strong></td><td>Each FF is triggered by the Q output of the previous one. The clock "ripples" through.</td><td>Slower — delay accumulates</td></tr>
+    <tr><td><strong>Synchronous</strong></td><td>ALL flip-flops triggered by the same clock simultaneously.</td><td>Faster — no accumulated delay</td></tr>
+    <tr><td><strong>Up Counter</strong></td><td>Counts upward: 0, 1, 2, 3, 4 ...</td><td>—</td></tr>
+    <tr><td><strong>Down Counter</strong></td><td>Counts downward: 7, 6, 5, 4 ...</td><td>—</td></tr>
+    <tr><td><strong>Mod-N Counter</strong></td><td>Counts from 0 to N−1 then resets. Mod-6 counts 0,1,2,3,4,5,0,1...</td><td>—</td></tr>
+  </table>
+  <div class="bi">📌 An n-bit counter has 2ⁿ states. 2-bit → 4 states (0–3). 3-bit → 8 states (0–7). 4-bit → 16 states (0–15).</div>
+  <div class="dw">
+    <svg viewBox="0 0 580 140" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif" font-size="12">
+      <text x="10" y="18" font-size="13" font-weight="700" fill="#1B4F57">3-bit Ripple (Asynchronous) Up Counter</text>
+      <text x="8" y="82" fill="#1B4F57" font-weight="700">CLK</text>
+      <line x1="42" y1="79" x2="80" y2="79" stroke="#1B4F57" stroke-width="1.8"/>
+      <!-- FF0 -->
+      <rect x="80" y="48" width="90" height="62" rx="8" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="125" y="76" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">T FF</text>
+      <text x="125" y="91" font-size="10" fill="#6a7e8a" text-anchor="middle">T=1 (always)</text>
+      <line x1="80" y1="79" x2="80" y2="110" stroke="#1B4F57" stroke-width="1.8"/>
+      <polygon points="103,110 113,100 123,110" fill="#2A7A87"/>
+      <line x1="170" y1="67" x2="210" y2="67" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="190" y="55" font-size="11" fill="#1a6e42" font-weight="700" text-anchor="middle">Q0 (LSB)</text>
+      <circle cx="210" cy="67" r="3" fill="#1B4F57"/>
+      <!-- FF1 -->
+      <line x1="210" y1="67" x2="240" y2="79" stroke="#1B4F57" stroke-width="1.8"/>
+      <rect x="240" y="48" width="90" height="62" rx="8" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="285" y="76" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">T FF</text>
+      <text x="285" y="91" font-size="10" fill="#6a7e8a" text-anchor="middle">T=1</text>
+      <line x1="240" y1="79" x2="240" y2="110" stroke="#1B4F57" stroke-width="1.8"/>
+      <polygon points="263,110 273,100 283,110" fill="#2A7A87"/>
+      <line x1="330" y1="67" x2="370" y2="67" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="350" y="55" font-size="11" fill="#1a6e42" font-weight="700" text-anchor="middle">Q1</text>
+      <circle cx="370" cy="67" r="3" fill="#1B4F57"/>
+      <!-- FF2 -->
+      <line x1="370" y1="67" x2="400" y2="79" stroke="#1B4F57" stroke-width="1.8"/>
+      <rect x="400" y="48" width="90" height="62" rx="8" fill="white" stroke="#2A7A87" stroke-width="2"/>
+      <text x="445" y="76" font-size="12" font-weight="700" fill="#1B4F57" text-anchor="middle">T FF</text>
+      <text x="445" y="91" font-size="10" fill="#6a7e8a" text-anchor="middle">T=1</text>
+      <line x1="400" y1="79" x2="400" y2="110" stroke="#1B4F57" stroke-width="1.8"/>
+      <polygon points="423,110 433,100 443,110" fill="#2A7A87"/>
+      <line x1="490" y1="67" x2="550" y2="67" stroke="#1B4F57" stroke-width="1.8"/>
+      <text x="530" y="55" font-size="11" fill="#1a6e42" font-weight="700" text-anchor="middle">Q2 (MSB)</text>
+      <text x="200" y="130" font-size="11" fill="#6a7e8a" text-anchor="middle">Each T FF clocked by Q output of previous — clock "ripples" through the chain</text>
+    </svg>
+  </div>
+</div>
+
+<div class="card">
+  <div class="sub" style="margin-top:0">Registers — Types and Uses</div>
+  <p>A <strong>register</strong> is a group of flip-flops (usually D flip-flops) used to store multiple bits. An n-bit register stores n bits. Registers are used inside CPUs for temporary data storage during computation.</p>
+  <table>
+    <tr><th>Type</th><th>Input</th><th>Output</th><th>Description &amp; Use</th></tr>
+    <tr><td><strong>SISO</strong></td><td>Serial (1 bit/clock)</td><td>Serial (1 bit/clock)</td><td>Data shifts one bit at a time. Slowest. Used as delay element.</td></tr>
+    <tr><td><strong>SIPO</strong></td><td>Serial (1 bit/clock)</td><td>Parallel (all at once)</td><td>Enter bits one by one, read all at once. Used in serial-to-parallel conversion.</td></tr>
+    <tr><td><strong>PISO</strong></td><td>Parallel (all at once)</td><td>Serial (1 bit/clock)</td><td>Load all bits at once, shift out one by one. Used in parallel-to-serial conversion.</td></tr>
+    <tr><td><strong>PIPO</strong></td><td>Parallel (all at once)</td><td>Parallel (all at once)</td><td>Fastest. All bits in and out simultaneously. Used for temporary storage in CPUs.</td></tr>
+    <tr><td><strong>Universal Shift</strong></td><td>Both modes</td><td>Both modes</td><td>Can do all 4 modes. Controlled by mode select lines. Most flexible.</td></tr>
+  </table>
+  <div class="btip">✅ Exam tips: SIPO = serial-to-parallel converter. PISO = parallel-to-serial converter. PIPO = fastest (used in CPU registers). SISO = slowest (used as delay). Universal = most flexible (all modes).</div>
+</div>
+
+<!-- ═══ S11: MEMORY ═══ -->
+<div class="sh" id="s11"><div class="si">11</div><h2>Memory — RAM vs ROM &amp; ROM Types</h2><span class="badge bt">THEORY</span></div>
+<div class="card">
+  <div class="sub" style="margin-top:0">RAM vs ROM — Complete Comparison</div>
+  <table>
+    <tr><th>Feature</th><th>RAM</th><th>ROM</th></tr>
+    <tr><td>Full Name</td><td>Random Access Memory</td><td>Read Only Memory</td></tr>
+    <tr><td>Volatility</td><td><strong>Volatile</strong> — loses all data when power off</td><td><strong>Non-volatile</strong> — retains data without power</td></tr>
+    <tr><td>Read/Write</td><td>Both read AND write</td><td>Normally read only</td></tr>
+    <tr><td>Speed</td><td>Fast (nanoseconds)</td><td>Slower than RAM</td></tr>
+    <tr><td>Cost per bit</td><td>More expensive</td><td>Less expensive</td></tr>
+    <tr><td>Content</td><td>Temporary (running OS, programs)</td><td>Permanent (BIOS, firmware, boot code)</td></tr>
+    <tr><td>Modified by</td><td>CPU at runtime</td><td>Factory or special programmer</td></tr>
+    <tr><td>Types</td><td>SRAM (Static), DRAM (Dynamic)</td><td>ROM, PROM, EPROM, EEPROM, Flash</td></tr>
+  </table>
+  <div class="bd">⚠️ Most important fact: RAM is VOLATILE. ROM is NON-VOLATILE. This is the most tested difference.</div>
+</div>
+<div class="card">
+  <div class="sub" style="margin-top:0">Types of ROM — Full Detail</div>
+  <table>
+    <tr><th>Type</th><th>Full Name</th><th>Who Programs</th><th>Erasable?</th><th>How Erased</th><th>Reprogrammable?</th></tr>
+    <tr><td><strong>ROM</strong></td><td>Read Only Memory</td><td>Manufacturer only</td><td>No</td><td>Cannot erase</td><td>No</td></tr>
+    <tr><td><strong>PROM</strong></td><td>Programmable ROM</td><td>User — once only</td><td>No (permanent)</td><td>Cannot erase</td><td>No — write once</td></tr>
+    <tr><td><strong>EPROM</strong></td><td>Erasable Programmable ROM</td><td>User</td><td>Yes</td><td>UV (ultraviolet) light ~15–20 min</td><td>Yes</td></tr>
+    <tr><td><strong>EEPROM</strong></td><td>Electrically Erasable PROM</td><td>User</td><td>Yes</td><td>Electrical signal — byte by byte</td><td>Yes, without removing chip</td></tr>
+    <tr><td><strong>Flash</strong></td><td>Flash Memory</td><td>User</td><td>Yes</td><td>Electrical signal — in blocks</td><td>Yes — very fast</td></tr>
+  </table>
+  <div class="bi">📌 Key distinctions:<br>
+  • PROM = user programmable but ONCE only — then permanent like ROM<br>
+  • EPROM = has a small quartz window — UV light shines through it to erase<br>
+  • EEPROM = erased electrically byte by byte — no need to remove from circuit<br>
+  • Flash = modern EEPROM that erases in large blocks — much faster than EEPROM<br>
+  • Flash is used in USB drives, SSDs, and phone storage</div>
+  <div class="btip">✅ Mnemonic: P=Programmable(once). EP=Erasable(UV). EEP=Electrically Erasable. Flash=Fast Block Erase.</div>
+</div>
+
+<hr>
+
+<!-- ═══ S12: MCQ BANK ═══ -->
+<div class="sh" id="s12"><div class="si">12</div><h2>MCQ Bank — 10–15 Per Topic</h2><span class="badge bh">EXAM READY</span></div>
+<div class="bi">📝 Click any option to answer. Correct answer + explanation appears immediately. Try each one before revealing!</div>
+
+<!-- SIGNALS & CONVERSIONS -->
+<div class="mth"><h3>📡 Topic 1: Signals &amp; Number Conversions</h3><span class="mc">12 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">1</span><span>What is 1101₂ in decimal?</span></div>
+<ul class="mo" id="q1"><li onclick="a('q1',this,false,'1101 = 8+4+0+1 = 13, not 11.')"><span class="ol">A</span>11</li><li onclick="a('q1',this,false,'1101 = 8+4+0+1 = 13, not 12.')"><span class="ol">B</span>12</li><li onclick="a('q1',this,true,'Correct! 1×8+1×4+0×2+1×1 = 8+4+0+1 = 13₁₀')"><span class="ol">C</span>13</li><li onclick="a('q1',this,false,'1101 = 13, not 14.')"><span class="ol">D</span>14</li></ul>
+<div class="me" id="q1-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">2</span><span>Convert 57₁₀ to binary.</span></div>
+<ul class="mo" id="q2"><li onclick="a('q2',this,false,'110111 = 55, not 57.')"><span class="ol">A</span>110111</li><li onclick="a('q2',this,true,'Correct! 57÷2=28R1, 28÷2=14R0, 14÷2=7R0, 7÷2=3R1, 3÷2=1R1, 1÷2=0R1 → 111001₂. Verify: 32+16+8+1=57 ✓')"><span class="ol">B</span>111001</li><li onclick="a('q2',this,false,'101110 = 46, not 57.')"><span class="ol">C</span>101110</li><li onclick="a('q2',this,false,'110101 = 53, not 57.')"><span class="ol">D</span>110101</li></ul>
+<div class="me" id="q2-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">3</span><span>What is hexadecimal FF in decimal?</span></div>
+<ul class="mo" id="q3"><li onclick="a('q3',this,false,'F=15, so FF = 15×16+15 = 255, not 240.')"><span class="ol">A</span>240</li><li onclick="a('q3',this,false,'FF = 255, not 250.')"><span class="ol">B</span>250</li><li onclick="a('q3',this,true,'Correct! F=15. FF₁₆ = 15×16 + 15×1 = 240+15 = 255₁₀')"><span class="ol">C</span>255</li><li onclick="a('q3',this,false,'FF = 255, not 256.')"><span class="ol">D</span>256</li></ul>
+<div class="me" id="q3-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">4</span><span>Convert 10110111₂ to hexadecimal.</span></div>
+<ul class="mo" id="q4"><li onclick="a('q4',this,false,'Group in 4s from right: 1011|0111 = B|7 = B7, not A7.')"><span class="ol">A</span>A7</li><li onclick="a('q4',this,true,'Correct! Group in 4s: 1011|0111. 1011=11=B, 0111=7. Answer: B7₁₆')"><span class="ol">B</span>B7</li><li onclick="a('q4',this,false,'1011=B not C, so not C7.')"><span class="ol">C</span>C7</li><li onclick="a('q4',this,false,'0111=7, not 6, so not B6.')"><span class="ol">D</span>B6</li></ul>
+<div class="me" id="q4-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">5</span><span>Which is an INVALID octal number?</span></div>
+<ul class="mo" id="q5"><li onclick="a('q5',this,false,'376 uses only digits 0–7, so it is valid octal.')"><span class="ol">A</span>376</li><li onclick="a('q5',this,true,'Correct! 489 is INVALID. Octal uses only 0–7. The digits 8 and 9 do not exist in base-8.')"><span class="ol">B</span>489</li><li onclick="a('q5',this,false,'754 uses only 0–7, so it is valid.')"><span class="ol">C</span>754</li><li onclick="a('q5',this,false,'307 uses only 0–7, so it is valid.')"><span class="ol">D</span>307</li></ul>
+<div class="me" id="q5-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">6</span><span>Convert 47₈ to decimal.</span></div>
+<ul class="mo" id="q6"><li onclick="a('q6',this,false,'4×8+7 = 32+7 = 39, not 35.')"><span class="ol">A</span>35</li><li onclick="a('q6',this,true,'Correct! 4×8¹ + 7×8⁰ = 32+7 = 39₁₀')"><span class="ol">B</span>39</li><li onclick="a('q6',this,false,'47 in octal is NOT 47 in decimal. 4×8+7=39.')"><span class="ol">C</span>47</li><li onclick="a('q6',this,false,'4×8+7=39, not 43.')"><span class="ol">D</span>43</li></ul>
+<div class="me" id="q6-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">7</span><span>What is A3₁₆ in decimal?</span></div>
+<ul class="mo" id="q7"><li onclick="a('q7',this,false,'A=10. A3 = 10×16+3 = 163, not 153.')"><span class="ol">A</span>153</li><li onclick="a('q7',this,true,'Correct! A=10. A3₁₆ = 10×16 + 3×1 = 160+3 = 163₁₀')"><span class="ol">B</span>163</li><li onclick="a('q7',this,false,'10×16+3=163, not 173.')"><span class="ol">C</span>173</li><li onclick="a('q7',this,false,'10×16+3=163, not 143.')"><span class="ol">D</span>143</li></ul>
+<div class="me" id="q7-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">8</span><span>Convert 62₈ to binary directly.</span></div>
+<ul class="mo" id="q8"><li onclick="a('q8',this,false,'6→110, 2→010 = 110010, not 111010.')"><span class="ol">A</span>111010</li><li onclick="a('q8',this,true,'Correct! Each octal digit → 3-bit binary: 6=110, 2=010 → 110010₂')"><span class="ol">B</span>110010</li><li onclick="a('q8',this,false,'6→110, 2→010 = 110010, not 100010.')"><span class="ol">C</span>100010</li><li onclick="a('q8',this,false,'6→110, 2→010 = 110010, not 101010.')"><span class="ol">D</span>101010</li></ul>
+<div class="me" id="q8-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">9</span><span>To convert Octal to Hex, the correct method is:</span></div>
+<ul class="mo" id="q9"><li onclick="a('q9',this,false,'There is no direct division method between octal and hex.')"><span class="ol">A</span>Divide octal digits by 16</li><li onclick="a('q9',this,true,'Correct! Always convert via binary: Octal→Binary (groups of 3), then Binary→Hex (groups of 4). Binary is the bridge between all bases.')"><span class="ol">B</span>Octal → Binary → Hexadecimal</li><li onclick="a('q9',this,false,'While Octal→Decimal→Hex works, Octal→Binary→Hex is the standard direct method.')"><span class="ol">C</span>Octal → Decimal → Hexadecimal</li><li onclick="a('q9',this,false,'This is the reverse direction (Hex to Octal).')"><span class="ol">D</span>Hexadecimal → Binary → Octal</li></ul>
+<div class="me" id="q9-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">10</span><span>What is the decimal value of 10000000₂?</span></div>
+<ul class="mo" id="q10"><li onclick="a('q10',this,false,'2⁷ = 128, not 64.')"><span class="ol">A</span>64</li><li onclick="a('q10',this,true,'Correct! 10000000₂ has a 1 in position 7 (2⁷=128). All other bits are 0. Answer = 128.')"><span class="ol">B</span>128</li><li onclick="a('q10',this,false,'2⁷=128, not 256 (that would be 2⁸).')"><span class="ol">C</span>256</li><li onclick="a('q10',this,false,'2⁷=128, not 32.')"><span class="ol">D</span>32</li></ul>
+<div class="me" id="q10-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">11</span><span>An analog signal differs from a digital signal because:</span></div>
+<ul class="mo" id="q11"><li onclick="a('q11',this,false,'Digital signals are actually more noise-resistant, not analog.')"><span class="ol">A</span>Analog signals are more noise-resistant</li><li onclick="a('q11',this,true,'Correct! Analog signals are continuous and can take any value. Digital signals only have two discrete values: 0 or 1. This is the fundamental difference.')"><span class="ol">B</span>Analog signals are continuous and can take any value, while digital only uses 0 or 1</li><li onclick="a('q11',this,false,'Both can carry information — this is not the key difference.')"><span class="ol">C</span>Analog signals cannot carry information</li><li onclick="a('q11',this,false,'Analog is not always slower.')"><span class="ol">D</span>Analog signals are always slower</li></ul>
+<div class="me" id="q11-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">12</span><span>How many bits are needed to represent hex number 2F?</span></div>
+<ul class="mo" id="q12"><li onclick="a('q12',this,false,'Each hex digit = 4 bits. 2 hex digits = 8 bits, not 6.')"><span class="ol">A</span>6 bits</li><li onclick="a('q12',this,true,'Correct! Each hex digit needs 4 binary bits. 2F has 2 digits → 2×4 = 8 bits. (2=0010, F=1111 → 00101111)')"><span class="ol">B</span>8 bits</li><li onclick="a('q12',this,false,'2F needs 8 bits, not 10.')"><span class="ol">C</span>10 bits</li><li onclick="a('q12',this,false,'4 bits would only represent one hex digit, not two.')"><span class="ol">D</span>4 bits</li></ul>
+<div class="me" id="q12-e"></div></div>
+
+<!-- LOGIC GATES -->
+<div class="mth"><h3>🔌 Topic 2: Logic Gates &amp; Universal Gates</h3><span class="mc">12 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">13</span><span>Which gate gives output 1 ONLY when ALL inputs are 1?</span></div>
+<ul class="mo" id="q13"><li onclick="a('q13',this,true,'Correct! AND gate: output is 1 only when every input is 1. Like a series circuit — all switches must be ON.')"><span class="ol">A</span>AND</li><li onclick="a('q13',this,false,'OR gives 1 if ANY input is 1 — not all.')"><span class="ol">B</span>OR</li><li onclick="a('q13',this,false,'NAND gives 0 only when all inputs are 1 — opposite of AND.')"><span class="ol">C</span>NAND</li><li onclick="a('q13',this,false,'XOR gives 1 only when inputs are different.')"><span class="ol">D</span>XOR</li></ul>
+<div class="me" id="q13-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">14</span><span>NAND and NOR are called Universal Gates because:</span></div>
+<ul class="mo" id="q14"><li onclick="a('q14',this,false,'Speed is not the reason for the universal property.')"><span class="ol">A</span>They are faster than all other gates</li><li onclick="a('q14',this,true,'Correct! They are universal because any Boolean function can be implemented using only NAND gates, or only NOR gates — without needing any other type of gate.')"><span class="ol">B</span>Any logic function can be implemented using only NAND (or only NOR)</li><li onclick="a('q14',this,false,'Fewer transistors is not what defines "universal".')"><span class="ol">C</span>They use fewer transistors</li><li onclick="a('q14',this,false,'NAND and NOR are not the only two-input gates (AND, OR, XOR also have two inputs).')"><span class="ol">D</span>They are the only two-input gates</li></ul>
+<div class="me" id="q14-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">15</span><span>What is the output of XOR gate when A=1, B=1?</span></div>
+<ul class="mo" id="q15"><li onclick="a('q15',this,true,'Correct! XOR gives 0 when inputs are the SAME (both 1 here). XOR gives 1 only when inputs are DIFFERENT.')"><span class="ol">A</span>0</li><li onclick="a('q15',this,false,'XOR=1 only when inputs differ. 1,1 are same → output is 0.')"><span class="ol">B</span>1</li><li onclick="a('q15',this,false,'XOR always gives a definite 0 or 1.')"><span class="ol">C</span>Undefined</li><li onclick="a('q15',this,false,'XOR output is always 0 or 1, never "depends".')"><span class="ol">D</span>Depends</li></ul>
+<div class="me" id="q15-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">16</span><span>To implement NOT using a NAND gate, you:</span></div>
+<ul class="mo" id="q16"><li onclick="a('q16',this,true,'Correct! Connect both inputs of NAND to the same signal A. Output = (A·A)̄ = Ā̄ = Ā. This gives NOT A.')"><span class="ol">A</span>Connect both inputs to the same signal</li><li onclick="a('q16',this,false,'Two NANDs in series = double negation = identity (same as input), not NOT.')"><span class="ol">B</span>Connect two NANDs in series</li><li onclick="a('q16',this,false,'Feedback loop creates a latch, not a NOT gate.')"><span class="ol">C</span>Add a feedback loop</li><li onclick="a('q16',this,false,'Only 1 NAND needed for NOT, not three.')"><span class="ol">D</span>Use three NAND gates</li></ul>
+<div class="me" id="q16-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">17</span><span>The Boolean expression for NOR gate (inputs A, B) is:</span></div>
+<ul class="mo" id="q17"><li onclick="a('q17',this,false,'(AB)̄ is NAND, not NOR.')"><span class="ol">A</span>(A · B)̄</li><li onclick="a('q17',this,true,'Correct! NOR = NOT of OR = (A+B)̄. By De Morgan\'s this also equals Ā·B̄.')"><span class="ol">B</span>(A + B)̄</li><li onclick="a('q17',this,false,'A+B is plain OR with no inversion.')"><span class="ol">C</span>A + B</li><li onclick="a('q17',this,false,'A·B is plain AND.')"><span class="ol">D</span>A · B</li></ul>
+<div class="me" id="q17-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">18</span><span>How many NAND gates are needed to implement AND?</span></div>
+<ul class="mo" id="q18"><li onclick="a('q18',this,false,'1 NAND gives NAND output, not AND. You need to invert once more.')"><span class="ol">A</span>1</li><li onclick="a('q18',this,true,'Correct! AND = NAND + NOT. 1st NAND gives (AB)̄. 2nd NAND with inputs tied gives ¬(AB)̄ = AB. Total = 2 NAND gates.')"><span class="ol">B</span>2</li><li onclick="a('q18',this,false,'3 NANDs is too many for AND.')"><span class="ol">C</span>3</li><li onclick="a('q18',this,false,'4 is excessive for AND.')"><span class="ol">D</span>4</li></ul>
+<div class="me" id="q18-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">19</span><span>XNOR gate gives output 1 when:</span></div>
+<ul class="mo" id="q19"><li onclick="a('q19',this,false,'XOR gives 1 for different inputs. XNOR is the opposite — it gives 1 for SAME inputs.')"><span class="ol">A</span>Inputs are different</li><li onclick="a('q19',this,true,'Correct! XNOR is the complement of XOR. Output is 1 when both inputs are THE SAME (both 0 or both 1). Also called the equality gate.')"><span class="ol">B</span>Inputs are same</li><li onclick="a('q19',this,false,'XNOR gives 1 for 00 as well, not just 11.')"><span class="ol">C</span>Both inputs are 1 only</li><li onclick="a('q19',this,false,'XNOR gives 1 for 11 as well, not just 00.')"><span class="ol">D</span>Both inputs are 0 only</li></ul>
+<div class="me" id="q19-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">20</span><span>Which gate implements the SUM output of a Half Adder?</span></div>
+<ul class="mo" id="q20"><li onclick="a('q20',this,false,'AND gives the CARRY output, not Sum.')"><span class="ol">A</span>AND</li><li onclick="a('q20',this,false,'OR would give 1 when A=B=1, but binary 1+1=10, so Sum bit = 0, not 1.')"><span class="ol">B</span>OR</li><li onclick="a('q20',this,true,'Correct! XOR gives: 0⊕0=0, 0⊕1=1, 1⊕0=1, 1⊕1=0. This exactly matches the Sum bit of binary addition.')"><span class="ol">C</span>XOR</li><li onclick="a('q20',this,false,'NAND gives 1,1,1,0 which does not match Sum.')"><span class="ol">D</span>NAND</li></ul>
+<div class="me" id="q20-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">21</span><span>How many NAND gates are needed to implement OR?</span></div>
+<ul class="mo" id="q21"><li onclick="a('q21',this,false,'1 NAND cannot implement OR.')"><span class="ol">A</span>1</li><li onclick="a('q21',this,false,'2 NANDs implement AND, not OR.')"><span class="ol">B</span>2</li><li onclick="a('q21',this,true,'Correct! OR using NAND needs 3 gates: NAND(A,A) to get Ā, NAND(B,B) to get B̄, then NAND(Ā,B̄) = (ĀB̄)̄ = A+B by De Morgan.')"><span class="ol">C</span>3</li><li onclick="a('q21',this,false,'4 NANDs would be for XOR, not OR.')"><span class="ol">D</span>4</li></ul>
+<div class="me" id="q21-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">22</span><span>De Morgan's theorem for NAND gate states (A·B)̄ equals:</span></div>
+<ul class="mo" id="q22"><li onclick="a('q22',this,false,'Ā·B̄ is the result of (A+B)̄, not (A·B)̄.')"><span class="ol">A</span>Ā · B̄</li><li onclick="a('q22',this,true,'Correct! De Morgan\'s Rule 1: (A·B)̄ = Ā+B̄. Break the bar, flip · to +, complement each variable.')"><span class="ol">B</span>Ā + B̄</li><li onclick="a('q22',this,false,'A+B is OR without complement.')"><span class="ol">C</span>A + B</li><li onclick="a('q22',this,false,'A·B is AND without complement.')"><span class="ol">D</span>A · B</li></ul>
+<div class="me" id="q22-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">23</span><span>Which statement about NOR gate is TRUE?</span></div>
+<ul class="mo" id="q23"><li onclick="a('q23',this,false,'NOR output is 1 ONLY when all inputs are 0 — not 1.')"><span class="ol">A</span>NOR output is 1 when any input is 1</li><li onclick="a('q23',this,true,'Correct! NOR output is 1 ONLY when ALL inputs are 0. It is the complement of OR. Any 1 input kills the output.')"><span class="ol">B</span>NOR output is 1 only when ALL inputs are 0</li><li onclick="a('q23',this,false,'NOR is definitely erasable — it is a universal gate.')"><span class="ol">C</span>NOR cannot implement NOT gate</li><li onclick="a('q23',this,false,'NOR IS a universal gate — it can implement any function.')"><span class="ol">D</span>NOR is not a universal gate</li></ul>
+<div class="me" id="q23-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">24</span><span>Which gate produces output 1 when exactly one input is 1 (for 2-input case)?</span></div>
+<ul class="mo" id="q24"><li onclick="a('q24',this,false,'AND gives 1 only when both are 1.')"><span class="ol">A</span>AND</li><li onclick="a('q24',this,false,'OR gives 1 when one OR both are 1.')"><span class="ol">B</span>OR</li><li onclick="a('q24',this,true,'Correct! XOR gives 1 only when inputs are different — meaning exactly one is 1. It gives 0 when both are 1 or both are 0.')"><span class="ol">C</span>XOR</li><li onclick="a('q24',this,false,'NAND gives 0 only when both are 1.')"><span class="ol">D</span>NAND</li></ul>
+<div class="me" id="q24-e"></div></div>
+
+<!-- BOOLEAN LAWS -->
+<div class="mth"><h3>📐 Topic 3: Boolean Laws &amp; De Morgan's</h3><span class="mc">12 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">25</span><span>What is A + Ā in Boolean algebra?</span></div>
+<ul class="mo" id="q25"><li onclick="a('q25',this,false,'A+Ā = 1, not 0. That would be A·Ā.')"><span class="ol">A</span>0</li><li onclick="a('q25',this,true,'Correct! Complement Law: A+Ā = 1. A variable OR its complement is always 1 — one of them must be 1.')"><span class="ol">B</span>1</li><li onclick="a('q25',this,false,'A+Ā = 1, not A.')"><span class="ol">C</span>A</li><li onclick="a('q25',this,false,'A+Ā = 1, not 2A.')"><span class="ol">D</span>2A</li></ul>
+<div class="me" id="q25-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">26</span><span>De Morgan's: (A+B)̄ equals?</span></div>
+<ul class="mo" id="q26"><li onclick="a('q26',this,false,'Ā+B̄ is the result of (A·B)̄ — that is Rule 1. You used Rule 1 here but need Rule 2.')"><span class="ol">A</span>Ā + B̄</li><li onclick="a('q26',this,true,'Correct! De Morgan\'s Rule 2: (A+B)̄ = Ā·B̄. Break bar, flip + to ·, complement each: Ā·B̄.')"><span class="ol">B</span>Ā · B̄</li><li onclick="a('q26',this,false,'A+B has no complement at all.')"><span class="ol">C</span>A + B</li><li onclick="a('q26',this,false,'A·B is AND with no complement.')"><span class="ol">D</span>A · B</li></ul>
+<div class="me" id="q26-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">27</span><span>Simplify: A + AB = ?</span></div>
+<ul class="mo" id="q27"><li onclick="a('q27',this,false,'A+AB = A by Absorption, not AB.')"><span class="ol">A</span>AB</li><li onclick="a('q27',this,true,'Correct! Absorption Law: A+AB = A. If A is already 1, adding AB does not change anything.')"><span class="ol">B</span>A</li><li onclick="a('q27',this,false,'A+AB = A, not A+B.')"><span class="ol">C</span>A + B</li><li onclick="a('q27',this,false,'A+AB = A, not 1.')"><span class="ol">D</span>1</li></ul>
+<div class="me" id="q27-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">28</span><span>What is A · Ā in Boolean algebra?</span></div>
+<ul class="mo" id="q28"><li onclick="a('q28',this,true,'Correct! Complement Law: A·Ā = 0. A variable ANDed with its complement is always 0 — they cannot both be 1.')"><span class="ol">A</span>0</li><li onclick="a('q28',this,false,'A·Ā = 0. It is A+Ā = 1.')"><span class="ol">B</span>1</li><li onclick="a('q28',this,false,'A·Ā = 0, not A.')"><span class="ol">C</span>A</li><li onclick="a('q28',this,false,'A·Ā = 0, not Ā.')"><span class="ol">D</span>Ā</li></ul>
+<div class="me" id="q28-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">29</span><span>Which law states A·(B+C) = AB + AC?</span></div>
+<ul class="mo" id="q29"><li onclick="a('q29',this,false,'Commutative is A+B = B+A or AB = BA.')"><span class="ol">A</span>Commutative Law</li><li onclick="a('q29',this,false,'Associative is about grouping: (A+B)+C = A+(B+C).')"><span class="ol">B</span>Associative Law</li><li onclick="a('q29',this,true,'Correct! Distributive Law: A·(B+C) = AB+AC. Works just like regular algebra distribution.')"><span class="ol">C</span>Distributive Law</li><li onclick="a('q29',this,false,'Absorption Law is A+AB = A or A(A+B) = A.')"><span class="ol">D</span>Absorption Law</li></ul>
+<div class="me" id="q29-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">30</span><span>Apply De Morgan's to (ABC)̄:</span></div>
+<ul class="mo" id="q30"><li onclick="a('q30',this,true,'Correct! (A·B·C)̄ = Ā+B̄+C̄. Break bar, flip all · to +, bar each variable individually.')"><span class="ol">A</span>Ā + B̄ + C̄</li><li onclick="a('q30',this,false,'Ā·B̄·C̄ is the result of (A+B+C)̄ — you applied the wrong rule.')"><span class="ol">B</span>Ā · B̄ · C̄</li><li onclick="a('q30',this,false,'A+B+C has no complement applied.')"><span class="ol">C</span>A + B + C</li><li onclick="a('q30',this,false,'ABC is the original expression unchanged.')"><span class="ol">D</span>A · B · C</li></ul>
+<div class="me" id="q30-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">31</span><span>What is the double complement of A? (i.e., Ā̄)</span></div>
+<ul class="mo" id="q31"><li onclick="a('q31',this,false,'Ā̄ = A by Double Negation, not 0.')"><span class="ol">A</span>0</li><li onclick="a('q31',this,false,'Ā̄ = A by Double Negation, not 1.')"><span class="ol">B</span>1</li><li onclick="a('q31',this,true,'Correct! Double Negation: Ā̄ = A. Applying NOT twice cancels out — like --A = +A in regular math.')"><span class="ol">C</span>A</li><li onclick="a('q31',this,false,'Ā̄ = A, not Ā.')"><span class="ol">D</span>Ā</li></ul>
+<div class="me" id="q31-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">32</span><span>Simplify: A · 0 = ?</span></div>
+<ul class="mo" id="q32"><li onclick="a('q32',this,true,'Correct! Null/Annulment Law: A·0 = 0. ANDing anything with 0 always gives 0.')"><span class="ol">A</span>0</li><li onclick="a('q32',this,false,'A·0 = 0, not A.')"><span class="ol">B</span>A</li><li onclick="a('q32',this,false,'A·0 = 0, not 1.')"><span class="ol">C</span>1</li><li onclick="a('q32',this,false,'A·0 = 0, not Ā.')"><span class="ol">D</span>Ā</li></ul>
+<div class="me" id="q32-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">33</span><span>Simplify: A + 1 = ?</span></div>
+<ul class="mo" id="q33"><li onclick="a('q33',this,false,'A+1 = 1, not A.')"><span class="ol">A</span>A</li><li onclick="a('q33',this,true,'Correct! Null Law for OR: A+1 = 1. ORing anything with 1 always gives 1, regardless of A.')"><span class="ol">B</span>1</li><li onclick="a('q33',this,false,'A+1 = 1, not 0.')"><span class="ol">C</span>0</li><li onclick="a('q33',this,false,'A+1 = 1, not A+1 (cannot simplify further is wrong — it simplifies to 1).')"><span class="ol">D</span>Cannot simplify</li></ul>
+<div class="me" id="q33-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">34</span><span>Which is the correct Absorption Law?</span></div>
+<ul class="mo" id="q34"><li onclick="a('q34',this,true,'Correct! A(A+B) = A is the AND form of Absorption. Expanding: A·A + A·B = A + AB = A by the OR Absorption law.')"><span class="ol">A</span>A·(A+B) = A</li><li onclick="a('q34',this,false,'A·B + A = A is correct (OR absorption) but the option says A+AB=AB which is wrong.')"><span class="ol">B</span>A + AB = AB</li><li onclick="a('q34',this,false,'A·(A+B) = A+B is wrong — it should simplify to A.')"><span class="ol">C</span>A·(A+B) = A+B</li><li onclick="a('q34',this,false,'A+AB = A is the correct law, not A+AB = 1.')"><span class="ol">D</span>A + AB = 1</li></ul>
+<div class="me" id="q34-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">35</span><span>What does A · A equal?</span></div>
+<ul class="mo" id="q35"><li onclick="a('q35',this,false,'A·A = A by Idempotent, not A². Boolean algebra has no A².')"><span class="ol">A</span>A²</li><li onclick="a('q35',this,true,'Correct! Idempotent Law: A·A = A. (0·0=0, 1·1=1). A variable ANDed with itself just gives itself.')"><span class="ol">B</span>A</li><li onclick="a('q35',this,false,'A·A = A, not 0. A·Ā = 0 — different thing.')"><span class="ol">C</span>0</li><li onclick="a('q35',this,false,'A·A = A, not 1.')"><span class="ol">D</span>1</li></ul>
+<div class="me" id="q35-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">36</span><span>Which law allows A+B = B+A?</span></div>
+<ul class="mo" id="q36"><li onclick="a('q36',this,false,'Distributive is A(B+C)=AB+AC.')"><span class="ol">A</span>Distributive Law</li><li onclick="a('q36',this,true,'Correct! Commutative Law: A+B = B+A and A·B = B·A. The order of operands does not matter in Boolean OR and AND.')"><span class="ol">B</span>Commutative Law</li><li onclick="a('q36',this,false,'Associative is about grouping, not order.')"><span class="ol">C</span>Associative Law</li><li onclick="a('q36',this,false,'Identity Law is A+0=A or A·1=A.')"><span class="ol">D</span>Identity Law</li></ul>
+<div class="me" id="q36-e"></div></div>
+
+<!-- K-MAP -->
+<div class="mth"><h3>🗺️ Topic 4: Karnaugh Maps (K-Map)</h3><span class="mc">10 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">37</span><span>What is the correct column order in a K-Map?</span></div>
+<ul class="mo" id="q37"><li onclick="a('q37',this,false,'00,01,10,11 is normal binary order — WRONG for K-Map. Adjacent cells would differ by 2 bits.')"><span class="ol">A</span>00, 01, 10, 11</li><li onclick="a('q37',this,true,'Correct! Gray Code order: 00, 01, 11, 10. Adjacent cells differ by exactly 1 bit. This property allows valid grouping.')"><span class="ol">B</span>00, 01, 11, 10</li><li onclick="a('q37',this,false,'11,10,00,01 is not the correct Gray Code sequence.')"><span class="ol">C</span>11, 10, 00, 01</li><li onclick="a('q37',this,false,'01,11,10,00 is not correct.')"><span class="ol">D</span>01, 11, 10, 00</li></ul>
+<div class="me" id="q37-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">38</span><span>A group of 4 in a K-Map eliminates how many variables?</span></div>
+<ul class="mo" id="q38"><li onclick="a('q38',this,false,'Group of 2 eliminates 1 variable. Group of 4 eliminates 2.')"><span class="ol">A</span>1 variable</li><li onclick="a('q38',this,true,'Correct! Group of 2 = 1 eliminated. Group of 4 = 2 eliminated. Group of 8 = 3 eliminated. Formula: log₂(group size) variables are eliminated.')"><span class="ol">B</span>2 variables</li><li onclick="a('q38',this,false,'Group of 4 eliminates 2, not 3.')"><span class="ol">C</span>3 variables</li><li onclick="a('q38',this,false,'Group of 4 eliminates 2, not 4.')"><span class="ol">D</span>4 variables</li></ul>
+<div class="me" id="q38-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">39</span><span>Don't-Care conditions (X) in K-Map are:</span></div>
+<ul class="mo" id="q39"><li onclick="a('q39',this,false,'Don\'t Cares can be 0 or 1 — you choose. Not forced to 0.')"><span class="ol">A</span>Always treated as 0</li><li onclick="a('q39',this,false,'Not always 1 either — only use as 1 when it helps form a bigger group.')"><span class="ol">B</span>Always treated as 1</li><li onclick="a('q39',this,true,'Correct! Don\'t Cares can be treated as either 0 or 1 — whichever allows you to form larger groups and get a simpler expression.')"><span class="ol">C</span>Can be used as 0 or 1 to form larger groups</li><li onclick="a('q39',this,false,'Ignoring Don\'t Cares wastes an opportunity to simplify further.')"><span class="ol">D</span>Ignored completely</li></ul>
+<div class="me" id="q39-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">40</span><span>Which is NOT a valid K-Map group size?</span></div>
+<ul class="mo" id="q40"><li onclick="a('q40',this,false,'2 is valid (2¹).')"><span class="ol">A</span>2</li><li onclick="a('q40',this,false,'4 is valid (2²).')"><span class="ol">B</span>4</li><li onclick="a('q40',this,true,'Correct! 6 is NOT valid. K-Map group sizes must be powers of 2: 1, 2, 4, 8, 16. 6 is not a power of 2.')"><span class="ol">C</span>6</li><li onclick="a('q40',this,false,'8 is valid (2³).')"><span class="ol">D</span>8</li></ul>
+<div class="me" id="q40-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">41</span><span>Wrap-around in K-Map means:</span></div>
+<ul class="mo" id="q41"><li onclick="a('q41',this,false,'Diagonal cells cannot be grouped — only rectangular groups.')"><span class="ol">A</span>Diagonal cells can be grouped</li><li onclick="a('q41',this,true,'Correct! Wrap-around means the left edge connects to the right edge, and the top connects to the bottom. So cells on opposite sides can form a valid group.')"><span class="ol">B</span>Cells on opposite edges form valid groups</li><li onclick="a('q41',this,false,'Single cells are groups of size 1 — not wrap-around.')"><span class="ol">C</span>Each single cell can be its own group</li><li onclick="a('q41',this,false,'Groups of 3 are never valid in K-Map.')"><span class="ol">D</span>Groups of 3 are allowed at edges</li></ul>
+<div class="me" id="q41-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">42</span><span>In K-Map, a group of 8 in a 4-variable K-Map gives a term with how many variables?</span></div>
+<ul class="mo" id="q42"><li onclick="a('q42',this,false,'Group of 8 eliminates 3 variables. 4-3=1 variable remains.')"><span class="ol">A</span>0 variables (constant)</li><li onclick="a('q42',this,true,'Correct! 4-variable K-Map. Group of 8 = log₂(8) = 3 variables eliminated. 4−3 = 1 variable remains in the term (e.g., just "A" or "B̄").')"><span class="ol">B</span>1 variable</li><li onclick="a('q42',this,false,'Group of 4 gives 2 variables. Group of 8 gives 1.')"><span class="ol">C</span>2 variables</li><li onclick="a('q42',this,false,'Group of 8 eliminates 3, leaving 1, not 3.')"><span class="ol">D</span>3 variables</li></ul>
+<div class="me" id="q42-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">43</span><span>What is the purpose of K-Map minimization?</span></div>
+<ul class="mo" id="q43"><li onclick="a('q43',this,false,'K-Map may actually reduce the number of gates.')"><span class="ol">A</span>To increase the number of gates</li><li onclick="a('q43',this,true,'Correct! K-Map minimization reduces a Boolean expression to its simplest form, which means fewer logic gates needed, lower cost, and lower power consumption.')"><span class="ol">B</span>To simplify Boolean expressions and reduce gate count</li><li onclick="a('q43',this,false,'K-Map works for both 3 and 4 variable expressions.')"><span class="ol">C</span>To convert 3-variable to 4-variable expressions</li><li onclick="a('q43',this,false,'K-Map is not for converting SOP to POS directly.')"><span class="ol">D</span>To convert SOP to POS directly</li></ul>
+<div class="me" id="q43-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">44</span><span>In a 3-variable K-Map, the maximum group size is:</span></div>
+<ul class="mo" id="q44"><li onclick="a('q44',this,false,'Maximum group in 3-variable K-Map is 8 (all cells), not 4.')"><span class="ol">A</span>4</li><li onclick="a('q44',this,true,'Correct! A 3-variable K-Map has 2³=8 cells total. The maximum group size is 8 (all cells = 1 or all cells grouped). A group of 8 gives F=1 (constant 1).')"><span class="ol">B</span>8</li><li onclick="a('q44',this,false,'16 would be for a 4-variable K-Map.')"><span class="ol">C</span>16</li><li onclick="a('q44',this,false,'Maximum is 8 for 3-variable K-Map.')"><span class="ol">D</span>6</li></ul>
+<div class="me" id="q44-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">45</span><span>How do you determine which variables appear in a K-Map group's term?</span></div>
+<ul class="mo" id="q45"><li onclick="a('q45',this,false,'You do not add all variables — only those that stay constant.')"><span class="ol">A</span>Include all variables in the term</li><li onclick="a('q45',this,true,'Correct! Variables that stay SAME across all cells in the group are included. Variables that CHANGE (have both 0 and 1 across cells) are eliminated. Changed variables = simplified away.')"><span class="ol">B</span>Include variables that stay constant (same in all cells); eliminate variables that change</li><li onclick="a('q45',this,false,'You keep constant variables, eliminate changing ones — not the opposite.')"><span class="ol">C</span>Eliminate constant variables; keep changing ones</li><li onclick="a('q45',this,false,'You include the constants, not include both.')"><span class="ol">D</span>Include all variables that appear in any cell</li></ul>
+<div class="me" id="q45-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">46</span><span>Which notation is used for K-Map minimization of a function with minterms 0, 3, and 5?</span></div>
+<ul class="mo" id="q46"><li onclick="a('q46',this,false,'ΠM is for POS (maxterms), not SOP minterms.')"><span class="ol">A</span>ΠM(0, 3, 5)</li><li onclick="a('q46',this,true,'Correct! Σm notation is for SOP (minterms where F=1). ΠM is for POS (maxterms where F=0).')"><span class="ol">B</span>Σm(0, 3, 5)</li><li onclick="a('q46',this,false,'SOP(0,3,5) is not standard notation.')"><span class="ol">C</span>SOP(0, 3, 5)</li><li onclick="a('q46',this,false,'POS(0,3,5) is not the standard notation format.')"><span class="ol">D</span>POS(0, 3, 5)</li></ul>
+<div class="me" id="q46-e"></div></div>
+
+<!-- COMBINATIONAL CIRCUITS -->
+<div class="mth"><h3>⚙️ Topic 5: Combinational Circuits</h3><span class="mc">13 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">47</span><span>Why is a Half Adder called "half"?</span></div>
+<ul class="mo" id="q47"><li onclick="a('q47',this,false,'It adds two 1-bit numbers, not just one.')"><span class="ol">A</span>It only adds one bit</li><li onclick="a('q47',this,true,'Correct! It is called "half" because it cannot handle a carry input from a previous stage. It only adds A and B. A Full Adder handles the carry-in too.')"><span class="ol">B</span>It cannot handle a carry input from a previous stage</li><li onclick="a('q47',this,false,'It produces both Sum and Carry — two outputs.')"><span class="ol">C</span>It only produces one output</li><li onclick="a('q47',this,false,'Half Adder works at the same speed as other combinational circuits.')"><span class="ol">D</span>It is twice as slow as a Full Adder</li></ul>
+<div class="me" id="q47-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">48</span><span>How many gates does a Half Adder need?</span></div>
+<ul class="mo" id="q48"><li onclick="a('q48',this,false,'Half Adder needs 2 gates: 1 XOR + 1 AND.')"><span class="ol">A</span>1 gate</li><li onclick="a('q48',this,true,'Correct! Half Adder = 1 XOR gate (for Sum) + 1 AND gate (for Carry) = 2 gates total.')"><span class="ol">B</span>2 gates</li><li onclick="a('q48',this,false,'3 gates would be for Full Adder (or partial NAND implementation).')"><span class="ol">C</span>3 gates</li><li onclick="a('q48',this,false,'4 is too many for a Half Adder.')"><span class="ol">D</span>4 gates</li></ul>
+<div class="me" id="q48-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">49</span><span>A Full Adder is built using:</span></div>
+<ul class="mo" id="q49"><li onclick="a('q49',this,false,'One Half Adder alone cannot handle the carry-in.')"><span class="ol">A</span>1 Half Adder + 1 AND gate</li><li onclick="a('q49',this,true,'Correct! Full Adder = 2 Half Adders + 1 OR gate. HA1 adds A and B. HA2 adds Sum1 and Cin. OR combines the two carries.')"><span class="ol">B</span>2 Half Adders + 1 OR gate</li><li onclick="a('q49',this,false,'3 Half Adders would be too many.')"><span class="ol">C</span>3 Half Adders</li><li onclick="a('q49',this,false,'2 Half Adders with XOR only is not complete — OR gate needed for Carry.')"><span class="ol">D</span>2 Half Adders only</li></ul>
+<div class="me" id="q49-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">50</span><span>In a Half Subtractor, the Borrow output is given by:</span></div>
+<ul class="mo" id="q50"><li onclick="a('q50',this,false,'A·B gives Carry (in adder), not Borrow.')"><span class="ol">A</span>A · B</li><li onclick="a('q50',this,true,'Correct! Borrow = Ā·B. Borrow occurs only when A=0 and B=1 (0−1 requires a borrow). This is: NOT A, then AND with B.')"><span class="ol">B</span>Ā · B</li><li onclick="a('q50',this,false,'A⊕B is the Difference output, not Borrow.')"><span class="ol">C</span>A ⊕ B</li><li onclick="a('q50',this,false,'A·B̄ = 1 when A=1,B=0, but borrow happens when A=0,B=1 — opposite.')"><span class="ol">D</span>A · B̄</li></ul>
+<div class="me" id="q50-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">51</span><span>A 4:1 Multiplexer has how many select lines?</span></div>
+<ul class="mo" id="q51"><li onclick="a('q51',this,false,'1 select line gives only 2:1 MUX (2¹=2).')"><span class="ol">A</span>1</li><li onclick="a('q51',this,true,'Correct! 4:1 MUX needs 2 select lines because 2²=4 (4 possible combinations to select from 4 inputs).')"><span class="ol">B</span>2</li><li onclick="a('q51',this,false,'3 select lines give 8:1 MUX (2³=8).')"><span class="ol">C</span>3</li><li onclick="a('q51',this,false,'4 select lines give 16:1 MUX.')"><span class="ol">D</span>4</li></ul>
+<div class="me" id="q51-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">52</span><span>Which segments of a 7-segment display are ON for digit "1"?</span></div>
+<ul class="mo" id="q52"><li onclick="a('q52',this,false,'Segments a,d are horizontal top and bottom — digit 1 is two vertical segments on the right.')"><span class="ol">A</span>a, d</li><li onclick="a('q52',this,true,'Correct! Digit 1 lights only b (top-right) and c (bottom-right) — the two right-side vertical segments.')"><span class="ol">B</span>b, c</li><li onclick="a('q52',this,false,'f,e are the two left-side segments. Digit 1 is on the right side.')"><span class="ol">C</span>f, e</li><li onclick="a('q52',this,false,'All 7 segments = digit 8.')"><span class="ol">D</span>All 7 segments</li></ul>
+<div class="me" id="q52-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">53</span><span>Which segment is OFF in digit "0" of a 7-segment display?</span></div>
+<ul class="mo" id="q53"><li onclick="a('q53',this,false,'Segment a (top horizontal) is ON for digit 0.')"><span class="ol">A</span>a</li><li onclick="a('q53',this,false,'Segment b (top-right) is ON for digit 0.')"><span class="ol">B</span>b</li><li onclick="a('q53',this,true,'Correct! Digit 0 has all segments ON except g (the middle horizontal). g=0 for digit 0.')"><span class="ol">C</span>g</li><li onclick="a('q53',this,false,'Segment f (top-left) is ON for digit 0.')"><span class="ol">D</span>f</li></ul>
+<div class="me" id="q53-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">54</span><span>What is the SUM output equation for Full Adder?</span></div>
+<ul class="mo" id="q54"><li onclick="a('q54',this,false,'A·B·Cin gives Carry, not Sum.')"><span class="ol">A</span>A · B · Cin</li><li onclick="a('q54',this,true,'Correct! S = A⊕B⊕Cin. Sum in Full Adder is triple XOR of all three inputs.')"><span class="ol">B</span>A ⊕ B ⊕ Cin</li><li onclick="a('q54',this,false,'A+B+Cin is triple OR — not the correct Sum equation.')"><span class="ol">C</span>A + B + Cin</li><li onclick="a('q54',this,false,'A⊕B is only Half Adder Sum — Full Adder also XORs Cin.')"><span class="ol">D</span>A ⊕ B only</li></ul>
+<div class="me" id="q54-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">55</span><span>Combinational circuits differ from sequential circuits because:</span></div>
+<ul class="mo" id="q55"><li onclick="a('q55',this,false,'Combinational circuits have no clock requirement.')"><span class="ol">A</span>Combinational circuits always need a clock</li><li onclick="a('q55',this,true,'Correct! Combinational circuits have no memory — output depends ONLY on current inputs. Sequential circuits have memory (flip-flops) and output depends on current inputs AND previous stored state.')"><span class="ol">B</span>Combinational circuits have no memory; output depends only on current inputs</li><li onclick="a('q55',this,false,'Combinational circuits can be used in CPUs too.')"><span class="ol">C</span>Combinational circuits cannot be used in computers</li><li onclick="a('q55',this,false,'Combinational circuits do not have feedback.')"><span class="ol">D</span>Combinational circuits always have feedback</li></ul>
+<div class="me" id="q55-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">56</span><span>A MUX with 8 data inputs needs how many select lines?</span></div>
+<ul class="mo" id="q56"><li onclick="a('q56',this,false,'2 select lines give only 4 inputs.')"><span class="ol">A</span>2</li><li onclick="a('q56',this,true,'Correct! 8:1 MUX needs 3 select lines because 2³=8. Rule: n select lines → 2ⁿ inputs.')"><span class="ol">B</span>3</li><li onclick="a('q56',this,false,'4 select lines give 16:1 MUX.')"><span class="ol">C</span>4</li><li onclick="a('q56',this,false,'8 select lines is way too many.')"><span class="ol">D</span>8</li></ul>
+<div class="me" id="q56-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">57</span><span>The Carry output of a Half Adder is produced by:</span></div>
+<ul class="mo" id="q57"><li onclick="a('q57',this,false,'XOR gives Sum, not Carry.')"><span class="ol">A</span>XOR gate</li><li onclick="a('q57',this,true,'Correct! Carry = A·B (AND gate). Carry is 1 only when both A and B are 1 — binary 1+1=10, the 1 in tens position is the Carry.')"><span class="ol">B</span>AND gate</li><li onclick="a('q57',this,false,'OR gate gives Sum+Carry mixed, not just Carry.')"><span class="ol">C</span>OR gate</li><li onclick="a('q57',this,false,'NOR gate gives (A+B)̄, not Carry.')"><span class="ol">D</span>NOR gate</li></ul>
+<div class="me" id="q57-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">58</span><span>Which digit on a 7-segment display lights ALL 7 segments?</span></div>
+<ul class="mo" id="q58"><li onclick="a('q58',this,false,'Digit 0 has all segments except g.')"><span class="ol">A</span>0</li><li onclick="a('q58',this,false,'Digit 9 has all except e.')"><span class="ol">B</span>9</li><li onclick="a('q58',this,true,'Correct! Digit 8 lights all 7 segments: a,b,c,d,e,f,g are all 1. This makes sense — 8 uses every part of the display.')"><span class="ol">C</span>8</li><li onclick="a('q58',this,false,'Digit 6 has all except b.')"><span class="ol">D</span>6</li></ul>
+<div class="me" id="q58-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">59</span><span>In a Full Subtractor, the Difference (D) output is:</span></div>
+<ul class="mo" id="q59"><li onclick="a('q59',this,false,'A⊕B is Half Subtractor Difference — Full Subtractor also XORs Bin.')"><span class="ol">A</span>A ⊕ B</li><li onclick="a('q59',this,true,'Correct! Full Subtractor: D = A⊕B⊕Bin. Same structure as Full Adder Sum but for subtraction.')"><span class="ol">B</span>A ⊕ B ⊕ Bin</li><li onclick="a('q59',this,false,'A·B·Bin gives Borrow-related expression, not Difference.')"><span class="ol">C</span>A · B · Bin</li><li onclick="a('q59',this,false,'A−B is not a valid Boolean expression.')"><span class="ol">D</span>A − B</li></ul>
+<div class="me" id="q59-e"></div></div>
+
+<!-- FLIP-FLOPS -->
+<div class="mth"><h3>🔁 Topic 6: Flip-Flops &amp; Sequential</h3><span class="mc">15 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">60</span><span>The forbidden state of SR Flip-Flop occurs when:</span></div>
+<ul class="mo" id="q60"><li onclick="a('q60',this,false,'S=R=0 is the Hold state — perfectly valid.')"><span class="ol">A</span>S=0, R=0</li><li onclick="a('q60',this,false,'S=1,R=0 is the Set state — valid.')"><span class="ol">B</span>S=1, R=0</li><li onclick="a('q60',this,false,'S=0,R=1 is the Reset state — valid.')"><span class="ol">C</span>S=0, R=1</li><li onclick="a('q60',this,true,'Correct! S=R=1 is FORBIDDEN. Both Set and Reset active together force both Q and Q̄ to 0, violating the rule Q ≠ Q̄. Output becomes unpredictable.')"><span class="ol">D</span>S=1, R=1</li></ul>
+<div class="me" id="q60-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">61</span><span>What happens when J=K=1 in a JK Flip-Flop?</span></div>
+<ul class="mo" id="q61"><li onclick="a('q61',this,false,'J=K=1 does not reset — that needs J=0, K=1.')"><span class="ol">A</span>Output resets to 0</li><li onclick="a('q61',this,false,'J=K=1 does not set — that needs J=1, K=0.')"><span class="ol">B</span>Output sets to 1</li><li onclick="a('q61',this,true,'Correct! J=K=1 causes TOGGLE — output flips to its complement. If Q=0→1, if Q=1→0. This is the unique behavior that makes JK better than SR.')"><span class="ol">C</span>Output toggles (flips to opposite)</li><li onclick="a('q61',this,false,'J=K=1 in JK FF is NOT invalid — it is defined as toggle. Only SR has invalid state.')"><span class="ol">D</span>Invalid state</li></ul>
+<div class="me" id="q61-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">62</span><span>Characteristic equation of D Flip-Flop:</span></div>
+<ul class="mo" id="q62"><li onclick="a('q62',this,false,'T⊕Q is the T flip-flop equation.')"><span class="ol">A</span>Q(next) = T ⊕ Q</li><li onclick="a('q62',this,false,'JQ̄+K̄Q is the JK flip-flop equation.')"><span class="ol">B</span>Q(next) = J·Q̄ + K̄·Q</li><li onclick="a('q62',this,true,'Correct! D FF: Q(next) = D. Output simply follows input D. It captures D at the clock edge and stores it.')"><span class="ol">C</span>Q(next) = D</li><li onclick="a('q62',this,false,'S+R̄Q is the SR flip-flop equation.')"><span class="ol">D</span>Q(next) = S + R̄·Q</li></ul>
+<div class="me" id="q62-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">63</span><span>Which flip-flop is best for binary counters?</span></div>
+<ul class="mo" id="q63"><li onclick="a('q63',this,false,'D FF stores data but does not naturally toggle.')"><span class="ol">A</span>D Flip-Flop</li><li onclick="a('q63',this,true,'Correct! T Flip-Flop with T=1 always toggles on every clock edge — naturally counting. Each T FF divides the clock frequency by 2.')"><span class="ol">B</span>T Flip-Flop</li><li onclick="a('q63',this,false,'SR has an invalid state.')"><span class="ol">C</span>SR Flip-Flop</li><li onclick="a('q63',this,false,'While JK can be used, T is specifically designed for toggling/counting.')"><span class="ol">D</span>None of them</li></ul>
+<div class="me" id="q63-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">64</span><span>Which flip-flop is most commonly used in shift registers?</span></div>
+<ul class="mo" id="q64"><li onclick="a('q64',this,false,'SR has an invalid state and is not suitable for systematic data shifting.')"><span class="ol">A</span>SR Flip-Flop</li><li onclick="a('q64',this,false,'T flip-flop toggles — not ideal for data storage and shifting.')"><span class="ol">B</span>T Flip-Flop</li><li onclick="a('q64',this,true,'Correct! D Flip-Flop is ideal for shift registers. Q(next)=D means data simply passes from one FF to the next on each clock edge. Clean data flow.')"><span class="ol">C</span>D Flip-Flop</li><li onclick="a('q64',this,false,'JK works but is unnecessarily complex for simple shifting.')"><span class="ol">D</span>JK Flip-Flop</li></ul>
+<div class="me" id="q64-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">65</span><span>Characteristic equation of JK Flip-Flop:</span></div>
+<ul class="mo" id="q65"><li onclick="a('q65',this,false,'Q(next)=D is D flip-flop.')"><span class="ol">A</span>Q(next) = D</li><li onclick="a('q65',this,false,'T⊕Q is T flip-flop.')"><span class="ol">B</span>Q(next) = T ⊕ Q</li><li onclick="a('q65',this,true,'Correct! JK: Q(next) = J·Q̄ + K̄·Q. When J=1,K=0 → Q=1 (set). When J=0,K=1 → Q=0 (reset). When J=K=1 → Q=Q̄ (toggle). When J=K=0 → Q=Q (hold).')"><span class="ol">C</span>Q(next) = J·Q̄ + K̄·Q</li><li onclick="a('q65',this,false,'S+R̄Q is SR flip-flop.')"><span class="ol">D</span>Q(next) = S + R̄·Q</li></ul>
+<div class="me" id="q65-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">66</span><span>A latch is different from a flip-flop because:</span></div>
+<ul class="mo" id="q66"><li onclick="a('q66',this,false,'A latch is actually simpler and uses fewer gates.')"><span class="ol">A</span>A latch uses more gates</li><li onclick="a('q66',this,true,'Correct! A latch is level-triggered — it is active and transparent continuously while the enable signal is at the active level. A flip-flop is edge-triggered — it only changes at the clock transition moment.')"><span class="ol">B</span>A latch is level-triggered (transparent), while a flip-flop is edge-triggered</li><li onclick="a('q66',this,false,'A latch stores data too — that is its purpose.')"><span class="ol">C</span>A latch cannot store data</li><li onclick="a('q66',this,false,'Latches do not require a clock at all.')"><span class="ol">D</span>A latch requires a clock</li></ul>
+<div class="me" id="q66-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">67</span><span>The T flip-flop characteristic equation is:</span></div>
+<ul class="mo" id="q67"><li onclick="a('q67',this,false,'Q(next)=D is D FF.')"><span class="ol">A</span>Q(next) = D</li><li onclick="a('q67',this,true,'Correct! T FF: Q(next) = T⊕Q. When T=0: Q⊕0=Q (hold). When T=1: Q⊕1=Q̄ (toggle).')"><span class="ol">B</span>Q(next) = T ⊕ Q</li><li onclick="a('q67',this,false,'JQ̄+K̄Q is JK FF.')"><span class="ol">C</span>Q(next) = J·Q̄ + K̄·Q</li><li onclick="a('q67',this,false,'S+R̄Q is SR FF.')"><span class="ol">D</span>Q(next) = S + R̄·Q</li></ul>
+<div class="me" id="q67-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">68</span><span>In a synchronous counter, all flip-flops are:</span></div>
+<ul class="mo" id="q68"><li onclick="a('q68',this,false,'That describes an asynchronous (ripple) counter.')"><span class="ol">A</span>Triggered by output of previous flip-flop</li><li onclick="a('q68',this,true,'Correct! In a synchronous counter, ALL flip-flops are triggered by the SAME clock simultaneously. This eliminates ripple delay and makes the counter faster and more reliable.')"><span class="ol">B</span>Triggered by the same clock simultaneously</li><li onclick="a('q68',this,false,'They all use the same clock in synchronous design.')"><span class="ol">C</span>Each triggered by different clocks</li><li onclick="a('q68',this,false,'The flip-flops are not connected in a ring topology here.')"><span class="ol">D</span>Connected in a ring topology</li></ul>
+<div class="me" id="q68-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">69</span><span>A 3-bit binary counter counts through how many states?</span></div>
+<ul class="mo" id="q69"><li onclick="a('q69',this,false,'3-bit counter has 2³=8 states, not 3.')"><span class="ol">A</span>3 states</li><li onclick="a('q69',this,false,'2³=8, not 6.')"><span class="ol">B</span>6 states</li><li onclick="a('q69',this,true,'Correct! n-bit counter has 2ⁿ states. 3-bit: 2³=8 states (0 through 7).')"><span class="ol">C</span>8 states</li><li onclick="a('q69',this,false,'16 states = 4-bit counter.')"><span class="ol">D</span>16 states</li></ul>
+<div class="me" id="q69-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">70</span><span>SIPO register stands for:</span></div>
+<ul class="mo" id="q70"><li onclick="a('q70',this,false,'Serial In Serial Out is SISO.')"><span class="ol">A</span>Serial In, Serial Out</li><li onclick="a('q70',this,true,'Correct! SIPO = Serial In, Parallel Out. Data enters one bit per clock, but all bits are available at output simultaneously. Used for serial-to-parallel conversion.')"><span class="ol">B</span>Serial In, Parallel Out</li><li onclick="a('q70',this,false,'Parallel In, Serial Out is PISO.')"><span class="ol">C</span>Parallel In, Serial Out</li><li onclick="a('q70',this,false,'Parallel In, Parallel Out is PIPO.')"><span class="ol">D</span>Parallel In, Parallel Out</li></ul>
+<div class="me" id="q70-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">71</span><span>Which register type is the FASTEST?</span></div>
+<ul class="mo" id="q71"><li onclick="a('q71',this,false,'SISO is the slowest — both in and out are serial.')"><span class="ol">A</span>SISO</li><li onclick="a('q71',this,false,'SIPO is faster than SISO but slower than PIPO.')"><span class="ol">B</span>SIPO</li><li onclick="a('q71',this,true,'Correct! PIPO (Parallel In, Parallel Out) is fastest because all bits enter and exit simultaneously. No waiting for serial shifting.')"><span class="ol">C</span>PIPO</li><li onclick="a('q71',this,false,'PISO enters fast but exits slow (serial output).')"><span class="ol">D</span>PISO</li></ul>
+<div class="me" id="q71-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">72</span><span>The SR Latch forbidden state is problematic because:</span></div>
+<ul class="mo" id="q72"><li onclick="a('q72',this,false,'The issue is Q=Q̄=0, not Q=Q̄=1.')"><span class="ol">A</span>Both outputs become 1 simultaneously</li><li onclick="a('q72',this,true,'Correct! When S=R=1, both Q and Q̄ are forced to 0. This violates the fundamental property that Q and Q̄ must always be complementary. The circuit cannot settle in a valid state.')"><span class="ol">B</span>Both Q and Q̄ become 0, violating Q ≠ Q̄</li><li onclick="a('q72',this,false,'The issue is about logic state, not damage to the circuit.')"><span class="ol">C</span>The circuit is physically damaged</li><li onclick="a('q72',this,false,'The clock is not involved in a basic SR latch.')"><span class="ol">D</span>The clock stops working</li></ul>
+<div class="me" id="q72-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">73</span><span>Edge-triggered flip-flops are preferred over level-triggered latches because:</span></div>
+<ul class="mo" id="q73"><li onclick="a('q73',this,false,'Edge-triggered FFs are not inherently faster in operation speed.')"><span class="ol">A</span>They are always faster</li><li onclick="a('q73',this,true,'Correct! Edge-triggered FFs change state only at the precise clock edge — output changes exactly once per clock cycle. Level-triggered latches pass input changes continuously while clock is active, causing potential glitches.')"><span class="ol">B</span>Output changes only at clock edge, making timing predictable and eliminating glitches</li><li onclick="a('q73',this,false,'Edge-triggered FFs do not necessarily use fewer gates.')"><span class="ol">C</span>They use fewer gates</li><li onclick="a('q73',this,false,'Both types can be reset.')"><span class="ol">D</span>They cannot be accidentally reset</li></ul>
+<div class="me" id="q73-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">74</span><span>A Mod-6 counter counts through:</span></div>
+<ul class="mo" id="q74"><li onclick="a('q74',this,false,'0,1,2,3,4,5,0... — it does NOT include 6 itself before resetting.')"><span class="ol">A</span>0, 1, 2, 3, 4, 5, 6 then reset</li><li onclick="a('q74',this,true,'Correct! Mod-6 counter counts from 0 to N-1 = 0 to 5, then resets. Sequence: 0,1,2,3,4,5,0,1,2,3,4,5...')"><span class="ol">B</span>0, 1, 2, 3, 4, 5 then reset (6 states total)</li><li onclick="a('q74',this,false,'Mod-6 counts 6 states (0–5), not just 0–3.')"><span class="ol">C</span>0, 1, 2, 3 then reset</li><li onclick="a('q74',this,false,'Mod-6 counts 6 states, not 8.')"><span class="ol">D</span>0 to 7 then reset</li></ul>
+<div class="me" id="q74-e"></div></div>
+
+<!-- MEMORY -->
+<div class="mth"><h3>💾 Topic 7: Memory (RAM, ROM Types)</h3><span class="mc">12 MCQs</span></div>
+
+<div class="ms"><div class="mq"><span class="mqn">75</span><span>RAM is volatile means:</span></div>
+<ul class="mo" id="q75"><li onclick="a('q75',this,false,'RAM is fast — volatility has nothing to do with speed.')"><span class="ol">A</span>RAM is very fast</li><li onclick="a('q75',this,true,'Correct! Volatile means RAM loses all stored data when power is turned off. This is why you must save your work before shutting down — it is in volatile RAM otherwise.')"><span class="ol">B</span>RAM loses all data when power is switched off</li><li onclick="a('q75',this,false,'RAM can be rewritten many times — not once.')"><span class="ol">C</span>RAM can only be written once</li><li onclick="a('q75',this,false,'RAM can be both read and written.')"><span class="ol">D</span>RAM cannot be read</li></ul>
+<div class="me" id="q75-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">76</span><span>EPROM is erased using:</span></div>
+<ul class="mo" id="q76"><li onclick="a('q76',this,false,'Electrical signals are used for EEPROM, not EPROM.')"><span class="ol">A</span>Electrical signal</li><li onclick="a('q76',this,true,'Correct! EPROM = Erasable PROM. The E stands for Erasable using UV (ultraviolet) light shone through a small quartz window on the chip for about 15–20 minutes.')"><span class="ol">B</span>Ultraviolet (UV) light</li><li onclick="a('q76',this,false,'Heat is not used to erase EPROM.')"><span class="ol">C</span>Heat</li><li onclick="a('q76',this,false,'Magnetic fields are not used to erase EPROM.')"><span class="ol">D</span>Magnetic field</li></ul>
+<div class="me" id="q76-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">77</span><span>Which type of ROM can be programmed ONLY ONCE by the user?</span></div>
+<ul class="mo" id="q77"><li onclick="a('q77',this,false,'ROM is programmed only by the manufacturer, not the user.')"><span class="ol">A</span>ROM</li><li onclick="a('q77',this,true,'Correct! PROM (Programmable ROM) can be programmed once by the user using a PROM programmer that "burns" the fuse links. After programming, it cannot be changed.')"><span class="ol">B</span>PROM</li><li onclick="a('q77',this,false,'EPROM can be erased with UV and reprogrammed multiple times.')"><span class="ol">C</span>EPROM</li><li onclick="a('q77',this,false,'EEPROM can be erased and reprogrammed electrically multiple times.')"><span class="ol">D</span>EEPROM</li></ul>
+<div class="me" id="q77-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">78</span><span>EEPROM differs from EPROM because EEPROM:</span></div>
+<ul class="mo" id="q78"><li onclick="a('q78',this,false,'Both can be reprogrammed — that is not the key difference.')"><span class="ol">A</span>Cannot be reprogrammed</li><li onclick="a('q78',this,true,'Correct! EEPROM can be erased electrically (byte by byte) without removing the chip from the circuit. EPROM requires UV light and must be removed from the circuit.')"><span class="ol">B</span>Is erased electrically (no need for UV light or chip removal)</li><li onclick="a('q78',this,false,'EEPROM is slower than EPROM in some operations.')"><span class="ol">C</span>Is faster than EPROM</li><li onclick="a('q78',this,false,'EPROM uses UV light, not electrical erase.')"><span class="ol">D</span>Uses UV light just like EPROM</li></ul>
+<div class="me" id="q78-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">79</span><span>Which memory type is NON-VOLATILE?</span></div>
+<ul class="mo" id="q79"><li onclick="a('q79',this,false,'SRAM is volatile — it loses data without power.')"><span class="ol">A</span>SRAM</li><li onclick="a('q79',this,false,'DRAM is volatile — it needs constant refresh and loses data without power.')"><span class="ol">B</span>DRAM</li><li onclick="a('q79',this,true,'Correct! ROM (and all its types — PROM, EPROM, EEPROM, Flash) is non-volatile. Data is retained even when power is off. This is why BIOS and firmware are stored in ROM.')"><span class="ol">C</span>ROM</li><li onclick="a('q79',this,false,'Cache RAM is volatile.')"><span class="ol">D</span>Cache RAM</li></ul>
+<div class="me" id="q79-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">80</span><span>Flash memory is an improvement over EEPROM because:</span></div>
+<ul class="mo" id="q80"><li onclick="a('q80',this,false,'Flash does not use UV light — that is EPROM.')"><span class="ol">A</span>It uses UV light for faster erasure</li><li onclick="a('q80',this,true,'Correct! Flash memory erases in large blocks instead of byte by byte (like EEPROM). This makes it much faster. Flash is used in USB drives, SSDs, and phone storage.')"><span class="ol">B</span>It erases in blocks instead of byte by byte — much faster</li><li onclick="a('q80',this,false,'Flash can be reprogrammed multiple times.')"><span class="ol">C</span>It can only be programmed once</li><li onclick="a('q80',this,false,'Flash retains data without power — it is non-volatile.')"><span class="ol">D</span>It is volatile (loses data without power)</li></ul>
+<div class="me" id="q80-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">81</span><span>RAM stands for:</span></div>
+<ul class="mo" id="q81"><li onclick="a('q81',this,false,'Not "Read And Modify".')"><span class="ol">A</span>Read And Modify Memory</li><li onclick="a('q81',this,true,'Correct! RAM = Random Access Memory. "Random access" means any memory location can be read or written directly in the same time — no need to access sequentially.')"><span class="ol">B</span>Random Access Memory</li><li onclick="a('q81',this,false,'Not "Rapid Access Memory".')"><span class="ol">C</span>Rapid Access Memory</li><li onclick="a('q81',this,false,'Not "Read Always Memory".')"><span class="ol">D</span>Read Always Memory</li></ul>
+<div class="me" id="q81-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">82</span><span>Where is ROM typically used in a computer?</span></div>
+<ul class="mo" id="q82"><li onclick="a('q82',this,false,'Running programs use RAM (volatile working memory).')"><span class="ol">A</span>For running programs</li><li onclick="a('q82',this,true,'Correct! ROM stores permanent data like BIOS and firmware — the startup instructions the computer needs before the OS loads. Since ROM is non-volatile, this data survives power-off.')"><span class="ol">B</span>For storing BIOS and firmware (permanent startup code)</li><li onclick="a('q82',this,false,'Video RAM is a special type of RAM, not ROM.')"><span class="ol">C</span>For storing video data</li><li onclick="a('q82',this,false,'Temporary calculations use RAM.')"><span class="ol">D</span>For temporary calculations</li></ul>
+<div class="me" id="q82-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">83</span><span>What does the "P" in PROM stand for?</span></div>
+<ul class="mo" id="q83"><li onclick="a('q83',this,false,'P stands for Programmable, not Permanent.')"><span class="ol">A</span>Permanent</li><li onclick="a('q83',this,true,'Correct! PROM = Programmable Read Only Memory. The P means it can be programmed (once) by the user, unlike plain ROM which is only set by the manufacturer.')"><span class="ol">B</span>Programmable</li><li onclick="a('q83',this,false,'P stands for Programmable, not Protected.')"><span class="ol">C</span>Protected</li><li onclick="a('q83',this,false,'P stands for Programmable, not Peripheral.')"><span class="ol">D</span>Peripheral</li></ul>
+<div class="me" id="q83-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">84</span><span>Which memory must be removed from a circuit to be erased?</span></div>
+<ul class="mo" id="q84"><li onclick="a('q84',this,false,'EEPROM can be erased in-circuit electrically.')"><span class="ol">A</span>EEPROM</li><li onclick="a('q84',this,true,'Correct! EPROM must be physically removed from the circuit, placed under UV light for 15–20 minutes to erase, then reprogrammed and reinstalled. EEPROM does not need removal.')"><span class="ol">B</span>EPROM</li><li onclick="a('q84',this,false,'Flash can be erased in-circuit electrically.')"><span class="ol">C</span>Flash</li><li onclick="a('q84',this,false,'RAM does not need UV erasure at all.')"><span class="ol">D</span>RAM</li></ul>
+<div class="me" id="q84-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">85</span><span>In terms of memory hierarchy, which is fastest?</span></div>
+<ul class="mo" id="q85"><li onclick="a('q85',this,false,'Hard disk is the slowest storage.')"><span class="ol">A</span>Hard Disk</li><li onclick="a('q85',this,false,'ROM is slower than RAM.')"><span class="ol">B</span>ROM</li><li onclick="a('q85',this,false,'Flash/SSD is fast but slower than RAM.')"><span class="ol">C</span>Flash Memory (SSD)</li><li onclick="a('q85',this,true,'Correct! RAM (specifically SRAM cache) is the fastest memory in the hierarchy. Order from fastest to slowest: Registers → Cache (SRAM) → RAM (DRAM) → Flash/SSD → Hard Disk → Optical.')"><span class="ol">D</span>RAM (SRAM Cache)</li></ul>
+<div class="me" id="q85-e"></div></div>
+
+<div class="ms"><div class="mq"><span class="mqn">86</span><span>Which type of ROM is found in USB flash drives and SSDs?</span></div>
+<ul class="mo" id="q86"><li onclick="a('q86',this,false,'Plain ROM is factory-programmed and not rewritable.')"><span class="ol">A</span>Mask ROM</li><li onclick="a('q86',this,false,'PROM is one-time programmable only.')"><span class="ol">B</span>PROM</li><li onclick="a('q86',this,false,'EPROM uses UV light erasure — not practical for USB drives.')"><span class="ol">C</span>EPROM</li><li onclick="a('q86',this,true,'Correct! Flash memory (a modern EEPROM variant) is used in USB drives, SSDs, memory cards, and phone storage because it is fast, compact, non-volatile, and can be electrically reprogrammed.')"><span class="ol">D</span>Flash Memory</li></ul>
+<div class="me" id="q86-e"></div></div>
+
+<hr>
+<!-- FOOTER -->
+<div style="text-align:center;padding:28px 0 10px;color:var(--mu);font-size:13px;">
+  <p style="font-size:16px;font-weight:700;color:var(--td);margin-bottom:6px;">You are ready. Go ace it! 💪</p>
+  <p>Prepared by <strong style="color:var(--t)">Syed Saad Bin Irfan</strong> · BSSE · DCS-UBIT, University of Karachi</p>
+  <p style="margin-top:4px;font-size:11px;">Digital Logic &amp; Design Finals · 2026</p>
+</div>
+</div><!-- /wrapper -->
+
+<script>
+function t(el){
+  el.classList.toggle('open');
+  el.nextElementSibling.classList.toggle('open');
+}
+function a(id,el,correct,msg){
+  var c=document.getElementById(id);
+  if(c.classList.contains('done')) return;
+  c.classList.add('done');
+  var items=c.querySelectorAll('li');
+  items.forEach(function(i){i.classList.add('lk');i.style.cursor='default';});
+  if(correct){
+    el.classList.add('ok');
+  } else {
+    el.classList.add('nk');
+    items.forEach(function(i){
+      var fn=i.getAttribute('onclick')||'';
+      if(fn.indexOf('true')>-1) i.classList.add('ok');
+    });
+  }
+  var e=document.getElementById(id+'-e');
+  e.textContent=(correct?'✅ Correct! ':'❌ Wrong — ')+msg;
+  e.classList.add('show');
+}
+</script>
+</body>
+</html>
